@@ -19,8 +19,7 @@ jobs:
 
       - uses: typst-community/setup-typst@v5
         with:
-          zip-packages: requirements.typ
-          cache-local-packages: true
+          cache-dependency-path: requirements.typ
 
       - name: Build
         run: just build
