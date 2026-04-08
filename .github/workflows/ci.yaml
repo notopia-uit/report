@@ -19,7 +19,7 @@ jobs:
 
       - uses: typst-community/setup-typst@v5
         with:
-          zip-packages: requirements.json
+          zip-packages: requirements.typ
           cache-local-packages: true
 
       - name: Build
@@ -33,12 +33,14 @@ jobs:
         with:
           name: DA1_23520161_TranNguyenThaiBinh_23521049_NguyenThaiGiaNguyen_SE121.Q11.pdf
           path: build/main.pdf
+          archive: false
 
       - name: Upload Artifact HTML
         uses: actions/upload-artifact@v7
         with:
           name: index.html
           path: build/index.html
+          archive: false
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
