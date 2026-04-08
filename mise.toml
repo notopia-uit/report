@@ -1,0 +1,6 @@
+[env]
+TYPST_FONT_PATHS = "./src/assets/fonts/"
+
+[tools]
+just = "latest"
+typst = "0.14.2"

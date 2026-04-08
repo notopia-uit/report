@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Mise
+        uses: jdx/mise-action@v4
+        with:
+          experimental: true
+
+      - uses: typst-community/setup-typst@v5
+        with:
+          zip-packages: requirements.json
+          cache-local-packages: true
+
+      - name: Build
+        run: just build
+
+      - name: Rename HTML
+        run: mv build/main.html build/index.html
+
+      - name: Upload Artifact PDF
+        uses: actions/upload-artifact@v7
+        with:
+          name: DA1_23520161_TranNguyenThaiBinh_23521049_NguyenThaiGiaNguyen_SE121.Q11.pdf
+          path: build/main.pdf
+
+      - name: Upload Artifact HTML
+        uses: actions/upload-artifact@v7
+        with:
+          name: index.html
+          path: build/index.html
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
