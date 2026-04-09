@@ -1,7 +1,5 @@
-// Import document metadata from centralized config
 #import "./lib/metadata.typ": project-metadata
 
-// Document metadata for accessibility
 #set document(
   title: project-metadata.title,
   author: project-metadata.authors,

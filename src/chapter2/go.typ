@@ -8,6 +8,9 @@ Go bao gồm hai thành phần chính:
 - Một Compiler (gc): Biên dịch mã Go thành native code cho các nền tảng khác nhau (Linux, macOS, Windows)
 - Một Runtime: Bao gồm Scheduler quản lý goroutines, Garbage Collector, và Memory Management
 
+Trong dự án này, chúng tôi sử dụng Go cùng với các công cụ và thư viện hiện đại để xây dựng backend scalable:
+- Dependency Injection với goforj/wire @goforj_wire, một fork của Google Wire có hỗ trợ cache fast để tối ưu thời gian build
+
 === Ưu điểm
 
 Go mang lại nhiều lợi ích trong phát triển backend:

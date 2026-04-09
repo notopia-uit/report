@@ -5,5 +5,8 @@
 #v(1em)
 
 #align(right)[
-  #emph[TP. Hồ Chí Minh, ngày X tháng Y năm 2026] \
+  #emph[
+    TP. Hồ Chí Minh,
+    #datetime.today().display("ngày [day] tháng [month] năm [year]"),
+  ] \
 ]

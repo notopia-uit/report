@@ -7,3 +7,6 @@
 
 - Typst
 - Justfile for task running (build)
+
+## Rules
+- Do not mixing with English, only keep English for specific English in Software Engineering that should not be used in Vietnamese causing confusion

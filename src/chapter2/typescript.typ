@@ -25,3 +25,7 @@ Bên cạnh các ưu điểm, TypeScript có một số hạn chế:
 - Compilation Step, cần biên dịch trước khi chạy, tăng thời gian build và phức tạp hóa quy trình
 - Type Definitions, một số thư viện JavaScript cũ thiếu type definitions hoặc definitions không chính xác
 - Verbosity, code có thể dài dòng hơn so với JavaScript thuần do phải khai báo types
+
+=== Tương lai của TypeScript
+
+Dự án Microsoft/TypeScript-Go @typescript_go đang phát triển một implementation của TypeScript được viết hoàn toàn bằng Go, thay vì TypeScript hiện tại được viết bằng TypeScript. Dự án này hướng tới việc cải thiện hiệu suất và tích hợp tốt hơn với hệ sinh thái Go, mở ra những khả năng mới cho tương lai của ngôn ngữ này.

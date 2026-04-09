@@ -2,7 +2,7 @@
 
 === Giới thiệu
 
-PostgreSQL (còn gọi là Postgres) là một hệ quản trị cơ sở dữ liệu quan hệ đối tượng (ORDBMS) mã nguồn mở, mạnh mẽ và tiên tiến. PostgreSQL được phát triển từ dự án POSTGRES tại Đại học California, Berkeley vào năm 1986 và đã phát triển hơn 35 năm với cộng đồng đóng góp tích cực.
+PostgreSQL (còn gọi là Postgres) là một hệ quản trị cơ sở dữ liệu quan hệ đối tượng (ORDBMS) mã nguồn mở @postgres, mạnh mẽ và tiên tiến. PostgreSQL được phát triển từ dự án POSTGRES tại Đại học California, Berkeley vào năm 1986 và đã phát triển hơn 35 năm với cộng đồng đóng góp tích cực.
 
 PostgreSQL nổi tiếng vì sự tuân thủ nghiêm ngặt các chuẩn SQL, hỗ trợ ACID transactions đầy đủ, và khả năng mở rộng cao thông qua các kiểu dữ liệu tùy chỉnh và extensions như PostGIS, pgcrypto, và full-text search.
 
