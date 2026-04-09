@@ -17,5 +17,6 @@ priority = 256
 [[task]]
 document = "file:src/main.typ"
 id = "file:src/main.typ"
+output = "build/DA1_23520161_TranNguyenThaiBinh_23521049_NguyenThaiGiaNguyen_SE121.Q11"
 type = "export-pdf"
 when = "never"

@@ -15,9 +15,8 @@
   set page(numbering: none)
   set align(center)
 
-  // Accessibility: Add semantic heading
   [#heading(level: 1, numbering: none)[#project_info.title]]
-  
+
   text(weight: "bold", size: 14pt, project_info.upperUniName)
   v(0.2cm)
   text(weight: "bold", size: 14pt, project_info.uniName)
