@@ -11,18 +11,31 @@
   (name: name, type: type, description: description, key: key)
 }
 
-/// Renders a database table specification
+/// Renders a database table specification with variadic columns
 ///
-/// - columns: array of column definitions (created with column() function)
+/// - columns: variadic column definitions (created with column() function)
 /// - style: optional styling configuration (columnWidths, etc.)
+///
+/// Example:
+/// ```
+/// #figure(
+///   db-table(
+///     column("id", "UUID", "User ID", key: "PK"),
+///     column("email", "VARCHAR(255)", "Email address", key: "UQ"),
+///   ),
+///   caption: [User table],
+/// )
+/// ```
 #let db-table(
-  columns: (),
+  ..cols,
   style: none,
 ) = {
+  let columns = cols.pos()
+
   let col-widths = if style != none and "columnWidths" in style {
     style.columnWidths
   } else {
-    (1fr, 1fr, 1.5fr, 0.5fr)
+    (0.8fr, 1fr, 1.5fr, 0.5fr)
   }
 
   let header = ([*Tên cột*], [*Kiểu dữ liệu*], [*Mô tả*], [*Khóa*])

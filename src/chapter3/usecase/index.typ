@@ -10,12 +10,12 @@
 
 #figure(
   usecase(
-    id: "UC01",
-    name: "Đăng ký",
-    description: "Cho phép người dùng chưa có tài khoản đăng ký để đăng nhập vào hệ thống.",
-    actors: "STU, TEA",
-    priority: "Cao",
-    trigger: "Người dùng muốn đăng ký tài khoản của ứng dụng.",
+    id: [UC01],
+    name: [Đăng ký],
+    description: [Cho phép người dùng chưa có tài khoản đăng ký để đăng nhập vào hệ thống.],
+    actors: [STU, TEA],
+    priority: [Cao],
+    trigger: [Người dùng muốn đăng ký tài khoản của ứng dụng.],
     preconditions: [
       - Người dùng sử dụng thiết bị có kết nối internet.
     ],
@@ -41,8 +41,8 @@
         + Hệ thống không thay đổi.
         + Use case dừng lại.
     ],
-    businessRules: "BR01, BR02, BR03",
-    nfRequirements: "NFR01",
+    businessRules: [BR01, BR02, BR03],
+    nfRequirements: [NFR01],
   ),
   caption: [Mô tả chi tiết use case UC01 - Đăng ký],
 )

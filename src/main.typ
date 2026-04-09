@@ -1,3 +1,13 @@
+// Import document metadata from centralized config
+#import "./lib/metadata.typ": project-metadata
+
+// Document metadata for accessibility
+#set document(
+  title: project-metadata.title,
+  author: project-metadata.authors,
+  keywords: project-metadata.keywords,
+)
+
 #set page(
   paper: "a4",
   margin: (left: 3.5cm, right: 2cm, top: 2cm, bottom: 2cm),
@@ -13,10 +23,11 @@
   inset: 0.5em,
 )
 
-#set par(justify: true, leading: 0.65em)
+#set par(justify: true)
 #set heading(numbering: "1.1.1.")
 
 #show heading.where(level: 1): it => align(center, it)
+#show figure.caption: emph
 
 #include "./coverpage.typ"
 #pagebreak()

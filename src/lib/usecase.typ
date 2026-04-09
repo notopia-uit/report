@@ -1,9 +1,9 @@
 // Use case specification library
 // Define use cases as data, render as tables
 
-/// Renders a use case specification table
+/// Renders a use case specification table with flexible field parameters
 ///
-/// Expected fields (flat structure for better IDE support):
+/// Supported fields:
 /// - id: string (Use Case ID)
 /// - name: string (Use Case Name)
 /// - description: string (Description)
@@ -19,6 +19,17 @@
 /// - nfRequirements: string (Non-Functional Requirements)
 ///
 /// - style: optional styling configuration (columnWidths, etc.)
+///
+/// Example:
+/// ```
+/// #usecase(
+///   id: "UC01",
+///   name: "Create Note",
+///   description: "User creates a new note",
+///   actors: "User",
+///   basicFlow: [...],
+/// )
+/// ```
 #let usecase(
   id: none,
   name: none,

@@ -2,75 +2,63 @@
 
 #import "../../lib/database.typ": db-table, column
 
-=== Tổng quan kiến trúc dữ liệu
-
-Hệ thống ghi chú được thiết kế với cơ sở dữ liệu quan hệ (RDBMS) để đảm bảo tính toàn vẹn dữ liệu, tính nhất quán và khả năng truy vấn hiệu quả. Các bảng được chuẩn hóa theo mô hình ba bình thường (3NF).
-
-#lorem(80)
-
 === Mô tả các bảng dữ liệu
 
-==== Bảng Users
+==== Bảng Workspaces
 
 #figure(
   db-table(
-    columns: (
-      column("user_id", "UUID", "Mã định danh duy nhất của người dùng", key: "PK"),
-      column("email", "VARCHAR(255)", "Địa chỉ email của người dùng", key: "UQ"),
-      column("username", "VARCHAR(100)", "Tên đăng nhập", key: "UQ"),
-      column("password_hash", "VARCHAR(255)", "Hash mật khẩu"),
-      column("first_name", "VARCHAR(100)", "Họ của người dùng"),
-      column("last_name", "VARCHAR(100)", "Tên của người dùng"),
-      column("created_at", "TIMESTAMP", "Thời gian tạo tài khoản"),
-      column("updated_at", "TIMESTAMP", "Thời gian cập nhật gần nhất"),
-    ),
+    column("id", "UUID", "Mã định danh duy nhất của workspace", key: "PK"),
+    column("slug", "TEXT", "URL-friendly slug của workspace", key: "UQ"),
+    column("name", "TEXT", "Tên của workspace"),
+    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
+    column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
+    column("deleted_at", "TIMESTAMPTZ", "Thời gian xóa (soft delete)"),
   ),
-  caption: [Bảng Users - Thông tin người dùng],
+  caption: [Bảng Workspaces - Không gian làm việc của người dùng],
+)
+
+==== Bảng Folders
+
+#figure(
+  db-table(
+    column("id", "UUID", "Mã định danh duy nhất của folder", key: "PK"),
+    column("name", "TEXT", "Tên của folder"),
+    column("icon", "TEXT", "Icon của folder"),
+    column("workspace_id", "UUID", "ID workspace chứa folder này", key: "FK"),
+    column("parent_id", "UUID", "ID folder cha (for nested structure)", key: "FK"),
+    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
+    column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
+    column("trashed_by", "ENUM", "Loại xóa (purpose | parent)"),
+    column("trashed_at", "TIMESTAMPTZ", "Thời gian xóa"),
+  ),
+  caption: [Bảng Folders - Các thư mục chứa ghi chú],
 )
 
 ==== Bảng Notes
 
 #figure(
   db-table(
-    columns: (
-      column("note_id", "UUID", "Mã định danh duy nhất của ghi chú", key: "PK"),
-      column("user_id", "UUID", "ID của người dùng sở hữu ghi chú", key: "FK"),
-      column("title", "VARCHAR(200)", "Tiêu đề ghi chú"),
-      column("content", "TEXT", "Nội dung ghi chú"),
-      column("tags", "JSON", "Danh sách nhãn của ghi chú"),
-      column("is_pinned", "BOOLEAN", "Ghi chú được ghim hay không"),
-      column("created_at", "TIMESTAMP", "Thời gian tạo ghi chú"),
-      column("updated_at", "TIMESTAMP", "Thời gian cập nhật ghi chú"),
-      column("deleted_at", "TIMESTAMP", "Thời gian xóa mềm (soft delete)"),
-    ),
+    column("id", "UUID", "Mã định danh duy nhất của ghi chú", key: "PK"),
+    column("name", "TEXT", "Tên của ghi chú"),
+    column("icon", "TEXT", "Icon của ghi chú"),
+    column("folder_id", "UUID", "ID folder chứa ghi chú này", key: "FK"),
+    column("tags", "TEXT[]", "Danh sách nhãn của ghi chú"),
+    column("size", "INTEGER", "Kích thước của ghi chú (bytes)"),
+    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
+    column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
+    column("trashed_by", "ENUM", "Loại xóa (purpose | parent)"),
+    column("trashed_at", "TIMESTAMPTZ", "Thời gian xóa"),
   ),
-  caption: [Bảng Notes - Thông tin các ghi chú],
+  caption: [Bảng Notes - Các ghi chú trong hệ thống],
 )
 
-=== Mối quan hệ giữa các bảng
+==== Bảng Note Links
 
 #figure(
-  rect(
-    width: 100%,
-    fill: rgb("#f5f5f5"),
-    stroke: 1pt,
-    inset: 1.5em,
-    [
-      #set align(center)
-      #set text(size: 10pt)
-      
-      *Mối quan hệ One-to-Many*
-      
-      #v(0.8em)
-      
-      *Users* (1) ─────→ (Many) *Notes*
-      
-      #v(0.5em)
-      
-      Một người dùng có thể sở hữu nhiều ghi chú, nhưng mỗi ghi chú chỉ thuộc về một người dùng duy nhất.
-    ],
+  db-table(
+    column("source_id", "UUID", "ID ghi chú nguồn", key: "PK, FK"),
+    column("target_id", "UUID", "ID ghi chú đích", key: "PK, FK"),
   ),
-  caption: [Sơ đồ mối quan hệ dữ liệu],
+  caption: [Bảng Note Links - Mối quan hệ giữa các ghi chú],
 )
-
-#lorem(60)

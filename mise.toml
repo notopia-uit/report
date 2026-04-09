@@ -3,4 +3,5 @@ TYPST_FONT_PATHS = "./src/assets/fonts/"
 
 [tools]
 just = "latest"
+"npm:skills" = "latest"
 typst = "0.14.2"

@@ -3,6 +3,7 @@ vim.lsp.config.tinymist = {
     fontPaths = {
       "./src/assets/fonts/",
     },
+    projectResolution = "lockDatabase",
     lint = {
       enabled = true,
     },
