@@ -1,5 +1,5 @@
 src := "src/main.typ"
-out_name := "DA1_23520161_TranNguyenThaiBinh_23521049_NguyenThaiGiaNguyen_SE121.Q11"
+out_name := "DA1_23520161_TranNguyenThaiBinh_23521049_NguyenThaiGiaNguyen_SE121.Q21"
 
 [parallel]
 build: build-pdf build-html
