@@ -7,6 +7,6 @@
 #align(right)[
   #emph[
     TP. Hồ Chí Minh,
-    #datetime.today().display("ngày [day] tháng [month] năm [year]"),
+    #datetime.today().display("ngày [day] tháng [month] năm [year]")
   ] \
 ]

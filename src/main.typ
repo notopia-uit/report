@@ -22,9 +22,18 @@
 )
 
 #set par(justify: true)
-#set heading(numbering: "1.1.1.")
 
-#show heading.where(level: 1): it => align(center, it)
+// Custom heading numbering
+#set heading(numbering: "1.1.1")
+
+#show heading.where(level: 1): it => context {
+  if it.numbering != none {
+    let nums = counter(heading).get()
+    align(center, [Chương #nums.at(0).#h(0.5em) #it.body])
+  } else {
+    align(center, it)
+  }
+}
 #show figure.caption: emph
 
 #include "./coverpage.typ"
