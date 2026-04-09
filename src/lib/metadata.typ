@@ -12,7 +12,7 @@
   supervisorName: "ThS. Trần Thị Hồng Yến",
   students: (
     (id: "23520161", name: "Trần Nguyễn Thái Bình"),
-    (id: "2521049", name: "Nguyễn Thái Gia Nguyễn"),
+    (id: "23521049", name: "Nguyễn Thái Gia Nguyễn"),
   ),
   location: "TP. Hồ Chí Minh, tháng 05, năm 2026",
 )
