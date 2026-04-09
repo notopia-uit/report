@@ -1,4 +1,4 @@
-= Danh sách từ viết tắt
+= DANH SÁCH TỪ VIẾT TẮT
 
 #table(
   columns: (40%, 60%),
