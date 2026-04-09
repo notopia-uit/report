@@ -6,10 +6,10 @@
 
 #figure(
   table(
-    columns: (0.5fr, 1fr, 1fr, 1fr),
-    align: center,
+    columns: (auto, auto, auto, auto),
+    align: (center, center, left, left),
     stroke: 0.5pt,
-    [Giai đoạn], [Thời gian], [Hoạt động], [Kết quả],
+    [*Giai đoạn*], [*Thời gian*], [*Hoạt động*], [*Kết quả*],
 
     [1],
     [26/01 - 04/02],

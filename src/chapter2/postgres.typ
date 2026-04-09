@@ -1,12 +1,12 @@
 == Tổng quan về PostgreSQL
 
-=== 2.4.1. Giới thiệu
+=== Giới thiệu
 
 PostgreSQL (còn gọi là Postgres) là một hệ quản trị cơ sở dữ liệu quan hệ đối tượng (ORDBMS) mã nguồn mở, mạnh mẽ và tiên tiến. PostgreSQL được phát triển từ dự án POSTGRES tại Đại học California, Berkeley vào năm 1986 và đã phát triển hơn 35 năm với cộng đồng đóng góp tích cực.
 
 PostgreSQL nổi tiếng vì sự tuân thủ nghiêm ngặt các chuẩn SQL, hỗ trợ ACID transactions đầy đủ, và khả năng mở rộng cao thông qua các kiểu dữ liệu tùy chỉnh và extensions như PostGIS, pgcrypto, và full-text search.
 
-=== 2.4.2. Ưu điểm
+=== Ưu điểm
 
 PostgreSQL mang lại nhiều lợi ích cho phát triển ứng dụng:
 
@@ -18,7 +18,7 @@ PostgreSQL mang lại nhiều lợi ích cho phát triển ứng dụng:
 - Standards Compliance, tuân thủ đầy đủ các chuẩn SQL và hỗ trợ các features nâng cao như window functions, CTEs, lateral joins
 - Open Source, miễn phí và có cộng đồng lớn hỗ trợ
 
-=== 2.4.3. Nhược điểm
+=== Nhược điểm
 
 Bên cạnh các ưu điểm, PostgreSQL có một số hạn chế:
 

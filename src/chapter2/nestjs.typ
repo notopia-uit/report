@@ -1,12 +1,12 @@
 == Tổng quan về NestJS
 
-=== 2.3.1. Giới thiệu
+=== Giới thiệu
 
 NestJS là một framework progressive Node.js được xây dựng để phát triển các ứng dụng server-side hiệu quả, đáng tin cậy và có khả năng mở rộng cao. Được phát triển bởi Kamil Myśliwiec và ra mắt lần đầu vào năm 2017, NestJS kết hợp các khái niệm từ Angular, Spring Framework và các framework hiện đại khác.
 
 NestJS được xây dựng trên nền tảng Express.js (hoặc Fastify) và sử dụng TypeScript làm ngôn ngữ chính. Framework này tổ chức code theo mô hình kiến trúc mô-đun rõ ràng, bao gồm controllers, services, middleware, guards, interceptors, và pipes, tương tự như Spring Framework của Java.
 
-=== 2.3.2. Ưu điểm
+=== Ưu điểm
 
 NestJS mang lại nhiều lợi ích cho phát triển backend:
 
@@ -18,7 +18,7 @@ NestJS mang lại nhiều lợi ích cho phát triển backend:
 - Scalability, phù hợp cho cả microservices lẫn monolithic applications
 - Powerful CLI, NestJS CLI giúp generate code và scaffolding nhanh chóng
 
-=== 2.3.3. Nhược điểm
+=== Nhược điểm
 
 Bên cạnh các ưu điểm, NestJS có một số hạn chế:
 

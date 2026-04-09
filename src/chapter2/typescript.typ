@@ -1,12 +1,12 @@
 == Tổng quan về TypeScript
 
-=== 2.2.1. Giới thiệu
+=== Giới thiệu
 
 TypeScript là một ngôn ngữ lập trình mã nguồn mở được phát triển và duy trì bởi Microsoft. TypeScript là một superset của JavaScript, nghĩa là mọi code JavaScript hợp lệ đều là code TypeScript hợp lệ. Được ra mắt lần đầu vào năm 2012 bởi Anders Hejlsberg (người thiết kế C\#), TypeScript bổ sung hệ thống kiểu dữ liệu tĩnh trên nền tảng JavaScript để tăng độ tin cậy và khả năng duy trì của code.
 
 TypeScript hoạt động thông qua một bước biên dịch: mã TypeScript được biên dịch thành mã JavaScript, sau đó được chạy trên JavaScript runtime (trình duyệt hoặc Node.js).
 
-=== 2.2.2. Ưu điểm
+=== Ưu điểm
 
 TypeScript mang lại nhiều lợi ích khi phát triển ứng dụng JavaScript:
 
@@ -17,7 +17,7 @@ TypeScript mang lại nhiều lợi ích khi phát triển ứng dụng JavaScri
 - JavaScript Compatibility, có thể sử dụng mọi thư viện JavaScript hiện có
 - Modern Features, hỗ trợ ES6+ features trước khi JavaScript chính thức hỗ trợ
 
-=== 2.2.3. Nhược điểm
+=== Nhược điểm
 
 Bên cạnh các ưu điểm, TypeScript có một số hạn chế:
 
