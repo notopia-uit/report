@@ -12,14 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - uses: typst-community/setup-typst@v5
+        with:
+          cache-dependency-path: requirements.typ
+
       - name: Setup Mise
         uses: jdx/mise-action@v4
         with:
           experimental: true
 
-      - uses: typst-community/setup-typst@v5
-        with:
-          cache-dependency-path: requirements.typ
 
       - name: Build
         run: just build
