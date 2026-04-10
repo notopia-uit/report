@@ -1,12 +1,12 @@
 @online{laszczak2020dddlite,
   author = {Laszczak, Robert},
-  title = {Introduction to {DDD} Lite: When microservices in {Go} are not enough },
+  title = {{Introduction} to {DDD} {Lite}: {When} {microservices} in {Go} are not enough},
   date = {2020-07-01},
   year = {2020},
   month = {7},
   day = {1},
   url = {https://threedots.tech/post/ddd-lite-in-go-introduction/},
-  urldate = {2026-04-08},
+  urldate = {2026-01-22},
   organization = {Three Dots Labs},
   note = {Last updated: February 2, 2026},
   keywords = {go, golang, ddd, domain-driven design},
@@ -15,339 +15,396 @@
 }
 
 @online{blocknote,
-  author = {{TypeCell OS}},
+  author = {{TypeCell}},
   title = {{BlockNote} - {Block-based} {Rich} {Text} {Editor}},
   url = {https://www.blocknotejs.org/},
-  urldate = {2026-04-10},
-  keywords = {editor, tiptap, prosemirror, collaborative, typescript},
-  abstract = {A block-based rich text editor built on top of Tiptap and ProseMirror for React applications.},
+  urldate = {2026-02-15},
+  keywords = {editor, tiptap, prosemirror, collaborative, typescript, react},
+  abstract = {An open-source, AI-native block-based rich text editor for React with real-time collaboration support,
+              built on ProseMirror and Tiptap.},
 }
 
 @online{yjs,
   author = {{Yjs Contributors}},
-  title = {{Yjs} - {Shared} {Types} for {Offline-First} {Software}},
+  title = {{Yjs} - {Shared} {Data} {Types} for {Collaborative} {Software}},
   url = {https://github.com/yjs/yjs},
-  urldate = {2026-04-10},
-  keywords = {crdt, collaboration, real-time, typescript, offline-first},
-  abstract = {A high-performance CRDT implementation that enables real-time collaboration and offline-first
-              applications.},
+  urldate = {2026-02-08},
+  keywords = {crdt, collaboration, real-time, typescript, offline-first, shared types},
+  abstract = {A high-performance CRDT implementation that exposes internal data structures as shared types with
+              automatic distribution to peers and conflict-free merging. Supports real-time collaboration, offline
+              editing, and works with multiple editors and persistence backends.},
 }
 
 @online{casbin,
   author = {{Casbin Contributors}},
-  title = {{Casbin} - {Authorization} {Library}},
+  title = {{Apache} {Casbin} - {Authorization} {Library}},
   url = {https://casbin.apache.org/},
-  urldate = {2026-04-10},
+  urldate = {2026-01-15},
   keywords = {authorization, rbac, acl, abac, access control},
-  abstract = {An open-source authorization library supporting flexible access control models like ACL, RBAC, and ABAC.},
+  abstract = {A powerful and efficient open-source authorization library supporting multiple access control models
+              including ACL, RBAC, and ABAC with flexible policy storage backends.},
+  organization = {Apache Software Foundation},
 }
 
 @online{authentik,
   author = {{Authentik Team}},
-  title = {{Authentik} - {The} {Open} {Source} {Identity} {Provider}},
+  title = {{Authentik} - {Open} {Source} {Identity} {Provider}},
   url = {https://goauthentik.io/},
-  urldate = {2026-04-10},
-  keywords = {identity, oidc, oauth2, sso, authentication},
-  abstract = {An open-source identity provider supporting OIDC and OAuth 2.0 for centralized authentication and
-              authorization.},
+  urldate = {2026-02-11},
+  keywords = {identity, oidc, oauth2, sso, authentication, authorization},
+  abstract = {An open-source identity and access management solution supporting OIDC and OAuth 2.0 with user
+              provisioning, passwordless authentication, and flexible policies.},
+  organization = {goauthentik},
 }
 
 @online{opentelemetry,
   author = {{OpenTelemetry Contributors}},
-  title = {{OpenTelemetry} - {Observability} {Framework}},
+  title = {{OpenTelemetry} - {Observability} {Framework} and {Libraries}},
   url = {https://opentelemetry.io/},
-  urldate = {2026-04-10},
-  keywords = {observability, tracing, metrics, logs, otlp},
-  abstract = {An open-source observability framework providing APIs and libraries for collecting metrics, logs, and
-              traces.},
+  urldate = {2026-02-14},
+  keywords = {observability, tracing, metrics, logs, otlp, instrumentation},
+  abstract = {An open-source observability framework providing vendor-agnostic APIs, SDKs, and libraries for collecting
+              and exporting metrics, logs, and traces to any backend.},
+  organization = {Cloud Native Computing Foundation},
 }
 
 @online{grafana,
   author = {{Grafana Labs}},
   title = {{Grafana} - {The} {Open} {Observability} {Platform}},
   url = {https://grafana.com/},
-  urldate = {2026-04-10},
-  keywords = {monitoring, visualization, dashboards, observability},
-  abstract = {A leading open-source observability platform for metrics, logs, and traces visualization.},
+  urldate = {2026-03-18},
+  keywords = {monitoring, visualization, dashboards, observability, metrics},
+  abstract = {A leading open-source observability platform for visualizing metrics, logs, and distributed traces with
+              powerful alerting and dashboard capabilities.},
+  organization = {Grafana Labs},
 }
 
 @online{prometheus,
   author = {{Prometheus Contributors}},
-  title = {{Prometheus} - {Monitoring} {System} \& {Time} {Series} {Database}},
+  title = {{Prometheus} - {Open} {Source} {Monitoring} {System} and {Time} {Series} {Database}},
   url = {https://prometheus.io/},
-  urldate = {2026-04-10},
-  keywords = {monitoring, metrics, time-series, alerting},
-  abstract = {An open-source monitoring system and time series database designed for reliability and scalability.},
+  urldate = {2026-02-03},
+  keywords = {monitoring, metrics, time-series, alerting, scraping},
+  abstract = {An open-source monitoring system and time series database designed for reliability and scalability with
+              multi-dimensional data collection and flexible query language.},
+  organization = {Cloud Native Computing Foundation},
 }
 
 @online{loki,
   author = {{Grafana Labs}},
   title = {{Loki} - {Log} {Aggregation} {System}},
   url = {https://grafana.com/oss/loki/},
-  urldate = {2026-04-10},
-  keywords = {logging, log aggregation, observability},
-  abstract = {A log aggregation system designed for easy scalability and multi-tenancy.},
+  urldate = {2026-03-01},
+  keywords = {logging, log aggregation, observability, label-based},
+  abstract = {A log aggregation system designed for easy scalability and multi-tenancy with label-based indexing and
+              efficient storage.},
+  organization = {Grafana Labs},
 }
 
 @online{tempo,
   author = {{Grafana Labs}},
   title = {{Tempo} - {Distributed} {Tracing} {Backend}},
   url = {https://grafana.com/oss/tempo/},
-  urldate = {2026-04-10},
-  keywords = {tracing, distributed tracing, observability},
-  abstract = {An open-source, easy-to-use distributed tracing backend compatible with popular tracing formats.},
+  urldate = {2026-01-25},
+  keywords = {tracing, distributed tracing, observability, spans},
+  abstract = {An open-source, easy-to-use distributed tracing backend compatible with popular tracing formats with
+              cost-effective storage and query capabilities.},
+  organization = {Grafana Labs},
 }
 
 @online{redpanda,
   author = {{Redpanda Inc.}},
-  title = {{Redpanda} - {Streaming} {Platform}},
+  title = {{Redpanda} - {Kafka}-Compatible {Streaming} {Platform}},
   url = {https://redpanda.com/},
-  urldate = {2026-04-10},
-  keywords = {kafka, streaming, event-driven, message broker},
-  abstract = {A Kafka-compatible streaming platform designed for high performance and ease of use.},
+  urldate = {2026-02-27},
+  keywords = {kafka, streaming, event-driven, message broker, high performance},
+  abstract = {A Kafka-compatible streaming platform designed for high performance, low latency, and ease of use without
+              the operational complexity of Kafka.},
+  organization = {Redpanda Inc.},
 }
 
 @online{traefik,
   author = {{Traefik Labs}},
-  title = {{Traefik} - {Modern} {API} {Gateway}},
+  title = {{Traefik} - {Modern} {Edge} {Router} and {API} {Gateway}},
   url = {https://traefik.io/},
-  urldate = {2026-04-10},
-  keywords = {api gateway, routing, kubernetes, docker},
-  abstract = {A modern, open-source edge router and API gateway with auto-discovery and OpenTelemetry support.},
+  urldate = {2026-03-11},
+  keywords = {api gateway, routing, kubernetes, docker, service mesh},
+  abstract = {A modern, open-source edge router and API gateway with auto-discovery support for Docker and Kubernetes,
+              built-in TLS, and OpenTelemetry integration.},
+  organization = {Traefik Labs},
 }
 
 @online{meilisearch,
   author = {{Meilisearch Contributors}},
   title = {{Meilisearch} - {Open} {Source} {Search} {Engine}},
   url = {https://www.meilisearch.com/},
-  urldate = {2026-04-10},
-  keywords = {search, full-text search, rust},
-  abstract = {A fast, easy-to-use, open-source search engine written in Rust with a simple API.},
+  urldate = {2026-02-19},
+  keywords = {search, full-text search, rust, instant search, typo tolerant},
+  abstract = {A fast, easy-to-use, open-source search engine written in Rust with instant search, typo tolerance, and
+              minimal configuration requirements.},
 }
 
 @online{react,
   author = {{Meta}},
-  title = {{React} - {JavaScript} {Library} for {Building} {User} {Interfaces}},
+  title = {{React} - {A} {JavaScript} {Library} for {Building} {User} {Interfaces}},
   url = {https://react.dev/},
-  urldate = {2026-04-10},
-  keywords = {javascript, ui, components, front-end},
-  abstract = {A JavaScript library for building user interfaces with reusable components and virtual DOM.},
+  urldate = {2026-03-12},
+  keywords = {javascript, ui, components, front-end, jsx},
+  abstract = {A JavaScript library for building user interfaces with reusable components, declarative programming model,
+              and efficient virtual DOM rendering.},
+  organization = {Meta},
 }
 
 @online{nextjs,
   author = {{Vercel}},
-  title = {Next.js - The React Framework},
+  title = {{Next.js} - {The} {React} {Framework}},
   url = {https://nextjs.org/},
-  urldate = {2026-04-10},
-  keywords = {react, framework, ssr, ssg, full-stack},
-  abstract = {A React framework enabling production-grade applications with SSR, SSG, and API routes.},
+  urldate = {2026-02-22},
+  keywords = {react, framework, ssr, ssg, full-stack, typescript},
+  abstract = {A production-grade React framework with server-side rendering, static site generation, API routes, and
+              built-in optimization for rapid development.},
+  organization = {Vercel},
 }
 
 @online{tailwindcss,
   author = {{Tailwind Labs}},
-  title = {Tailwind CSS - Utility-First CSS Framework},
+  title = {{Tailwind} {CSS} - {Utility-First} {CSS} {Framework}},
   url = {https://tailwindcss.com/},
-  urldate = {2026-04-10},
-  keywords = {css, utilities, styling, framework},
-  abstract = {A utility-first CSS framework for rapid UI development with a focus on productivity.},
+  urldate = {2026-03-04},
+  keywords = {css, utilities, styling, framework, responsive},
+  abstract = {A utility-first CSS framework for rapid UI development with customizable design system, responsive design
+              support, and dark mode capabilities.},
+  organization = {Tailwind Labs},
 }
 
 @online{shadcnui,
   author = {{shadcn}},
-  title = {Shadcn/ui - Beautifully Designed Components},
+  title = {{shadcn/ui} - {Beautifully} {Designed} {React} {Components}},
   url = {https://ui.shadcn.com/},
-  urldate = {2026-04-10},
-  keywords = {components, ui, react, tailwindcss},
-  abstract = {A collection of beautifully designed, accessible, and customizable React components.},
+  urldate = {2026-03-08},
+  keywords = {components, ui, react, tailwindcss, headless},
+  abstract = {A collection of beautifully designed, accessible, and highly customizable React components built with
+              Radix UI and styled with Tailwind CSS.},
 }
 
 @online{zustand,
   author = {{Poimandres}},
-  title = {Zustand - Simple State Management},
+  title = {{Zustand} - {Simple} {State} {Management} {for} {React}},
   url = {https://github.com/pmndrs/zustand},
-  urldate = {2026-04-10},
-  keywords = {state management, react, hooks},
-  abstract = {A small, fast, and scalable bearbones state management solution for React.},
+  urldate = {2026-02-12},
+  keywords = {state management, react, hooks, minimal},
+  abstract = {A small, fast, and scalable bare-bones state management solution for React with minimal boilerplate and
+              excellent TypeScript support.},
 }
 
 @online{grpc,
   author = {{Google}},
-  title = {gRPC - A High Performance RPC Framework},
+  title = {{gRPC} - {A} {High} {Performance} {RPC} {Framework}},
   url = {https://grpc.io/},
-  urldate = {2026-04-10},
-  keywords = {rpc, protobuf, http2, microservices},
-  abstract = {A modern, open-source RPC framework that can run in any environment with Protocol Buffers.},
+  urldate = {2026-01-30},
+  keywords = {rpc, protobuf, http2, microservices, bidirectional},
+  abstract = {A modern, open-source RPC framework with support for multiple languages, HTTP/2, and Protocol Buffers for
+              efficient cross-platform service communication.},
+  organization = {Google and CNCF},
 }
 
 @online{buf,
   author = {{Buf}},
-  title = {Buf - The Protocol Buffers Compiler},
+  title = {{Buf} - {Protocol} {Buffers} {Compiler} and {Ecosystem}},
   url = {https://buf.build/},
-  urldate = {2026-04-10},
-  keywords = {protobuf, code generation, linting},
-  abstract = {A tool that creates better development experience for Protocol Buffer users with linting and code
-              generation.},
+  urldate = {2026-03-22},
+  keywords = {protobuf, code generation, linting, schema management},
+  abstract = {A tool and ecosystem that improves the Protocol Buffers developer experience with linting, code generation
+              , registry management, and breaking change detection.},
+  organization = {Buf},
 }
 
 @online{redocly,
   author = {{Redocly}},
-  title = {Redocly - OpenAPI Documentation},
+  title = {{Redocly} - {OpenAPI} {Documentation} {Platform}},
   url = {https://redocly.com/},
-  urldate = {2026-04-10},
-  keywords = {openapi, documentation, api},
-  abstract = {A platform for creating, maintaining, and delivering API documentation with OpenAPI specifications.},
+  urldate = {2026-03-16},
+  keywords = {openapi, documentation, api, developer portal},
+  abstract = {A comprehensive platform for creating, maintaining, and delivering API documentation with OpenAPI
+              specifications, version control, and developer portal capabilities.},
+  organization = {Redocly},
 }
 
 @online{heyapi,
-  author = {{HeyAPI Contributors}},
-  title = {HeyAPI - OpenAPI TypeScript Code Generator},
+  author = {{Lubos, Nicolas Chaulet, Jordan Shatford, and HeyAPI Contributors}},
+  title = {{HeyAPI} - {OpenAPI} {TypeScript} {Code} {Generator}},
   url = {https://heyapi.dev/openapi-ts/},
-  urldate = {2026-04-10},
-  keywords = {openapi, typescript, code generation},
-  abstract = {A tool for generating TypeScript types and clients from OpenAPI specifications.},
+  urldate = {2026-03-20},
+  keywords = {openapi, typescript, code generation, api client},
+  abstract = {A production-ready OpenAPI TypeScript code generator with support for multiple HTTP clients, plugins, and
+              custom extensions. Used by Vercel, OpenCode, and PayPal.},
+  organization = {HeyAPI},
 }
 
 @online{oapi_codegen,
-  author = {{DeepMap}},
-  title = {oapi-codegen - OpenAPI Go Code Generator},
+  author = {{DeepMap and Contributors}},
+  title = {{oapi-codegen} - {OpenAPI} {Go} {Code} {Generator}},
   url = {https://github.com/oapi-codegen/oapi-codegen},
-  urldate = {2026-04-10},
-  keywords = {openapi, go, code generation},
-  abstract = {A tool that generates Go client and server code from OpenAPI 3.0 specifications.},
+  urldate = {2026-02-05},
+  keywords = {openapi, go, code generation, type-safe, server generation},
+  abstract = {A tool that generates type-safe Go client and server code from OpenAPI 3.0 specifications with support for
+              custom templates and code generation plugins.},
 }
 
 @online{sqlc,
-  author = {{sqlc}},
-  title = {sqlc - Compile SQL to Type-Safe Code},
+  author = {{sqlc Contributors}},
+  title = {{sqlc} - {Compile} {SQL} to {Type-Safe} {Go} {Code}},
   url = {https://sqlc.dev/},
-  urldate = {2026-04-10},
-  keywords = {sql, go, code generation, type-safe},
-  abstract = {A tool that generates type-safe code from SQL for Go with support for custom plugins.},
+  urldate = {2026-01-18},
+  keywords = {sql, go, code generation, type-safe, database},
+  abstract = {A tool that generates type-safe Go code from SQL queries with support for database migrations, custom
+              plugins, and multiple database systems.},
 }
 
 @online{sqlc_dynamic_filter,
   author = {Nguyễn Văn Tuấn},
-  title = {sqlc-gen-go - Dynamic Filter Support},
+  title = {{sqlc-gen-go} - {SQLC} {Plugin} for {Dynamic} {Filter} {Support}},
   url = {https://github.com/vtuanjs/sqlc-gen-go},
-  urldate = {2026-04-10},
-  keywords = {sqlc, dynamic filter, go, code generation},
-  abstract = {A custom SQLC plugin extending support for dynamic filter queries in Go code generation.},
+  urldate = {2026-03-26},
+  keywords = {sqlc, dynamic filter, go, code generation, plugin},
+  abstract = {A custom SQLC plugin extending sqlc functionality with support for dynamic filter queries and advanced SQL
+              code generation for Go applications.},
 }
 
 @online{watermill,
   author = {{Watermill Contributors}},
-  title = {Watermill - Event Stream Processing},
+  title = {{Watermill} - {Event} {Stream} {Processing} {Library}},
   url = {https://watermill.io/},
-  urldate = {2026-04-10},
-  keywords = {event-driven, go, message routing},
-  abstract = {A Go library for event-driven applications with support for multiple message routers and transports.},
+  urldate = {2026-02-09},
+  keywords = {event-driven, go, message routing, pub/sub, event processing},
+  abstract = {A Go library for building event-driven applications with support for multiple message routers, pub/sub
+              patterns, and transports with rate limiting and retries.},
 }
 
 @online{typeorm,
   author = {{TypeORM Contributors}},
-  title = {TypeORM - Object Relational Mapper},
+  title = {{TypeORM} - {Object} {Relational} {Mapper}},
   url = {https://typeorm.io/},
-  urldate = {2026-04-10},
-  keywords = {orm, typescript, database},
-  abstract = {An ORM for TypeScript and JavaScript that works with multiple database platforms.},
+  urldate = {2026-03-13},
+  keywords = {orm, typescript, database, sql, query builder},
+  abstract = {A TypeScript and JavaScript ORM with support for multiple database systems, migration management, and both
+              DataMapper and ActiveRecord patterns.},
 }
 
 @online{vitepress,
-  author = {{Vue}},
-  title = {VitePress - Vite and Vue Powered Static Site Generator},
+  author = {{Vue Team}},
+  title = {{VitePress} - {Vite} and {Vue} {Powered} {Static} {Site} {Generator}},
   url = {https://vitepress.dev/},
-  urldate = {2026-04-10},
-  keywords = {documentation, static site generator, vite, vue},
-  abstract = {A static site generator built on Vite and Vue 3, optimized for documentation sites.},
+  urldate = {2026-02-28},
+  keywords = {documentation, static site generator, vite, vue, ssr},
+  abstract = {A static site generator built on Vite and Vue 3, optimized for documentation with fast hot reload,
+              automatic markdown processing, and built-in full-text search.},
+  organization = {Vue Team},
 }
 
 @online{vitepress_diagrams,
   author = {{Vuesence}},
-  title = {vitepress-plugin-diagrams - Diagram Support for VitePress},
+  title = {{vitepress-plugin-diagrams} - {Diagram} {Support} for {VitePress}},
   url = {https://github.com/vuesence/vitepress-plugin-diagrams},
-  urldate = {2026-04-10},
-  keywords = {diagrams, mermaid, vitepress, documentation},
-  abstract = {A VitePress plugin adding support for multiple diagram formats including Mermaid, D2, and PlantUML.},
+  urldate = {2026-03-07},
+  keywords = {diagrams, mermaid, vitepress, documentation, d2, plantuml},
+  abstract = {A VitePress plugin adding support for multiple diagram formats including Mermaid, D2, and PlantUML for
+              enhanced technical documentation.},
 }
 
 @online{nx,
   author = {{Nrwl}},
-  title = {Nx - Monorepo Framework},
+  title = {{Nx} - {Smart} {Monorepos} {and} {Fast} {Builds}},
   url = {https://nx.dev/},
-  urldate = {2026-04-10},
-  keywords = {monorepo, build system, workspace},
-  abstract = {A build system and monorepo management tool for JavaScript, TypeScript, Python, and other languages.},
+  urldate = {2026-03-05},
+  keywords = {monorepo, build system, workspace, caching, ci},
+  abstract = {A monorepo platform for TypeScript and polyglot codebases with intelligent caching, distributed task
+              execution, AI-powered self-healing, and integrated CI solution.},
+  organization = {Nrwl},
 }
 
 @online{nx_cache_action,
-  author = {KevinNitroG},
-  title = {Nx Cache Action - GitHub Actions Cache Integration},
+  author = {{KevinNitroG}},
+  title = {{Nx} {Cache} {Action} - {GitHub} {Actions} {Cache} {Integration}},
   url = {https://github.com/KevinNitroG/nx-cache-action},
-  urldate = {2026-04-10},
-  keywords = {nx, github actions, caching, ci/cd},
-  abstract = {A GitHub Action enabling Nx cache persistence and reuse in CI/CD pipelines with pnpm support.},
+  urldate = {2026-03-09},
+  keywords = {nx, github actions, caching, ci/cd, pnpm},
+  abstract = {A GitHub Action enabling Nx cache persistence and reuse in CI/CD pipelines with pnpm support for improved
+              build performance.},
 }
 
 @online{mise,
-  author = {{Mise Contributors}},
-  title = {Mise - Package Manager and Task Runner},
+  author = {{jdx and Mise Contributors}},
+  title = {{Mise} - {Dev} {Tools} {and} {Task} {Runner}},
   url = {https://mise.jdx.dev/},
-  urldate = {2026-04-10},
-  keywords = {package manager, environment manager, task runner},
-  abstract = {A language-agnostic package manager and environment manager for managing developer tools.},
+  urldate = {2026-03-28},
+  keywords = {package manager, environment manager, task runner, developer tools},
+  abstract = {A polyglot dev tool version manager, environment variable manager, and task runner that replaces asdf, nvm
+              , pyenv, rbenv, direnv, and make for all languages.},
+  organization = {jdx},
 }
 
 @online{redis,
   author = {{Redis Team}},
-  title = {Redis - In-Memory Data Structure Store},
+  title = {{Redis} - {In-Memory} {Data} {Structure} {Store}},
   url = {https://redis.io/},
-  urldate = {2026-04-10},
-  keywords = {caching, pub/sub, in-memory, database},
-  abstract = {An open-source, in-memory data structure store used for caching and pub/sub messaging.},
+  urldate = {2026-02-24},
+  keywords = {caching, pub/sub, in-memory, database, nosql},
+  abstract = {An open-source, in-memory data structure store used for caching, pub/sub messaging, sessions, and
+              real-time analytics with support for strings, lists, sets, and more.},
+  organization = {Redis Community},
 }
 
 @online{postgres,
   author = {{PostgreSQL Global Development Group}},
-  title = {PostgreSQL - The Worlds Most Advanced Open Source Database},
+  title = {{PostgreSQL} - {The} {World's} {Most} {Advanced} {Open} {Source} {Database}},
   url = {https://www.postgresql.org/},
-  urldate = {2026-04-10},
-  keywords = {database, sql, relational, open source},
-  abstract = {A powerful, open-source object-relational database system with extensive features.},
+  urldate = {2026-03-21},
+  keywords = {database, sql, relational, open source, advanced features},
+  abstract = {A powerful, open-source object-relational database system with extensive features including ACID
+              compliance, full-text search, JSON support, and advanced indexing.},
+  organization = {PostgreSQL Global Development Group},
 }
 
 @online{goforj_wire,
   author = {{GoForJ}},
-  title = {GoForJ Wire - Dependency Injection with Cache Support},
+  title = {{GoForJ} {Wire} - {Dependency} {Injection} with {Cache} {Support}},
   url = {https://github.com/goforj/wire},
-  urldate = {2026-04-10},
-  keywords = {dependency injection, go, wire, caching},
-  abstract = {A fork of Google Wire providing dependency injection support with fast caching for Go applications.},
+  urldate = {2026-02-17},
+  keywords = {dependency injection, go, wire, caching, di container},
+  abstract = {A fork of Google Wire providing compile-time dependency injection support with fast caching capabilities
+              for Go applications.},
 }
 
 @online{typescript,
   author = {{Microsoft}},
-  title = {TypeScript - JavaScript with Syntax for Types},
+  title = {{TypeScript} - {JavaScript} with {Syntax} for {Types}},
   url = {https://www.typescriptlang.org/},
-  urldate = {2026-04-10},
+  urldate = {2026-01-28},
   keywords = {typescript, javascript, static typing, programming language},
-  abstract = {A superset of JavaScript that adds static typing and modern features for improved developer experience.},
+  abstract = {A typed superset of JavaScript that adds static typing, modern language features, and comprehensive
+              tooling support for improved developer experience and code reliability.},
+  organization = {Microsoft},
 }
 
 @online{typescript_go,
   author = {{Microsoft}},
-  title = {TypeScript Go - TypeScript Compiler in Go},
+  title = {{TypeScript} {Go} - {TypeScript} {Compiler} {Implementation}},
   url = {https://github.com/microsoft/typescript-go},
-  urldate = {2026-04-10},
+  urldate = {2026-02-06},
   keywords = {typescript, go, compiler, implementation},
-  abstract = {An experimental TypeScript compiler implementation written in Go for improved performance.},
+  abstract = {An experimental TypeScript compiler implementation written in Go for improved performance and potential
+              cross-platform compilation capabilities.},
+  organization = {Microsoft},
 }
 
 @online{hocuspocus,
-  author = {{Tiptap}},
-  title = {Hocuspocus - Real-Time Collaboration Server},
+  author = {{Tiptap Collective}},
+  title = {{Hocuspocus} - {Real-Time} {Collaboration} {Server}},
   url = {https://tiptap.dev/docs/hocuspocus},
-  urldate = {2026-04-10},
-  keywords = {collaboration, real-time, websocket, yjs},
-  abstract = {A WebSocket-based server for real-time collaboration using Yjs and Tiptap editors.},
+  urldate = {2026-03-02},
+  keywords = {collaboration, real-time, websocket, yjs, server},
+  abstract = {A WebSocket-based server for real-time collaboration using Yjs and Tiptap editors with persistence,
+              authentication, and webhook support.},
+  organization = {Tiptap Collective},
 }
-
