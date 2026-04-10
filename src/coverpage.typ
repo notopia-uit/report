@@ -20,7 +20,7 @@
     height: 100%,
     fill: none,
     stroke: 2pt + black,
-    inset: 3em,
+    inset: 2.5em,
     [
       #text(weight: "bold", size: 14pt, project_info.upperUniName)
       #v(0.2cm)

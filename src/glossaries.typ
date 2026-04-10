@@ -1,7 +1,7 @@
 = DANH SÁCH TỪ VIẾT TẮT
 
 #table(
-  columns: (40%, 60%),
+  columns: (auto, 1fr),
   align: left + horizon,
   [*Ký hiệu*], [*Ý nghĩa*],
   [ABAC], [Attribute-Based Access Control],
