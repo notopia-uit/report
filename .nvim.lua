@@ -1,5 +1,6 @@
 vim.lsp.config.tinymist = {
   settings = {
+    outputPath = "./build/",
     fontPaths = {
       "./src/assets/fonts/",
     },
