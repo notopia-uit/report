@@ -1,6 +1,11 @@
 src := "src/main.typ"
 out_name := "DA1_23520161_TranNguyenThaiBinh_23521049_NguyenThaiGiaNguyen_SE121.Q21"
 
+alias b := build
+alias d := dev
+alias dz := dev-zathura
+alias f := format
+
 [parallel]
 build: build-pdf build-html
 
