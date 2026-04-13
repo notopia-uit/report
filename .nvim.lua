@@ -12,7 +12,7 @@ vim.lsp.config.tinymist = {
       refresh = "onSave",
     },
     formatterMode = "typstyle",
-    formatterProseWrap = false,
+    formatterProseWrap = true,
     formatterPrintWidth = 120,
     formatterIndentSize = 4,
   },
