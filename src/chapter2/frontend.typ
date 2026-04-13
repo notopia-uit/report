@@ -8,7 +8,7 @@ sử dụng như một framework trên React, cung cấp server-side rendering, 
 generation, và routing tích hợp. Zustand @zustand được sử dụng cho state
 management.
 
-=== React
+=== React <general-for-react>
 
 React là thư viện JavaScript mã nguồn mở từ Meta (Facebook) cho xây dựng user
 interfaces @react. React sử dụng virtual DOM để tối ưu rendering,

@@ -11,27 +11,30 @@ Dự án sử dụng nhiều tool và framework cho data persistence:
 SQLC @sqlc là tool sinh Go code từ SQL queries. Thay vì viết ORM-style code,
 SQLC cho phép viết SQL trực tiếp và tự động sinh type-safe Go functions.
 
-Custom plugin sqlc-gen-go-dynamic-filter @sqlc_dynamic_filter được phát triển
-bởi Nguyễn Văn Tuấn hỗ trợ dynamic filter queries, giải quyết vấn đề không thể
-sinh dynamic WHERE conditions trong SQLC tiêu chuẩn.
+Custom plugin sqlc-gen-go-dynamic-filter @sqlc_dynamic_filter _(được phát triển
+bởi anh Nguyễn Văn Tuấn)_ hỗ trợ dynamic filter queries, giải quyết vấn đề không
+thể sinh dynamic WHERE conditions trong SQLC tiêu chuẩn.
 
 === TypeORM - ORM cho TypeScript
 
 TypeORM @typeorm là ORM mã nguồn mở cho TypeScript, hỗ trợ multiple database
 backends (PostgreSQL @postgres, MySQL, SQLite, Oracle, v.v.). TypeORM cung cấp
-decorator-based API, tương thích với NestJS dependency injection.
+decorator-based API, tương thích với tốt NestJS. Đặc biệt, TypeORM tính đến thời
+điểm hiện tại sắp ra phiên bản 1.0.0 sau 9 năm phát triển #footnote[Theo dõi tại
+  Github issue https://github.com/typeorm/typeorm/issues/11819]
 
 === Ưu điểm
 
-- SQLC: Type safety, performance, explicit SQL control, generated code
-  readability
-- TypeORM: Familiar ORM patterns, decorator support, async/await API, migration
-  support
+- SQLC: Type safety, hiệu năng cao nhờ vào SQL thuần, được check syntax SQL từ
+  lúc generate
+- TypeORM: Abstraction cao, dễ sử dụng, tích hợp tốt với NestJS, hỗ trợ nhiều
+  database, có cộng đồng lớn và nhiều tài liệu tham khảo
 
 === Nhược điểm
 
-- SQLC: Requires writing SQL, less abstraction, dynamic queries need custom
-  plugins
-- TypeORM: Performance overhead of ORM, complexity với advanced queries,
-  learning curve
-
+- SQLC: Không hỗ trợ dynamic queries mà phải nhờ plugin hỗ trợ dyanmic filter,
+  phải viết SQL thủ công, gặp khó khăn với khả năng syntax check đối với
+  recursive query và CTE
+- TypeORM: Abstraction có thể gây performance overhead, có thể gặp vấn đề với
+  complex queries và migrations, thiết lập script TypeORM bằng typescript phức
+tạp, chạy bằng tsx @tsx

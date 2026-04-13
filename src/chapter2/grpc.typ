@@ -24,8 +24,11 @@ compatibility, và automatic code generation.
 
 === gRPC Tooling
 
-- Buf @buf: Build system cho Protocol Buffers, cung cấp code generation,
-  linting, và breaking change detection
+- Buf @buf: Build system cho Protocol Buffers, hỗ trợ remote gen không cần cài
+  dependencies, cung cấp code generation, linting, và breaking change detection
+- GRPC Go @grpc_go: Implementation gRPC cho Go, cung cấp high-performance gRPC
+  server và client
+- ts-proto @ts_proto: Code generator cho TypeScript, tương thích với NestJS
 
 === Ưu điểm
 
@@ -41,4 +44,3 @@ compatibility, và automatic code generation.
 - Browser Compatibility, gRPC yêu cầu HTTP/2 support (limited browser support)
 - Debugging Complexity, binary format khó debug so với text-based protocols
 - Tooling Setup, yêu cầu setup code generation pipeline
-

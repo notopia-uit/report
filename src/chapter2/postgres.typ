@@ -11,6 +11,9 @@ PostgreSQL nổi tiếng vì sự tuân thủ nghiêm ngặt các chuẩn SQL, h
 transactions đầy đủ, và khả năng mở rộng cao thông qua các kiểu dữ liệu tùy
 chỉnh và extensions như PostGIS, pgcrypto, và full-text search.
 
+Trong dự án này, PostgreSQL được sử dụng làm hệ quản trị cơ sở dữ liệu quan hệ
+chính cho mọi dịch vụ.
+
 === Ưu điểm
 
 PostgreSQL mang lại nhiều lợi ích cho phát triển ứng dụng:
@@ -37,5 +40,5 @@ Bên cạnh các ưu điểm, PostgreSQL có một số hạn chế:
 - Memory Usage cao, sử dụng nhiều RAM hơn các RDBMS khác như MySQL
 - Replication phức tạp, phức tạp hơn so với MySQL/MariaDB, đặc biệt trong setup
   streaming replication
-- Learning Curve cao, nhiều features nâng cao cần thời gian để master như
+- Learning Curve cao, nhiều features nâng cao cần thời gian để thành thạo như
   partitioning, custom types

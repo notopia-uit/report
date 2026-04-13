@@ -1,4 +1,4 @@
-== Tổng quan về OpenAPI và Code Generation
+== Tổng quan về OpenAPI
 
 === Giới thiệu
 
@@ -15,21 +15,18 @@ OpenAPI (trước đây được gọi là Swagger) là một format standardize
 RESTful APIs. OpenAPI specification định nghĩa endpoints, parameters,
 request/response schemas, và error codes theo cách machine-readable.
 
-=== Code Generation từ OpenAPI
+=== Tooling Ecosystem
 
-- Redocly @redocly: Tool cho OpenAPI specification, cung cấp documentation
-  generator, linting, violation rules
+- Redocly @redocly: Tool cho OpenAPI specification, trong dự án sử dụng làm
+  language server, linter, bundle các file nhỏ thành một file lớn
+- Scalar @scalar: Tool cho OpenAPI specification, tương đối giống redocly, trong
+  dự án sử dụng để render website documentation từ OpenAPI spec
 - TypeScript: heyapi/openapi-ts @heyapi sinh TypeScript types từ OpenAPI spec
 - Go: oapi-codegen @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API
   generation
-
-=== OpenAPI Features
-
-- Standardized Format, OpenAPI là standardized format cho API documentation
-- Interactive Documentation, API explorer và interactive documentation generator
-- Type Safety, code generation tạo type-safe clients và servers
-- Multi-Language, code generation cho nhiều ngôn ngữ
-- API Testing, tooling hỗ trợ testing API với generated clients
+- OpenAPI Generator @openapi_generator: Tool đa ngôn ngữ cho code generation từ
+  OpenAPI spec, hỗ trợ nhiều languages và frameworks, trong dự án sử dụng
+  generator `typescript-nestjs-server` @openapi_generator_nestjs_server
 
 === Contract-First Development
 

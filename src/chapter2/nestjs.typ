@@ -13,8 +13,8 @@ hình kiến trúc mô-đun rõ ràng, bao gồm controllers, services, middlewa
 guards, interceptors, và pipes, tương tự như Spring Framework của Java.
 
 Trong dự án này, NestJS được xây dựng với:
-- Rspack là bundler mới được hỗ trợ, với SWC cho fast compiling, đảm bảo thời
-  gian build tối ưu
+- Rspack là bundler mới được hỗ trợ, với SWC cho quá trình transpile nhanh, đảm
+  bảo thời gian build tối ưu
 
 === Ưu điểm
 
@@ -30,17 +30,14 @@ NestJS mang lại nhiều lợi ích cho phát triển backend:
 - Ecosystem phong phú, có nhiều packages chính thức như GraphQL, WebSockets,
   Microservices
 - Scalability, phù hợp cho cả microservices lẫn monolithic applications
-- Powerful CLI, NestJS CLI giúp generate code và scaffolding nhanh chóng
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, NestJS có một số hạn chế:
 
-- Learning Curve cao, cần học nhiều concepts như Dependency Injection,
+- Learning Curve cao, cần học nhiều concepts như Dependency Injection (runtime),
   decorators, modules, providers
 - Boilerplate Code, cần viết nhiều decorators, setup code, định nghĩa providers,
   controllers, services
 - Performance Overhead, các abstraction layers có thể ảnh hưởng hiệu suất nhẹ so
   với framework tối giản
-- Overkill cho small projects, phức tạp không cần thiết cho những dự án nhỏ và
-  đơn giản

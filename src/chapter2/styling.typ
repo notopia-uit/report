@@ -1,4 +1,4 @@
-== Tổng quan về TailwindCSS, PostCSS, shadcn/ui
+== Tổng quan về TailwindCSS, PostCSS, shadcnui
 
 === Giới thiệu
 
@@ -19,7 +19,7 @@ PostCSS là một công cụ cho việc biến đổi CSS sử dụng JavaScript
 cung cấp khả năng mở rộng, hỗ trợ modern CSS features, vendor prefixing tự động,
 và tích hợp tốt với TailwindCSS.
 
-=== ShadcnUI
+=== shadcnui <general-for-shadcnui>
 
 ShadcnUI cung cấp một bộ sưu tập các component React đẹp mắt, accessible, và tùy
 chỉnh cao @shadcnui. Components được xây dựng trên Radix UI cho accessibility và

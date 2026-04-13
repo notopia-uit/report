@@ -2,14 +2,17 @@
 
 === Giới thiệu
 
-BlockNote là một thư viện editor mô-đun được xây dựng trên nền tảng Tiptap và
+BlockNote là một thư viện editor được xây dựng trên nền tảng Tiptap và
 ProseMirror @blocknote. BlockNote cung cấp một công cụ soạn thảo văn bản phong
 phú với kiến trúc block-based tương tự như Notion, cho phép người dùng xây dựng
 các khối nội dung một cách linh hoạt.
 
-BlockNote được thiết kế để dễ tích hợp vào các ứng dụng React, với API rõ ràng
-và khả năng tùy chỉnh cao. Thư viện này hoạt động dựa trên ProseMirror, một
-editor framework mạnh mẽ và có cấu trúc rõ ràng.
+BlockNote được thiết kế để dễ tích hợp vào các ứng dụng React
+_(@general-for-react)_, với API rõ ràng và khả năng tùy chỉnh cao, tương thích
+với màu sắc của shadcnui _(@general-for-shadcnui)_ . Thư viện này hoạt động dựa
+trên ProseMirror, một editor framework mạnh mẽ và có cấu trúc rõ ràng. Có thể
+hình dung ProseMirror như một bộ công cụ xây dựng editor, trong khi BlockNote là
+một implementation cụ thể, dễ dàng sử dụng nhanh.
 
 === Ưu điểm
 
@@ -25,15 +28,13 @@ BlockNote mang lại nhiều lợi ích cho phát triển editor:
 - Real-Time Collaboration Ready, hỗ trợ tích hợp Yjs @yjs và các giải pháp CRDT
   khác
 - Rich Content Support, hỗ trợ nhiều loại nội dung: text, image, video, code
-  blocks, tables, và hơn thế nữa
+  blocks, tables,...
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, BlockNote có một số hạn chế:
 
-- Learning Curve, cần thời gian để hiểu kiến trúc block-based và cách tùy chỉnh
-- Performance Overhead, editor phức tạp có thể ảnh hưởng đến hiệu suất với nội
-  dung lớn
-- Dependency Management, phụ thuộc vào Tiptap, ProseMirror và các thư viện khác
+- Learning Curve, cần thời gian để hiểu kiến trúc block-based và cách tùy chỉnh,
+  khai thác tích hợp với các đối tượng của dự án
 - Browser Compatibility, một số tính năng nâng cao có thể yêu cầu trình duyệt
   hiện đại

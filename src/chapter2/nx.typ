@@ -14,10 +14,15 @@ visualization của dependency graph, code generation, và workspace analysis.
 - Code Generation, scaffolding commands cho tạo files và modules
 - Workspace Analysis, understanding dependencies và impact analysis
 
+Trong dự án, Nx được sử dụng như task runner và build system, thiết lập toàn bộ
+luồng code gen cho GRPC, OpenAPI, SQLC,... Trước đây, chúng em đã từng thiết lập
+Bazel nhưng đã chuyển sang Nx vì Bazel chỉ giải quyết được vấn đề build, không
+giúp việc dev trở nên dễ dàng hơn.
+
 === Nx Cache Trong CI/CD
 
 Custom GitHub Action nx-cache-action @nx_cache_action được phát triển bởi thành
-viên trong nhóm (Trần Nguyễn Thái Bình), hỗ trợ Nx cache persistence trong
+viên trong nhóm _(Trần Nguyễn Thái Bình)_, hỗ trợ Nx cache persistence trong
 GitHub Actions, tối ưu CI/CD performance khi sử dụng pnpm package manager.
 
 === Ưu điểm
