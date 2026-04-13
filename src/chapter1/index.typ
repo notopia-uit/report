@@ -4,7 +4,9 @@
 
 #lorem(50)
 
-Domain-Driven Design (DDD) has become a popular approach #cite(<laszczak2020dddlite>).
+Domain-Driven Design (DDD) has become a popular approach #cite(
+  <laszczak2020dddlite>,
+).
 
 == Mục đích và mục tiêu nghiên cứu
 
@@ -32,7 +34,9 @@ Domain-Driven Design (DDD) has become a popular approach #cite(<laszczak2020dddl
 
 == Chức năng
 
-Trong thế giới kỹ thuật số ngày nay, việc quản lý và tổ chức thông tin trở nên ngày càng quan trọng. Hệ thống ghi chú thông minh cung cấp giải pháp hiệu quả để người dùng có thể lưu trữ, tìm kiếm và kết nối các thông tin một cách dễ dàng.
+Trong thế giới kỹ thuật số ngày nay, việc quản lý và tổ chức thông tin trở nên
+ngày càng quan trọng. Hệ thống ghi chú thông minh cung cấp giải pháp hiệu quả để
+người dùng có thể lưu trữ, tìm kiếm và kết nối các thông tin một cách dễ dàng.
 
 #lorem(100)
 
@@ -54,6 +58,7 @@ Trong thế giới kỹ thuật số ngày nay, việc quản lý và tổ chứ
 
 == Công nghệ sử dụng
 
-Hệ thống được phát triển sử dụng các công nghệ hiện đại để đảm bảo hiệu suất cao và trải nghiệm người dùng tốt.
+Hệ thống được phát triển sử dụng các công nghệ hiện đại để đảm bảo hiệu suất cao
+và trải nghiệm người dùng tốt.
 
 #lorem(100)

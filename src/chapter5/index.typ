@@ -4,7 +4,8 @@
 
 === Về sản phẩm
 
-Sau quá trình phát triển, nhóm đã hoàn thiện được hệ thống ghi chú thông minh với đầy đủ các tính năng đã đề ra:
+Sau quá trình phát triển, nhóm đã hoàn thiện được hệ thống ghi chú thông minh
+với đầy đủ các tính năng đã đề ra:
 
 - Ứng dụng Mobile hoàn chỉnh
 - Web Admin quản trị hệ thống
@@ -93,6 +94,8 @@ Dự án đã áp dụng thành công các công nghệ hiện đại:
 
 == Lời kết
 
-Dự án đã đạt được mục tiêu đề ra và mang lại nhiều bài học quý giá cho nhóm phát triển. Hệ thống ghi chú thông minh không chỉ là sản phẩm hoàn chỉnh mà còn là nền tảng để tiếp tục nghiên cứu và phát triển trong tương lai.
+Dự án đã đạt được mục tiêu đề ra và mang lại nhiều bài học quý giá cho nhóm phát
+triển. Hệ thống ghi chú thông minh không chỉ là sản phẩm hoàn chỉnh mà còn là
+nền tảng để tiếp tục nghiên cứu và phát triển trong tương lai.
 
 #lorem(60)

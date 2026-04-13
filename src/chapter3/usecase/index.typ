@@ -12,7 +12,8 @@
   usecase(
     id: [UC01],
     name: [Đăng ký],
-    description: [Cho phép người dùng chưa có tài khoản đăng ký để đăng nhập vào hệ thống.],
+    description: [Cho phép người dùng chưa có tài khoản đăng ký để đăng nhập vào
+      hệ thống.],
     actors: [STU, TEA],
     priority: [Cao],
     trigger: [Người dùng muốn đăng ký tài khoản của ứng dụng.],

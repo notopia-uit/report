@@ -2,13 +2,16 @@
 
 === Giới thiệu
 
-Mise @mise là công cụ quản lý gói và môi trường, chuyên biệt cho môi trường phát triển. Mise hỗ trợ quản lý nhiều phiên bản ngôn ngữ, biến môi trường, chạy tác vụ và cấu hình đơn giản.
+Mise @mise là công cụ quản lý gói và môi trường, chuyên biệt cho môi trường phát
+triển. Mise hỗ trợ quản lý nhiều phiên bản ngôn ngữ, biến môi trường, chạy tác
+vụ và cấu hình đơn giản.
 
 === Tính năng của Mise
 
 - Quản lý phiên bản nhiều ngôn ngữ, bao gồm Node.js, Go, Python, v.v.
 - Quản lý biến môi trường theo từng dự án
-- Trình chạy tác vụ, chạy các tác vụ tùy chỉnh được định nghĩa trong cấu hình TOML
+- Trình chạy tác vụ, chạy các tác vụ tùy chỉnh được định nghĩa trong cấu hình
+  TOML
 - Đa ngôn ngữ, hỗ trợ mọi ngôn ngữ lập trình
 - Cấu hình TOML đơn giản
 

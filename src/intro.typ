@@ -4,7 +4,9 @@
 
 #lorem(50)
 
-Domain-Driven Design (DDD) has become a popular approach #cite(<laszczak2020dddlite>).
+Domain-Driven Design (DDD) has become a popular approach #cite(
+  <laszczak2020dddlite>,
+).
 
 == Mục đích thực hiện đề tài
 

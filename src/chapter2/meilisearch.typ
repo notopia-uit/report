@@ -2,15 +2,20 @@
 
 === Giới thiệu
 
-Meilisearch là một search engine mã nguồn mở được viết bằng Rust @meilisearch, thiết kế để cung cấp trải nghiệm tìm kiếm nhanh, liên quan, và dễ sử dụng. Meilisearch được phát triển với mục tiêu là một giải pháp tìm kiếm dễ triển khai hơn Elasticsearch, phù hợp cho các ứng dụng từ nhỏ đến lớn.
+Meilisearch là một search engine mã nguồn mở được viết bằng Rust @meilisearch,
+thiết kế để cung cấp trải nghiệm tìm kiếm nhanh, liên quan, và dễ sử dụng.
+Meilisearch được phát triển với mục tiêu là một giải pháp tìm kiếm dễ triển khai
+hơn Elasticsearch, phù hợp cho các ứng dụng từ nhỏ đến lớn.
 
-Meilisearch cung cấp API HTTP đơn giản, hỗ trợ full-text search, faceted search, và ranking tùy chỉnh mà không cần setup phức tạp.
+Meilisearch cung cấp API HTTP đơn giản, hỗ trợ full-text search, faceted search,
+và ranking tùy chỉnh mà không cần setup phức tạp.
 
 === Ưu điểm
 
 Meilisearch mang lại nhiều lợi ích cho phát triển search:
 
-- Easy to Deploy, single binary executable, dễ triển khai trên bất kỳ hạ tầng nào
+- Easy to Deploy, single binary executable, dễ triển khai trên bất kỳ hạ tầng
+  nào
 - Fast Search, hiệu suất cao với latency thấp nhờ Rust implementation
 - Rich Features, hỗ trợ full-text search, facets, filters, sorting, ranking
 - Simple API, HTTP API đơn giản, dễ tích hợp vào bất kỳ ứng dụng nào

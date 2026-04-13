@@ -2,9 +2,14 @@
 
 === Giới thiệu
 
-Redpanda là một nền tảng event streaming mã nguồn mở được viết bằng C++ với API tương thích Kafka @redpanda. Redpanda được thiết kế để cung cấp hiệu suất cao hơn Kafka trong khi duy trì tính tương thích hoàn toàn với Kafka protocol và ecosystem.
+Redpanda là một nền tảng event streaming mã nguồn mở được viết bằng C++ với API
+tương thích Kafka @redpanda. Redpanda được thiết kế để cung cấp hiệu suất cao
+hơn Kafka trong khi duy trì tính tương thích hoàn toàn với Kafka protocol và
+ecosystem.
 
-Redpanda được sử dụng như một message broker trong dự án, hỗ trợ pub/sub patterns cho event-driven architecture trong Go backend với Watermill @watermill.
+Redpanda được sử dụng như một message broker trong dự án, hỗ trợ pub/sub
+patterns cho event-driven architecture trong Go backend với Watermill
+@watermill.
 
 === Ưu điểm
 

@@ -22,3 +22,6 @@ dev: mkdir
 
 preview-zathura: build-pdf
     zathura ./build/{{ out_name }}.pdf
+
+format:
+    typstyle -i --line-width=80 --indent-width=2 --wrap-text ./src/

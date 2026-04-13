@@ -142,7 +142,8 @@ classDiagram
 
 == Kết quả và kết luận
 
-Sau khi hoàn thành các giai đoạn phát triển, hệ thống ghi chú thông minh đã đạt được các mục tiêu dự kiến.
+Sau khi hoàn thành các giai đoạn phát triển, hệ thống ghi chú thông minh đã đạt
+được các mục tiêu dự kiến.
 
 #figure(
   rect(

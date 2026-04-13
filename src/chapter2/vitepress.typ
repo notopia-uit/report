@@ -2,7 +2,9 @@
 
 === Giới thiệu
 
-Vitepress @vitepress là công cụ tạo trang web tĩnh được xây dựng trên Vite, chuyên biệt cho tài liệu kỹ thuật. Vitepress hỗ trợ Markdown, nhúng thành phần, tìm kiếm tích hợp và hỗ trợ sẵn cho sơ đồ.
+Vitepress @vitepress là công cụ tạo trang web tĩnh được xây dựng trên Vite,
+chuyên biệt cho tài liệu kỹ thuật. Vitepress hỗ trợ Markdown, nhúng thành phần,
+tìm kiếm tích hợp và hỗ trợ sẵn cho sơ đồ.
 
 === Tính năng của Vitepress
 
@@ -14,7 +16,8 @@ Vitepress @vitepress là công cụ tạo trang web tĩnh được xây dựng t
 
 === Hỗ trợ sơ đồ
 
-Plugin vitepress-plugin-diagrams @vitepress_diagrams cung cấp hỗ trợ cho nhiều định dạng sơ đồ:
+Plugin vitepress-plugin-diagrams @vitepress_diagrams cung cấp hỗ trợ cho nhiều
+định dạng sơ đồ:
 - Mermaid cho lưu đồ, sơ đồ tuần tự
 - D2 cho sơ đồ trực quan
 - PlantUML cho sơ đồ UML

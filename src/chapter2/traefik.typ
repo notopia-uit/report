@@ -2,9 +2,14 @@
 
 === Giới thiệu
 
-Traefik là một API gateway mã nguồn mở @traefik, hiện đại, được viết bằng Go. Traefik được thiết kế để tự động phát hiện và kết nối các dịch vụ, loại bỏ nhu cầu cấu hình thủ công. Traefik hỗ trợ OpenTelemetry @opentelemetry cho distributed tracing, cho phép quan sát performance toàn bộ request flow.
+Traefik là một API gateway mã nguồn mở @traefik, hiện đại, được viết bằng Go.
+Traefik được thiết kế để tự động phát hiện và kết nối các dịch vụ, loại bỏ nhu
+cầu cấu hình thủ công. Traefik hỗ trợ OpenTelemetry @opentelemetry cho
+distributed tracing, cho phép quan sát performance toàn bộ request flow.
 
-Traefik hoạt động tốt trong các môi trường container-orchestrated như Kubernetes, Docker Swarm, và cũng có thể chạy standalone cho các ứng dụng non-containerized.
+Traefik hoạt động tốt trong các môi trường container-orchestrated như
+Kubernetes, Docker Swarm, và cũng có thể chạy standalone cho các ứng dụng
+non-containerized.
 
 === Ưu điểm
 

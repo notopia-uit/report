@@ -1,6 +1,6 @@
 == Thiết kế cơ sở dữ liệu
 
-#import "../../lib/database.typ": db-table, column
+#import "../../lib/database.typ": column, db-table
 
 === Mô tả các bảng dữ liệu
 
@@ -26,7 +26,12 @@
     column("name", "TEXT", "Tên của folder"),
     column("icon", "TEXT", "Icon của folder"),
     column("workspace_id", "UUID", "ID workspace chứa folder này", key: "FK"),
-    column("parent_id", "UUID", "ID folder cha (for nested structure)", key: "FK"),
+    column(
+      "parent_id",
+      "UUID",
+      "ID folder cha (for nested structure)",
+      key: "FK",
+    ),
     column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
     column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
     column("trashed_by", "ENUM", "Loại xóa (purpose | parent)"),

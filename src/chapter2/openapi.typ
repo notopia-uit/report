@@ -2,19 +2,26 @@
 
 === Giới thiệu
 
-OpenAPI là một specification cho mô tả HTTP APIs theo cách chuẩn hóa. OpenAPI cho phép sinh code từ contracts, tạo điều kiện cho contract-first development, và tự động tạo documentation.
+OpenAPI là một specification cho mô tả HTTP APIs theo cách chuẩn hóa. OpenAPI
+cho phép sinh code từ contracts, tạo điều kiện cho contract-first development,
+và tự động tạo documentation.
 
-Dự án sử dụng OpenAPI cho HTTP API definitions, kết hợp với contract-first approach để đảm bảo tính consistency giữa frontend và backend.
+Dự án sử dụng OpenAPI cho HTTP API definitions, kết hợp với contract-first
+approach để đảm bảo tính consistency giữa frontend và backend.
 
 === OpenAPI Specification
 
-OpenAPI (trước đây được gọi là Swagger) là một format standardized cho mô tả RESTful APIs. OpenAPI specification định nghĩa endpoints, parameters, request/response schemas, và error codes theo cách machine-readable.
+OpenAPI (trước đây được gọi là Swagger) là một format standardized cho mô tả
+RESTful APIs. OpenAPI specification định nghĩa endpoints, parameters,
+request/response schemas, và error codes theo cách machine-readable.
 
 === Code Generation từ OpenAPI
 
-- Redocly @redocly: Tool cho OpenAPI specification, cung cấp documentation generator, linting, violation rules
+- Redocly @redocly: Tool cho OpenAPI specification, cung cấp documentation
+  generator, linting, violation rules
 - TypeScript: heyapi/openapi-ts @heyapi sinh TypeScript types từ OpenAPI spec
-- Go: oapi-codegen @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API generation
+- Go: oapi-codegen @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API
+  generation
 
 === OpenAPI Features
 
@@ -26,7 +33,9 @@ OpenAPI (trước đây được gọi là Swagger) là một format standardize
 
 === Contract-First Development
 
-Contract-first approach định nghĩa API contracts trước khi implement logic. Điều này đảm bảo tính consistency, tạo điều kiện cho parallel development, và giảm integration issues.
+Contract-first approach định nghĩa API contracts trước khi implement logic. Điều
+này đảm bảo tính consistency, tạo điều kiện cho parallel development, và giảm
+integration issues.
 
 === Ưu điểm
 
