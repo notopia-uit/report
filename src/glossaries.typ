@@ -1,4 +1,4 @@
-= DANH SÁCH TỪ VIẾT TẮT
+= Danh sách từ viết tắt
 
 #table(
   columns: (auto, 1fr),
@@ -7,6 +7,7 @@
   [ABAC], [Attribute-Based Access Control],
   [ACL], [Access Control List],
   [API], [Application Programming Interface],
+  [CDC], [Change Data Capture],
   [CI/CD], [Continuous Integration/Continuous Deployment],
   [CLI], [Command-Line Interface],
   [CRDT], [Conflict-free Replicated Data Type],
@@ -16,10 +17,6 @@
   [HTTP/2], [Hypertext Transfer Protocol Version 2],
   [ISR], [Incremental Static Regeneration],
   [JSX], [JavaScript XML Syntax Extension],
-  [Kafka], [Distributed Event Streaming Platform],
-  [Mise], [Environment Manager and Package Manager],
-  [NestJS], [Progressive Node.js Framework],
-  [Next.js], [React Framework],
   [Nx], [Monorepo Framework],
   [OAuth2], [OAuth 2.0 Authorization Framework],
   [OIDC], [OpenID Connect],
@@ -27,15 +24,10 @@
   [OTLP], [OpenTelemetry Protocol],
   [OpenAPI], [Open API Specification],
   [OpenTelemetry], [Open Telemetry Framework],
-  [PostCSS], [Tool for transforming CSS with plugins],
-  [PostgreSQL], [Advanced Open Source Database],
   [Protobuf], [Protocol Buffers],
   [RBAC], [Role-Based Access Control],
   [REST], [Representational State Transfer],
   [RPC], [Remote Procedure Call],
-  [Radix UI], [Accessible Component Library],
-  [React], [JavaScript Library for Building User Interfaces],
-  [Redis], [In-Memory Data Structure Store],
   [SEO], [Search Engine Optimization],
   [SQL], [Structured Query Language],
   [SQLC], [SQL Compiler for Type-Safe Code Generation],
@@ -45,10 +37,6 @@
   [SSR], [Server-Side Rendering],
   [TOML], [Tom's Obvious, Minimal Language],
   [TSX], [TypeScript XML Syntax Extension],
-  [TypeORM], [TypeScript Object-Relational Mapper],
   [UML], [Unified Modeling Language],
-  [Vite], [Next Generation Frontend Tooling],
-  [Vitepress], [Vite-powered Static Site Generator],
-  [Watermill], [Event-Driven Library for Go],
   [gRPC], [Google Remote Procedure Call],
 )

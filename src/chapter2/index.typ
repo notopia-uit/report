@@ -1,4 +1,4 @@
-= CƠ SỞ LÝ THUYẾT
+= Cơ sở lý thuyết <theory-basis>
 
 #include "go.typ"
 #pagebreak()

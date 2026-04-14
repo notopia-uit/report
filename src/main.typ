@@ -25,14 +25,17 @@
 
 #set heading(numbering: "1.1.1")
 
+#show heading.where(level: 1): set heading(supplement: [Chương])
+
 #show heading.where(level: 1): it => context {
   if it.numbering != none {
     let nums = counter(heading).get()
-    align(center, upper([Chương #nums.at(0). #it.body]))
+    align(center, upper([#it.supplement #nums.at(0). #it.body]))
   } else {
     align(center, upper(it.body))
   }
 }
+
 #show figure.caption: emph
 
 #include "./coverpage.typ"
@@ -58,7 +61,7 @@
 )
 #counter(page).update(1)
 
-#include "./intro.typ"
+#include "summary.typ"
 #pagebreak()
 
 #include "./chapter1/index.typ"
@@ -79,6 +82,5 @@
 #include "./glossaries.typ"
 #pagebreak()
 
-= TÀI LIỆU THAM KHẢO
-
-#bibliography("./ref.bib", title: none, style: "ieee")
+#show bibliography: set heading(numbering: "1.")
+#bibliography("./ref.bib", title: "Tài liệu tham khảo", style: "ieee")

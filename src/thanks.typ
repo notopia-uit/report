@@ -1,7 +1,8 @@
+#import "./lib/metadata.typ": project-metadata
+
 #heading(numbering: none, outlined: false)[Lời cảm ơn]
 
-Để hoàn thành đồ án "Xây dựng ứng dụng Notopia - Ứng dụng ghi chú thông minh hỗ
-trợ quản lý tri thức bằng biểu đồ quan hệ", bên cạnh sự nỗ lực của các thành
+Để hoàn thành đồ án "#project-metadata.title", bên cạnh sự nỗ lực của các thành
 viên, chúng em đã may mắn nhận được sự đồng hành và chỉ dẫn vô cùng quý giá.
 
 Đặc biệt, chúng em xin bày tỏ lòng tri ân sâu sắc nhất tới cô Trần Thị Hồng Yến.

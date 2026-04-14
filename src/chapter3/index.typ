@@ -1,4 +1,4 @@
-= PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG
+= Phân tích và thiết kế hệ thống <architecture>
 
 #include "survey.typ"
 #pagebreak()

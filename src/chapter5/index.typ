@@ -1,4 +1,4 @@
-= KẾT LUẬN
+= Kết luận <conclusion>
 
 == Kết quả đạt được
 

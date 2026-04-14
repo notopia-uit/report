@@ -1,4 +1,4 @@
-= XÂY DỰNG ỨNG DỤNG
+= Xây dựng ứng dụng <implementation>
 
 == Mô hình Miền (Domain Model)
 
@@ -238,4 +238,3 @@ style.border-radius: 12
   render(d2-source, engine: "elk"),
   caption: [Sơ đồ kiến trúc hệ thống Notopia],
 )
-
