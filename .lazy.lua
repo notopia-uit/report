@@ -21,4 +21,20 @@ return {
     },
     optional = true,
   },
+  {
+    "KevinNitroG/vi-spell.vim",
+    event = {
+      "VeryLazy",
+      "BufReadPre",
+    },
+    opts = {
+      toggle = {
+        filetypes = {
+          "markdown",
+          "text",
+          "typst",
+        },
+      },
+    },
+  },
 }
