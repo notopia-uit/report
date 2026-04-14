@@ -3,7 +3,7 @@
 === Giới thiệu
 
 Yjs là một thư viện CRDT (Conflict-free Replicated Data Type) được viết bằng
-Javascript, thiết kế để hỗ trợ real-time collaboration trên nhiều nền tảng. CRDT
+JavaScript, thiết kế để hỗ trợ real-time collaboration trên nhiều nền tảng. CRDT
 cho phép các thay đổi từ nhiều người dùng được tự động hợp nhất mà không cần
 xung đột, làm cho Yjs trở thành lựa chọn lý tưởng cho các ứng dụng
 collaborative.

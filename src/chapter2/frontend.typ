@@ -5,8 +5,8 @@
 Frontend của dự án được xây dựng với React @react, một thư viện JavaScript cho
 xây dựng user interfaces với component-based architecture. Next.js @nextjs được
 sử dụng như một framework trên React, cung cấp server-side rendering, static
-generation, và routing tích hợp. Zustand @zustand được sử dụng cho state
-management.
+generation, và routing tích hợp. Redux Toolkit @redux_toolkit được sử dụng cho
+state management.
 
 === React <general-for-react>
 
@@ -22,20 +22,22 @@ Server-Side Rendering (SSR), Static Site Generation (SSG), Incremental Static
 Regeneration (ISR), và API routes tích hợp. Next.js giúp tối ưu hiệu suất và SEO
 mà không cần setup phức tạp.
 
-=== Zustand - State Management
+=== Redux Toolkit - State Management
 
-Zustand là state management library cho React @zustand, cung cấp một cách đơn
-giản và lightweight để quản lý application state. Zustand tránh boilerplate của
-Redux, cung cấp API minimal nhưng mạnh mẽ, và hỗ trợ devtools integration.
+Redux Toolkit là state management library cho React @redux_toolkit, cung cấp một
+cách đơn giản để quản lý application state. Redux Toolkit giảm boilerplate của
+Redux truyền thống, hỗ trợ DevTools integration, middleware support, và immer
+integration cho immutable updates.
 
 === Ưu điểm
 
 - React: Component reusability, large ecosystem, excellent developer experience
 - Next.js: Built-in optimization, zero-config setup, excellent SEO, API routes
-- Zustand: Simple API, minimal boilerplate, excellent performance
+- Redux Toolkit: Powerful DevTools, middleware support, scalable architecture
 
 === Nhược điểm
 
 - React: Learning curve cho beginners, complex state management patterns
 - Next.js: Learning curve, routing may be counterintuitive, SSR adds complexity
-- Zustand: Smaller ecosystem so với Redux, ít middleware built-in
+- Redux Toolkit: More boilerplate so với lighter alternatives, steeper learning
+  curve

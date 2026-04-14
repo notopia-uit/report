@@ -24,7 +24,7 @@
 
 #set par(justify: true)
 
-#set heading(numbering: "1.1.1")
+#set heading(numbering: "1.1.1.")
 
 #show heading.where(level: 1): set heading(supplement: [Chương])
 

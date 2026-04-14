@@ -15,9 +15,10 @@ Knowledge Management - PKM)_ trở thành một kỹ năng thiết yếu. Các p
 ghi chú truyền thống theo dạng danh sách hoặc thư mục dần bộc lộ hạn chế trong
 việc kết nối các ý tưởng rời rạc. Lấy cảm hứng từ các ứng dụng như Notion,
 Obsidian, chúng em quyết định thực hiện đề tài xây dựng một nền tảng ghi chú
-hiện đại hỗ trợ liên kết hai chiều #footnote[khái niệm từ Obsidian bao gồm
-  outgoing link - liên kế từ một đối tượng này đến các đối tượng khác, và
-  backlink - liên kết từ các đối tượng khác ngược lại đến đối tượng này
+hiện đại hỗ trợ liên kết hai chiều #footnote[Liên hai chiều là khái niệm từ
+  Obsidian, bao gồm outgoing link - liên kế từ một đối tượng này đến các đối
+  tượng khác, và backlink - liên kết từ các đối tượng khác ngược lại đến đối
+  tượng này
 ], kết hợp trực quan hóa kiến thức thành biểu đồ quan hệ.
 
 == Mục đích và mục tiêu nghiên cứu
@@ -76,13 +77,17 @@ tạo, sửa, xoá tạm thời, xoá vĩnh viễn, khôi phục ghi chú, tìm 
 
 === Phạm vi nghiên cứu
 
-==== Định danh người dùng _(Authentication)_
+#heading(level: 3, numbering: none)[
+  Định danh người dùng _(Identity)_
+]
 
-Sử dụng Authentik để quản lý đăng ký, đăng nhập, thông qua OAuth2 và OpenID
-Connect, đảm bảo an toàn và dễ dàng tích hợp với các dịch vụ khác trong hệ
-thống.
+Sử dụng dịch vụ thứ bên thứ 3 để quản lý đăng ký, đăng nhập, thông qua OAuth2 và
+OpenID Connect, đảm bảo an toàn và dễ dàng tích hợp với các dịch vụ khác trong
+hệ thống.
 
-==== Ghi chú _(Note)_
+#heading(level: 3, numbering: none)[
+  Ghi chú _(Note)_
+]
 
 Quản lý không gian làm việc (Workspace), sắp xếp các ghi chú theo cấu trúc thư
 mục, biểu diễn quan hệ giữa các ghi chú, hỗ trợ cộng tác theo thời gian thực ở
@@ -91,33 +96,41 @@ góc độ lưu trữ và tổ chức thông tin.
 Đây là phạm vi cốt lõi của hệ thống, tập trung vào việc tổ chức và lưu trữ thông
 tin một cách hiệu quả.
 
-==== Tài liệu _(Document)_
+#heading(level: 3, numbering: none)[
+  Tài liệu _(Document)_
+]
 
 Nội dung của ghi chú được lưu trữ dưới dạng tài liệu, sử dụng định dạng
 Block-based bởi thư viện BlockNote, cho phép linh hoạt trong việc trình bày và
 chỉnh sửa nội dung. Đồng thời, hỗ trợ cộng tác theo thời gian thực trên tài
 liệu.
 
-Các tệp tin đính kèm trong ghi chú thông qua giải pháp lưu trữ đối tượng (Object
-Storage).
+Các tệp tin đính kèm trong ghi chú thông qua giải pháp lưu trữ đối tượng
+_(Object Storage)_.
 
-==== Phân quyền _(Authorization)_
+#heading(level: 3, numbering: none)[
+  Phân quyền _(Authorization)_
+]
 
 Quản lý quyền truy cập vào không gian làm việc. Không gian làm việc có thể được
 chia sẻ với nhiều người dùng, mỗi người có quyền hạn khác nhau, đảm bảo an toàn
 và kiểm soát truy cập hiệu quả.
 
-==== Tìm kiếm _(Search)_
+#heading(level: 3, numbering: none)[
+  Tìm kiếm _(Search)_
+]
 
 Lắng nghe và cập nhật nội dung ghi chú khi thay đổi, cập nhật vào dịch vụ tìm
-kiếm (Meilisearch).
+kiếm bên thứ ba.
 
-==== Hạ tầng _(Infrastructure)_
+#heading(level: 3, numbering: none)[
+  Hạ tầng _(Infrastructure)_
+]
 
 Thiết kế kiến trúc hệ thống theo mô hình Microservices, giao tiếp nội bộ qua
 gRPC để tối ưu hiệu suất và message broker cho các tác vụ bất đồng bộ.
 
-Triển khai quy trình CI/CD, đóng gói ứng dụng với Docker.
+Triển khai quy trình CI/CD, đóng gói ứng dụng vào container.
 
 API được thiết kế đứng sau một API Gateway.
 
@@ -130,25 +143,216 @@ Dự án áp dụng phương pháp tiếp cận kỹ thuật hệ thống, kết
 thuyết về quản lý tri thức và triển khai thực nghiệm các công nghệ phần mềm tiên
 tiến.
 
-=== Phương pháp thu thập và phân tích yêu cầu
+#heading(level: 3, numbering: none, outlined: false)[
+  Phương pháp thu thập và phân tích yêu cầu
+]
 
-Khảo sát các ứng dụng quản lý ghi chú hiện có (Notion, Obsidian) để rút ra các
+Khảo sát các ứng dụng quản lý ghi chú hiện có _(Notion, Obsidian)_ để rút ra các
 tính năng cần thiết.
+
+#heading(level: 3, numbering: none, outlined: false)[
+  Phương pháp thiết kế và mô hình hoá hệ thống
+]
+
+Sử dụng UML để mô hình hoá kiến trúc hệ thống, bao gồm sơ đồ lớp _(class
+diagram)_, sơ đồ tuần tự _(sequence diagram)_. Sử dụng D2 để mô hình hoá sơ đồ
+triển khai _(deployment diagram)_, cơ sở dữ liệu quan hệ.
+
+Đối với sơ đồ tuần tự, chỉ đặc tả các use case quan trọng để làm rõ luồng tương
+tác giữa các thành phần chính của hệ thống.
+
+Đối với class diagram, chỉ tập trung vào các lớp cốt lõi liên quan đến nghiệp vụ
+chính của hệ thống, tránh mô hình hoá chi tiết quá mức làm rối sơ đồ.
+
+#heading(level: 3, numbering: none, outlined: false)[
+  Phương pháp phát triển API
+]
+
+Thiết kế API theo chuẩn RESTful, sử dụng OpenAPI 3.0 để mô tả API giữa Web App
+và API service, Protocol Buffers 3 cho giao tiếp giữa các service nội bộ. Áp
+dụng hướng tiếp cận *Contract First*, đảm bảo tính nhất quán từ giai đoạn thiết
+kế đến triển khai.
+
+Nhờ vào việc đặc tả này, chúng ta có thể tự động sinh mã nguồn cho client và
+server, giảm thiểu lỗi và tăng tốc độ phát triển.
 
 == Chức năng
 
-=== Các đặc điểm chính
+Hệ thống Notopia được xây dựng như một nền tảng quản lý tri thức cá nhân toàn
+diện, hỗ trợ người dùng tổ chức, kết nối và trực quan hóa kiến thức trên môi
+trường web hợp tác theo thời gian thực. Các nhóm chức năng chính bao gồm:
 
-#figure(
-  table(
-    columns: (1fr, 1fr, 1fr),
-    align: (x, y) => (center, center, center).at(x),
-    [*Tính năng*], [*Mô tả*], [*Ưu điểm*],
-    [Ghi chú nhanh], [Ghi âm hoặc gõ chữ], [Tiết kiệm thời gian],
-    [Tìm kiếm toàn văn], [Tìm kiếm nhanh], [Dễ tìm thông tin],
-    [Đồng bộ hóa], [Đồng bộ trên nhiều thiết bị], [Truy cập mọi lúc],
-  ),
-  caption: [Bảng so sánh các tính năng chính của hệ thống],
-)
+#heading(level: 4, numbering: none)[
+  Tạo và quản lý không gian làm việc
+]
+
+Người dùng có thể tạo các không gian làm việc riêng biệt, chia sẻ với người khác
+và quản lý quyền truy cập một cách linh hoạt. Mỗi không gian làm việc hoạt động
+như một vùng lưu trữ độc lập cho các ghi chú và dự án của người dùng.
+
+#heading(level: 4, numbering: none)[
+  Tổ chức ghi chú theo cấu trúc thư mục
+]
+
+Hệ thống cho phép người dùng sắp xếp ghi chú thành các thư mục lồng nhau, tạo
+thành một cấu trúc dữ liệu rõ ràng. Cách tổ chức này giúp người dùng quản lý số
+lượng lớn ghi chú một cách hiệu quả.
+
+#heading(level: 4, numbering: none)[
+  Tạo các liên kết hai chiều giữa ghi chú
+]
+
+Người dùng có thể liên kết các ghi chú với nhau thông qua cơ chế liên kết hai
+chiều, tạo thành một mạng lưới tri thức động. Hệ thống tự động ghi nhận các liên
+kết ngược, giúp hiểu rõ mối quan hệ giữa các ý tưởng.
+
+#heading(level: 4, numbering: none)[
+  Soạn thảo nội dung dạng block-based
+]
+
+Nội dung ghi chú được tổ chức thành các khối độc lập, cho phép người dùng linh
+hoạt trong việc xây dựng và chỉnh sửa tài liệu. Mỗi khối có thể là văn bản, hình
+ảnh, mã code hoặc các loại nội dung khác.
+
+#heading(level: 4, numbering: none)[
+  Cộng tác theo thời gian thực
+]
+
+Nhiều người dùng có thể làm việc cùng một ghi chú hoặc tài liệu một cách đồng
+thời. Hệ thống đảm bảo các thay đổi được đồng bộ hóa tức thời và các xung đột
+được giải quyết tự động mà không cần can thiệp thủ công.
+
+#heading(level: 4, numbering: none)[
+  Trực quan hóa mối quan hệ bằng biểu đồ quan hệ
+]
+
+Người dùng có thể xem toàn bộ mạng lưới tri thức của mình dưới dạng biểu đồ quan
+hệ _(Graph View)_, giúp hiển thị các liên kết và mối quan hệ giữa các ghi chú.
+Biểu diễn này cung cấp một cái nhìn trực quan hơn so với cách tổ chức tuyến tính
+truyền thống.
+
+#heading(level: 4, numbering: none)[
+  Tìm kiếm nhanh chóng
+]
+
+Hệ thống hỗ trợ tìm kiếm toàn văn trên tất cả nội dung ghi chú, cho phép người
+dùng nhanh chóng tìm ra thông tin cần thiết.
+
+#heading(level: 4, numbering: none)[
+  Quản lý quyền truy cập và phân quyền
+]
+
+Chủ sở hữu không gian làm việc có thể quản lý chi tiết quyền của từng thành
+viên, chẳng hạn như quyền xem, chỉnh sửa hoặc xóa. Hệ thống hỗ trợ các cấp độ
+quyền khác nhau để đảm bảo an toàn và kiểm soát truy cập hiệu quả.
+
+#heading(level: 4, numbering: none)[
+  Quản lý vòng đời tài liệu
+]
+
+Ghi chú có thể được xóa tạm thời, di chuyển vào thùng rác hoặc xóa vĩnh viễn.
+Người dùng cũng có khả năng khôi phục ghi chú đã xóa tạm thời, giúp tránh mất dữ
+liệu không mong muốn.
 
 == Công nghệ sử dụng
+
+Dự án Notopia ứng dụng một bộ công nghệ tiên tiến và được lựa chọn kỹ lưỡng, đảm
+bảo tính mở rộng, hiệu suất cao và khả năng bảo trì dài hạn.
+
+#heading(level: 4, numbering: none)[
+  Web App
+]
+
+- Framework: Next.js, được xây dựng trên nền tảng React, cung cấp server-side
+  rendering và tối ưu hóa hiệu suất.
+- State Management: Redux Toolkit, một thư viện quản lý trạng thái với DevTools
+  integration và middleware support mạnh mẽ.
+- Styling: TailwindCSS kết hợp với PostCSS cho phát triển giao diện nhanh chóng,
+  và ShadcnUI cung cấp các component có sẵn được styled phù hợp.
+- Editor Content: BlockNote, một editor block-based được xây dựng trên Tiptap,
+  hỗ trợ tùy chỉnh cao và tích hợp dễ dàng với React.
+
+#heading(level: 4, numbering: none)[
+  Backend
+]
+
+- Dịch vụ Identity _(Authentik)_: Một nền tảng identity provider mã nguồn mở hỗ
+  trợ OIDC và OAuth 2.0, đảm bảo an toàn trong quản lý danh tính người dùng.
+- Dịch vụ `document`: Viết bằng Typescript sử dụng framework NestJS, với kiến
+  trúc mô-đun rõ ràng và Dependency Injection mạnh mẽ, được xây dựng với Rspack
+  để tối ưu hiệu suất build.
+- Dịch vụ `notes`: Viết bằng Go, một ngôn ngữ lập trình hiệu suất cao, được sử
+  dụng với sqlc cho xử lý raw SQL tối ưu, đảm bảo truy vấn nhanh chóng đặc biệt
+  cho các truy vấn đồ thị phức tạp.
+- Dịch vụ `authorization`: Viết bằng go, sử dụng thư viện Casbin, một framework
+  authorization mã nguồn mở hỗ trợ RBAC cho phép quản lý quyền truy cập linh
+  hoạt.
+- `search-worker`: Dịch vụ Go lắng nghe sự thay đổi dữ liệu, xử lý và đồng bộ
+  nội dung với Meilisearch.
+- Dịch vụ tìm kiếm _(Meilisearch)_: Search engine mã nguồn mở được viết bằng
+  Rust, cung cấp tìm kiếm toàn văn nhanh chóng và dễ triển khai.
+
+#heading(level: 4, numbering: none)[
+  Cơ sở dữ liệu
+]
+
+- PostgreSQL: Hệ quản trị cơ sở dữ liệu quan hệ mạnh mẽ, tuân thủ ACID
+  transactions và hỗ trợ các tính năng nâng cao.
+- ORM/Query Builder: TypeORM cho NestJS service, sqlc cho Go service để tối ưu
+  hiệu suất.
+
+#heading(level: 4, numbering: none)[
+  Cộng tác theo thời gian thực
+]
+
+- Yjs: Thư viện CRDT cho phép hợp nhất tự động các thay đổi từ nhiều người dùng
+  mà không gây xung đột.
+- Hocuspocus: Máy chủ WebSocket hỗ trợ Yjs, tạo điều kiện cho đồng bộ hóa dữ
+  liệu thời gian thực. Hocuspocus sẽ abstract yjs nên chúng ta không cần quan
+  tâm đến chi tiết triển khai của yjs.
+
+#heading(level: 4, numbering: none)[
+  Giao tiếp API
+]
+
+- REST API: Được thiết kế theo OpenAPI 3.0 cho giao tiếp giữa frontend và các
+  dịch vụ backend.
+- gRPC: Framework RPC sử dụng Protocol Buffers, cung cấp hiệu suất cao cho giao
+  tiếp giữa các dịch vụ nội bộ.
+
+Bên cạnh đó, các dịch vụ không thể giao tiếp qua gRPC, nhưng có SDK, hoặc có thể
+giao tiếp qua REST API _(ví dụ như Authentik hỗ trợ SDK cho Go và NodeJS)_.
+
+#heading(level: 4, numbering: none)[
+  Kiến trúc sự kiện
+]
+
+- Watermill: Thư viện Go cho event-driven architecture, hỗ trợ nhiều message
+  broker khác nhau.
+- Redpanda: Message broker tương thích với Kafka, được sử dụng cho streaming sự
+  kiện phân tán.
+
+Đối với NestJS đã hỗ trợ sẵn event-driven architecture, không cần sử dụng thêm
+thư viện bên ngoài hệ sinh thái NestJS.
+
+#heading(level: 4, numbering: none)[
+  Giám sát và Quan sát hóa
+]
+
+- OpenTelemetry _(OTLP)_: Một tiêu chuẩn mã nguồn mở cho việc thu thập metrics,
+  logs
+và traces.
+- Grafana Stack: Bao gồm Prometheus cho metrics, Loki cho logs, Tempo cho
+  distributed tracing, và Grafana cho visualization tập trung. Alloy, một agent
+  của Grafana cho forwarding logs và metrics.
+
+#heading(level: 4, numbering: none)[
+  Hạ tầng
+]
+
+- Docker: Đóng gói ứng dụng vào container, đảm bảo tính nhất quán giữa các môi
+  trường phát triển và production.
+- API Gateway _(Traefik)_: Reverse proxy hiện đại hỗ trợ routing, load balancing
+  và auto-discovery, đứng phía trước các dịch vụ backend.
+- Object Storage _(RustFS)_: Giải pháp lưu trữ đối tượng mã nguồn mở, được sử
+  dụng để lưu trữ các tệp đính kèm trong ghi chú.

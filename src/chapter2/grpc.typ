@@ -2,8 +2,8 @@
 
 === Giới thiệu
 
-gRPC là một framework RPC hiện đại được phát triển bởi Google @grpc, sử dụng
-Protocol Buffers cho định nghĩa service và HTTP/2 cho communication. gRPC được
+GRPC là một framework RPC hiện đại được phát triển bởi Google @grpc, sử dụng
+Protocol Buffers cho định nghĩa service và HTTP/2 cho communication. GRPC được
 thiết kế để cung cấp hiệu suất cao, latency thấp, và tích hợp tốt với
 distributed systems.
 

@@ -38,7 +38,7 @@ Bên cạnh các ưu điểm, TypeScript có một số hạn chế:
   tạp hóa quy trình
 - Type Definitions, một số thư viện JavaScript cũ thiếu type definitions hoặc
   definitions không chính xác
-- Bước compile/transpile từ TypeScript sang Javascript được thực hiện bằng nhiều
+- Bước compile/transpile từ TypeScript sang JavaScript được thực hiện bằng nhiều
   công cụ
 
 === Hệ sinh thái và công cụ
