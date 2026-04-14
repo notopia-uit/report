@@ -5,6 +5,7 @@ alias b := build
 alias d := dev
 alias dz := dev-zathura
 alias f := format
+alias sd := sync-diagrams
 
 [parallel]
 build: build-pdf build-html
@@ -35,3 +36,6 @@ preview-zathura: build-pdf
 
 format:
     typstyle -i --line-width=80 --indent-width=2 --wrap-text ./src/
+
+sync-diagrams:
+    ./scripts/sync-diagrams.sh
