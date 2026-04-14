@@ -11,6 +11,7 @@
   margin: (left: 3.5cm, right: 2cm, top: 2cm, bottom: 2cm),
 )
 
+
 #set text(
   font: "SVN-Times New Roman 2",
   size: 13pt,
@@ -36,13 +37,18 @@
   }
 }
 
+#show heading: it => context {
+  if it.level <= 3 {
+    it
+  } else {
+    it.body
+  }
+}
+
 #show figure.caption: emph
 
 #include "./coverpage.typ"
 #pagebreak()
-
-#set page(numbering: "1")
-#counter(page).update(1)
 
 #include "./thanks.typ"
 #pagebreak()
@@ -56,8 +62,16 @@
 #outline(title: "Danh mục bảng biểu", target: figure.where(kind: table))
 #pagebreak()
 
+
 #set page(
   numbering: "1",
+  footer: context {
+    align(center)[
+      #box(width: 100%, stroke: (top: 0.5pt), inset: (top: 1em))[
+        #counter(page).display()
+      ]
+    ]
+  },
 )
 #counter(page).update(1)
 
