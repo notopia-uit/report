@@ -32,29 +32,20 @@
 ) = {
   let columns = cols.pos()
 
-  let col-widths = if style != none and "columnWidths" in style {
-    style.columnWidths
-  } else {
-    (0.8fr, 1fr, 1.5fr, 0.5fr)
-  }
-
-  let header = ([*Tên cột*], [*Kiểu dữ liệu*], [*Mô tả*], [*Khóa*])
-  let rows = ()
-
-  for col in columns {
-    rows.push((
-      [#col.name],
-      [#col.type],
-      [#col.description],
-      if "key" in col and col.key != none { [#col.key] } else { [] },
-    ))
-  }
-
   table(
-    columns: col-widths,
+    columns: (0.8fr, 1fr, 1.5fr, 0.5fr),
     align: left,
     stroke: 0.5pt,
-    ..header,
-    ..rows.flatten(),
+
+    table.header([*Tên cột*], [*Kiểu dữ liệu*], [*Mô tả*], [*Khóa*]),
+
+    ..columns
+      .map(col => (
+        [#col.name],
+        [#col.type],
+        [#col.description],
+        if col.key != none [#col.key] else [],
+      ))
+      .flatten(),
   )
 }

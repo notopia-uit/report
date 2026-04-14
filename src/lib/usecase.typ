@@ -44,63 +44,35 @@
   exceptionFlow: none,
   businessRules: none,
   nfRequirements: none,
-  style: none,
+  column-widths: (9em, 1fr),
 ) = {
-  let col-widths = if style != none and "columnWidths" in style {
-    style.columnWidths
-  } else {
-    (1fr, 2fr)
-  }
+  let fields = (
+    "Use Case ID": id,
+    "Use Case Name": name,
+    "Description": description,
+    "Actor(s)": actors,
+    "Priority": priority,
+    "Trigger": trigger,
+    "Pre-condition(s)": preconditions,
+    "Post-condition(s)": postconditions,
+    "Basic Flow": basicFlow,
+    "Alternate Flow": alternateFlow,
+    "Exception Flow": exceptionFlow,
+    "Business Rules": businessRules,
+    "Non-Functional Requirements": nfRequirements,
+  )
 
-  let rows = ()
-
-  // Required fields
-  if id != none {
-    rows.push(([*Use Case ID*], [#id]))
-  }
-  if name != none {
-    rows.push(([*Use Case Name*], [#name]))
-  }
-  if description != none {
-    rows.push(([*Description*], [#description]))
-  }
-  if actors != none {
-    rows.push(([*Actor(s)*], [#actors]))
-  }
-  if priority != none {
-    rows.push(([*Priority*], [#priority]))
-  }
-  if trigger != none {
-    rows.push(([*Trigger*], [#trigger]))
-  }
-
-  // Optional fields
-  if preconditions != none {
-    rows.push(([*Pre-condition(s)*], preconditions))
-  }
-  if postconditions != none {
-    rows.push(([*Post-condition(s)*], postconditions))
-  }
-  if basicFlow != none {
-    rows.push(([*Basic Flow*], basicFlow))
-  }
-  if alternateFlow != none {
-    rows.push(([*Alternate Flow*], alternateFlow))
-  }
-  if exceptionFlow != none {
-    rows.push(([*Exception Flow*], exceptionFlow))
-  }
-  if businessRules != none {
-    rows.push(([*Business Rules*], [#businessRules]))
-  }
-  if nfRequirements != none {
-    rows.push(([*Non-Functional Requirements*], [#nfRequirements]))
-  }
+  let cells = fields
+    .pairs()
+    .filter(pair => pair.at(1) != none)
+    .map(pair => ([*#pair.at(0)*], pair.at(1)))
+    .flatten()
 
   table(
-    columns: col-widths,
+    columns: column-widths,
     align: left,
     stroke: 0.5pt,
-    ..rows.flatten(),
+    table.header([*Trường*], [*Nội dung*]),
+    ..cells
   )
 }

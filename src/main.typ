@@ -20,7 +20,17 @@
 
 #set table(
   inset: 0.5em,
+  fill: (x, y) => {
+    if y == 0 {
+      black
+    } else if calc.odd(y) {
+      gray.lighten(90%)
+    } else {
+      white
+    }
+  },
 )
+#show table.cell.where(y: 0): set text(white)
 
 #set par(justify: true)
 
