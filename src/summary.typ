@@ -7,7 +7,7 @@
       strong(link(el.location(), [#el.supplement #numbering(
           el.numbering,
           ..counter(heading).at(el.location()),
-        ): #el.body]))
+        ) #el.body]))
     } else {
       it
     }
@@ -27,8 +27,8 @@ dụng các công nghệ hiện đại.
 Báo cáo trình bày các nghiên cứu, quy trình thiết kế, cài đặt và triển khai hệ
 thống thông qua các chương sau:
 #theory_reference[
-  + @introduction - Giới thiệu về đề tài, mục tiêu nghiên cứu và phạm vi của báo
-    cáo.
+  + @introduction - Giới thiệu về đề tài, mục tiêu nghiên cứu, phạm vi của báo
+    cáo, các tính năng, công nghệ được sử dụng trong đề tài.
   + @theory-basis - Cơ sở lý thuyết liên quan đến quản lý tri thức cá nhân, các
     công nghệ và phương pháp phát triển phần mềm được sử dụng trong đề tài.
   + @architecture - Mô tả kiến trúc hệ thống, các đặc tả use case, API, các

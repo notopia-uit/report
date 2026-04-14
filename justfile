@@ -18,8 +18,13 @@ build-pdf: mkdir
 build-html: mkdir
     typst compile --features html {{ src }} ./build/index.html
 
+[unix]
 dev-zathura: build-pdf
+    #!/usr/bin/env bash
+
     zathura ./build/{{ out_name }}.pdf &
+    Z_PID=$!
+    trap "kill $Z_PID" EXIT
     typst watch {{ src }} ./build/{{ out_name }}.pdf
 
 dev: mkdir
