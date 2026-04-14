@@ -351,7 +351,7 @@ thư viện bên ngoài hệ sinh thái NestJS.
 
 - Docker: Đóng gói ứng dụng vào container, đảm bảo tính nhất quán giữa các môi
   trường phát triển và production.
-- API Gateway _(Traefik)_: Reverse proxy hiện đại hỗ trợ routing, load balancing
-  và auto-discovery, đứng phía trước các dịch vụ backend.
-- Object Storage _(RustFS)_: Giải pháp lưu trữ đối tượng mã nguồn mở, được sử
-  dụng để lưu trữ các tệp đính kèm trong ghi chú.
+- Traefik: API Gateway hiện đại hỗ trợ routing, load balancing và
+  auto-discovery, đứng phía trước các dịch vụ backend.
+- RustFS: Giải pháp lưu trữ đối tượng mã nguồn mở, được sử dụng để lưu trữ các
+  tệp đính kèm trong ghi chú.
