@@ -4,12 +4,18 @@
 
 Traefik là một API gateway mã nguồn mở @traefik, hiện đại, được viết bằng Go.
 Traefik được thiết kế để tự động phát hiện và kết nối các dịch vụ, loại bỏ nhu
-cầu cấu hình thủ công. Traefik hỗ trợ OpenTelemetry @opentelemetry cho
-distributed tracing, cho phép quan sát performance toàn bộ request flow.
+cầu cấu hình thủ công. Traefik hỗ trợ OpenTelemetry
+_(@general-for-observability)_ cho distributed tracing, cho phép quan sát
+performance toàn bộ request flow.
 
-Traefik hoạt động tốt trong các môi trường container-orchestrated như
-Kubernetes, Docker Swarm, và cũng có thể chạy standalone cho các ứng dụng
+Traefik hoạt động tốt trong các môi trường container-orchestrated như Docker,
+Kubernetes, Docker Swarm và cũng có thể chạy standalone cho các ứng dụng
 non-containerized.
+
+Dự án sử dụng `traefik-plugins/traefik-jwt-plugin`
+#footnote[https://github.com/traefik-plugins/traefik-jwt-plugin] để xác minh
+request đến các API endpoint, thông tin được chuyển đổi sang request headers
+giúp cho các service không cần phải thực hiện quá trình xác minh riêng.
 
 === Ưu điểm
 
@@ -17,7 +23,8 @@ Traefik mang lại nhiều lợi ích cho phát triển API gateway:
 
 - Auto-Discovery, tự động phát hiện services không cần cấu hình thủ công
 - OpenTelemetry Integration, hỗ trợ native OTLP cho distributed tracing
-- Container-Native, thiết kế tối ưu cho Docker và Kubernetes
+- Container-Native, thiết kế tối ưu cho Docker và Kubernetes, hỗ trợ GatewayAPI
+  của Kubernetes
 - Middleware System, hỗ trợ middleware extensible cho custom logic
 - Dynamic Configuration, cấu hình có thể thay đổi runtime mà không cần restart
 - Multiple Protocol Support, hỗ trợ HTTP, HTTPS, gRPC, WebSocket

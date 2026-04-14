@@ -1,4 +1,4 @@
-== Tổng quan về TypeScript
+== Tổng quan về TypeScript <general-for-typescript>
 
 === Giới thiệu
 

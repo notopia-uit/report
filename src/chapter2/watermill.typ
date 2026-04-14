@@ -4,36 +4,37 @@
 
 Watermill @watermill là library Go cho event-driven architecture, hỗ trợ
 multiple message routers. Watermill được thiết kế để tạo điều kiện cho
-asynchronous message processing, event streaming, và reactive architectures.
+asynchronous message processing, event streaming, request-response, và reactive
+architectures.
 
 === Watermill Architecture
 
 Watermill cung cấp abstraction trên các message brokers khác nhau, cho phép viết
-event processing logic một lần và sử dụng trên múi các transports.
+event processing logic một lần và sử dụng với nhiều transport backends.
 
-=== Message Routers
-
-- Kafka integration với Redpanda @redpanda cho distributed streaming
+Watermill được sử dụng trong dự án:
+- Kafka integration với Redpanda _(@general-for-redpanda)_ cho distributed
+  streaming
 - Redis pub/sub @redis cho lightweight pub/sub messaging trong cùng cluster
-- Internal Go channels cho in-process communication
+- Go channels cho in-process communication
+- Outbox pattern với Forwarder Component của Watermill
 
 === OpenTelemetry Integration
 
-Watermill hỗ trợ OpenTelemetry @opentelemetry integration thông qua
-watermill-opentelemetry package, cho phép trace event processing workflow. Điều
-này cung cấp observability cho event-driven systems.
+Watermill hỗ trợ OpenTelemetry _(@general-for-observability)_ integration thông
+qua `nkonev/watermill-opentelemetry`
+#footnote[https://github.com/nkonev/watermill-opentelemetry], cho phép trace
+event processing workflow. Điều này cung cấp observability cho event-driven
+systems.
 
 === Ưu điểm
 
-- Flexible Routing, hỗ trợ multiple transport backends
-- Multiple Transport Backends, Kafka, Redis, và in-memory transports
+- Flexible Routing, hỗ trợ đa dạng transport backends
 - Structured Event Handling, type-safe event processing
-- Excellent Performance, optimized cho high throughput
-- Observability, native OpenTelemetry integration
 
 === Nhược điểm
 
-- Event-Driven Complexity, event-driven adds complexity so với request-response
-- Debugging, debugging distributed events là challenge
-- Operational Overhead, yêu cầu manage message broker infrastructure
+- Event-Driven Complexity, event-driven phức tạp hơn so với mô hình synchronous
 - Learning Curve, event-driven patterns cần được hiểu rõ
+- Debugging, debugging distributed events là thách thức lớn
+- Operational Overhead, yêu cầu manage message broker infrastructure

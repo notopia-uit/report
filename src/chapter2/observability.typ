@@ -1,23 +1,22 @@
-== Tổng quan về OpenTelemetry và Observability Stack
+== Tổng quan về OpenTelemetry và Observability Stack <general-for-observability>
 
 === Giới thiệu
 
 OpenTelemetry Protocol (OTLP) là một tiêu chuẩn mã nguồn mở cho việc thu thập và
 xuất dữ liệu observability (metrics, logs, traces) @opentelemetry. OTLP được hỗ
-trợ bởi hầu hết các công cụ monitoring hiện đại, bao gồm Grafana @grafana,
-Prometheus @prometheus, Loki @loki, và Tempo @tempo.
+trợ bởi hầu hết các công cụ monitoring hiện đại.
 
 Dự án này sử dụng một stack observability hoàn chỉnh bao gồm:
 - Prometheus @prometheus, cho metrics collection
-- Loki @loki, cho logs aggregation
-- Tempo @tempo, cho distributed tracing
+- Grafana Loki @loki, cho logs aggregation
+- Grafana Tempo @tempo, cho distributed tracing
+- Grafana Alloy @alloy, cho log/metrics forwarding agent
 - Grafana @grafana, cho visualization tập trung
-- Grafana Alloy, cho log/metrics forwarding agent
 
 Các service được instrumented bằng:
-- Node.js: `@opentelemetry/auto-instrumentations-node` cho auto instrumentation
-- Go: `go.opentelemetry.io/contrib/exporters/autoexport` cho auto setup
-  exporters
+- `@opentelemetry/auto-instrumentations-node`: auto instrumentation cho Node.js
+- `go.opentelemetry.io/contrib/exporters/autoexport` cho auto setup exporters
+  cho Go
 
 === Ưu điểm
 

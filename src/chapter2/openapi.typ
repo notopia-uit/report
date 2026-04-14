@@ -21,8 +21,8 @@ request/response schemas, và error codes theo cách machine-readable.
   language server, linter, bundle các file nhỏ thành một file lớn
 - Scalar @scalar: Tool cho OpenAPI specification, tương đối giống redocly, trong
   dự án sử dụng để render website documentation từ OpenAPI spec
-- TypeScript: heyapi/openapi-ts @heyapi sinh TypeScript types từ OpenAPI spec
-- Go: oapi-codegen @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API
+- `heyapi/openapi-ts` @heyapi sinh TypeScript types từ OpenAPI spec
+- `oapi-codegen` @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API
   generation
 - OpenAPI Generator @openapi_generator: Tool đa ngôn ngữ cho code generation từ
   OpenAPI spec, hỗ trợ nhiều languages và frameworks, trong dự án sử dụng

@@ -60,7 +60,7 @@
 #include "nx.typ"
 #pagebreak()
 
-#include "vitepress.typ"
-#pagebreak()
+// #include "vitepress.typ"
+// #pagebreak()
 
 #include "mise.typ"
