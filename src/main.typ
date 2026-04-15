@@ -72,7 +72,6 @@
 #outline(title: "Danh mục bảng biểu", target: figure.where(kind: table))
 #pagebreak()
 
-
 #set page(
   numbering: "1",
   footer: context {

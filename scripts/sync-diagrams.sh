@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source and target directories
-SOURCE_DIR="$HOME/projects/notopia/notopia/docs/src/public/diagrams"
+SOURCE_DIR="../notopia/docs/src/public/diagrams"
 TARGET_DIR="./src/assets/sync-diagrams"
 
 # Create target directory if it doesn't exist
