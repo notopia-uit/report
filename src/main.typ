@@ -11,7 +11,6 @@
   margin: (left: 3.5cm, right: 2cm, top: 2cm, bottom: 2cm),
 )
 
-
 #set text(
   font: "SVN-Times New Roman 2",
   size: 13pt,
@@ -56,6 +55,7 @@
 }
 
 #show figure.caption: emph
+#show figure.caption: set text(gray.darken(50%), size: 11pt)
 
 #include "./coverpage.typ"
 #pagebreak()

@@ -37,4 +37,4 @@ decorator-based API, tương thích với tốt NestJS. Đặc biệt, TypeORM t
   recursive query và CTE
 - TypeORM: Abstraction có thể gây performance overhead, có thể gặp vấn đề với
   complex queries và migrations, thiết lập script TypeORM bằng typescript phức
-tạp, chạy bằng tsx @tsx
+  tạp, chạy bằng tsx @tsx
