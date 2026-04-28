@@ -47,8 +47,8 @@
   column-widths: (9em, 1fr),
 ) = {
   let fields = (
-    "Use Case ID": id,
-    "Use Case Name": name,
+    "ID": id,
+    "Name": name,
     "Description": description,
     "Actor(s)": actors,
     "Priority": priority,

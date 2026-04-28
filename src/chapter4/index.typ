@@ -1,11 +1,5 @@
 = Xây dựng ứng dụng <implementation>
 
-== Mô hình Miền (Domain Model)
-#figure(
-  image("../assets/sync-diagrams/class-diagram-note.svg"),
-  caption: [Mô hình miền (Domain Model) của hệ thống],
-)
-
 == Giao diện ứng dụng
 
 === Giao diện Mobile
