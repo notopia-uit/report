@@ -25,13 +25,13 @@ sequenceDiagram
         end
         MB-)+NS: Domain NoteCreatedEvent
         par Publish workspace event
-            loop not processed domain NoteCreatedEvent
-                NS->>NS: convert to workspace NoteCreatedEvent
+            loop Not processed domain NoteCreatedEvent
+                NS->>NS: Convert to workspace NoteCreatedEvent
             end
             NS-)SU: Publish workspace NoteCreatedEvent
         and Publish NoteCreatedEvent integration event
-            loop not processed domain NoteCreatedEvent
-                NS->>NS: convert to NoteCreatedEvent
+            loop Not processed domain NoteCreatedEvent
+                NS->>NS: Convert to NoteCreatedEvent
             end
             NS-)-MB: Publish integration NoteCreatedEvent
             MB-)+SW: Retrieve integration NoteCreatedEvent
