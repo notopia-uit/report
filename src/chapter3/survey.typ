@@ -105,7 +105,6 @@ bản ghi chú của mình dưới dạng website.
   table(
     columns: (auto, auto, auto),
     align: left,
-    stroke: 0.5pt,
     [*Hệ thống*], [*Ưu điểm*], [*Nhược điểm*],
     [Notion],
     [Giao diện đẹp, đa tính năng, hợp tác thời gian thực],

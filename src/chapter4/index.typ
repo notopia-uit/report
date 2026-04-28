@@ -42,12 +42,3 @@ Sau khi hoàn thành các giai đoạn phát triển, hệ thống ghi chú thô
   ),
   caption: [Các thành tựu chính của dự án],
 )
-
-#lorem(80)
-
-=== Sơ đồ kiến trúc chi tiết
-
-#figure(
-  image("../assets/sync-diagrams/architecture-diagram.svg"),
-  caption: [Sơ đồ kiến trúc hệ thống Notopia],
-)

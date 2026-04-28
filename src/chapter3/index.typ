@@ -11,13 +11,16 @@
   thống ở các chương tiếp theo.
 ]
 
-#include "./survey.typ"
+#include "survey.typ"
 #pagebreak()
 
-#include "./design/index.typ"
+#include "dev-process.typ"
 #pagebreak()
 
-#include "./usecase/index.typ"
+#include "architecture.typ"
 #pagebreak()
 
-#include "./database/index.typ"
+#include "usecase.typ"
+#pagebreak()
+
+#include "database.typ"

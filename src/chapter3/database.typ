@@ -1,6 +1,6 @@
 == Thiết kế cơ sở dữ liệu
 
-#import "../../lib/database.typ": column, db-table
+#import "../lib/database.typ": column, db-table
 
 === Mô tả các bảng dữ liệu
 

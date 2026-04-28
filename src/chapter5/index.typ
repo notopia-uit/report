@@ -99,3 +99,7 @@ triển. Hệ thống ghi chú thông minh không chỉ là sản phẩm hoàn c
 nền tảng để tiếp tục nghiên cứu và phát triển trong tương lai.
 
 #lorem(60)
+
+=== NOTE
+
+Deploy bằng istio thay vì traefik

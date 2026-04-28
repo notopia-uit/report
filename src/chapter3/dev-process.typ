@@ -1,8 +1,4 @@
-== Thiết kế hệ thống
-
-#import "./architecture.typ"
-
-=== Quy trình phát triển
+== Quy trình phát triển
 
 #figure(
   table(

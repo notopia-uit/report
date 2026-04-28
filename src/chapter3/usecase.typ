@@ -1,6 +1,6 @@
 == Mô tả các trường hợp sử dụng (Use Case)
 
-#import "../../lib/usecase.typ": usecase
+#import "../lib/usecase.typ": usecase
 
 === Use Case tổng quát
 

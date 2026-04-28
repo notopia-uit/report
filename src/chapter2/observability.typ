@@ -6,7 +6,7 @@ OpenTelemetry Protocol (OTLP) là một tiêu chuẩn mã nguồn mở cho việ
 xuất dữ liệu observability (metrics, logs, traces) @opentelemetry. OTLP được hỗ
 trợ bởi hầu hết các công cụ monitoring hiện đại.
 
-Dự án này sử dụng một stack observability hoàn chỉnh bao gồm:
+Dự án sử dụng một stack observability hoàn chỉnh bao gồm:
 - Prometheus @prometheus, cho metrics collection
 - Grafana Loki @loki, cho logs aggregation
 - Grafana Tempo @tempo, cho distributed tracing
