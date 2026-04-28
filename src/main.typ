@@ -57,6 +57,8 @@
 #show figure.caption: emph
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 
+#set par(first-line-indent: (amount: 1em, all: false))
+
 #include "./coverpage.typ"
 #pagebreak()
 

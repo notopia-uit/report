@@ -5,5 +5,12 @@
       "../notopia/**": "allow",
       "./**": "allow"
     }
+  },
+  "default_agent": "writing",
+  "formatter": {
+    "typstyle": {
+      "command": ["typstyle", "-i", "$FILE"],
+      "extensions": [".typ"]
+    }
   }
 }
