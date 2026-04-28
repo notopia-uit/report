@@ -2,7 +2,9 @@
 
 Dưới đây là sơ đồ lớp cho các service trong hệ thống, bao gồm `note` service và
 `document` service, không bao gồm `authorization` service vì tính đặc thù của
-service không thể biểu diễn, và `search-worker` vì xử lý dữ liệu không phức tạp. Sơ đồ lớp giúp minh họa cấu trúc của các lớp, các thuộc tính và phương thức của chúng, cũng như mối quan hệ giữa các lớp.
+service không thể biểu diễn, và `search-worker` vì xử lý dữ liệu không phức tạp.
+Sơ đồ lớp giúp minh họa cấu trúc của các lớp, các thuộc tính và phương thức của
+chúng, cũng như mối quan hệ giữa các lớp.
 
 === Sơ đồ lớp cho note service
 
@@ -26,7 +28,9 @@ của service định nghĩa các phương thức mà tầng infrastructure sẽ
 )
 
 Tầng domain, áp dụng Domain Driven Design Pattern, bao gồm các lớp đại diện cho
-các aggregate như `Note`, `Folder`, `Workspace`, v.v. Các lớp này chứa các thuộc tính và phương thức liên quan đến logic nghiệp vụ của chúng. Ngoài ra, tầng domain cũng bao gồm các interface của repository để truy cập dữ liệu.
+các aggregate như `Note`, `Folder`, `Workspace`, v.v. Các lớp này chứa các thuộc
+tính và phương thức liên quan đến logic nghiệp vụ của chúng. Ngoài ra, tầng
+domain cũng bao gồm các interface của repository để truy cập dữ liệu.
 
 === Sơ đồ lớp cho document service
 

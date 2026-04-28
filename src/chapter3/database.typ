@@ -1,6 +1,8 @@
 == Thiết kế cơ sở dữ liệu
 
-Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL để lưu trữ và quản lý dữ liệu. Dưới đây là thiết kế cơ sở dữ liệu cho các service, bao gồm các bảng chính và mối quan hệ giữa chúng.
+Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL để lưu trữ và
+quản lý dữ liệu. Dưới đây là thiết kế cơ sở dữ liệu cho các service, bao gồm các
+bảng chính và mối quan hệ giữa chúng.
 
 #import "../lib/database.typ": column, db-table
 
@@ -20,7 +22,11 @@ Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL
     column("name", "TEXT", "Tên của workspace"),
     column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
     column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
-    column("deleted_at", "TIMESTAMPTZ", "Thời gian xóa (soft delete, Nullable)"),
+    column(
+      "deleted_at",
+      "TIMESTAMPTZ",
+      "Thời gian xóa (soft delete, Nullable)",
+    ),
   ),
   caption: [Bảng Workspaces - Các không gian làm việc - Note Service],
 )
@@ -44,7 +50,8 @@ Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL
     column("trashed_by", "ENUM", "Loại xóa (purpose | parent, Nullable)"),
     column("trashed_at", "TIMESTAMPTZ", "Thời gian xóa (Nullable)"),
   ),
-  caption: [Bảng Folders - Các thư mục của một không gian làm việc - Note Service],
+  caption: [Bảng Folders - Các thư mục của một không gian làm việc - Note
+    Service],
 )
 
 ==== Bảng Notes
@@ -100,20 +107,30 @@ Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL
     column("id", "UUID", "Mã định danh duy nhất của revision", key: "PK"),
     column("name", "TEXT", "Tên của revision (Nullable)"),
     column("data", "JSON", "Dữ liệu blocknote của revision"),
-    column("document_id", "UUID", "ID document liên kết với revision", key: "FK"),
+    column(
+      "document_id",
+      "UUID",
+      "ID document liên kết với revision",
+      key: "FK",
+    ),
     column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
     column("deleted_at", "TIMESTAMPTZ", "Thời gian xóa (Nullable)"),
   ),
-  caption: [Bảng Revisions - Lưu trữ các phiên bản của tài liệu - Document Service],
+  caption: [Bảng Revisions - Lưu trữ các phiên bản của tài liệu - Document
+    Service],
 )
 
 === Cơ sở dữ liệu cho Authorization Service
 
-Vì tính đặc thù của thư viện Casbin, bảng dữ liệu của service này không thuộc phạm vi quản lý của hệ thống, mà sẽ được Casbin tự động tạo ra và quản lý dựa trên cấu hình của nó.
+Vì tính đặc thù của thư viện Casbin, bảng dữ liệu của service này không thuộc
+phạm vi quản lý của hệ thống, mà sẽ được Casbin tự động tạo ra và quản lý dựa
+trên cấu hình của nó.
 
 #figure(
-  image("../assets/sync-diagrams/database-diagram-authorization.svg", height:
-    20em),
+  image(
+    "../assets/sync-diagrams/database-diagram-authorization.svg",
+    height: 20em,
+  ),
   caption: [Sơ đồ cơ sở dữ liệu cho `authorization` service],
 )
 
@@ -130,5 +147,6 @@ Vì tính đặc thù của thư viện Casbin, bảng dữ liệu của service
     column("v4", "TEXT", "Trường dữ liệu 4 (Nullable)"),
     column("v5", "TEXT", "Trường dữ liệu 5 (Nullable)"),
   ),
-  caption: [Bảng Casbin Rules - Lưu trữ các quy tắc phân quyền - Authorization Service],
+  caption: [Bảng Casbin Rules - Lưu trữ các quy tắc phân quyền - Authorization
+    Service],
 )

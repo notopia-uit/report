@@ -76,7 +76,8 @@ dịch vụ.
   usecase(
     id: [UC02],
     name: [Get Node],
-    description: [Use case này mô tả quy trình lấy nội dung ghi chú và chuyển sang chế độ chỉnh sửa],
+    description: [Use case này mô tả quy trình lấy nội dung ghi chú và chuyển
+      sang chế độ chỉnh sửa],
     actors: [User],
     priority: [Cao],
     trigger: [Người dùng chọn một ghi chú để xem hoặc chỉnh sửa],
@@ -97,10 +98,13 @@ dịch vụ.
       + Người dùng chọn chế độ chỉnh sửa
       + Người dùng yêu cầu kết nối WsDocument thông qua Document Service
       + Document Service kiểm tra bộ nhớ nội bộ trước
-      + Nếu tài liệu chưa tồn tại trong bộ nhớ nội bộ, Document Service kiểm tra với Note Service
-      + Nếu ghi chú tồn tại, Document Service khởi tạo tài liệu và lưu vào bộ nhớ nội bộ
+      + Nếu tài liệu chưa tồn tại trong bộ nhớ nội bộ, Document Service kiểm tra
+        với Note Service
+      + Nếu ghi chú tồn tại, Document Service khởi tạo tài liệu và lưu vào bộ
+        nhớ nội bộ
       + Document Service trả về kết nối Hocuspocus cho người dùng
-      + Người dùng thực hiện các thao tác chỉnh sửa, Document Service lưu thay đổi và phát sóng cho các client khác
+      + Người dùng thực hiện các thao tác chỉnh sửa, Document Service lưu thay
+        đổi và phát sóng cho các client khác
     ],
     alternate-flow: [
       + Bước 7-8: Tài liệu đã tồn tại trong bộ nhớ nội bộ của Document Service
@@ -132,7 +136,8 @@ dịch vụ.
   usecase(
     id: [UC03],
     name: [Commit Document],
-    description: [Use case này mô tả quy trình lưu và publish event cập nhật tài liệu _(nội dung của ghi chú)_],
+    description: [Use case này mô tả quy trình lưu và publish event cập nhật tài
+      liệu _(nội dung của ghi chú)_],
     actors: [User],
     priority: [Cao],
     trigger: [Người dùng chọn lưu tài liệu để cập nhật],
@@ -149,7 +154,8 @@ dịch vụ.
     basic-flow: [
       + Người dùng chọn hành động "Commit Document" trên giao diện
       + Document Service tạo phiên bản lưu trữ mới của tài liệu
-      + Document Service publish integration event `DocumentCommittedEvent` vào Message Broker
+      + Document Service publish integration event `DocumentCommittedEvent` vào
+        Message Broker
       + Message Broker phân phối event cho Note Service và Search Worker
       + Note Service nhận event và cập nhật các thông tin như size, tags
       + Search Worker nhận event và chuyển đổi thành markdownContent, tags
@@ -183,7 +189,8 @@ dịch vụ.
   usecase(
     id: [UC04],
     name: [Update Note],
-    description: [Use case này mô tả quy trình cập nhật thông tin cơ bản của ghi chú],
+    description: [Use case này mô tả quy trình cập nhật thông tin cơ bản của ghi
+      chú],
     actors: [User],
     priority: [Cao],
     trigger: [Người dùng chỉnh sửa và lưu thay đổi thông tin ghi chú],
@@ -201,7 +208,8 @@ dịch vụ.
       + Hệ thống kiểm tra quyền chỉnh sửa ghi chú với Authorization Service
       + Hệ thống cập nhật thông tin ghi chú trong Note Service
       + Hệ thống trả về kết quả thành công cho người dùng
-      + Hệ thống publish NoteUpdatedEvent tới Message Broker (có retry nếu chưa published)
+      + Hệ thống publish NoteUpdatedEvent tới Message Broker (có retry nếu chưa
+        published)
       + Search Worker nhận NoteUpdatedEvent và xử lý
       + Search Service nhận yêu cầu Index Note và thực hiện indexing
     ],
