@@ -37,13 +37,13 @@
   actors: none,
   priority: none,
   trigger: none,
-  preconditions: none,
-  postconditions: none,
-  basicFlow: none,
-  alternateFlow: none,
-  exceptionFlow: none,
-  businessRules: none,
-  nfRequirements: none,
+  pre-conditions: none,
+  post-conditions: none,
+  basic-flow: none,
+  alternate-flow: none,
+  exception-flow: none,
+  business-rules: none,
+  nf-requirements: none,
   column-widths: (9em, 1fr),
 ) = {
   let fields = (
@@ -53,13 +53,13 @@
     "Actor(s)": actors,
     "Priority": priority,
     "Trigger": trigger,
-    "Pre-condition(s)": preconditions,
-    "Post-condition(s)": postconditions,
-    "Basic Flow": basicFlow,
-    "Alternate Flow": alternateFlow,
-    "Exception Flow": exceptionFlow,
-    "Business Rules": businessRules,
-    "Non-Functional Requirements": nfRequirements,
+    "Pre-condition(s)": pre-conditions,
+    "Post-condition(s)": post-conditions,
+    "Basic Flow": basic-flow,
+    "Alternate Flow": alternate-flow,
+    "Exception Flow": exception-flow,
+    "Business Rules": business-rules,
+    "Non-Functional Requirements": nf-requirements,
   )
 
   let cells = fields
@@ -68,11 +68,25 @@
     .map(pair => ([*#pair.at(0)*], pair.at(1)))
     .flatten()
 
+  show table: set par(justify: false)
+
   table(
     columns: column-widths,
     align: left,
     stroke: 0.5pt,
     table.header([*Trường*], [*Nội dung*]),
     ..cells
+  )
+}
+
+#let usecase-figure(
+  usecase-data,
+  caption: none,
+) = {
+  show figure: set block(breakable: true)
+
+  figure(
+    caption: caption,
+    usecase-data,
   )
 }

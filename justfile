@@ -37,5 +37,10 @@ preview-zathura: build-pdf
 format:
     typstyle -i --line-width=80 --indent-width=2 --wrap-text ./src/
 
+[unix]
 sync-diagrams:
     ./scripts/sync-diagrams.sh
+
+[unix]
+sync-gen-mermaid:
+    ./scripts/sync-gen-mermaid.sh

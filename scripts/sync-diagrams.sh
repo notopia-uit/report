@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Source and target directories
-SOURCE_DIR="../notopia/docs/src/public/diagrams"
-TARGET_DIR="./src/assets/sync-diagrams"
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+SOURCE_DIR="${SCRIPT_DIR}/../../notopia/docs/src/public/diagrams"
+TARGET_DIR="${SCRIPT_DIR}/../src/assets/sync-diagrams"
 
 # Create target directory if it doesn't exist
 mkdir -p "$TARGET_DIR"
