@@ -7,6 +7,7 @@ sequenceDiagram
     participant MB as Message Broker
     participant SW as Search Worker
     participant SS as Search Service
+    actor SU as Subcribed Users
 
     U->>+NS: CreateNote
     NS->>+AS: HasWorkspacePermission
@@ -17,13 +18,29 @@ sequenceDiagram
     AS-->>-NS: Ok
     NS->>NS: Create Note
     par Response
-        NS-->>-U: Note ID
-    and NoteCreated event
-        loop NoteCreatedEvent not published
-            NS-)MB: Publish NoteCreatedEvent
+        NS-->>U: Note ID
+    and NoteCreated domain event
+        loop Domain NoteCreatedEvent not published
+            NS-)-MB: Publish domain NoteCreatedEvent
         end
-        MB-)SW: Retrieve NoteCreatedEvent
-        SW->>SW: Process NoteCreatedEvent
-        SW->>+SS: Index Note info
-        SS->>+SS: Index Note
+        MB-)+NS: Domain NoteCreatedEvent
+        par Publish workspace event
+            loop not processed domain NoteCreatedEvent
+                NS->>NS: convert to workspace NoteCreatedEvent
+            end
+            NS-)SU: Publish workspace NoteCreatedEvent
+        and Publish NoteCreatedEvent integration event
+            loop not processed domain NoteCreatedEvent
+                NS->>NS: convert to NoteCreatedEvent
+            end
+            NS-)-MB: Publish integration NoteCreatedEvent
+            MB-)+SW: Retrieve integration NoteCreatedEvent
+            SW->>SW: Process NoteCreatedEvent
+            SW->>+SS: Index Note
+            par Ack
+                SS-->>-SW: Ok
+            and Indexing Note
+                SS->>+SS: Index Note
+            end
+        end
     end
