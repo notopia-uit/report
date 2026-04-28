@@ -23,4 +23,7 @@
 #include "usecase.typ"
 #pagebreak()
 
+#include "class.typ"
+#pagebreak()
+
 #include "database.typ"
