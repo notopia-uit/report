@@ -1,0 +1,34 @@
+sequenceDiagram
+    autonumber
+
+    actor U as User
+    participant DS as Document Service
+    participant MB as Message Broker
+    participant NS as Note Service
+    participant SW as Search Worker
+    participant SS as Search Service
+
+    U->>+DS: CommitDocument
+    DS->>+DS: Create Document revision
+    par Response
+        DS-->>-U: Ok
+    and Publish integration DocumentCommittedEvent
+        DS-)MB: Publish integration DocumentCommittedEvent
+    end
+    par Note service update note
+        loop Not processed integration DocumentCommittedEvent
+            MB-)NS: Receive DocumentCommittedEvent
+        end
+        NS->>NS: Update note size, tags
+    and Search service update note index
+        loop Not processed integration DocumentCommittedEvent
+            MB-)SW: Receive DocumentCommittedEvent
+        end
+        SW->>SW: Convert to markdownContent, tags in form of NoteSearch
+        SW->>+SS: Index Note
+        par Ack
+            SS-->>-SW: Ok
+        and Indexing Note
+            SS->>+SS: Index Note
+        end
+    end

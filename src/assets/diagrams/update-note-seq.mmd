@@ -1,0 +1,34 @@
+sequenceDiagram
+    autonumber
+
+    actor U as User
+    participant NS as Note Service
+    participant AS as Authorization Service
+    participant MB as Message Broker
+    participant SW as Search Worker
+    participant SS as Search Service
+
+    U->>+NS: UpdateNote
+    NS->>+AS: HasNotePermission
+    break Authorization Failed
+        AS-->>NS: No Permission
+        NS-->>U: No Permission
+    end
+    AS-->>-NS: Ok
+    NS->>NS: Update Note
+    par Response
+        NS-->>-U: Ok
+    and Publish integration NoteUpdatedEvent
+        loop Not published integration NoteUpdatedEvent
+            NS-)MB: Publish NoteUpdatedEvent
+        end
+        loop Not processed integration NoteUpdatedEvent
+            MB-)SW: NoteUpdatedEvent
+        end
+        SW->>+SS: Index Note
+        par Ack
+            SS-->>-SW: Ok
+        and Indexing Note
+            SS->>SS: Index Note
+        end
+    end

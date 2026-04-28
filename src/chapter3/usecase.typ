@@ -34,22 +34,22 @@ dịch vụ.
       + Người dùng nhập vào các trường thông tin của ghi chú (tiêu đề,...)
       + Hệ thống kiểm tra quyền của người dùng để tạo ghi chú
       + Hệ thống tạo ghi chú mới và trả về ID của ghi chú
-      + Hệ thống phát hành domain event `NoteCreatedEvent` tới Message Broker
-      + Hệ thống chuyển đổi domain event thành workspace event và phát hành
-      + Hệ thống phát hành integration event `NoteCreatedEvent` tới Message Broker
+      + Hệ thống publish domain event `NoteCreatedEvent` tới Message Broker
+      + Hệ thống chuyển đổi domain event thành workspace event và publish
+      + Hệ thống publish integration event `NoteCreatedEvent` tới Message Broker
       + Search Worker nhận integration event và xử lý
       + Search Worker gửi yêu cầu Index Note đến Search Service
       + Search Service nhận yêu cầu Index Note và tiến hành indexing ghi chú mới
     ],
     alternate-flow: [
       + Bước 6: Hệ thống gặp lỗi khi gửi domain event `NoteCreatedEvent`
-        + Hệ thống tự động retry phát hành domain event
-      + Bước 7: Hệ thống gặp lỗi khi chuyển đổi hoặc phát hành workspace event
-        + Hệ thống ghi log lỗi và bỏ qua việc phát hành workspace event
-      + Bước 8: Hệ thống gặp lỗi khi phát hành integration event
-        + Hệ thống tự động retry phát hành integration event
+        + Hệ thống tự động retry publish domain event
+      + Bước 7: Hệ thống gặp lỗi khi chuyển đổi hoặc publish workspace event
+        + Hệ thống ghi log lỗi và bỏ qua việc publish workspace event
+      + Bước 8: Hệ thống gặp lỗi khi publish integration event
+        + Hệ thống tự động retry publish integration event
       + Bước 9: Search Worker gặp lỗi khi xử lý `NoteCreatedEvent`
-        + Search Worker ghi log lỗi và bỏ qua sự kiện
+        + Search Worker ghi log lỗi và bỏ qua event
       + Bước 10: Search Service gặp lỗi khi indexing ghi chú mới
         + Search Service ghi log lỗi và bỏ qua yêu cầu indexing
     ],
@@ -96,15 +96,14 @@ dịch vụ.
       + Hệ thống trả về thông tin ghi chú cho người dùng
       + Người dùng chọn chế độ chỉnh sửa
       + Người dùng yêu cầu kết nối WsDocument thông qua Document Service
-      + Document Service kiểm tra bộ nhớ nội bộ (document cache) trước
+      + Document Service kiểm tra bộ nhớ nội bộ trước
       + Nếu tài liệu chưa tồn tại trong bộ nhớ nội bộ, Document Service kiểm tra với Note Service
-      + Nếu ghi chú không tồn tại, trả về lỗi "Not found" và dừng quy trình
       + Nếu ghi chú tồn tại, Document Service khởi tạo tài liệu và lưu vào bộ nhớ nội bộ
       + Document Service trả về kết nối Hocuspocus cho người dùng
       + Người dùng thực hiện các thao tác chỉnh sửa, Document Service lưu thay đổi và phát sóng cho các client khác
     ],
     alternate-flow: [
-      + Bước 6-7: Tài liệu đã tồn tại trong bộ nhớ nội bộ của Document Service
+      + Bước 7-8: Tài liệu đã tồn tại trong bộ nhớ nội bộ của Document Service
         + Document Service bỏ qua bước kiểm tra với Note Service
         + Document Service trả về kết nối Hocuspocus trực tiếp
       + Bước 11: Lỗi khi lưu thay đổi tài liệu trong quá trình debounce
@@ -115,9 +114,115 @@ dịch vụ.
         + Hệ thống trả về lỗi `forbidden`
         + Use case dừng lại
       + Bước 9: Ghi chú không tồn tại trong Note Service
-        + Hệ thống trả về lỗi `not found`
+        + Hệ thống trả về lỗi `noteNotFound`
         + Use case dừng lại
     ],
   ),
   caption: [Mô tả chi tiết use case UC02 - Get Node],
+)
+
+=== Mô tả use case Commit Document
+
+#figure(
+  image("../assets/diagrams/commit-document-seq.svg"),
+  caption: [Sequence diagram mô tả commit document use case],
+)
+
+#usecase-figure(
+  usecase(
+    id: [UC03],
+    name: [Commit Document],
+    description: [Use case này mô tả quy trình lưu và publish event cập nhật tài liệu _(nội dung của ghi chú)_],
+    actors: [User],
+    priority: [Cao],
+    trigger: [Người dùng chọn lưu tài liệu để cập nhật],
+    pre-conditions: [
+      - Người dùng đã đăng nhập vào hệ thống
+      - Người dùng có quyền chỉnh sửa tài liệu trong workspace hiện tại
+      - Tài liệu đã tồn tại trong hệ thống
+    ],
+    post-conditions: [
+      - Tài liệu được tạo ra phiên bản lưu trữ _(revision)_ mới
+      - Integration Event `DocumentCommittedEvent` được publish
+      - Việc cập nhật được phản ánh vào hệ thống nhận xét và tìm kiếm
+    ],
+    basic-flow: [
+      + Người dùng chọn hành động "Commit Document" trên giao diện
+      + Document Service tạo phiên bản lưu trữ mới của tài liệu
+      + Document Service publish integration event `DocumentCommittedEvent` vào Message Broker
+      + Message Broker phân phối event cho Note Service và Search Worker
+      + Note Service nhận event và cập nhật các thông tin như size, tags
+      + Search Worker nhận event và chuyển đổi thành markdownContent, tags
+      + Search Service nhận yêu cầu index lại ghi chú và thực hiện indexing
+      + Các thay đổi được đăng báo lại cho các client thông qua Hocuspocus
+    ],
+    alternate-flow: [
+      + Bước 4: Lỗi khi tạo revision mới của tài liệu
+        + Hệ thống ghi log và thông báo lỗi cho người dùng
+      + Bước 6: Dữ liệu blocknote không đúng với schema
+        + Hệ thống discard event và ghi log lỗi
+    ],
+    exception-flow: [
+      + Bước 2: Lỗi khi lấy quyền edit
+        + Trả về lỗi `forbidden` và dừng quy trình
+    ],
+  ),
+  caption: [Mô tả chi tiết use case UC03 - Commit Document],
+)
+
+=== Mô tả use case Update Note
+
+// This use case is not right, because we do more fine-grained than just update
+
+#figure(
+  image("../assets/diagrams/update-note-seq.svg"),
+  caption: [Sequence diagram mô tả update note use case],
+)
+
+#usecase-figure(
+  usecase(
+    id: [UC04],
+    name: [Update Note],
+    description: [Use case này mô tả quy trình cập nhật thông tin cơ bản của ghi chú],
+    actors: [User],
+    priority: [Cao],
+    trigger: [Người dùng chỉnh sửa và lưu thay đổi thông tin ghi chú],
+    pre-conditions: [
+      - Người dùng đã đăng nhập vào hệ thống
+      - Người dùng có quyền chỉnh sửa ghi chú trong workspace hiện tại
+      - Ghi chú tồn tại trong hệ thống
+    ],
+    post-conditions: [
+      - Thông tin ghi chú được cập nhật thành công
+      - NoteUpdatedEvent được publish tới các dịch vụ khác
+    ],
+    basic-flow: [
+      + Người dùng chỉnh sửa thông tin ghi chú và chọn lưu
+      + Hệ thống kiểm tra quyền chỉnh sửa ghi chú với Authorization Service
+      + Hệ thống cập nhật thông tin ghi chú trong Note Service
+      + Hệ thống trả về kết quả thành công cho người dùng
+      + Hệ thống publish NoteUpdatedEvent tới Message Broker (có retry nếu chưa published)
+      + Search Worker nhận NoteUpdatedEvent và xử lý
+      + Search Service nhận yêu cầu Index Note và thực hiện indexing
+    ],
+    alternate-flow: [
+      + Bước 3: Hệ thống gặp lỗi kiểm tra quyền
+        + Ghi log lỗi và trả về thông báo cho người dùng
+      + Bước 5: Chưa published được NoteUpdatedEvent
+        + Hệ thống tự động retry cho đến khi thành công
+      + Bước 7: Lỗi khi xử lý NoteUpdatedEvent ở Search Worker
+        + Ghi log và bỏ qua event này
+      + Bước 8: Lỗi khi indexing ở Search Service
+        + Ghi log và thử lại sau debounce
+    ],
+    exception-flow: [
+      + Bước 2: Người dùng không có quyền chỉnh sửa ghi chú
+        + Hệ thống trả về lỗi `forbidden`
+        + Use case dừng lại
+      + Bước 4: Lỗi khi cập nhật thông tin ghi chú
+        + Hệ thống trả về lỗi
+        + Use case dừng lại
+    ],
+  ),
+  caption: [Mô tả chi tiết use case UC04 - Update Note],
 )
