@@ -13,24 +13,17 @@
 ]
 
 #include "survey.typ"
-#pagebreak()
 
 #include "dev-process.typ"
-#pagebreak()
 
 #include "architecture.typ"
-#pagebreak()
 
 #include "usecase.typ"
-#pagebreak()
 
 #include "class.typ"
-#pagebreak()
 
 #include "database.typ"
-#pagebreak()
 
 #include "blocknote.typ"
-#pagebreak()
 
 #include "casbin.typ"

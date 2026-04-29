@@ -7,7 +7,7 @@ qua tag, hệ thống cần tuỳ chỉnh thêm hai config schema cho blocknote,
 #footnote[https://www.blocknotejs.org/docs/features/custom-schemas], hai config
 này sẽ được định nghĩa như sau.
 
-==== Reference
+=== Mô hình BlockNote Reference tuỳ chỉnh
 
 #figure(
   [
@@ -45,7 +45,7 @@ tạo ra các mối quan hệ giữa các ghi chú.
   caption: [Minh hoạ một khối reference trong blocknote],
 )
 
-==== Tag
+=== Mô hình BlockNote Tag tuỳ chỉnh
 
 ```ts
 import { CustomInlineContentConfig } from '@blocknote/core';

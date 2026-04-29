@@ -99,7 +99,6 @@
   align(left, it),
 )
 
-
 #show link: set text(fill: blue.darken(30%))
 
 #include "summary.typ"
