@@ -28,3 +28,9 @@
 #pagebreak()
 
 #include "database.typ"
+#pagebreak()
+
+#include "blocknote.typ"
+#pagebreak()
+
+#include "casbin.typ"
