@@ -91,6 +91,15 @@
 
 #show raw: set text(size: 9pt)
 
+#show raw.where(block: true): it => block(
+  stroke: 0.5pt + black,
+  inset: 10pt,
+  radius: 4pt,
+  width: 100%,
+  align(left, it),
+)
+
+
 #show link: set text(fill: blue.darken(30%))
 
 #include "summary.typ"

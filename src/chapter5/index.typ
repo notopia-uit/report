@@ -53,9 +53,17 @@ Trong đó, dự án đã đặc biệt tiếp cận đến một số công ngh
 ==== Công cụ quản lý monorepo Nx
 
 Nhóm đã tối ưu hoá workflow, thiết lập từ code generate, lint, test, build,
-deploy cho từng project nhỏ trong monorepo bằng công cụ Nx. Nhưng đối với CI, Nx
-hướng developer sử dụng hệ sinh thái của Nx Cloud, nhưng nhóm đã tự xây dựng một
-giải pháp cache riêng cho Github Actions.
+deploy cho từng project nhỏ trong monorepo bằng công cụ Nx.
+
+#figure(
+  image("../assets/images/notopia-nx-graph.png"),
+  caption: [Dependency graph của monorepo được sinh bởi Nx],
+)
+
+===== Hạn chế CI của Nx
+
+Đối với CI, Nx hướng developer sử dụng hệ sinh thái của Nx Cloud, nhưng nhóm đã
+tự xây dựng một giải pháp cache riêng cho Github Actions.
 
 `KevinNitroG/nx-cache-action` @nx_cache_action được phát triển bởi thành viên
 trong nhóm _(Trần Nguyễn Thái Bình)_, hỗ trợ Nx cache trong GitHub Actions, tối
@@ -79,6 +87,18 @@ Script có một nhược điểm là phải thông qua `actions/toolkit/cache` 
 cache về local, và pipe cache vào lại Nx process. Nhưng đây là cách dễ dàng
 nhất, không phải giao tiếp trực tiếp với Github Actions cache Rest API phức tạp
 hơn.
+
+==== Contract First API development
+
+Dự án áp dụng contract-first approach cho API development, đặc biệt với OpenAPI
+specification cho HTTP API được deploy và preview bằng Scalar, giao diện hiện
+đại, hỗ trợ mock API khi chưa có backend implementation, giúp frontend và
+backend phát triển song song hiệu quả.
+
+#figure(
+  image("../assets/images/scalar-api-preview.png"),
+  caption: [Preview API documentation được render từ OpenAPI spec bằng Scalar],
+)
 
 ==== SQLC Dynamic filter
 
@@ -163,6 +183,16 @@ Dưới đây là ví dụ SQL query khi sử dụng với `vtuanjs/sqlc-gen-go`
     `vtuanjs/sqlc-gen-go`],
 )
 
+==== Observability
+
+Dự án đã thiết lập một Observability Stack cơ bản, làm tiền đề cho việc phát
+triển ổn định về sau
+
+#figure(
+  image("../assets/images/grafana-observation-log.png"),
+  caption: [Log xem từ Grafana],
+)
+
 == Nhận xét
 
 === Thuận lợi
@@ -232,16 +262,19 @@ hỏi sự nỗ lực và kiên trì từ nhóm phát triển để vượt qua 
 
 Hệ thống ghi chú thông minh đã đạt được nhiều ưu điểm đáng kể.
 
+- Trải nghiệm người dùng trực quan, giao diện hiện đại, thống nhất
 - Xử lý graph rất nhanh nhờ vào ngôn ngữ Go, hạn chế sử dụng con trỏ, tránh đối
   tượng trong heap trong quá trình Read
 - Kiến trúc microservices dễ mở rộng
+- Code maintainability cao nhờ vào việc áp dụng kiến trúc Clean Architecture,
+  Domain Driven Design, CQRS đối với service `note` có business phức tạp nhất
 - DevOps practices tốt với CI/CD nhanh nhờ vào kinh nghiệm thiết lập, cũng như
   sử dụng Nx. 30 giây cho trường hợp cache hit toàn bộ project _(không có
   project nào thay đổi source code)_, đến 10 phút cho trường hợp ignore toàn bộ
   cache, build, lint, test, release. Nếu không được tối ưu, thời gian có thể lên
   đến 25 phút trong trường hợp chạy tuần tự các task cho toàn bộ project
-- Code maintainability cao nhờ vào việc áp dụng kiến trúc Clean Architecture,
-  Domain Driven Design, CQRS đối với service `note` có business phức tạp nhất
+- Các service Go _(`note`, `authorization`)_ đều có health check endpoint, đảm
+  bảo tính sẵn sàng, tin cậy cao cho hệ thống
 
 === Nhược điểm
 
@@ -249,47 +282,38 @@ Tuy đã đạt được nhiều ưu điểm, hệ thống cũng còn tồn tạ
 được cải thiện trong tương lai.
 
 - Độ phức tạp cao của microservices architecture
-- Cần nhiều tài nguyên hơn cho infrastructure, đặc biệt là Authentik viết bằng
-  Python, mức sử dụng RAM có thể lên đến 1.5GB chỉ trong quá trình development.
-  Điều này phải chấp nhận đánh đổi về tính enterprise ready, feature rich, cộng
-  đồng support tốt
-- Các service bên JS chưa dược thành công cấu hình gửi telemetry đến
-  Observability Stack
+- Cần nhiều tài nguyên hơn cho infrastructure, dù đã sử dụng Redpdanda thay cho
+  Kafka, RustFS cho MinIO, nhưng tổng RAM có thể lên đến 2.5GB khi chạy toàn bộ
+  infrastructure. Đặc biệt với Authentik viết bằng Python, mức sử dụng RAM có
+  thể lên đến 1.5GB chỉ trong quá trình development. Điều này phải chấp nhận
+  đánh đổi về tính enterprise ready, feature rich, cộng đồng support tốt
+- Các service JS chưa dược thành công cấu hình gửi telemetry đến Observability
+  Stack và health check endpoint
 - Khả năng xử lý lỗi từ các async event còn hạn chế, cần đảm bảo retry và dead
   letter queue cho các event thất bại cho toàn bộ các service. Hiện tại chỉ có
   service `note` có retry và dead letter queue
 
 == Hướng phát triển
 
-// === Ngắn hạn (3-6 tháng)
-//
-// - Tối ưu hóa hiệu suất database với indexing
-// - Thêm caching layer với Redis
-// - Cải thiện UI/UX dựa trên feedback người dùng
-// - Mở rộng test coverage
-//
-// === Trung hạn (6-12 tháng)
-//
-// - Tích hợp AI/ML cho smart suggestions
-// - Hỗ trợ collaborative editing
-// - Mobile apps cho iOS và Android native
-// - CDN integration cho static assets
-//
-// === Dài hạn (> 12 tháng)
-//
-// - Mở rộng sang platform khác (Desktop apps)
-// - Blockchain integration cho decentralized storage
-// - Advanced analytics và reporting
-// - Multi-language support
+Dự án đã đạt được mục tiêu đề ra, tuy nhiên vẫn còn nhiều tiềm năng để phát
+triển và cải thiện trong tương lai. Dưới đây là một số hướng phát triển có thể
+xem xét trong tương lai để nâng cao tính hoàn thiện và khả năng ứng dụng thực tế
+của hệ thống.
+
+- Thêm tính năng subcription, để thương mại hóa sản phẩm dưới dạng SaaS
+- Tích hợp AI để cung cấp các tính năng thông minh, thao tác trực tiếp với
+  editor nhờ vào thư viện `@blocknote/xl-ai` @blocknote_ai_docs, hybrid search
+  nhờ vào tính năng hỗ trợ bởi Meilisearch @meilisearch_solutions_hybrid_search
+- Đã thiết lập quy trình release container các service, giúp nhanh chóng tiến
+  đến bước triển khai và vận hành hệ thống trong môi trường deploy sau này
+- Sử dụng Istio làm Gateway thay vì Traefik trên môi trường deploy để tận dụng
+  các tính năng nâng cao _(service mesh, authentication, authorization tại
+  gateway, retry, v.v...)_, phù hợp với kubernetes
 
 == Lời kết
 
+#import "../lib/metadata.typ": project-metadata
+
 Dự án đã đạt được mục tiêu đề ra và mang lại nhiều bài học quý giá cho nhóm phát
-triển. Hệ thống ghi chú thông minh không chỉ là sản phẩm hoàn chỉnh mà còn là
-nền tảng để tiếp tục nghiên cứu và phát triển trong tương lai.
-
-=== NOTE
-
-Deploy bằng istio thay vì traefik
-
-Vitepress docs and repo (notopia & report) here
+triển. Hệ thống "#project-metadata.title" không chỉ là sản phẩm hoàn chỉnh mà
+còn là nền tảng để tiếp tục nghiên cứu và phát triển trong tương lai.

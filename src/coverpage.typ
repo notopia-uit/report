@@ -1,12 +1,12 @@
 #import "./lib/metadata.typ": project-metadata
 
 #let project_info = (
-  upperUniName: project-metadata.university,
+  university: project-metadata.university,
   uniName: project-metadata.school,
   falculty: project-metadata.faculty,
   title: project-metadata.title,
   supervisor: project-metadata.supervisor,
-  supervisorName: project-metadata.supervisorName,
+  supervisor-name: project-metadata.supervisor-name,
   students: project-metadata.students,
   report: project-metadata.location,
 )
@@ -22,7 +22,7 @@
     stroke: 1pt + black,
     inset: 2.5em,
     [
-      #text(weight: "bold", size: 14pt, project_info.upperUniName)
+      #text(weight: "bold", size: 14pt, project_info.university)
       #v(0.2cm)
       #text(weight: "bold", size: 14pt, project_info.uniName)
       #v(0.2cm)
@@ -42,7 +42,7 @@
         row-gutter: 1em,
         gutter: 1em,
         align: left,
-        [#project_info.supervisor:], [#project_info.supervisorName],
+        [#project_info.supervisor:], [#project_info.supervisor-name],
 
         [SINH VIÊN THỰC HIỆN:],
         [

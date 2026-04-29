@@ -9,7 +9,7 @@
   school: "TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN",
   faculty: "KHOA CÔNG NGHỆ PHẦN MỀM",
   supervisor: "GIẢNG VIÊN HƯỚNG DẪN",
-  supervisorName: "ThS. Trần Thị Hồng Yến",
+  supervisor-name: "ThS. Trần Thị Hồng Yến",
   students: (
     (id: "23520161", name: "Trần Nguyễn Thái Bình"),
     (id: "23521049", name: "Nguyễn Thái Gia Nguyễn"),
