@@ -93,3 +93,5 @@ Deploy bằng istio thay vì traefik
 Nx cache action here
 
 Vitepress docs and repo (notopia & report) here
+
+sqlc plugin dynamic filter, Nx, nhận thấy bazel không phù hợp
