@@ -91,7 +91,7 @@
 
 #show raw: set text(size: 9pt)
 
-#show link: set text(fill: blue)
+#show link: set text(fill: blue.darken(30%))
 
 #include "summary.typ"
 #pagebreak()

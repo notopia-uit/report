@@ -11,10 +11,7 @@
   (name: name, type: type, description: description, key: key)
 }
 
-/// Renders a database table specification with variadic columns
-///
 /// - columns: variadic column definitions (created with column() function)
-/// - style: optional styling configuration (columnWidths, etc.)
 ///
 /// Example:
 /// ```

@@ -237,8 +237,9 @@ Hệ thống ghi chú thông minh đã đạt được nhiều ưu điểm đán
 - Kiến trúc microservices dễ mở rộng
 - DevOps practices tốt với CI/CD nhanh nhờ vào kinh nghiệm thiết lập, cũng như
   sử dụng Nx. 30 giây cho trường hợp cache hit toàn bộ project _(không có
-  project nào thay đổi source code)_, đến 8 phút cho trường hợp ignore toàn bộ
-  cache, build, lint, test, release
+  project nào thay đổi source code)_, đến 10 phút cho trường hợp ignore toàn bộ
+  cache, build, lint, test, release. Nếu không được tối ưu, thời gian có thể lên
+  đến 25 phút trong trường hợp chạy tuần tự các task cho toàn bộ project
 - Code maintainability cao nhờ vào việc áp dụng kiến trúc Clean Architecture,
   Domain Driven Design, CQRS đối với service `note` có business phức tạp nhất
 

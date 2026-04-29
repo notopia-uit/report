@@ -1,10 +1,10 @@
+#import "../lib/database.typ": column, db-table
+
 == Thiết kế cơ sở dữ liệu
 
 Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL để lưu trữ và
 quản lý dữ liệu. Dưới đây là thiết kế cơ sở dữ liệu cho các service, bao gồm các
 bảng chính và mối quan hệ giữa chúng.
-
-#import "../lib/database.typ": column, db-table
 
 === Cơ sở dữ liệu cho Note Service
 
