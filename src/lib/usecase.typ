@@ -81,9 +81,10 @@
 
 #let usecase-figure(
   usecase-data,
+  breakable: true,
   caption: none,
 ) = {
-  show figure: set block(breakable: true)
+  show figure: set block(breakable: breakable)
 
   figure(
     caption: caption,

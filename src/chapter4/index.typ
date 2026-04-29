@@ -1,4 +1,4 @@
-#import "../lib/ui.typ": column, ui-figure, ui-table
+#import "../lib/ui.typ": column, ui-figure, ui-table, ui-table-figure
 
 = Xây dựng ứng dụng <implementation>
 
@@ -14,6 +14,9 @@
   [Giao diện landing page],
 )
 
-#ui-table(
-  column([Button], [Button], [Clickable element]),
+#ui-table-figure(
+  ui-table(
+    column([Button], [Button], [Clickable element]),
+  ),
+  caption: [Bảng mô tả],
 )

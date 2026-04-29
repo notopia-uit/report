@@ -47,3 +47,16 @@
       .flatten(),
   )
 }
+
+#let ui-table-figure(
+  table-data,
+  breakable: true,
+  caption: none,
+) = {
+  show figure: set block(breakable: breakable)
+
+  figure(
+    table-data,
+    caption: caption,
+  )
+}
