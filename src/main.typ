@@ -74,6 +74,9 @@
 #outline(title: "Danh mục bảng biểu", target: figure.where(kind: table))
 #pagebreak()
 
+#outline(title: "Danh mục bảng chương trình", target: figure.where(kind: raw))
+#pagebreak()
+
 #set page(
   numbering: "1",
   footer: context {
@@ -85,6 +88,10 @@
   },
 )
 #counter(page).update(1)
+
+#show raw: set text(size: 9pt)
+
+#show link: set text(fill: blue)
 
 #include "summary.typ"
 #pagebreak()

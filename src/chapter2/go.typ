@@ -1,4 +1,4 @@
-== Tổng quan về Go (Golang)
+== Tổng quan về Go (Golang) <general-for-go>
 
 === Giới thiệu
 

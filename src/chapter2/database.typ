@@ -1,4 +1,4 @@
-== Tổng quan về Database, ORM, và Query Patterns
+== Tổng quan về Database, ORM, và Query Patterns <general-for-database>
 
 === Giới thiệu
 
@@ -6,14 +6,10 @@ Dự án sử dụng nhiều tool và framework cho data persistence:
 - SQLC @sqlc cho Go, sinh type-safe SQL code
 - TypeORM @typeorm cho NestJS, ORM object-relational mapping
 
-=== SQLC
+=== SQLC <general-for-sqlc>
 
 SQLC @sqlc là tool sinh Go code từ SQL queries. Thay vì viết ORM-style code,
 SQLC cho phép viết SQL trực tiếp và tự động sinh type-safe Go functions.
-
-Custom plugin sqlc-gen-go-dynamic-filter @sqlc_dynamic_filter _(được phát triển
-bởi anh Nguyễn Văn Tuấn)_ hỗ trợ dynamic filter queries, giải quyết vấn đề không
-thể sinh dynamic WHERE conditions trong SQLC tiêu chuẩn.
 
 === TypeORM
 
