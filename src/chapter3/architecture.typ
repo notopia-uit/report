@@ -50,6 +50,7 @@ Trong đó, các thành phần chính bao gồm:
 
     [Monitoring], [Giám sát hiệu suất và trạng thái của hệ thống],
   ),
+  caption: [Các thành phần trong kiến trúc],
 )
 
 Chi tiết về các thành phần chính:

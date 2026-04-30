@@ -6,7 +6,7 @@ Các service trong hệ thống sẽ sử dụng cơ sở dữ liệu PostgreSQL
 quản lý dữ liệu. Dưới đây là thiết kế cơ sở dữ liệu cho các service, bao gồm các
 bảng chính và mối quan hệ giữa chúng.
 
-=== Cơ sở dữ liệu cho Note Service
+=== Cơ sở dữ liệu cho `note` service
 
 #figure(
   image("../assets/sync-diagrams/database-diagram-note.svg"),
@@ -33,7 +33,7 @@ bảng chính và mối quan hệ giữa chúng.
       [`Thời gian xóa (soft delete, Nullable)`],
     ),
   ),
-  caption: [Bảng workspaces - Các không gian làm việc - `note` service],
+  caption: [Bảng workspaces - `note` service],
 )
 
 ==== Bảng folders
@@ -60,8 +60,7 @@ bảng chính và mối quan hệ giữa chúng.
     column([`trashed_by`], [`ENUM`], [Loại xóa _(purpose|parent, Nullable)_]),
     column([`trashed_at`], [`TIMESTAMPTZ`], [Thời gian xóa _(Nullable)_]),
   ),
-  caption: [Bảng folders - Các thư mục của một không gian làm việc - `note`
-    service],
+  caption: [Bảng folders - `note` service],
 )
 
 ==== Bảng notes
@@ -79,7 +78,7 @@ bảng chính và mối quan hệ giữa chúng.
     column([`trashed_by`], [`ENUM`], [Loại xóa _(purpose|parent, Nullable)_]),
     column([`trashed_at`], [`TIMESTAMPTZ`], [Thời gian xóa _(Nullable)_]),
   ),
-  caption: [Bảng notes - Các ghi chú - `note` service],
+  caption: [Bảng notes - `note` service],
 )
 
 ==== Bảng note_links
@@ -89,10 +88,10 @@ bảng chính và mối quan hệ giữa chúng.
     column([`source_id`], [`UUID`], [ID ghi chú nguồn], key: [`PK`, `FK`]),
     column([`target_id`], [`UUID`], [ID ghi chú đích], key: [`PK`, `FK`]),
   ),
-  caption: [Bảng note_links - Mối quan hệ giữa các ghi chú - `note` service],
+  caption: [Bảng note_links - `note` service],
 )
 
-=== Cơ sở dữ liệu cho Document Service
+=== Cơ sở dữ liệu cho `document` service
 
 #figure(
   image("../assets/sync-diagrams/database-diagram-document.svg"),
@@ -108,7 +107,7 @@ bảng chính và mối quan hệ giữa chúng.
         lưu trữ và truy xuất bởi Hocuspocus]]),
     column([`modified`], [`BOOLEAN`], [Trạng thái đã được chỉnh sửa hay chưa]),
   ),
-  caption: [Bảng documents - Lưu trữ các tài liệu - `document` service],
+  caption: [Bảng documents - `document` service],
 )
 
 ==== Bảng Revisions
@@ -127,11 +126,10 @@ bảng chính và mối quan hệ giữa chúng.
     column([`created_at`], [`TIMESTAMPTZ`], [Thời gian tạo]),
     column([`deleted_at`], [`TIMESTAMPTZ`], [Thời gian xóa _(Nullable)_]),
   ),
-  caption: [Bảng revisions - Lưu trữ các phiên bản của tài liệu - `document`
-    service],
+  caption: [Bảng revisions - `document` service],
 )
 
-=== Cơ sở dữ liệu cho Authorization Service
+=== Cơ sở dữ liệu cho `authorization` service
 
 Vì tính đặc thù của thư viện Casbin, bảng dữ liệu của service này không thuộc
 phạm vi quản lý của hệ thống, mà sẽ được Casbin tự động tạo ra và quản lý.
@@ -157,6 +155,5 @@ phạm vi quản lý của hệ thống, mà sẽ được Casbin tự động t
     column([`v4`], [`TEXT`], [Trường dữ liệu 4 _(Nullable)_]),
     column([`v5`], [`TEXT`], [Trường dữ liệu 5 _(Nullable)_]),
   ),
-  caption: [Bảng casbin_rules - Lưu trữ các quy tắc phân quyền - `authorization`
-    service],
+  caption: [Bảng casbin_rules - `authorization` service],
 )

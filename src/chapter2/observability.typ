@@ -1,4 +1,4 @@
-== Tổng quan về OpenTelemetry và Observability Stack <general-for-observability>
+== Tổng quan về Observability Stack <general-for-observability>
 
 === Giới thiệu
 

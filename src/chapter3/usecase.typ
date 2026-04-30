@@ -62,7 +62,7 @@ dịch vụ.
         + Use case dừng lại
     ],
   ),
-  caption: [Mô tả chi tiết use case UC01 - Create Note],
+  caption: [Mô tả use case Create Note],
 )
 
 === Mô tả use case Get Note
@@ -127,7 +127,7 @@ dịch vụ.
         + Use case dừng lại
     ],
   ),
-  caption: [Mô tả chi tiết use case UC02 - Get Note],
+  caption: [Mô tả use case Get Note],
 )
 
 === Mô tả use case Commit Document
@@ -179,7 +179,7 @@ dịch vụ.
         + Trả về lỗi `forbidden` và dừng quy trình
     ],
   ),
-  caption: [Mô tả chi tiết use case UC03 - Commit Document],
+  caption: [Mô tả use case Commit Document],
 )
 
 === Mô tả use case Update Note
@@ -238,5 +238,5 @@ dịch vụ.
         + Use case dừng lại
     ],
   ),
-  caption: [Mô tả chi tiết use case UC04 - Update Note],
+  caption: [Mô tả use case Update Note],
 )

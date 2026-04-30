@@ -106,7 +106,7 @@ cập như sau:
     g, user:110, owner, workspace:00000000-0000-0000-0000-000000000110
     ```
   ],
-  caption: [Mẫu minh hoạ yêu cầu truy cập và so khớp chính sách],
+  caption: [Mẫu minh hoạ yêu cầu truy cập và so khớp chính sách Casbin],
 )
 
 Trong đó:
@@ -158,8 +158,8 @@ cho phép đọc không gian làm việc. Các bước suy luận dựa trên ma
 + Người dùng `111` có vai trò `owner` trong không gian làm việc `111` thông qua
   chính sách g. Ta có thể xác định rằng `g(user:111, owner, workspace:111)` là
   true.
-+ Đối tượng `workspace` cũng chứa trong `workspace` _(`workspace` #sym.subset.eq
-  `workspace`)_ thông qua chính sách g2. Ta có thể xác định rằng
++ Đối tượng `workspace` cũng chứa trong `workspace` _($"workspace" subset.eq
+  "workspace"$)_ thông qua chính sách g2. Ta có thể xác định rằng
   `g2(workspace, workspace)` là true.
 + Hành động `read` phù hợp với chính sách `read` của vai trò `owner` trên không
   gian làm việc. Ta có thể xác định rằng `read == read` là true.
@@ -173,8 +173,8 @@ luận:
 + Người dùng `111` có vai trò `owner` trong không gian làm việc `111` thông qua
   chính sách g. Ta có thể xác định rằng `g(user:111, owner, workspace:111)` là
   true.
-+ Đối tượng `note` chứa trong `workspace_item` _(`note` #sym.subset.eq
-  `workspace_item`)_ thông qua chính sách g2 Ta có thể xác định rằng
++ Đối tượng `note` chứa trong `workspace_item` _($"note" subset.eq
+  "workspace_item"$)_ thông qua chính sách g2 Ta có thể xác định rằng
   `g2(note, workspace_item)` là true.
 + Hành động `write` phù hợp với chính sách `write` của vai trò `owner` trên các
   mục trong không làm việc. Ta có thể xác định rằng `write == write` là true.
@@ -188,8 +188,8 @@ luận:
 + Người dùng `112` có vai trò `editor` trong không gian làm việc `111` thông qua
   chính sách g. Ta có thể xác định rằng `g(user:112, editor, workspace:111)` là
   true.
-+ Đối tượng `workspace` cũng chứa trong `workspace` _(`workspace` #sym.subset.eq
-  `workspace`)_ thông qua chính sách g2. Ta có thể xác định rằng
++ Đối tượng `workspace` cũng chứa trong `workspace` _($"workspace" subset.eq
+  "workspace"$)_ thông qua chính sách g2. Ta có thể xác định rằng
   `g2(workspace, workspace)` là true.
 + Hành động `delete` không phù hợp với chính sách `delete` của vai trò `editor`
   trên không gian làm việc. Ta có thể xác định rằng `delete == delete` là true,

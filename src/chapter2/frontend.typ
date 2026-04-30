@@ -33,7 +33,7 @@ Server-Side Rendering (SSR), Static Site Generation (SSG), Incremental Static
 Regeneration (ISR), và API routes tích hợp. Next.js giúp tối ưu hiệu suất và SEO
 mà không cần setup phức tạp.
 
-=== Redux Toolkit - State Management
+=== Redux Toolkit
 
 Redux Toolkit là state management library cho React @redux_toolkit, cung cấp một
 cách đơn giản để quản lý application state. Redux Toolkit giảm boilerplate của
