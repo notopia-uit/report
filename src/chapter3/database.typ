@@ -13,73 +13,83 @@ bảng chính và mối quan hệ giữa chúng.
   caption: [Sơ đồ cơ sở dữ liệu cho `note` service],
 )
 
-==== Bảng Workspaces
+==== Bảng workspaces
 
 #figure(
   db-table(
-    column("id", "UUID", "Mã định danh duy nhất của workspace", key: "PK"),
-    column("slug", "TEXT", "URL-friendly slug của workspace", key: "UQ"),
-    column("name", "TEXT", "Tên của workspace"),
-    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
-    column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
     column(
-      "deleted_at",
-      "TIMESTAMPTZ",
-      "Thời gian xóa (soft delete, Nullable)",
+      [`id`],
+      [`UUID`],
+      [Mã định danh duy nhất của workspace],
+      key: [`PK`],
+    ),
+    column([`slug`], [`TEXT`], [URL-friendly slug của workspace], key: [`UQ`]),
+    column([`name`], [`TEXT`], [Tên của workspace]),
+    column([`created_at`], [`TIMESTAMPTZ`], [Thời gian tạo]),
+    column([`updated_at`], [`TIMESTAMPTZ`], [Thời gian cập nhật gần nhất]),
+    column(
+      [`deleted_at`],
+      [`TIMESTAMPTZ`],
+      [`Thời gian xóa (soft delete, Nullable)`],
     ),
   ),
-  caption: [Bảng Workspaces - Các không gian làm việc - Note Service],
+  caption: [Bảng workspaces - Các không gian làm việc - `note` service],
 )
 
-==== Bảng Folders
+==== Bảng folders
 
 #figure(
   db-table(
-    column("id", "UUID", "Mã định danh duy nhất của folder", key: "PK"),
-    column("name", "TEXT", "Tên của folder (Nullable)"),
-    column("icon", "TEXT", "Icon của folder (Nullable)"),
-    column("workspace_id", "UUID", "ID workspace chứa folder này", key: "FK"),
+    column([`id`], [`UUID`], [Mã định danh duy nhất của folder], key: [`PK`]),
+    column([`name`], [`TEXT`], [Tên của folder (Nullable)]),
+    column([`icon`], [`TEXT`], [Icon của folder (Nullable)]),
     column(
-      "parent_id",
-      "UUID",
-      "ID folder cha (for nested structure) (Nullable)",
-      key: "FK",
+      [`workspace_id`],
+      [`UUID`],
+      [ID workspace chứa folder này],
+      key: [`FK`],
     ),
-    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
-    column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
-    column("trashed_by", "ENUM", "Loại xóa (purpose | parent, Nullable)"),
-    column("trashed_at", "TIMESTAMPTZ", "Thời gian xóa (Nullable)"),
+    column(
+      [`parent_id`],
+      [`UUID`],
+      [ID folder cha _(nested structure)_ _(Nullable)_],
+      key: [`FK`],
+    ),
+    column([`created_at`], [`TIMESTAMPTZ`], [Thời gian tạo]),
+    column([`updated_at`], [`TIMESTAMPTZ`], [Thời gian cập nhật gần nhất]),
+    column([`trashed_by`], [`ENUM`], [Loại xóa _(purpose|parent, Nullable)_]),
+    column([`trashed_at`], [`TIMESTAMPTZ`], [Thời gian xóa _(Nullable)_]),
   ),
-  caption: [Bảng Folders - Các thư mục của một không gian làm việc - Note
-    Service],
+  caption: [Bảng folders - Các thư mục của một không gian làm việc - `note`
+    service],
 )
 
-==== Bảng Notes
+==== Bảng notes
 
 #figure(
   db-table(
-    column("id", "UUID", "Mã định danh duy nhất của ghi chú", key: "PK"),
-    column("name", "TEXT", "Tên của ghi chú"),
-    column("icon", "TEXT", "Icon của ghi chú (Nullable)"),
-    column("folder_id", "UUID", "ID folder chứa ghi chú này", key: "FK"),
-    column("tags", "TEXT[]", "Danh sách tag của ghi chú (Nullable)"),
-    column("size", "INTEGER", "Kích thước của ghi chú (bytes)"),
-    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
-    column("updated_at", "TIMESTAMPTZ", "Thời gian cập nhật gần nhất"),
-    column("trashed_by", "ENUM", "Loại xóa (purpose | parent, Nullable)"),
-    column("trashed_at", "TIMESTAMPTZ", "Thời gian xóa (Nullable)"),
+    column([`id`], [`UUID`], [Mã định danh duy nhất của ghi chú], key: [`PK`]),
+    column([`name`], [`TEXT`], [Tên của ghi chú]),
+    column([`icon`], [`TEXT`], [Icon của ghi chú (Nullable)]),
+    column([`folder_id`], [`UUID`], [ID folder chứa ghi chú này], key: [`FK`]),
+    column([`tags`], [`TEXT[]`], [Danh sách tag của ghi chú _(Nullable)_]),
+    column([`size`], [`INTEGER`], [Kích thước của ghi chú (bytes)]),
+    column([`created_at`], [`TIMESTAMPTZ`], [Thời gian tạo]),
+    column([`updated_at`], [`TIMESTAMPTZ`], [Thời gian cập nhật gần nhất]),
+    column([`trashed_by`], [`ENUM`], [Loại xóa _(purpose|parent, Nullable)_]),
+    column([`trashed_at`], [`TIMESTAMPTZ`], [Thời gian xóa _(Nullable)_]),
   ),
-  caption: [Bảng Notes - Các ghi chú - Note Service],
+  caption: [Bảng notes - Các ghi chú - `note` service],
 )
 
-==== Bảng Note Links
+==== Bảng note_links
 
 #figure(
   db-table(
-    column("source_id", "UUID", "ID ghi chú nguồn", key: "PK, FK"),
-    column("target_id", "UUID", "ID ghi chú đích", key: "PK, FK"),
+    column([`source_id`], [`UUID`], [ID ghi chú nguồn], key: [`PK`, `FK`]),
+    column([`target_id`], [`UUID`], [ID ghi chú đích], key: [`PK`, `FK`]),
   ),
-  caption: [Bảng Note Links - Mối quan hệ giữa các ghi chú - Note Service],
+  caption: [Bảng note_links - Mối quan hệ giữa các ghi chú - `note` service],
 )
 
 === Cơ sở dữ liệu cho Document Service
@@ -89,42 +99,42 @@ bảng chính và mối quan hệ giữa chúng.
   caption: [Sơ đồ cơ sở dữ liệu cho `document` service],
 )
 
-==== Bảng Documents
+==== Bảng documents
 
 #figure(
   db-table(
-    column("id", "UUID", "Mã định danh duy nhất của document", key: "PK"),
-    column("data", "BYTEA", "Dữ liệu nhị phân yjs của document"),
-    column("modified", "BOOLEAN", "Trạng thái đã được chỉnh sửa hay chưa"),
+    column([`id`], [`UUID`], [Mã định danh duy nhất của document], key: [`PK`]),
+    column([`data`], [`BYTEA`], [Dữ liệu nhị phân yjs #footnote[Dành cho việc
+        lưu trữ và truy xuất bởi Hocuspocus]]),
+    column([`modified`], [`BOOLEAN`], [Trạng thái đã được chỉnh sửa hay chưa]),
   ),
-  caption: [Bảng Documents - Lưu trữ các tài liệu - Document Service],
+  caption: [Bảng documents - Lưu trữ các tài liệu - `document` service],
 )
 
 ==== Bảng Revisions
 
 #figure(
   db-table(
-    column("id", "UUID", "Mã định danh duy nhất của revision", key: "PK"),
-    column("name", "TEXT", "Tên của revision (Nullable)"),
-    column("data", "JSON", "Dữ liệu blocknote của revision"),
+    column([`id`], [`UUID`], [Mã định danh duy nhất của revision], key: [`PK`]),
+    column([`name`], [`TEXT`], [Tên của revision _(Nullable)_]),
+    column([`data`], [`JSON`], [Dữ liệu BlockNote]),
     column(
-      "document_id",
-      "UUID",
-      "ID document liên kết với revision",
-      key: "FK",
+      [`document_id`],
+      [`UUID`],
+      [ID document liên kết với revision],
+      key: [`FK`],
     ),
-    column("created_at", "TIMESTAMPTZ", "Thời gian tạo"),
-    column("deleted_at", "TIMESTAMPTZ", "Thời gian xóa (Nullable)"),
+    column([`created_at`], [`TIMESTAMPTZ`], [Thời gian tạo]),
+    column([`deleted_at`], [`TIMESTAMPTZ`], [Thời gian xóa _(Nullable)_]),
   ),
-  caption: [Bảng Revisions - Lưu trữ các phiên bản của tài liệu - Document
-    Service],
+  caption: [Bảng revisions - Lưu trữ các phiên bản của tài liệu - `document`
+    service],
 )
 
 === Cơ sở dữ liệu cho Authorization Service
 
 Vì tính đặc thù của thư viện Casbin, bảng dữ liệu của service này không thuộc
-phạm vi quản lý của hệ thống, mà sẽ được Casbin tự động tạo ra và quản lý dựa
-trên cấu hình của nó.
+phạm vi quản lý của hệ thống, mà sẽ được Casbin tự động tạo ra và quản lý.
 
 #figure(
   image(
@@ -134,19 +144,19 @@ trên cấu hình của nó.
   caption: [Sơ đồ cơ sở dữ liệu cho `authorization` service],
 )
 
-==== Bảng Casbin Rules
+==== Bảng casbin_rules
 
 #figure(
   db-table(
-    column("id", "UUID", "Mã định danh duy nhất của rule", key: "PK"),
-    column("ptype", "TEXT", "Loại rule (p, g, ...)"),
-    column("v0", "TEXT", "Trường dữ liệu 0"),
-    column("v1", "TEXT", "Trường dữ liệu 1"),
-    column("v2", "TEXT", "Trường dữ liệu 2"),
-    column("v3", "TEXT", "Trường dữ liệu 3 (Nullable)"),
-    column("v4", "TEXT", "Trường dữ liệu 4 (Nullable)"),
-    column("v5", "TEXT", "Trường dữ liệu 5 (Nullable)"),
+    column([`id`], [`UUID`], [Mã định danh duy nhất của rule], key: [`PK`]),
+    column([`ptype`], [`TEXT`], [Loại rule _(p, g, g2, v.v...)_]),
+    column([`v0`], [`TEXT`], [Trường dữ liệu 0]),
+    column([`v1`], [`TEXT`], [Trường dữ liệu 1]),
+    column([`v2`], [`TEXT`], [Trường dữ liệu 2]),
+    column([`v3`], [`TEXT`], [Trường dữ liệu 3 _(Nullable)_]),
+    column([`v4`], [`TEXT`], [Trường dữ liệu 4 _(Nullable)_]),
+    column([`v5`], [`TEXT`], [Trường dữ liệu 5 _(Nullable)_]),
   ),
-  caption: [Bảng Casbin Rules - Lưu trữ các quy tắc phân quyền - Authorization
-    Service],
+  caption: [Bảng casbin_rules - Lưu trữ các quy tắc phân quyền - `authorization`
+    service],
 )

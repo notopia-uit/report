@@ -1,11 +1,11 @@
-== Mô hình casbin trong hệ thống
+== Mô hình Casbin trong hệ thống
 
 Casbin hỗ trợ biểu diễn nhiều mô hình kiểm soát truy cập khác nhau, chi tiết xem
 tại @general-for-casbin. Trong đó, hệ thống tập trung sử dụng mô hình RBAC để
 quản lý quyền truy cập dựa trên vai trò _(role)_ của người dùng, trong mỗi không
-gian làm việc _(workspace)_. Đối với Casbin, workspace được xem như một domain.
+gian làm việc. Đối với Casbin, workspace được xem như một domain.
 
-=== Model Casbin trong hệ thống
+=== Mô hình Casbin trong hệ thống
 
 #figure(
   [
@@ -34,13 +34,14 @@ gian làm việc _(workspace)_. Đối với Casbin, workspace được xem như
 
 Trong đó, các phần được định nghĩa như sau:
 - `request_definition` định nghĩa cấu trúc của một yêu cầu truy cập, bao gồm
-  người dùng (sub), không gian làm việc (dom), đối tượng (obj) và hành động
-  (act)
+  người dùng _(sub)_, không gian làm việc _(dom)_, đối tượng _(obj)_ và hành
+  động
+  _(act)_
 - `policy_definition` định nghĩa cấu trúc của một chính sách, bao gồm vai trò
-  (sub), đối tượng (obj) và hành động (act)
+  _(sub)_, đối tượng _(obj)_ và hành động _(act)_
 - `role_definition` định nghĩa cách thức xác định vai trò của người dùng trong
-  một không gian làm việc (g) và cách thức xác định mối quan hệ giữa đối tượng
-  và chính sách (g2)
+  một không gian làm việc _(g)_ và cách thức xác định mối quan hệ giữa đối tượng
+  và chính sách _(g2)_
 - `policy_effect` định nghĩa hiệu ứng của chính sách, trong trường hợp này là
   cho phép truy cập nếu có ít nhất một chính sách cho phép
 - `matchers` định nghĩa cách thức so khớp giữa yêu cầu truy cập và chính sách,
@@ -48,7 +49,7 @@ Trong đó, các phần được định nghĩa như sau:
   không gian làm việc, đối tượng phù hợp với chính sách và hành động phù hợp với
   chính sách
 
-=== Policy Casbin trong hệ thống
+=== Chính sách Casbin trong hệ thống
 
 #figure(
   [
@@ -88,8 +89,8 @@ Trong đó, các chính sách được định nghĩa như sau:
 
 ==== Mẫu minh hoạ yêu cầu truy cập và so khớp chính sách
 
-Giả sử ta có ba người dùng: 110, 111 và 112, với các vai trò và quyền truy cập
-như sau:
+Giả sử ta có ba người dùng: `110`, `111` và `112`, với các vai trò và quyền truy
+cập như sau:
 
 #figure(
   [
@@ -109,11 +110,11 @@ như sau:
 )
 
 Trong đó:
-- Người dùng 111 là chủ sở hữu (owner) của không gian làm việc 111
-- Người dùng 112 là biên tập viên (editor) của không gian làm việc 111 và chủ sở
-  hữu của không gian làm việc 112
-- Người dùng 110 là người xem (viewer) của không gian làm việc 111 và chủ sở hữu
-  của không gian làm việc 110
+- Người dùng `111` là chủ sở hữu _(owner)_ của không gian làm việc `111`
+- Người dùng `112` là biên tập viên _(editor)_ của không gian làm việc `111` và
+  chủ sở hữu của không gian làm việc `112`
+- Người dùng `110` là người xem _(viewer)_ của không gian làm việc `111` và chủ
+  sở hữu của không gian làm việc `110`
 
 #figure(
   [
@@ -148,14 +149,51 @@ Trong đó:
   ],
 )
 
-Giải thích:
-- Yêu cầu truy cập đầu tiên: Người dùng 111 yêu cầu đọc không gian làm việc 111.
-  Kết quả là true vì người dùng 111 có vai trò owner trong không làm việc 111 và
-  có chính sách cho phép đọc không gian làm việc.
-- Yêu cầu truy cập thứ hai: Người dùng 111 yêu cầu viết vào note trong không
-  gian làm việc 111. Kết quả là true vì người dùng 111 có vai trò owner trong
-  không gian làm việc 111 và có chính sách cho phép viết vào các mục trong không
-  làm việc.
+==== Giải thích cho yêu cầu truy cập đầu tiên
+
+Người dùng `111` yêu cầu đọc không gian làm việc `111`. Kết quả là true vì người
+dùng `111` có vai trò `owner` trong không gian làm việc `111` và có chính sách
+cho phép đọc không gian làm việc. Các bước suy luận dựa trên matcher `m`:
++ Người dùng `111` có vai trò `owner` trong không gian làm việc `111` thông qua
+  chính sách g. Ta có thể xác định rằng `g(user:111, owner, workspace:111)` là
+  true.
++ Đối tượng `workspace` cũng chứa trong `workspace` _(`workspace` #sym.subset.eq
+  `workspace`)_ thông qua chính sách g2. Ta có thể xác định rằng
+  `g2(workspace, workspace)` là true.
++ Hành động `read` phù hợp với chính sách `read` của vai trò `owner` trên không
+  gian làm việc. Ta có thể xác định rằng `read == read` là true.
+
+==== Giải thích cho yêu cầu truy cập thứ hai
+
+Người dùng `111` yêu cầu viết vào note trong không gian làm việc `111`. Kết quả
+là true vì người dùng `111` có vai trò `owner` trong không gian làm việc `111`
+và có chính sách cho phép viết vào các mục trong không làm việc. Các bước suy
+luận:
++ Người dùng `111` có vai trò `owner` trong không gian làm việc `111` thông qua
+  chính sách g. Ta có thể xác định rằng `g(user:111, owner, workspace:111)` là
+  true.
++ Đối tượng `note` chứa trong `workspace_item` _(`note` #sym.subset.eq
+  `workspace_item`)_ thông qua chính sách g2 Ta có thể xác định rằng
+  `g2(note, workspace_item)` là true.
++ Hành động `write` phù hợp với chính sách `write` của vai trò `owner` trên các
+  mục trong không làm việc. Ta có thể xác định rằng `write == write` là true.
+
+==== Giải thích cho yêu cầu truy cập thứ ba
+
+Người dùng `112` yêu cầu xóa không gian làm việc `111`. Kết quả là false vì
+người dùng `112` chỉ có vai trò `editor` trong không gian làm việc `111` và
+không có chính sách nào cho phép `editor` xóa không gian làm việc. Các bước suy
+luận:
++ Người dùng `112` có vai trò `editor` trong không gian làm việc `111` thông qua
+  chính sách g. Ta có thể xác định rằng `g(user:112, editor, workspace:111)` là
+  true.
++ Đối tượng `workspace` cũng chứa trong `workspace` _(`workspace` #sym.subset.eq
+  `workspace`)_ thông qua chính sách g2. Ta có thể xác định rằng
+  `g2(workspace, workspace)` là true.
++ Hành động `delete` không phù hợp với chính sách `delete` của vai trò `editor`
+  trên không gian làm việc. Ta có thể xác định rằng `delete == delete` là true,
+  nhưng vì không có chính sách nào cho phép `editor` xóa không gian làm việc,
+  nên yêu cầu truy cập này bị từ chối.
 
 Tương tự, các yêu cầu truy cập khác cũng được đánh giá dựa trên vai trò của
 người dùng trong không gian làm việc và các chính sách đã định nghĩa. Kết quả

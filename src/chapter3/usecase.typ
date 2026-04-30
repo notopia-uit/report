@@ -37,9 +37,9 @@ dịch vụ.
       + Hệ thống publish domain event `NoteCreatedEvent` tới Message Broker
       + Hệ thống chuyển đổi domain event thành workspace event và publish
       + Hệ thống publish integration event `NoteCreatedEvent` tới Message Broker
-      + Search Worker nhận integration event và xử lý
-      + Search Worker gửi yêu cầu Index Note đến Search Service
-      + Search Service nhận yêu cầu Index Note và tiến hành indexing ghi chú mới
+      + `search-worker` nhận integration event và xử lý
+      + `search-worker` gửi yêu cầu Index Note đến Search service
+      + Search service nhận yêu cầu Index Note và tiến hành indexing ghi chú mới
     ],
     alternate-flow: [
       + Bước 6: Hệ thống gặp lỗi khi gửi domain event `NoteCreatedEvent`
@@ -48,10 +48,10 @@ dịch vụ.
         + Hệ thống ghi log lỗi và bỏ qua việc publish workspace event
       + Bước 8: Hệ thống gặp lỗi khi publish integration event
         + Hệ thống tự động retry publish integration event
-      + Bước 9: Search Worker gặp lỗi khi xử lý `NoteCreatedEvent`
-        + Search Worker ghi log lỗi và bỏ qua event
-      + Bước 10: Search Service gặp lỗi khi indexing ghi chú mới
-        + Search Service ghi log lỗi và bỏ qua yêu cầu indexing
+      + Bước 9: `search-worker` gặp lỗi khi xử lý `NoteCreatedEvent`
+        + `search-worker` ghi log lỗi và bỏ qua event
+      + Bước 10: Search service gặp lỗi khi indexing ghi chú mới
+        + Search service ghi log lỗi và bỏ qua yêu cầu indexing
     ],
     exception-flow: [
       + Bước 4: Người dùng không có quyền tạo ghi chú trong workspace hiện tại
@@ -88,36 +88,41 @@ dịch vụ.
     ],
     post-conditions: [
       - Người dùng nhận được thông tin ghi chú
-      - Nếu chọn chỉnh sửa, kết nối Hocuspocus được thiết lập
+      - Kết nối Hocuspocus được thiết lập để xem và _(tùy chọn)_ chỉnh sửa ghi
+        chú
     ],
     basic-flow: [
       + Người dùng chọn ghi chú cần xem
-      + Hệ thống lấy thông tin ghi chú từ Note Service
-      + Hệ thống kiểm tra quyền xem ghi chú với Authorization Service
+      + Hệ thống lấy thông tin ghi chú từ `note` service
+      + Hệ thống kiểm tra quyền xem ghi chú với `authorization` service
       + Hệ thống trả về thông tin ghi chú cho người dùng
-      + Người dùng chọn chế độ chỉnh sửa
-      + Người dùng yêu cầu kết nối WsDocument thông qua Document Service
-      + Document Service kiểm tra bộ nhớ nội bộ trước
-      + Nếu tài liệu chưa tồn tại trong bộ nhớ nội bộ, Document Service kiểm tra
-        với Note Service
-      + Nếu ghi chú tồn tại, Document Service khởi tạo tài liệu và lưu vào bộ
+      + Hệ thống thiết lập kết nối Hocuspocus để xem nội dung ghi chú
+      + Nếu người dùng chọn chỉnh sửa, Hệ thống sẽ giữ kết nối và cho phép gửi
+        các thao tác chỉnh sửa
+      + `document` service kiểm tra bộ nhớ nội bộ trước
+      + Nếu tài liệu chưa tồn tại trong bộ nhớ nội bộ, `document` service kiểm
+        tra với `note` service
+      + Nếu ghi chú tồn tại, `document` service khởi tạo tài liệu và lưu vào bộ
         nhớ nội bộ
-      + Document Service trả về kết nối Hocuspocus cho người dùng
-      + Người dùng thực hiện các thao tác chỉnh sửa, Document Service lưu thay
-        đổi và phát sóng cho các client khác
+      + `document` service trả về kết nối Hocuspocus cho người dùng
+      + Nếu có thao tác chỉnh sửa, `document` service lưu thay đổi và phát sóng
+        cho các client khác
     ],
     alternate-flow: [
-      + Bước 7-8: Tài liệu đã tồn tại trong bộ nhớ nội bộ của Document Service
-        + Document Service bỏ qua bước kiểm tra với Note Service
-        + Document Service trả về kết nối Hocuspocus trực tiếp
-      + Bước 11: Lỗi khi lưu thay đổi tài liệu trong quá trình debounce
-        + Document Service ghi log lỗi và thử lại sau thời gian debounce
+      + Bước 8-9: Tài liệu đã tồn tại trong bộ nhớ nội bộ của `document` service
+        + `document` service bỏ qua bước kiểm tra với `note` service
+        + `document` service trả về kết nối Hocuspokus trực tiếp
+      + Bước 12: Người dùng không chọn chỉnh sửa _(chỉ xem)_
+        + Kết nối Hocuspoccus duy trì ở chế độ xem
+        + Không có thao tác chỉnh sửa nào được thực hiện
+      + Bước 13: Lỗi khi lưu thay đổi tài liệu trong quá trình debounce
+        + `document` service ghi log lỗi và thử lại sau thời gian debounce
     ],
     exception-flow: [
       + Bước 4: Người dùng không có quyền xem ghi chú
         + Hệ thống trả về lỗi `forbidden`
         + Use case dừng lại
-      + Bước 9: Ghi chú không tồn tại trong Note Service
+      + Bước 9: Ghi chú không tồn tại trong `note` service
         + Hệ thống trả về lỗi `noteNotFound`
         + Use case dừng lại
     ],
@@ -143,7 +148,8 @@ dịch vụ.
     trigger: [Người dùng chọn lưu tài liệu để cập nhật],
     pre-conditions: [
       - Người dùng đã đăng nhập vào hệ thống
-      - Người dùng có quyền chỉnh sửa tài liệu trong workspace hiện tại
+      - Người dùng có quyền chỉnh sửa tài liệu trong không gian làm việc hiện
+        tại
       - Tài liệu đã tồn tại trong hệ thống
     ],
     post-conditions: [
@@ -153,19 +159,19 @@ dịch vụ.
     ],
     basic-flow: [
       + Người dùng chọn hành động "Commit Document" trên giao diện
-      + Document Service tạo phiên bản lưu trữ mới của tài liệu
-      + Document Service publish integration event `DocumentCommittedEvent` vào
-        Message Broker
-      + Message Broker phân phối event cho Note Service và Search Worker
-      + Note Service nhận event và cập nhật các thông tin như size, tags
-      + Search Worker nhận event và chuyển đổi thành markdownContent, tags
-      + Search Service nhận yêu cầu index lại ghi chú và thực hiện indexing
+      + `document` service tạo phiên bản lưu trữ mới của tài liệu
+      + `document` service publish integration event `DocumentCommittedEvent`
+        vào Message Broker
+      + Message Broker phân phối event cho `note` service và `search-worker`
+      + `note` service nhận event và cập nhật các thông tin như size, tags
+      + `search-worker` nhận event và chuyển đổi thành markdownContent, tags
+      + Search service nhận yêu cầu index lại ghi chú và thực hiện indexing
       + Các thay đổi được đăng báo lại cho các client thông qua Hocuspocus
     ],
     alternate-flow: [
       + Bước 4: Lỗi khi tạo revision mới của tài liệu
         + Hệ thống ghi log và thông báo lỗi cho người dùng
-      + Bước 6: Dữ liệu blocknote không đúng với schema
+      + Bước 6: Dữ liệu BlockNote không đúng với schema
         + Hệ thống discard event và ghi log lỗi
     ],
     exception-flow: [
@@ -196,31 +202,31 @@ dịch vụ.
     trigger: [Người dùng chỉnh sửa và lưu thay đổi thông tin ghi chú],
     pre-conditions: [
       - Người dùng đã đăng nhập vào hệ thống
-      - Người dùng có quyền chỉnh sửa ghi chú trong workspace hiện tại
+      - Người dùng có quyền chỉnh sửa ghi chú trong không gian làm việc hiện tại
       - Ghi chú tồn tại trong hệ thống
     ],
     post-conditions: [
       - Thông tin ghi chú được cập nhật thành công
-      - NoteUpdatedEvent được publish tới các dịch vụ khác
+      - `NoteUpdatedEvent` được publish tới các dịch vụ khác
     ],
     basic-flow: [
       + Người dùng chỉnh sửa thông tin ghi chú và chọn lưu
-      + Hệ thống kiểm tra quyền chỉnh sửa ghi chú với Authorization Service
-      + Hệ thống cập nhật thông tin ghi chú trong Note Service
+      + Hệ thống kiểm tra quyền chỉnh sửa ghi chú với `authorization` service
+      + Hệ thống cập nhật thông tin ghi chú trong `note` service
       + Hệ thống trả về kết quả thành công cho người dùng
-      + Hệ thống publish NoteUpdatedEvent tới Message Broker (có retry nếu chưa
-        published)
-      + Search Worker nhận NoteUpdatedEvent và xử lý
-      + Search Service nhận yêu cầu Index Note và thực hiện indexing
+      + Hệ thống publish `NoteUpdatedEvent` tới Message Broker (có retry nếu
+        chưa published)
+      + `search-worker` nhận `NoteUpdatedEvent` và xử lý
+      + Search service nhận yêu cầu Index Note và thực hiện indexing
     ],
     alternate-flow: [
       + Bước 3: Hệ thống gặp lỗi kiểm tra quyền
         + Ghi log lỗi và trả về thông báo cho người dùng
-      + Bước 5: Chưa published được NoteUpdatedEvent
+      + Bước 5: Chưa published được `NoteUpdatedEvent`
         + Hệ thống tự động retry cho đến khi thành công
-      + Bước 7: Lỗi khi xử lý NoteUpdatedEvent ở Search Worker
+      + Bước 7: Lỗi khi xử lý `NoteUpdatedEvent` ở `search-worker`
         + Ghi log và bỏ qua event này
-      + Bước 8: Lỗi khi indexing ở Search Service
+      + Bước 8: Lỗi khi indexing ở Search service
         + Ghi log và thử lại sau debounce
     ],
     exception-flow: [
