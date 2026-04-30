@@ -147,6 +147,7 @@ Trong đó:
       ],
     )
   ],
+  caption: [Mẫu minh hoạ yêu cầu truy cập và kết quả so khớp chính sách],
 )
 
 ==== Giải thích cho yêu cầu truy cập đầu tiên
