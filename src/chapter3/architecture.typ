@@ -83,11 +83,12 @@ khi thực hiện các hành động liên quan đến thư mục, ghi chú.
 
 ==== Document Service
 
-Document Service _(`document` service)_, viết bằng Typescript và NestJS, chịu
-trách nhiệm quản lý nội dung của các ghi chú, bao gồm lưu trữ và truy xuất dữ
-liệu. Nó cung cấp API để Web App có thể tương tác với nội dung ghi chú, tích hợp
-với Object Storage để lưu trữ các tệp liên quan, và sử dụng Hocuspocus
-_(@general-for-yjs)_ để hỗ trợ cộng tác thời gian thực trên nội dung ghi chú.
+Document Service _(`document` service)_, viết bằng Typescript và NestJS
+framework, chịu trách nhiệm quản lý nội dung của các ghi chú, bao gồm lưu trữ và
+truy xuất dữ liệu. Nó cung cấp API để Web App có thể tương tác với nội dung ghi
+chú, tích hợp với Object Storage để lưu trữ các tệp liên quan, và sử dụng
+Hocuspocus _(@general-for-yjs)_ để hỗ trợ cộng tác thời gian thực trên nội dung
+ghi chú.
 
 ==== Authorization Service
 
@@ -101,9 +102,9 @@ liên quan đến thư mục, ghi chú.
 
 Identity Provider chịu trách nhiệm xác thực người dùng và quản lý thông tin tài
 khoản. Hệ thống sử dụng Authentik _(@general-for-authentik)_ là giải pháp xác
-thực, cung cấp các tính năng như đăng nhập một lần (SSO), quản lý người dùng, và
-hỗ trợ nhiều phương thức xác thực. Hệ thống sử dụng OpenID Connect (OIDC) để
-tích hợp giữa Gateway, Web App với Identity Provider, giúp đơn giản hóa quá
+thực, cung cấp các tính năng như đăng nhập một lần _(SSO)_, quản lý người dùng,
+và hỗ trợ nhiều phương thức xác thực. Hệ thống sử dụng OpenID Connect _(OIDC)_
+để tích hợp giữa Gateway, Web App với Identity Provider, giúp đơn giản hóa quá
 trình xác thực và quản lý người dùng.
 
 ==== Object Storage
@@ -131,11 +132,11 @@ suất cao, tương thích với Kafka API, giúp dễ dàng tích hợp với c
 
 Monitoring là thành phần quan trọng để giám sát hiệu suất và trạng thái của hệ
 thống. Hệ thống sử dụng Grafana Stack và Prometheus
-_(@general-for-observability)_ để thu thập và hiển thị các chỉ số về hiệu
+_(@general-for-observability)_ để thu thập và hiển thị các chỉ số về hiệu suất.
 
 === Kiến trúc `note` service
 
-`note` service là thành phần trung tâm trong hệ thống, chịu trách nhiệm quản lý
+Là thành phần trung tâm trong hệ thống, `note` service chịu trách nhiệm quản lý
 metadata và logic liên quan đến ghi chú. Dịch vụ này được thiết kế theo kiến
 trúc Clean Architecture, Domain Driven Design, và Event-Driven Architecture để
 đảm bảo tính modular, dễ bảo trì, và khả năng mở rộng trong tương lai
@@ -146,7 +147,7 @@ service.
 
 #figure(
   image("../assets/sync-diagrams/architecture-note-diagram.svg"),
-  caption: [Kiến trúc chi tiết của `note` service],
+  caption: [Kiến trúc của `note` service],
 )
 
 === Kiến trúc `document` service
@@ -157,27 +158,27 @@ tả đến cấp độ module.
 
 #figure(
   image("../assets/sync-diagrams/architecture-document-diagram.svg"),
-  caption: [Kiến trúc chi tiết của `document` service],
+  caption: [Kiến trúc của `document` service],
 )
 
 === Kiến trúc `authorization` service
 
 `authorization` service được thiết kế theo kiến trúc Layered Architecture, với
-tầng logic không phân tách rõ vì sự đặc thù của thư viện Casbin. Dưới đây là sơ
-đồ kiến trúc chi tiết của `authorization` service.
+tầng logic không phân tách rõ vì tính đặc thù của thư viện Casbin. Dưới đây là
+sơ đồ kiến trúc của `authorization` service.
 
 #figure(
   image("../assets/sync-diagrams/architecture-authorization-diagram.svg"),
-  caption: [Kiến trúc chi tiết của `authorization` service],
+  caption: [Kiến trúc của `authorization` service],
 )
 
 === Kiến trúc `search-worker` worker
 
 `search-worker` worker được thiết kế theo kiến trúc đơn giản, sử dụng trên 1
 module chính của NestJS, không chia thành nhiều module nhỏ. Dưới đây là sơ đồ
-kiến trúc chi tiết của `search-worker` worker.
+kiến trúc của `search-worker` worker.
 
 #figure(
   image("../assets/sync-diagrams/architecture-search-worker-diagram.svg"),
-  caption: [Kiến trúc chi tiết của `search-worker` worker],
+  caption: [Kiến trúc của `search-worker` worker],
 )

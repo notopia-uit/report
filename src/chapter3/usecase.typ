@@ -23,7 +23,7 @@ dịch vụ.
     pre-conditions: [
       - Người dùng sử dụng thiết bị có kết nối internet
       - Người dùng đã đăng nhập vào hệ thống
-      - Người dùng có quyền tạo ghi chú trong workspace hiện tại
+      - Người dùng có quyền tạo ghi chú trong không gian làm việc hiện tại
     ],
     post-conditions: [
       - Người dùng tạo ghi chú thành công
@@ -31,7 +31,7 @@ dịch vụ.
     basic-flow: [
       + Người dùng truy cập vào hệ thống
       + Người dùng chọn nút "Tạo ghi chú mới" được hiển thị
-      + Người dùng nhập vào các trường thông tin của ghi chú (tiêu đề,...)
+      + Người dùng nhập vào các trường thông tin của ghi chú _(tiêu đề, v.v...)_
       + Hệ thống kiểm tra quyền của người dùng để tạo ghi chú
       + Hệ thống tạo ghi chú mới và trả về ID của ghi chú
       + Hệ thống publish domain event `NoteCreatedEvent` tới Message Broker
@@ -65,17 +65,17 @@ dịch vụ.
   caption: [Mô tả chi tiết use case UC01 - Create Note],
 )
 
-=== Mô tả use case Get Node
+=== Mô tả use case Get Note
 
 #figure(
-  image("../assets/diagrams/get-node-seq.svg"),
-  caption: [Sequence diagram mô tả get node use case],
+  image("../assets/diagrams/get-note-seq.svg", height: 90%),
+  caption: [Sequence diagram mô tả get note use case],
 )
 
 #usecase-figure(
   usecase(
     id: [UC02],
-    name: [Get Node],
+    name: [Get Note],
     description: [Use case này mô tả quy trình lấy nội dung ghi chú và chuyển
       sang chế độ chỉnh sửa],
     actors: [User],
@@ -84,7 +84,7 @@ dịch vụ.
     pre-conditions: [
       - Người dùng sử dụng thiết bị có kết nối internet
       - Người dùng đã đăng nhập vào hệ thống
-      - Người dùng có quyền xem ghi chú trong workspace hiện tại
+      - Người dùng có quyền xem ghi chú trong không gian làm việc hiện tại
     ],
     post-conditions: [
       - Người dùng nhận được thông tin ghi chú
@@ -122,7 +122,7 @@ dịch vụ.
         + Use case dừng lại
     ],
   ),
-  caption: [Mô tả chi tiết use case UC02 - Get Node],
+  caption: [Mô tả chi tiết use case UC02 - Get Note],
 )
 
 === Mô tả use case Commit Document

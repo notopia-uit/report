@@ -30,7 +30,7 @@
     [5],
     [06/04 - 10/05],
     [Phát triển & Tích hợp (Đợt 2)],
-    [Ứng dụng đầy đủ tính năng với Graph View và cộng tác thời gian thực],
+    [Ứng dụng đầy đủ tính năng],
 
     [6],
     [11/05 - 17/05],
