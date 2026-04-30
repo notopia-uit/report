@@ -1,4 +1,4 @@
-== Mô hình BlockNote tuỳ chỉnh trong hệ thống
+== Mô hình BlockNote tuỳ chỉnh trong hệ thống <blocknote-model-in-system>
 
 BlockNote bao gồm nhiều schema nhiều schema, có thể xem tại
 @general-for-blocknote. Tuy nhiên, để có thể liên kết các ghi chú với nhau, cũng

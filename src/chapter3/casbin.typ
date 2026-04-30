@@ -1,4 +1,4 @@
-== Mô hình Casbin trong hệ thống
+== Mô hình Casbin trong hệ thống <casbin-model-in-system>
 
 Casbin hỗ trợ biểu diễn nhiều mô hình kiểm soát truy cập khác nhau, chi tiết xem
 tại @general-for-casbin. Trong đó, hệ thống tập trung sử dụng mô hình RBAC để
