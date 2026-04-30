@@ -29,10 +29,11 @@ thống thông qua các chương sau:
 #theory_reference[
   + @introduction - Giới thiệu về đề tài, mục tiêu nghiên cứu, phạm vi của báo
     cáo, các tính năng, công nghệ được sử dụng trong đề tài.
-  + @theory-basis - Cơ sở lý thuyết liên quan đến quản lý tri thức cá nhân, các
-    công nghệ và phương pháp phát triển phần mềm được sử dụng trong đề tài.
+  + @theory-basis - Cơ sở lý thuyết liên quan, các công nghệ và phương pháp phát
+    triển phần mềm được sử dụng trong đề tài.
   + @architecture - Mô tả kiến trúc hệ thống, các đặc tả use case, API, các
-    thành phần chính của hệ thống, cơ sở dữ liệu.
+    thành phần chính của hệ thống, cơ sở dữ liệu, một số mô hình và logic của hệ
+    thống.
   + @implementation - Trình bày kết quả thực hiện giao diện, chức năng của Web
     App.
   + @conclusion - Kết luận về kết quả đạt được, những thuận lợi, khó khăn, ưu

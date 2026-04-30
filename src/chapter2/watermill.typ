@@ -7,6 +7,11 @@ multiple message routers. Watermill được thiết kế để tạo điều ki
 asynchronous message processing, event streaming, request-response, và reactive
 architectures.
 
+#figure(
+  image("../assets/images/watermill-logo.svg", height: 80pt),
+  caption: [Watermill Logo],
+)
+
 === Watermill Architecture
 
 Watermill cung cấp abstraction trên các message brokers khác nhau, cho phép viết

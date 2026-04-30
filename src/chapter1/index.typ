@@ -27,20 +27,22 @@ hiện đại hỗ trợ liên kết hai chiều #footnote[Liên hai chiều là
 
 Giúp người dùng quản lý tri thức cá nhân trên nền tảng web, trực quan hoá bằng
 biểu đồ quan hệ _(Graph View)_, cộng tác _(collaborate)_ theo thời gian thực.
-Ứng dụng đảm bảo tối thiểu các chức năng của một trình quản lý ghi chú bao gồm
-tạo, sửa, xoá tạm thời, xoá vĩnh viễn, khôi phục ghi chú, tìm kiếm toàn văn.
+Ứng dụng đảm bảo tối thiểu các chức năng của một trình quản lý ghi chú _(note)_
+bao gồm tạo, sửa, xoá tạm thời, xoá vĩnh viễn, khôi phục ghi chú, tìm kiếm toàn
+văn _(full-text search)_, phân quyền truy cập vào không gian làm việc
+_(workspace)_.
 
 === Mục tiêu nghiên cứu
 
-- Nghiên cứu các phương pháp tổ chức ghi chú dạng cấu trúc thư mục
+- Nghiên cứu các phương pháp tổ chức ghi chú dạng cấu trúc thư mục.
 - Nghiên cứu cách thức liên kết các ghi chú với nhau để tạo thành mạng lưới tri
-  thức
-- Tích hợp công nghệ hỗ trợ viết nội dung ghi chú _(sử dụng thư viện ngoài để xử
-  lý các tác vụ, format)_ với cách quản lý các đối tượng trong hệ thống
-- Nghiên cứu cách triển khai cộng tác theo thời gian thực
-- Trực quan hoá các ghi chú bằng biểu đồ quan hệ
-- Định danh, phân quyền người dùng đối với không gian làm việc
-- Thiết kế kiến trúc hệ thống dễ mở rộng, bảo trì và có hiệu suất cao
+  thức.
+- Tích hợp công nghệ hỗ trợ viết nội dung ghi chú _(sử dụng thư viện thứ ba để
+  xử lý các tác vụ liên quan đến định dạng nội dung)_ với cách quản lý các đối
+  tượng trong hệ thống.
+- Nghiên cứu cách triển khai cộng tác theo thời gian thực.
+- Định danh, phân quyền người dùng đối với không gian làm việc.
+- Thiết kế kiến trúc hệ thống dễ mở rộng, bảo trì và có hiệu suất cao.
 
 == Đối tượng và phạm vi nghiên cứu
 
@@ -48,28 +50,36 @@ tạo, sửa, xoá tạm thời, xoá vĩnh viễn, khôi phục ghi chú, tìm 
 
 ==== Đối tượng nghiên cứu về mặt nghiệp vụ
 
-- Hệ thống quản lý tri thức cá nhân (Personal Knowledge Management - PKM):
+- Hệ thống quản lý tri thức cá nhân _(Personal Knowledge Management - PKM)_:
   Nghiên cứu các mô hình lưu trữ thông tin, đặc biệt là cách thức kết nối các ý
-  tưởng rời rạc thành một mạng lưới tri thức
+  tưởng rời rạc thành một mạng lưới tri thức.
 - Cấu trúc dữ liệu ghi chú: Loại định dạng nội dung ghi chú Block-based với thư
-  viện BlockNote
+  viện BlockNote.
 - Luồng tương tác cộng tác: Nghiên cứu các cơ chế đồng bộ dữ liệu khi nhiều
   người cùng làm việc trên một tài liệu _(kiểu dữ liệu CRDT)_ và không gian làm
-  việc
+  việc.
+
+/ CRDT: Conflict-free Replicated Data Type, một loại cấu trúc dữ liệu cho phép
+  hợp nhất tự động các thay đổi từ nhiều người dùng mà không gây xung đột, rất
+  phù hợp cho các ứng dụng cộng tác theo thời gian thực.
 
 ==== Đối tượng nghiên cứu về mặt kỹ thuật
 
-- Kiến trúc hệ thống: Nghiên cứu và áp dụng kiến trúc Microservices kết hợp với
-  Clean Architecture đối với domain phức tạp để đảm bảo tính mở rộng
-- Cơ chế liên kết và truy vấn dữ liệu: Cách thức triển khai liên kết hai chiều
-  và truy vấn quan hệ giữa các ghi chú để tạo Graph View
-- Giao thức kết nối: Sử dụng Rest API để giao tiếp giữa Web App với API service,
-  SSE để cập nhật dữ liệu thời gian thực, và gRPC để giao tiếp giữa các service
-  trong hệ thống
-- Công nghệ tìm kiếm và xử lý ngôn ngữ: Cách tích hợp tìm kiếm toàn văn
-  _(Full-text search)_ để hỗ trợ người dùng truy xuất thông tin
-- Hạ tầng và vận hành: Nghiên cứu việc triển khai hệ thống với Docker, quản lý
-  định danh, phân quyền, giám sát hệ thống _(Observability)_
+- _Kiến trúc hệ thống_: Nghiên cứu và áp dụng kiến trúc Microservices kết hợp
+  với Clean Architecture, Domain Driven Design, Event Driven Architecture đối
+  với domain phức tạp để đảm bảo tính mở rộng.
+- _Cơ chế liên kết và truy vấn dữ liệu_: Cách thức triển khai liên kết hai chiều
+  và truy vấn quan hệ giữa các ghi chú để tạo Graph View.
+- _Giao thức kết nối_: Sử dụng Rest API để giao tiếp giữa Web App với API
+  service, SSE để cập nhật thông tin thời gian thực #footnote[Thông tin theo
+    thời gian thực sử dụng SSE bao gồm các sự kiện thay đổi mang tính chất tổng
+    quát trong không gian làm việc _("metadata" thay đổi)_, khác với hệ thống hỗ
+    trợ cộng tác sử đổi nội dung ghi chú theo thời gian thực sử dụng CRDT], và
+  gRPC để giao tiếp giữa các service trong hệ thống.
+- _Công nghệ tìm kiếm_: Cách tích hợp Full-text search để hỗ trợ người dùng truy
+  xuất thông tin.
+- _Hạ tầng và vận hành_: Nghiên cứu việc triển khai hệ thống với Docker, quản lý
+  định danh, phân quyền, giám sát hệ thống _(Observation)_.
 
 / SSE: Server-Sent Events, một công nghệ cho phép máy chủ gửi dữ liệu thời gian
   thực đến trình duyệt mà không cần thiết lập kết nối WebSocket phức tạp. Đây là
@@ -81,17 +91,17 @@ tạo, sửa, xoá tạm thời, xoá vĩnh viễn, khôi phục ghi chú, tìm 
   Định danh người dùng _(Identity)_
 ]
 
-Sử dụng dịch vụ thứ bên thứ 3 để quản lý đăng ký, đăng nhập, thông qua OAuth2 và
-OpenID Connect, đảm bảo an toàn và dễ dàng tích hợp với các dịch vụ khác trong
-hệ thống.
+Sử dụng dịch vụ thứ bên thứ 3 để quản lý đăng ký, đăng nhập, thông qua
+OAuth2/OpenID Connect, đảm bảo an toàn và dễ dàng tích hợp với các dịch vụ khác
+trong hệ thống.
 
 #heading(level: 3, numbering: none, outlined: false)[
   Ghi chú _(Note)_
 ]
 
-Quản lý không gian làm việc (Workspace), sắp xếp các ghi chú theo cấu trúc thư
-mục, biểu diễn quan hệ giữa các ghi chú, hỗ trợ cộng tác theo thời gian thực ở
-góc độ lưu trữ và tổ chức thông tin.
+Quản lý không gian làm việc, sắp xếp các ghi chú theo cấu trúc thư mục, biểu
+diễn quan hệ giữa các ghi chú, hỗ trợ cộng tác theo thời gian thực ở góc độ lưu
+trữ và tổ chức thông tin.
 
 Đây là phạm vi cốt lõi của hệ thống, tập trung vào việc tổ chức và lưu trữ thông
 tin một cách hiệu quả.
@@ -103,9 +113,7 @@ tin một cách hiệu quả.
 Nội dung của ghi chú được lưu trữ dưới dạng tài liệu, sử dụng định dạng
 Block-based bởi thư viện BlockNote, cho phép linh hoạt trong việc trình bày và
 chỉnh sửa nội dung. Đồng thời, hỗ trợ cộng tác theo thời gian thực trên tài
-liệu.
-
-Các tệp tin đính kèm trong ghi chú thông qua giải pháp lưu trữ đối tượng
+liệu. Các tệp tin đính kèm trong ghi chú thông qua giải pháp lưu trữ đối tượng
 _(Object Storage)_.
 
 #heading(level: 3, numbering: none, outlined: false)[
@@ -120,22 +128,19 @@ và kiểm soát truy cập hiệu quả.
   Tìm kiếm _(Search)_
 ]
 
-Lắng nghe và cập nhật nội dung ghi chú khi thay đổi, cập nhật vào dịch vụ tìm
-kiếm bên thứ ba.
+Lắng nghe và cập nhật nội dung ghi chú khi thay đổi thông qua một "worker", cập
+nhật vào dịch vụ tìm kiếm bên thứ ba.
 
 #heading(level: 3, numbering: none, outlined: false)[
   Hạ tầng _(Infrastructure)_
 ]
 
-Thiết kế kiến trúc hệ thống theo mô hình Microservices, giao tiếp nội bộ qua
-gRPC để tối ưu hiệu suất và message broker cho các tác vụ bất đồng bộ.
-
-Triển khai quy trình CI/CD, đóng gói ứng dụng vào container.
-
-API được thiết kế đứng sau một API Gateway.
-
-Xây dựng hệ thống giám sát để theo dõi vết _(tracing)_, chỉ số đo lường
-_(metric)_ và nhật ký hệ thống _(logging)_ trong môi trường phân tán.
+- Thiết kế kiến trúc hệ thống theo mô hình Microservices, giao tiếp nội bộ để
+  tối ưu hiệu suất và message broker cho các tác vụ bất đồng bộ.
+- Triển khai quy trình CI/CD, đóng gói ứng dụng vào container.
+- API được thiết kế đứng sau một API Gateway.
+- Xây dựng hệ thống giám sát để theo dõi vết _(tracing)_, chỉ số đo lường
+  _(metric)_ và nhật ký hệ thống _(logging)_ trong môi trường phân tán.
 
 == Phương pháp nghiên cứu
 
@@ -147,8 +152,8 @@ tiến.
   Phương pháp thu thập và phân tích yêu cầu
 ]
 
-Khảo sát các ứng dụng quản lý ghi chú hiện có _(Notion, Obsidian)_ để rút ra các
-tính năng cần thiết.
+Khảo sát các ứng dụng quản lý ghi chú hiện có _(Notion, Obsidian,
+`jackyzha0/quartz`)_ để rút ra các tính năng cần thiết.
 
 #heading(level: 3, numbering: none, outlined: false)[
   Phương pháp thiết kế và mô hình hoá hệ thống
@@ -156,13 +161,11 @@ tính năng cần thiết.
 
 Sử dụng UML để mô hình hoá kiến trúc hệ thống, bao gồm sơ đồ lớp _(class
 diagram)_, sơ đồ tuần tự _(sequence diagram)_. Sử dụng D2 để mô hình hoá sơ đồ
-triển khai _(deployment diagram)_, cơ sở dữ liệu quan hệ.
-
-Đối với sơ đồ tuần tự, chỉ đặc tả các use case quan trọng để làm rõ luồng tương
-tác giữa các thành phần chính của hệ thống.
-
-Đối với class diagram, chỉ tập trung vào các lớp cốt lõi liên quan đến nghiệp vụ
-chính của hệ thống, tránh mô hình hoá chi tiết quá mức làm rối sơ đồ.
+triển khai _(deployment diagram)_, cơ sở dữ liệu quan hệ. Trong đó:
+- Đối với sơ đồ tuần tự, chỉ đặc tả các use case quan trọng để làm rõ luồng
+  tương tác giữa các thành phần chính của hệ thống.
+- Đối với class diagram, chỉ tập trung vào các lớp cốt lõi liên quan đến nghiệp
+  vụ chính của hệ thống, tránh mô hình hoá chi tiết quá mức làm rối sơ đồ.
 
 #heading(level: 3, numbering: none, outlined: false)[
   Phương pháp phát triển API
@@ -170,7 +173,7 @@ chính của hệ thống, tránh mô hình hoá chi tiết quá mức làm rố
 
 Thiết kế API theo chuẩn RESTful, sử dụng OpenAPI 3.0 để mô tả API giữa Web App
 và API service, Protocol Buffers 3 cho giao tiếp giữa các service nội bộ. Áp
-dụng hướng tiếp cận *Contract First*, đảm bảo tính nhất quán từ giai đoạn thiết
+dụng hướng tiếp cận "Contract First", đảm bảo tính nhất quán từ giai đoạn thiết
 kế đến triển khai.
 
 Nhờ vào việc đặc tả này, chúng ta có thể tự động sinh mã nguồn cho client và
@@ -178,9 +181,9 @@ server, giảm thiểu lỗi và tăng tốc độ phát triển.
 
 == Chức năng
 
-Hệ thống Notopia được xây dựng như một nền tảng quản lý tri thức cá nhân toàn
-diện, hỗ trợ người dùng tổ chức, kết nối và trực quan hóa kiến thức trên môi
-trường web hợp tác theo thời gian thực. Các nhóm chức năng chính bao gồm:
+Hệ thống Notopia được xây dựng như một nền tảng quản lý tri thức cá nhân, hỗ trợ
+người dùng tổ chức, kết nối và trực quan hóa kiến thức trên môi trường web hợp
+tác theo thời gian thực. Các nhóm chức năng chính bao gồm:
 
 #heading(level: 4, numbering: none)[
   Tạo và quản lý không gian làm việc
@@ -276,21 +279,21 @@ bảo tính mở rộng, hiệu suất cao và khả năng bảo trì dài hạn
   Backend
 ]
 
-- Dịch vụ Identity _(Authentik)_: Một nền tảng identity provider mã nguồn mở hỗ
-  trợ OIDC và OAuth 2.0, đảm bảo an toàn trong quản lý danh tính người dùng.
-- Dịch vụ `document`: Viết bằng Typescript sử dụng framework NestJS, với kiến
+- Identity service _(Authentik)_: Một nền tảng identity provider mã nguồn mở hỗ
+  trợ OAuth2/OIDC, đảm bảo an toàn trong quản lý danh tính người dùng.
+- `document` service: Viết bằng Typescript sử dụng framework NestJS, với kiến
   trúc mô-đun rõ ràng và Dependency Injection mạnh mẽ, được xây dựng với Rspack
   để tối ưu hiệu suất build.
-- Dịch vụ `notes`: Viết bằng Go, một ngôn ngữ lập trình hiệu suất cao, được sử
-  dụng với sqlc cho xử lý raw SQL tối ưu, đảm bảo truy vấn nhanh chóng đặc biệt
+- `notes` service: Viết bằng Go, một ngôn ngữ lập trình hiệu suất cao, được sử
+  dụng với SQLC cho xử lý raw SQL tối ưu, đảm bảo truy vấn nhanh chóng đặc biệt
   cho các truy vấn đồ thị phức tạp.
-- Dịch vụ `authorization`: Viết bằng go, sử dụng thư viện Casbin, một framework
+- `authorization` service: Viết bằng Go, sử dụng thư viện Casbin, một framework
   authorization mã nguồn mở hỗ trợ RBAC cho phép quản lý quyền truy cập linh
   hoạt.
-- `search-worker`: Dịch vụ Go lắng nghe sự thay đổi dữ liệu, xử lý và đồng bộ
-  nội dung với Meilisearch.
-- Dịch vụ tìm kiếm _(Meilisearch)_: Search engine mã nguồn mở được viết bằng
-  Rust, cung cấp tìm kiếm toàn văn nhanh chóng và dễ triển khai.
+- `search-worker` worker: Viết bằng NestJS lắng nghe sự thay đổi dữ liệu, xử lý
+  và đồng bộ nội dung với Meilisearch.
+- Search Service _(Meilisearch)_: Search engine mã nguồn mở được viết bằng Rust,
+  cung cấp tìm kiếm toàn văn nhanh chóng và dễ triển khai.
 
 #heading(level: 4, numbering: none)[
   Cơ sở dữ liệu
@@ -298,18 +301,18 @@ bảo tính mở rộng, hiệu suất cao và khả năng bảo trì dài hạn
 
 - PostgreSQL: Hệ quản trị cơ sở dữ liệu quan hệ mạnh mẽ, tuân thủ ACID
   transactions và hỗ trợ các tính năng nâng cao.
-- ORM/Query Builder: TypeORM cho NestJS service, sqlc cho Go service để tối ưu
-  hiệu suất.
+- ORM/Query Builder/Query codegen: TypeORM cho NestJS service, SQLC cho Go
+  service để tối ưu hiệu suất.
 
 #heading(level: 4, numbering: none)[
   Cộng tác theo thời gian thực
 ]
 
-- Yjs: Thư viện CRDT cho phép hợp nhất tự động các thay đổi từ nhiều người dùng
+- yjs: Thư viện CRDT cho phép hợp nhất tự động các thay đổi từ nhiều người dùng
   mà không gây xung đột.
 - Hocuspocus: Máy chủ WebSocket hỗ trợ Yjs, tạo điều kiện cho đồng bộ hóa dữ
-  liệu thời gian thực. Hocuspocus sẽ abstract yjs nên chúng ta không cần quan
-  tâm đến chi tiết triển khai của yjs.
+  liệu thời gian thực. Hocuspocus sẽ abstract yjs nên không cần quan tâm đến chi
+  tiết triển khai của yjs.
 
 #heading(level: 4, numbering: none)[
   Giao tiếp API
@@ -339,8 +342,8 @@ thư viện bên ngoài hệ sinh thái NestJS.
   Giám sát
 ]
 
-- OpenTelemetry _(OTLP)_: Một tiêu chuẩn mã nguồn mở cho việc thu thập metrics,
-  logs và traces.
+- OpenTelemetry: Một tiêu chuẩn mã nguồn mở cho việc thu thập metrics, logs và
+  traces.
 - Grafana Stack: Bao gồm Prometheus cho metrics, Loki cho logs, Tempo cho
   distributed tracing, và Grafana cho visualization tập trung. Alloy, một agent
   của Grafana cho forwarding logs và metrics.
@@ -350,8 +353,8 @@ thư viện bên ngoài hệ sinh thái NestJS.
 ]
 
 - Docker: Đóng gói ứng dụng vào container, đảm bảo tính nhất quán giữa các môi
-  trường phát triển và production.
+  trường phát triển.
 - Traefik: API Gateway hiện đại hỗ trợ routing, load balancing và
-  auto-discovery, đứng phía trước các dịch vụ backend.
+  auto-discovery, đứng phía trước các dịch vụ backend và Web App.
 - RustFS: Giải pháp lưu trữ đối tượng mã nguồn mở, được sử dụng để lưu trữ các
   tệp đính kèm trong ghi chú.

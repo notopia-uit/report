@@ -7,13 +7,14 @@ cấp các dịch vụ xác thực và cấp quyền tập trung @authentik. Aut
 chuẩn hiện đại như OIDC (OpenID Connect) và OAuth 2.0, cho phép kết nối dễ dàng
 với nhiều ứng dụng và dịch vụ.
 
-Authentik có giao diện quản lý thân thiện, cung cấp các tính năng bảo mật nâng
-cao cho việc quản lý danh tính người dùng trong các tổ chức.
+#figure(
+  image("../assets/images/authentik-logo.svg", height: 80pt),
+  caption: [Authentik Logo],
+)
 
 === Ưu điểm
 
 Authentik có nhiều ưu điểm nổi bật:
-
 - OIDC và OAuth 2.0 Support, hỗ trợ đầy đủ các chuẩn authorization và
   authentication hiện đại
 - Self-Hosted, có thể triển khai trên hạ tầng riêng, tránh phụ thuộc vào dịch vụ
@@ -28,7 +29,6 @@ Authentik có nhiều ưu điểm nổi bật:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Authentik có một số hạn chế:
-
 - Deployment Complexity, yêu cầu cấu hình và triển khai phức tạp
 - Learning Curve, cần thời gian để hiểu các khái niệm OIDC, OAuth, và cấu hình
   policies

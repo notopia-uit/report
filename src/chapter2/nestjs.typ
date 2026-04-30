@@ -16,10 +16,14 @@ Trong dự án này, NestJS được xây dựng với:
 - Rspack là bundler mới được hỗ trợ, với SWC cho quá trình transpile nhanh, đảm
   bảo thời gian build tối ưu
 
+#figure(
+  image("../assets/images/nestjs-logo.svg", height: 80pt),
+  caption: [NestJS logo],
+)
+
 === Ưu điểm
 
 NestJS mang lại nhiều lợi ích cho phát triển backend:
-
 - TypeScript First, hỗ trợ TypeScript đầy đủ với type-safety từ đầu, không cần
   cấu hình thêm
 - Kiến trúc rõ ràng, tổ chức code theo modules, dễ tổ chức, bảo trì và mở rộng
@@ -34,7 +38,6 @@ NestJS mang lại nhiều lợi ích cho phát triển backend:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, NestJS có một số hạn chế:
-
 - Learning Curve cao, cần học nhiều concepts như Dependency Injection (runtime),
   decorators, modules, providers
 - Boilerplate Code, cần viết nhiều decorators, setup code, định nghĩa providers,

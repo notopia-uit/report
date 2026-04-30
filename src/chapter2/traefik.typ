@@ -12,6 +12,11 @@ Traefik hoạt động tốt trong các môi trường container-orchestrated nh
 Kubernetes, Docker Swarm và cũng có thể chạy standalone cho các ứng dụng
 non-containerized.
 
+#figure(
+  image("../assets/images/traefik-logo.svg", height: 80pt),
+  caption: [Traefik Logo],
+)
+
 Dự án sử dụng `traefik-plugins/traefik-jwt-plugin`
 #footnote[https://github.com/traefik-plugins/traefik-jwt-plugin] để xác minh
 request đến các API endpoint, thông tin được chuyển đổi sang request headers
@@ -20,7 +25,6 @@ giúp cho các service không cần phải thực hiện quá trình xác minh r
 === Ưu điểm
 
 Traefik mang lại nhiều lợi ích cho phát triển API gateway:
-
 - Auto-Discovery, tự động phát hiện services không cần cấu hình thủ công
 - OpenTelemetry Integration, hỗ trợ native OTLP cho distributed tracing
 - Container-Native, thiết kế tối ưu cho Docker và Kubernetes, hỗ trợ GatewayAPI
@@ -34,7 +38,6 @@ Traefik mang lại nhiều lợi ích cho phát triển API gateway:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Traefik có một số hạn chế:
-
 - Learning Curve, cần học provider concept và configuration syntax
 - Configuration Complexity, cấu hình nâng cao có thể trở nên phức tạp
 - Community Support, nhỏ hơn Nginx, ít plugin third-party có sẵn

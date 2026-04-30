@@ -7,6 +7,16 @@ utility-first, kết hợp với PostCSS cho các biến đổi CSS nâng cao. S
 @shadcnui cung cấp các pre-built components theo design system với styling được
 tích hợp sẵn.
 
+#figure(
+  grid(
+    columns: (1fr, 1fr),
+    column-gutter: -200pt,
+    image("../assets/images/tailwindcss-logo.svg", height: 80pt),
+    image("../assets/images/shadcnui-logo.svg", height: 80pt),
+  ),
+  caption: [TailwindCSS, ShadcnUI Logo],
+)
+
 === TailwindCSS
 
 TailwindCSS là CSS framework utility-first được viết bằng PostCSS @tailwindcss.

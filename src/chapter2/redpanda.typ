@@ -7,13 +7,17 @@ tương thích Kafka @redpanda. Redpanda được thiết kế để cung cấp 
 hơn Kafka trong khi duy trì tính tương thích hoàn toàn với Kafka protocol và
 ecosystem.
 
+#figure(
+  image("../assets/images/redpanda-logo.svg", height: 80pt),
+  caption: [redpanda Logo],
+)
+
 Redpanda được sử dụng như một message broker trong dự án, hỗ trợ pub/sub
 patterns cho event-driven architecture.
 
 === Ưu điểm
 
 Redpanda mang lại nhiều lợi ích cho phát triển event-driven:
-
 - Production Ready, đã được sử dụng trong production bởi nhiều công ty lớn
 - Kafka Compatible, hoàn toàn tương thích với Kafka API, cho phép sử dụng Kafka
   clients, SDK và tools
@@ -27,7 +31,6 @@ Redpanda mang lại nhiều lợi ích cho phát triển event-driven:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Redpanda có một số hạn chế:
-
 - Learning Curve, cần hiểu event-driven architecture và Kafka concepts
 - Operational Knowledge, cần kiến thức vận hành hệ thống distributed messaging
 - Community Size, cộng đồng nhỏ hơn Kafka, ít tài liệu nâng cao có sẵn

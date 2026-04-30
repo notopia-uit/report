@@ -13,6 +13,19 @@ Dự án sử dụng một stack observability hoàn chỉnh bao gồm:
 - Grafana Alloy @alloy, cho log/metrics forwarding agent
 - Grafana @grafana, cho visualization tập trung
 
+#figure(
+  grid(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+    image("../assets/images/opentelemetry-logo.svg", height: 60pt),
+    image("../assets/images/prometheus-logo.svg", height: 60pt),
+    image("../assets/images/grafana-logo.svg", height: 60pt),
+    image("../assets/images/grafana-loki-logo.svg", height: 60pt),
+    image("../assets/images/grafana-tempo-logo.svg", height: 60pt),
+    image("../assets/images/grafana-alloy-logo.svg", height: 60pt),
+  ),
+  caption: [OpenTelemetry, Prometheus, Grafana, Loki, Tempo, Alloy Logo],
+)
+
 Các service được instrumented bằng:
 - `@opentelemetry/auto-instrumentations-node`: auto instrumentation cho Node.js
 - `go.opentelemetry.io/contrib/exporters/autoexport` cho auto setup exporters
@@ -21,7 +34,6 @@ Các service được instrumented bằng:
 === Ưu điểm
 
 Stack observability mang lại nhiều lợi ích:
-
 - Unified Observability, tập trung logs, metrics, và traces trong một platform
 - Standards-Based, sử dụng OTLP, một tiêu chuẩn mở được nhiều tool hỗ trợ
 - Auto Instrumentation, tự động capture telemetry data mà không cần code changes
@@ -33,7 +45,6 @@ Stack observability mang lại nhiều lợi ích:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, stack này có một số hạn chế:
-
 - Operational Complexity, triển khai và maintain toàn bộ stack yêu cầu kiến thức
   sâu
 - Data Volume, observability data có thể lớn, yêu cầu storage và retention

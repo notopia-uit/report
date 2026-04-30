@@ -6,6 +6,11 @@ Nx @nx là build system và monorepo management tool được phát triển bở
 cung cấp các tính năng cho task orchestration, caching intelligent,
 visualization của dependency graph, code generation, và workspace analysis.
 
+#figure(
+  image("../assets/images/nx-logo.svg", height: 80pt),
+  caption: [Nx Logo],
+)
+
 Trong dự án, Nx được sử dụng như task runner và build system, thiết lập toàn bộ
 luồng code gen cho GRPC, OpenAPI, SQLC,... Trước đây, nhóm đã từng thiết lập
 Bazel nhưng đã chuyển sang Nx vì Bazel chỉ giải quyết được vấn đề build, không

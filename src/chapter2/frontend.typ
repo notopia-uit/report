@@ -8,6 +8,17 @@ sử dụng như một framework trên React, cung cấp server-side rendering, 
 generation, và routing tích hợp. Redux Toolkit @redux_toolkit được sử dụng cho
 state management.
 
+#figure(
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    column-gutter: -100pt,
+    image("../assets/images/react-logo.svg", height: 80pt),
+    image("../assets/images/nextjs-logo.svg", height: 80pt),
+    image("../assets/images/redux-logo.svg", height: 80pt),
+  ),
+  caption: [React, NextJS, Redux Logo],
+)
+
 === React <general-for-react>
 
 React là thư viện JavaScript mã nguồn mở từ Meta (Facebook) cho xây dựng user

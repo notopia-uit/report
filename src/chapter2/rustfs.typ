@@ -10,6 +10,11 @@ trường hợp cần throughput lớn và latency thấp.
 Rust được chọn vì hiệu suất và an toàn bộ nhớ, giúp RustFS cung cấp một cơ sở hạ
 tầng lưu trữ đáng tin cậy với resource overhead tối thiểu.
 
+#figure(
+  image("../assets/images/rustfs-logo.svg", height: 30pt),
+  caption: [RustFS Logo],
+)
+
 === Ưu điểm
 
 RustFS mang lại nhiều lợi ích cho phát triển object storage:

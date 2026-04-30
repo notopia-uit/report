@@ -7,21 +7,18 @@ Google vào năm 2007 và chính thức phát hành vào năm 2009. Được thi
 Robert Griesemer, Rob Pike và Ken Thompson, Go nhằm mục tiêu tạo ra một ngôn ngữ
 hiệu quả, dễ học, và phù hợp cho lập trình hệ thống quy mô lớn.
 
-Go bao gồm hai thành phần chính:
-- Một Compiler (gc): Biên dịch mã Go thành native code cho các nền tảng khác
-  nhau (Linux, macOS, Windows)
-- Một Runtime: Bao gồm Scheduler quản lý goroutines, Garbage Collector, và
-  Memory Management
+#figure(
+  image("../assets/images/go-logo.svg", height: 80pt),
+  caption: [Golang logo],
+)
 
-Trong dự án này, chúng em sử dụng Go cùng với các công cụ và thư viện hiện đại
-để xây dựng backend scalable:
-- Dependency Injection với goforj/wire @goforj_wire, một fork của Google Wire có
-  hỗ trợ cache fast để tối ưu thời gian build
+Dự án sử dụng Go cùng với công cụ `goforj/wire` @goforj_wire, một fork của
+`google/wire`, giúp dependencies injection có hỗ trợ cache fast để tối ưu thời
+gian build.
 
 === Ưu điểm
 
 Go mang lại nhiều lợi ích trong phát triển backend:
-
 - Hiệu suất cao, Go biên dịch thành native code và thực thi nhanh chóng tương
   đương C/C++
 - Đồng thời dễ dàng, hỗ trợ Goroutines và Channels cho phép xử lý hàng nghìn
@@ -34,7 +31,6 @@ Go mang lại nhiều lợi ích trong phát triển backend:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Go có một số hạn chế:
-
 - Error handling dài dòng, pattern `if err != nil` xuất hiện lặp đi lặp lại làm
   code phồng phức
 - Thiếu Generics trước Go 1.18, giới hạn khả năng tái sử dụng code, không

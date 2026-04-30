@@ -7,10 +7,14 @@ thiết kế để cung cấp trải nghiệm tìm kiếm nhanh, liên quan, và
 Meilisearch được phát triển với mục tiêu là một giải pháp tìm kiếm dễ triển khai
 hơn Elasticsearch, phù hợp cho các ứng dụng từ nhỏ đến lớn.
 
+#figure(
+  image("../assets/images/meilisearch-logo.svg", height: 80pt),
+  caption: [Meilisearch Logo],
+)
+
 === Ưu điểm
 
 Meilisearch mang lại nhiều lợi ích cho phát triển search:
-
 - Easy to Deploy, single binary executable, dễ triển khai trên bất kỳ hạ tầng
   nào
 - Fast Search, hiệu suất cao với latency thấp nhờ Rust implementation
@@ -24,7 +28,6 @@ Meilisearch mang lại nhiều lợi ích cho phát triển search:
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Meilisearch có một số hạn chế:
-
 - Community Size, cộng đồng nhỏ hơn Elasticsearch, ít plugin có sẵn
 - Advanced Features, thiếu một số advanced features của Elasticsearch, không hỗ
   kiểu dữ liệu nested phức tạp
