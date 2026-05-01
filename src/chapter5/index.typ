@@ -49,6 +49,8 @@ Dự án đã áp dụng thành công các công nghệ hiện đại:
 - CI/CD pipeline với GitHub Actions.
 - Quản lý monorepo, CI pipeline với Nx, giúp tối ưu hóa workflow, cache riêng lẻ
   từng project nhỏ, và tăng hiệu quả phát triển _(@general-for-nx)_.
+- Sử dụng Renovate Bot để tự động hoá việc cập nhật dependencies, giúp duy trì
+  tính bảo mật và ổn định của hệ thống _(@renovate_docs)_.
 
 Trong đó, dự án đã đặc biệt tiếp cận đến một số công nghệ đặc biệt mới như:
 
