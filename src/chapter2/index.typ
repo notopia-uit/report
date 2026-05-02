@@ -27,31 +27,31 @@
 #include "blocknote.typ"
 #pagebreak()
 
+#include "openapi.typ"
+#pagebreak()
+
 #include "grpc.typ"
 #pagebreak()
 
-#include "openapi.typ"
+#include "traefik.typ"
 #pagebreak()
 
 #include "casbin.typ"
 #pagebreak()
 
-#include "rustfs.typ"
+#include "meilisearch.typ"
 #pagebreak()
 
 #include "authentik.typ"
+#pagebreak()
+
+#include "rustfs.typ"
 #pagebreak()
 
 #include "observability.typ"
 #pagebreak()
 
 #include "redpanda.typ"
-#pagebreak()
-
-#include "traefik.typ"
-#pagebreak()
-
-#include "meilisearch.typ"
 #pagebreak()
 
 #include "watermill.typ"
