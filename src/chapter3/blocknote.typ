@@ -3,8 +3,8 @@
 BlockNote bao gồm nhiều schema nhiều schema, có thể xem tại
 @general-for-blocknote. Tuy nhiên, để có thể liên kết các ghi chú với nhau, cũng
 như hỗ trợ liên kết thông qua tag, hệ thống cần tuỳ chỉnh thêm hai config schema
-cho blocknote, là `reference` và `tag`. Tham khảo từ tài liệu schema tuỳ chỉnh
-của blocknote
+cho BlockNote, là `reference` và `tag`. Tham khảo từ tài liệu schema tuỳ chỉnh
+của BlockNote
 #footnote[https://www.blocknotejs.org/docs/features/custom-schemas], hai config
 này sẽ được định nghĩa như sau.
 
@@ -43,7 +43,7 @@ tạo ra các mối quan hệ giữa các ghi chú.
     }
     ```
   ],
-  caption: [Minh hoạ một khối reference trong blocknote],
+  caption: [Minh hoạ một khối reference trong BlockNote],
 )
 
 === Mô hình BlockNote Tag tuỳ chỉnh
@@ -74,5 +74,5 @@ chèn một khối tag vào ghi chú và gán cho nó một tên tag cụ thể.
     }
     ```
   ],
-  caption: [Minh hoạ một khối tag trong blocknote],
+  caption: [Minh hoạ một khối tag trong BlockNote],
 )

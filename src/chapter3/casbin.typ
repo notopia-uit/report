@@ -200,5 +200,5 @@ Tương tự, các yêu cầu truy cập khác cũng được đánh giá dựa 
 người dùng trong không gian làm việc và các chính sách đã định nghĩa. Kết quả
 của mỗi yêu cầu sẽ cho biết liệu yêu cầu đó có được phép hay không, cùng với lý
 do dựa trên chính sách nào đã cho phép hoặc từ chối yêu cầu đó. Chi tiết có thể
-xem tại website playground của casbin cho ví dụ trên tại
+xem tại website playground của Casbin cho ví dụ trên tại
 https://editor.casbin.org/#E7VKBXR2T.

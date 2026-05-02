@@ -49,3 +49,4 @@ pin_typst_aucmd = vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.opt.spellfile:prepend("./src/assets/spell/vi.utf-8.add")
 vim.o.spelllang = "vi,en"
+vim.o.spell = true

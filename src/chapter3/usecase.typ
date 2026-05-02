@@ -111,9 +111,9 @@ dịch vụ.
     alternate-flow: [
       + Bước 8-9: Tài liệu đã tồn tại trong bộ nhớ nội bộ của `document` service
         + `document` service bỏ qua bước kiểm tra với `note` service
-        + `document` service trả về kết nối Hocuspokus trực tiếp
+        + `document` service trả về kết nối Hocuspocus trực tiếp
       + Bước 12: Người dùng không chọn chỉnh sửa _(chỉ xem)_
-        + Kết nối Hocuspoccus duy trì ở chế độ xem
+        + Kết nối Hocuspocus duy trì ở chế độ xem
         + Không có thao tác chỉnh sửa nào được thực hiện
       + Bước 13: Lỗi khi lưu thay đổi tài liệu trong quá trình debounce
         + `document` service ghi log lỗi và thử lại sau thời gian debounce

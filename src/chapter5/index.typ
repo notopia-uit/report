@@ -30,7 +30,7 @@ các tính năng đã đề ra:
 === Về công nghệ
 
 Dự án đã áp dụng thành công các công nghệ hiện đại:
-- Tiếp cận mô hình block-based của blocknote _(@general-for-blocknote,
+- Tiếp cận mô hình block-based của BlockNote _(@general-for-blocknote,
   @blocknote-model-in-system)_, mô hình CDRT từ yjs và hỗ trợ cộng tác từ công
   nghệ Hocuspocus _(@general-for-yjs)_.
 - React, NextJS, TypeScript, TailwindCSS, Shadcnui ở frontend development
@@ -77,7 +77,7 @@ Nhưng cơ chế hoạt động khác biệt:
 + Script sẽ khởi động một NodeJS ExpressJS server implement OpenAPI Spec
   #footnote[https://nx.dev/docs/guides/tasks--caching/self-hosted-caching#open-api-specification]
   chính thức từ Nx.
-+ Forward lệnh nx cho 1 child process, kèm theo thiêt lập để nx gửi request
++ Forward lệnh Nx cho 1 child process, kèm theo thiết lập để Nx gửi request
   cache đến server.
 + Server nhận request cache, xử lý giao tiếp với Github Actions cache API thông
   qua `actions/toolkit/cache`
@@ -90,8 +90,8 @@ trong mỗi lần lưu cache. Và hiển nhiên rằng, mỗi lần chạy thay 
 mới được tạo ra. Nếu có 10 commit được tạo ra và thay đổi source code, thì sẽ có
 10 cache được tạo ra, tổng dung lượng cache có thể lên đến 50GB, vượt qua mức
 10GB giới hạn của Github Actions cache. Hơn nữa, vẫn cần chừa dung lượng để
-cache node modules, go packages, system dependencies, v.v... nên việc cache toàn
-bộ project task cache là không tối ưu.
+cache node modules, go packages, system dependencies, v.v..., nên việc cache
+toàn bộ project task cache là không tối ưu.
 
 Khi sử dụng `KevinNitroG/nx-cache-action`, cache được lưu theo dạng từng project
 nhỏ, mỗi project task có thể chỉ khoảng vài trăm KB, đến hơn 10MB tùy vào task,
@@ -235,7 +235,7 @@ năng và đạt được mục tiêu đề ra.
   lệch hướng, sử dụng công nghệ không cần thiết và giải quyết kịp thời các vấn
   đề phát sinh trong quá trình phát triển _(không sử dụng Neo4j để lưu quan hệ,
   mà sử dụng SQL Recursive CTE để build graph)_.
-- Thư viện cốt lõi là Blocknote giúp xử lý nhanh việc xây dựng editor, tập trung
+- Thư viện cốt lõi là BlockNote giúp xử lý nhanh việc xây dựng editor, tập trung
   vào việc phát triển các tính năng đặc thù của hệ thống thay vì phải xây dựng
   editor từ đầu.
 - Sự hỗ trợ của các công nghệ hiện đại và framework mạnh mẽ như React, NextJS,
@@ -255,10 +255,10 @@ hỏi sự nỗ lực và kiên trì từ nhóm phát triển để vượt qua 
   text, không phải cây ngôn ngữ, nên các code block chứa comment như ký tự `#`
   hay shebang `#!` bị parse thành tag. Đồng thời, hệ thống không support nested
   tags như obsidian. Cũng như công việc chuyển hoá và seed vào service phức tạp
-  _(markdown #sym.arrow custom markdown/HTML #sym.arrow Blocknote/yjs binary)_.
-- Các block của shadcn từ cộng đồng nhìn chung khá đa dạng tuy nhiên phần lớn
+  _(markdown #sym.arrow custom markdown/HTML #sym.arrow BlockNote/yjs binary)_.
+- Các block của Shadcn từ cộng đồng nhìn chung khá đa dạng tuy nhiên phần lớn
   chúng lại nằm trong các gói trả phí, nên vẫn phải tốn nhiều thời gian để code
-  lại các phần giao diện từ các components nguyên thủy của shadcn.
+  lại các phần giao diện từ các components nguyên thủy của Shadcn.
 - Việc học và áp dụng nhiều công nghệ mới cùng lúc, tạo ra một learning curve
   khá dốc và đòi hỏi thời gian để làm quen và thành thạo. Dẫu vậy, các thành
   viên cũng đã có kinh nghiệm về một số công nghệ như Oauth2/OIDC, SQLC, nên đã
@@ -272,8 +272,8 @@ hỏi sự nỗ lực và kiên trì từ nhóm phát triển để vượt qua 
   thư viện `ThreeDotsLabs/Watermill` nói riêng, và kiến trúc Event Drive
   Architecture nói chung, đòi hỏi phải hiểu rõ để thiết kế và triển khai đúng
   cách.
-- `ThreeDotsLabs/watermill-kafka` sử dụng `IBM/sarama` không hỗ trợ subcribe
-  regex topic, phải iterate toàn bộ topic bằng tay để subcribe.
+- `ThreeDotsLabs/watermill-kafka` sử dụng `IBM/sarama` không hỗ trợ subscribe
+  regex topic, phải iterate toàn bộ topic bằng tay để subscribe.
 - `vtuanjs/sqlc-gen-go` là một plugin mới, chưa được sử dụng rộng rãi, tính
   production ready chưa được kiểm chứng.
 - Quá trình thiết lập monorepo, đặc biệt đối với TypeScript/JavaScript rất phức
@@ -283,7 +283,7 @@ hỏi sự nỗ lực và kiên trì từ nhóm phát triển để vượt qua 
   #footnote[https://github.com/rustfs/rustfs/issues/2587 do thành viên nhóm phát
     hiện].
 - Việc xây dựng cây thư mục lúc đầu khá khó khăn do một số vấn đề về việc không
-  tương thích với các components có sẵn của shadcn, nhưng sau đó đã tìm ra được
+  tương thích với các components có sẵn của Shadcn, nhưng sau đó đã tìm ra được
   giải pháp từ `shadcn-ui/ui/issues/355`
   #footnote[https://github.com/shadcn-ui/ui/issues/355], nhưng vẫn phải dành
   thời gian để chỉnh sửa lại vì vẫn xảy ra một số lỗi.
@@ -312,7 +312,7 @@ Tuy đã đạt được nhiều ưu điểm, hệ thống cũng còn tồn tạ
 được cải thiện trong tương lai.
 
 - Độ phức tạp cao của microservices architecture.
-- Cần nhiều tài nguyên hơn cho infrastructure, dù đã sử dụng Redpdanda thay cho
+- Cần nhiều tài nguyên hơn cho infrastructure, dù đã sử dụng Redpanda thay cho
   Kafka, RustFS cho MinIO, nhưng tổng RAM có thể lên đến 2.5GB khi chạy toàn bộ
   infrastructure. Đặc biệt với Authentik viết bằng Python, mức sử dụng RAM có
   thể lên đến 1.5GB chỉ trong quá trình development. Điều này phải chấp nhận
@@ -330,7 +330,7 @@ triển và cải thiện trong tương lai. Dưới đây là một số hướ
 xem xét trong tương lai để nâng cao tính hoàn thiện và khả năng ứng dụng thực tế
 của hệ thống.
 
-- Tính năng subcription: Nhằm thương mại hóa sản phẩm dưới dạng SaaS.
+- Tính năng subscription: Nhằm thương mại hóa sản phẩm dưới dạng SaaS.
 - Tích hợp AI: Cung cấp các tính năng thông minh, thao tác trực tiếp với editor
   nhờ vào thư viện `@blocknote/xl-ai` @blocknote_ai_docs sử dụng thư viện `ai`
   đến từ Vercel, hybrid search nhờ vào tính năng hỗ trợ bởi Meilisearch
