@@ -6,13 +6,13 @@
 
 #include "frontend.typ"
 
-#include "styling.typ"
+// #include "styling.typ"
 
 #include "nestjs.typ"
 
 #include "postgres.typ"
 
-#include "database.typ"
+// #include "database.typ"
 
 #include "collorative-solution.typ"
 
@@ -28,15 +28,15 @@
 
 #include "openapi.typ"
 
-#include "grpc.typ"
+// #include "grpc.typ"
 
 // #include "traefik.typ"
 
 #include "casbin.typ"
 
-#include "meilisearch.typ"
+// #include "meilisearch.typ"
 
-#include "authentik.typ"
+// #include "authentik.typ"
 
 // #include "rustfs.typ"
 

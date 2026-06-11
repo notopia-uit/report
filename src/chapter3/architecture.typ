@@ -101,11 +101,11 @@ liên quan đến thư mục, ghi chú.
 ==== Identity Provider
 
 Identity Provider chịu trách nhiệm xác thực người dùng và quản lý thông tin tài
-khoản. Hệ thống sử dụng Authentik _(@general-for-authentik)_ là giải pháp xác
-thực, cung cấp các tính năng như đăng nhập một lần _(SSO)_, quản lý người dùng,
-và hỗ trợ nhiều phương thức xác thực. Hệ thống sử dụng OpenID Connect _(OIDC)_
-để tích hợp giữa Gateway, Web App với Identity Provider, giúp đơn giản hóa quá
-trình xác thực và quản lý người dùng.
+khoản. Hệ thống sử dụng Authentik là giải pháp xác thực, cung cấp các tính năng
+như đăng nhập một lần _(SSO)_, quản lý người dùng, và hỗ trợ nhiều phương thức
+xác thực. Hệ thống sử dụng OpenID Connect _(OIDC)_ để tích hợp giữa Gateway, Web
+App với Identity Provider, giúp đơn giản hóa quá trình xác thực và quản lý người
+dùng.
 
 ==== Object Storage
 
@@ -117,9 +117,8 @@ khác.
 ==== Search Service
 
 Search Service _(Meilisearch)_, viết bằng Rust, cung cấp khả năng tìm kiếm nội
-dung trong ghi chú _(@general-for-meilisearch)_. Trong đó, `search-worker`
-worker chịu trách nhiệm đồng bộ dữ liệu đến Search Service để đảm bảo dữ liệu
-tìm kiếm luôn được cập nhật.
+dung trong ghi chú. Trong đó, `search-worker` worker chịu trách nhiệm đồng bộ dữ
+liệu đến Search Service để đảm bảo dữ liệu tìm kiếm luôn được cập nhật.
 
 ==== Event Bus
 

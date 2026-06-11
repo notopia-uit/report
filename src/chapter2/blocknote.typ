@@ -14,10 +14,10 @@ các khối nội dung một cách linh hoạt.
 
 BlockNote được thiết kế để dễ tích hợp vào các ứng dụng React
 _(@general-for-react)_, với API rõ ràng và khả năng tùy chỉnh cao, tương thích
-với màu sắc của shadcnui _(@general-for-shadcnui)_ . Thư viện này hoạt động dựa
-trên ProseMirror, một editor framework mạnh mẽ và có cấu trúc rõ ràng. Có thể
-hình dung ProseMirror như một bộ công cụ xây dựng editor, trong khi BlockNote là
-một implementation cụ thể, dễ dàng sử dụng nhanh.
+với màu sắc của shadcnui . Thư viện này hoạt động dựa trên ProseMirror, một
+editor framework mạnh mẽ và có cấu trúc rõ ràng. Có thể hình dung ProseMirror
+như một bộ công cụ xây dựng editor, trong khi BlockNote là một implementation cụ
+thể, dễ dàng sử dụng nhanh.
 
 BlockNote là một hệ sinh thái mã nguồn mở hoàn toàn, miễn phí sử dụng công cộng.
 Chỉ riêng các gói thư viện `@blocknote/xl-*` có giấy phép copyleft, yêu cầu mua

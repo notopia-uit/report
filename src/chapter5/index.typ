@@ -30,11 +30,11 @@ Dự án áp dụng các công nghệ hiện đại:
 - React, NextJS, TypeScript, TailwindCSS, Shadcnui cho frontend.
 - Go _(@general-for-go)_ và NestJS _(@general-for-nestjs)_ cho backend.
 - Phân quyền với Casbin _(@general-for-casbin, @casbin-model-in-system)_.
-- Xác thực OAuth2/OIDC với Authentik _(@general-for-authentik)_.
-- gRPC cho inter-service communication _(@general-for-grpc)_.
+- Xác thực OAuth2/OIDC với Authentik.
+- gRPC cho inter-service communication.
 - Traefik cho API gateway, Docker containerization, CI/CD với GitHub Actions.
-- Meilisearch cho tìm kiếm _(@general-for-meilisearch)_.
-- Database: SQL thuần và ORM _(@general-for-database)_.
+- Meilisearch cho tìm kiếm.
+- Database: SQL thuần và ORM.
 - Monorepo với Nx, cache từng project -- dependency graph tại @appendix-nx.
 - *Contract First*: OpenAPI spec, mock API, phát triển song song
   frontend/backend.
