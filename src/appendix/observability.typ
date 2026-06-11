@@ -2,7 +2,7 @@
 
 === Log xem từ Grafana <appendix-observability-grafana-log>
 
-Hình @fig-grafana-log dưới đây thể hiện log từ hệ thống được xem qua Grafana.
+@fig-grafana-log dưới đây thể hiện log từ hệ thống được xem qua Grafana.
 
 #figure(
   image("../assets/images/grafana-observation-log.png"),
