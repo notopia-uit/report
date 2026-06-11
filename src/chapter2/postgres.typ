@@ -19,26 +19,16 @@ chỉnh và extensions như PostGIS, pgcrypto, và full-text search.
 === Ưu điểm
 
 PostgreSQL mang lại nhiều lợi ích cho phát triển ứng dụng:
-- ACID Compliance, tuân thủ đầy đủ các thuộc tính ACID (Atomicity, Consistency,
-  Isolation, Durability) đảm bảo tính toàn vẹn dữ liệu
-- Rich Data Types, hỗ trợ nhiều kiểu dữ liệu phong phú bao gồm JSON/JSONB,
-  arrays, custom types, geometric data
-- Extensibility cao, cho phép mở rộng chức năng thông qua extensions (PostGIS,
-  pgcrypto, uuid-ossp)
-- Full-Text Search tích hợp, hỗ trợ tìm kiếm toàn văn mà không cần các công cụ
-  bên ngoài
-- MVCC (Multi-Version Concurrency Control) hiệu quả, cho phép đọc và ghi đồng
-  thời mà không cần locks
-- Standards Compliance, tuân thủ đầy đủ các chuẩn SQL và hỗ trợ các features
-  nâng cao như window functions, CTEs, lateral joins
-- Open Source, miễn phí và có cộng đồng lớn hỗ trợ
+- ACID đầy đủ, đảm bảo toàn vẹn dữ liệu
+- Hỗ trợ JSON/JSONB, arrays, custom types, geometric data
+- Mở rộng qua extensions (PostGIS, pgcrypto, uuid-ossp)
+- Full-text search tích hợp sẵn
+- MVCC cho đọc/ghi đồng thời không cần locks
+- Tuân thủ SQL chuẩn, hỗ trợ window functions, CTEs, lateral joins
+- Mã nguồn mở, miễn phí, cộng đồng lớn
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, PostgreSQL có một số hạn chế:
-- Performance, có thể chậm hơn MySQL trong một số workloads read-heavy đơn giản
-- Memory Usage cao, sử dụng nhiều RAM hơn các RDBMS khác như MySQL
-- Replication phức tạp, phức tạp hơn so với MySQL/MariaDB, đặc biệt trong setup
-  streaming replication
-- Learning Curve cao, nhiều features nâng cao cần thời gian để thành thạo như
-  partitioning, custom types
+- Hiệu năng thấp hơn MySQL trong một số tác vụ, replication phức tạp hơn
+- Nhiều features nâng cao cần thời gian thành thạo

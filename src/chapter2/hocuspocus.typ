@@ -3,8 +3,8 @@
 === Giới thiệu
 
 Hocuspocus là server WebSocket chuyên dụng cho Yjs, phát triển bởi Tiptap
-Collective (ueberdosis) @hocuspocus — cùng tổ chức đứng sau Tiptap, thiết kế làm
-backend collaboration cho editor dựa trên ProseMirror và Tiptap.
+Collective (ueberdosis) @hocuspocus -- cùng tổ chức đứng sau Tiptap, thiết kế
+làm backend collaboration cho editor dựa trên ProseMirror và Tiptap.
 
 Hocuspocus đóng vai trò trung gian giữa các client, nhận và phân phối cập nhật
 Yjs document qua WebSocket, đồng thời quản lý persistence, authentication,

@@ -18,25 +18,6 @@ collaborative editing, schema validation và transform recording.
 
 === Kiến trúc
 
-ProseMirror được tổ chức thành bốn thư viện cốt lõi, mỗi thư viện đảm nhận một
-trách nhiệm riêng biệt trong hệ thống:
-
-- *prosemirror-model*: định nghĩa cấu trúc tài liệu qua schema, mô tả node
-  (paragraph, heading, image) và mark (bold, italic, link) được phép cùng quy
-  tắc lồng ghép, tương tự database schema đảm bảo tài liệu luôn hợp lệ.
-
-- *prosemirror-state*: quản lý EditorState gồm tài liệu, selection, plugin. Mọi
-  thay đổi thực hiện qua Transaction — đối tượng bất biến mô tả chính xác thay
-  đổi.
-
-- *prosemirror-view*: rendering tài liệu lên DOM và xử lý tương tác người dùng
-  (gõ phím, click, copy-paste), quản lý ánh xạ và cập nhật DOM khi state thay
-  đổi.
-
-- *prosemirror-transform*: ghi lại thay đổi dạng step có thể tái tạo và đảo
-  ngược. Mỗi step là một đơn vị thay đổi nhỏ (chèn ký tự, xóa đoạn), nền tảng
-  cho undo history và collaborative editing.
-
 #figure(
   table(
     columns: (auto, auto, auto),
@@ -61,19 +42,6 @@ trách nhiệm riêng biệt trong hệ thống:
   caption: [Bốn thư viện cốt lõi của ProseMirror],
 )
 
-=== Collaborative Editing với ProseMirror
-
-ProseMirror hỗ trợ collaborative editing qua plugin `prosemirror-collab`, quản
-lý phiên bản tài liệu và client ID để đồng bộ qua máy chủ trung tâm (authority):
-
-- *Phiên bản hóa*: mỗi tài liệu có phiên bản tăng dần theo số step đã xác nhận
-  bởi authority. Client duy trì phiên bản cục bộ và gửi step chưa xác nhận lên
-  server.
-- *Gửi thay đổi*: editor tạo step mới, plugin collab đánh dấu "chưa gửi" và cung
-  cấp qua `sendableSteps()`.
-- *Nhận thay đổi*: client tạo receiveTransaction, ánh xạ selection qua step đã
-  rebase để đảm bảo vị trí con trỏ hợp lý.
-
 === ProseMirror như một Editor Binding cho Yjs
 
 Trong dự án, ProseMirror đóng vai trò editor binding cho Yjs qua
@@ -87,7 +55,6 @@ Trong dự án, ProseMirror đóng vai trò editor binding cho Yjs qua
 
 === Vai trò so với Tiptap
 
-ProseMirror là nền tảng cấp thấp xây dựng editor. Trong dự án, BlockNote
-_(@general-for-blocknote)_ sử dụng Tiptap _(@general-for-tiptap)_ làm lớp trung
-gian trên ProseMirror. Như vậy, ProseMirror là lõi hệ thống editor nhưng không
-dùng trực tiếp mà qua Tiptap.
+ProseMirror là nền tảng cấp thấp xây dựng editor. Trong dự án, BlockNote sử dụng
+Tiptap làm lớp trung gian trên ProseMirror. Như vậy, ProseMirror là lõi hệ thống
+editor nhưng không dùng trực tiếp mà qua Tiptap.

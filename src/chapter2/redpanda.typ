@@ -18,22 +18,19 @@ patterns cho event-driven architecture.
 === Ưu điểm
 
 Redpanda mang lại nhiều lợi ích cho phát triển event-driven:
-- Production Ready, đã được sử dụng trong production bởi nhiều công ty lớn
-- Kafka Compatible, hoàn toàn tương thích với Kafka API, cho phép sử dụng Kafka
-  clients, SDK và tools
-- Single Binary, chỉ một binary executable, dễ triển khai hơn Kafka
-- Resource Efficient, sử dụng ít CPU và RAM hơn Kafka
-- Built-in Schema Registry, tích hợp schema registry không cần tool riêng
-- Multi-Cloud, hỗ trợ triển khai trên nhiều cloud providers
-- Plugin Support, hỗ trợ custom plugins bằng Go, Python thông qua Redpanda
-  Connect SDK
+- Đã dùng trong production bởi nhiều công ty lớn
+- Tương thích Kafka API, dùng được Kafka clients, SDK và tools
+- Single binary, dễ triển khai hơn Kafka
+- Ít tốn CPU và RAM hơn Kafka
+- Tích hợp schema registry, không cần tool riêng
+- Hỗ trợ triển khai nhiều cloud providers
+- Custom plugins bằng Go, Python qua Redpanda Connect SDK
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Redpanda có một số hạn chế:
-- Learning Curve, cần hiểu event-driven architecture và Kafka concepts
-- Operational Knowledge, cần kiến thức vận hành hệ thống distributed messaging
-- Community Size, cộng đồng nhỏ hơn Kafka, ít tài liệu nâng cao có sẵn
-- `postgres_cdc` @redpanda_connect_postgres_cdc của Redpanda Connect yêu cầu
-  phiên bản trả phí, có thể sử dụng Debezium, hoặc sử dụng `sql_select`
-  @redpanda_connect_sql_select của Redpanda Connect
+- Cần hiểu event-driven architecture và Kafka concepts
+- Cần kiến thức vận hành distributed messaging
+- Cộng đồng nhỏ hơn Kafka, ít tài liệu nâng cao
+- `postgres_cdc` @redpanda_connect_postgres_cdc yêu cầu bản trả phí, có thể dùng
+  Debezium hoặc `sql_select` @redpanda_connect_sql_select

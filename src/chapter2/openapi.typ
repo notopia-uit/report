@@ -42,15 +42,15 @@ integration issues.
 
 === Ưu điểm
 
-- Clear Contracts, API contracts rõ ràng được define trước implementation
-- Parallel Development, frontend và backend có thể phát triển song song
-- Type Safety, code generation tạo type-safe clients và servers
-- Documentation, contracts tự động documentation
-- Tooling Ecosystem, rộng rãi tooling hỗ trợ OpenAPI
+- API contracts rõ ràng trước implementation
+- Frontend và backend phát triển song song
+- Code generation tạo type-safe clients và servers
+- Tự động documentation từ contracts
+- Rộng rãi tooling hỗ trợ
 
 === Nhược điểm
 
-- Specification Maintenance, specifications cần được updated khi API thay đổi
-- Setup Complexity, code generation pipeline yêu cầu cấu hình
-- Learning Curve, cần học OpenAPI specification format
-- Tooling Overhead, cần maintain generation scripts và tooling
+- Cần cập nhật spec khi API thay đổi
+- Code generation pipeline cần cấu hình
+- Cần học OpenAPI specification
+- Cần maintain generation scripts và tooling

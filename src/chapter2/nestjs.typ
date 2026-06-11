@@ -24,23 +24,16 @@ Trong dự án này, NestJS được xây dựng với:
 === Ưu điểm
 
 NestJS mang lại nhiều lợi ích cho phát triển backend:
-- TypeScript First, hỗ trợ TypeScript đầy đủ với type-safety từ đầu, không cần
-  cấu hình thêm
-- Kiến trúc rõ ràng, tổ chức code theo modules, dễ tổ chức, bảo trì và mở rộng
-  quy mô
-- Dependency Injection mạnh mẽ, quản lý dependencies tự động và dễ dàng cho
-  testing
-- Built-in Testing Utilities, hỗ trợ unit tests và e2e tests ngay từ khởi đầu
-- Ecosystem phong phú, có nhiều packages chính thức như GraphQL, WebSockets,
-  Microservices
-- Scalability, phù hợp cho cả microservices lẫn monolithic applications
+- TypeScript đầy đủ, type-safety từ đầu
+- Module-based, dễ tổ chức và bảo trì
+- DI mạnh mẽ, dễ dàng testing
+- Hỗ trợ unit test và e2e test sẵn có
+- Nhiều packages chính thức (GraphQL, WebSockets, Microservices)
+- Phù hợp microservices và monolithic
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, NestJS có một số hạn chế:
-- Learning Curve cao, cần học nhiều concepts như Dependency Injection (runtime),
-  decorators, modules, providers
-- Boilerplate Code, cần viết nhiều decorators, setup code, định nghĩa providers,
-  controllers, services
-- Performance Overhead, các abstraction layers có thể ảnh hưởng hiệu suất nhẹ so
-  với framework tối giản
+- Cần học nhiều concepts (DI, decorators, modules, providers)
+- Boilerplate code (decorators, providers, controllers, services)
+- Abstraction layers ảnh hưởng hiệu suất nhẹ

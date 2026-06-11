@@ -31,15 +31,15 @@ systems.
 
 === Ưu điểm
 
-- High Performance, Protocol Buffers và HTTP/2 cho throughput cao
-- Type Safety, Protocol Buffers cung cấp strong typing
-- Streaming Support, native bidirectional streaming support
-- Observability, tích hợp tốt với OpenTelemetry
-- Multi-Language, code generation cho nhiều ngôn ngữ
+- Protocol Buffers và HTTP/2 cho throughput cao
+- Strong typing từ Protocol Buffers
+- Native bidirectional streaming
+- Tích hợp OpenTelemetry
+- Code generation cho nhiều ngôn ngữ
 
 === Nhược điểm
 
-- Learning Curve, cần học Protocol Buffers và gRPC concepts
-- Browser Compatibility, gRPC yêu cầu HTTP/2 support (limited browser support)
-- Debugging Complexity, binary format khó debug so với text-based protocols
-- Tooling Setup, yêu cầu setup code generation pipeline
+- Cần học Protocol Buffers và gRPC
+- Yêu cầu HTTP/2, hỗ trợ trình duyệt hạn chế
+- Binary format khó debug hơn text-based protocols
+- Yêu cầu setup code generation pipeline

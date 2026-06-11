@@ -1,6 +1,6 @@
 == SQLC <appendix-sqlc>
 
-=== SQLC Dynamic Filter — Ví dụ query <appendix-sqlc-dynamic-filter>
+=== SQLC Dynamic Filter -- Ví dụ query <appendix-sqlc-dynamic-filter>
 
 Dưới đây là so sánh giữa query SQLC tiêu chuẩn và query sử dụng custom plugin
 `vtuanjs/sqlc-gen-go` _(@general-for-sqlc)_ để xử lý optional filters.

@@ -64,30 +64,22 @@ lấy từ Y.Doc qua getter hoặc khởi tạo trực tiếp làm nested types.
     align: (left, left, left),
     table.header([*Kiểu dữ liệu*], [*Mô tả*], [*Ứng dụng*]),
     [`Y.Array`],
-    [Mảng có thứ tự, hỗ trợ chèn, xóa và truy xuất theo chỉ số],
-    [Danh sách công việc, hàng đợi, bộ sưu tập có thứ tự],
+    [Mảng có thứ tự, hỗ trợ chèn/xóa theo chỉ số],
+    [Danh sách, hàng đợi],
 
     [`Y.Map`],
-    [Key-value store với khả năng lồng ghép shared types khác],
-    [Cấu hình, metadata, thuộc tính động],
+    [Key-value store, lồng ghép shared types khác],
+    [Cấu hình, metadata],
 
     [`Y.Text`],
-    [Văn bản phong phú với hỗ trợ định dạng ký tự inline],
-    [Nội dung text có style như bold, italic, link],
+    [Văn bản với hỗ trợ định dạng ký tự inline],
+    [Nội dung text có style],
 
     [`Y.XmlFragment`],
-    [Fragment XML chứa nhiều node con Y.XmlElement và Y.XmlText],
-    [Cấu trúc block-based editor, document tree],
-
-    [`Y.XmlElement`],
-    [Phần tử XML với thuộc tính và node con],
-    [Block elements, thẻ HTML, thành phần có cấu trúc],
-
-    [`Y.XmlText`],
-    [Văn bản XML kế thừa từ Y.Text, hỗ trợ xuất XML string],
-    [Nội dung text trong XML hierarchy],
+    [Fragment XML chứa nhiều node con],
+    [Cấu trúc block-based editor],
   ),
-  caption: [Các shared data types của Yjs],
+  caption: [Các shared data types chính của Yjs],
 )
 
 Mỗi shared type hỗ trợ observe để theo dõi thay đổi:
@@ -110,35 +102,13 @@ nội dung và con trỏ.
     table.header([*Editor*], [*Gói binding*], [*Mô tả*]),
     [ProseMirror],
     [`y-prosemirror`],
-    [Toolkit xây dựng rich text editor với document model có cấu trúc, hỗ trợ
-      schema tùy chỉnh và collaborative editing thông qua Yjs],
+    [Toolkit rich text editor với document model có cấu trúc],
 
     [Tiptap],
     [`@tiptap/extension-collaboration`],
-    [Headless rich text editor framework dựa trên ProseMirror, cung cấp
-      extension chính thức tích hợp Yjs với API đơn giản],
-
-    [Monaco],
-    [`y-monaco`],
-    [Code editor lõi của VS Code, hỗ trợ collaborative code editing với syntax
-      highlighting, IntelliSense và multi-cursor thông qua Yjs],
-
-    [Quill],
-    [`y-quill`],
-    [Rich text editor với API đơn giản, hỗ trợ collaborative editing và cursor
-      awareness thông qua Yjs],
-
-    [CodeMirror],
-    [`y-codemirror.next`],
-    [Code editor nhẹ, có thể mở rộng, tích hợp Yjs qua extension yCollab hỗ trợ
-      shared undo/redo và awareness],
-
-    [Remirror],
-    [`@remirror/extension-yjs`],
-    [ProseMirror-based editor với kiến trúc extension, tích hợp Yjs thông qua
-      y-prosemirror, hỗ trợ collaboration và real-time editing],
+    [Framework headless rich text editor dựa trên ProseMirror],
   ),
-  caption: [Các editor được Yjs hỗ trợ thông qua editor bindings],
+  caption: [Editor bindings chính cho Yjs trong dự án],
 )
 
 === Connection Providers
@@ -153,45 +123,16 @@ Provider truyền tải thay đổi của Y.Doc giữa các peer, từ giao th�
     table.header([*Provider*], [*Giao thức*], [*Mô tả*]),
     [`y-websocket`],
     [WebSocket],
-    [Provider mặc định, sử dụng mô hình client-server qua WebSocket với server
-      đi kèm có thể mở rộng, hỗ trợ persistence, authentication và awareness],
+    [Provider mặc định, client-server, hỗ trợ persistence và authentication],
 
-    [`y-webrtc`],
-    [WebRTC],
-    [Provider peer-to-peer sử dụng WebRTC, không cần server trung tâm cho dữ
-      liệu, phù hợp demo và ứng dụng nhỏ],
-
-    [`y-webxdc`],
-    [WebXDC],
-    [Provider chạy trong ứng dụng chat như Delta Chat, Cheogram, đồng bộ dữ liệu
-      qua tin nhắn chat với mã hóa end-to-end],
-
-    [`y-dat`],
-    [Dat Protocol],
-    [Provider sử dụng giao thức Dat (Hypercore Protocol), hỗ trợ peer-to-peer
-      phân tán với khả năng đồng bộ dữ liệu mạnh mẽ],
-
-    [`y-sweet`],
-    [WebSocket],
-    [Provider đám mây từ Jamsocket, khởi tạo server real-time tự động, hỗ trợ
-      persistence S3, authentication và offline support],
-
-    [Liveblocks],
-    [WebSocket],
-    [Nền tảng đám mây toàn diện, cung cấp Yjs provider với tự động scale,
-      persistence, presence và REST API],
-
-    [SuperViz],
-    [WebSocket],
-    [Nền tảng collaboration đa kênh, tích hợp Yjs provider với hỗ trợ real-time
-      đồng bộ, awareness và quản lý phiên làm việc],
+    [`y-webrtc`], [WebRTC], [Provider peer-to-peer, không cần server trung tâm],
 
     [Hocuspocus],
     [WebSocket],
-    [Server WebSocket chuyên dụng cho Yjs từ Tiptap Collective, hỗ trợ
-      persistence, authentication, webhook và extension],
+    [Server WebSocket chuyên dụng cho Yjs, hỗ trợ persistence, authentication,
+      webhook và extension],
   ),
-  caption: [Các connection providers của Yjs],
+  caption: [Các connection providers chính của Yjs],
 )
 
 Dự án chọn Hocuspocus @hocuspocus làm provider chính nhờ khả năng mở rộng và
@@ -199,27 +140,16 @@ tích hợp sâu với Tiptap/BlockNote.
 
 === Undo/Redo Manager
 
-Yjs cung cấp `Y.UndoManager` cho undo/redo trên shared types, lưu thao tác đảo
-ngược trên undo-stack và thực thi lại khi cần.
-
-- *Scoped tracking*: theo dõi thay đổi theo transaction origin, chỉ undo thay
-  đổi từ nguồn cụ thể (ví dụ: chỉ undo của user hiện tại, không undo từ remote)
-- *Capture timeout*: thay đổi trong captureTimeout (mặc định 500ms) tự động gộp
-  vào một StackItem, giúp undo mượt mà hơn
-- *Metadata*: gắn thêm thông tin (ví dụ vị trí con trỏ) vào StackItem để khôi
-  phục trạng thái chính xác khi undo/redo
+Yjs cung cấp `Y.UndoManager` cho undo/redo trên shared types. Hỗ trợ scoped
+tracking (chỉ undo thay đổi từ nguồn cụ thể), capture timeout (gộp thay đổi
+trong 500ms), và metadata (ví dụ vị trí con trỏ).
 
 === Awareness
 
-Awareness chia sẻ thông tin trạng thái tạm thời giữa người dùng (vị trí con trỏ,
-vùng chọn, tên, màu sắc). Không lưu trong Y.Doc mà dùng Awareness CRDT riêng
-trong `y-protocols`.
-
-- *Không bền vững*: dữ liệu tự động xóa khi người dùng ngắt kết nối
-- *Timeout tự động*: client không gửi tín hiệu trong 30 giây bị đánh dấu offline
-- *Tùy chỉnh dữ liệu*: trường awareness không chuẩn hóa, gửi JSON-encodable bất
-  kỳ. Editor binding thường dùng `"user"` (tên, màu) và `"cursor"` (vị trí con
-  trỏ)
+Awareness chia sẻ thông tin trạng thái tạm thời giữa người dùng (con trỏ, vùng
+chọn, tên, màu sắc) thông qua CRDT riêng trong `y-protocols`. Dữ liệu tự động
+xóa khi người dùng ngắt kết nối, client không gửi tín hiệu trong 30 giây bị đánh
+dấu offline.
 
 === Ưu điểm
 

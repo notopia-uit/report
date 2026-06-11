@@ -19,36 +19,13 @@ thiện, kiến trúc extension linh hoạt và tích hợp sẵn nhiều UI fra
 
 Tiptap được thiết kế theo ba trụ cột chính:
 
-- *Extensions*: đơn vị chức năng cơ bản, định nghĩa node (paragraph, heading,
-  image), mark (bold, italic, link) hoặc chức năng (placeholder, collaboration,
-  undo/redo). Cho phép lắp ráp editor từ module nhỏ, chỉ gồm tính năng cần
-  thiết.
-
-- *Commands*: hàm thao tác editor, có thể xích chuỗi. Mỗi command trả về `true`
-  nếu thành công, cho phép kiểm tra trạng thái trước khi thực thi.
-
+- *Extensions*: đơn vị chức năng cơ bản, định nghĩa node, mark hoặc chức năng
+  (placeholder, collaboration, undo/redo). Cho phép lắp ráp editor từ module
+  nhỏ.
+- *Commands*: hàm thao tác editor, có thể xích chuỗi, mỗi command trả về `true`
+  nếu thành công.
 - *Events*: hệ thống sự kiện vòng đời, can thiệp vào quá trình xử lý từ tạo tài
-  liệu, selection change, cập nhật nội dung đến focus/blur.
-
-#figure(
-  table(
-    columns: (auto, 2fr, 3.5fr),
-    align: (left, left, left),
-    table.header([*Kiến trúc*], [*Mô tả*], [*Ví dụ*]),
-    [Extensions],
-    [Đơn vị chức năng, định nghĩa node, mark, tính năng],
-    [`StarterKit`, `Collaboration`, `Placeholder`],
-
-    [Commands],
-    [Hàm thao tác editor, có thể xích chuỗi],
-    [`editor.chain().toggleBold().focus().run()`],
-
-    [Events],
-    [Sự kiện vòng đời editor],
-    [`onCreate`, `onUpdate`, `onSelectionUpdate`],
-  ),
-  caption: [Ba trụ cột kiến trúc của Tiptap],
-)
+  liệu đến focus/blur.
 
 === So sánh với ProseMirror
 
@@ -95,11 +72,6 @@ collaborative editor hoàn chỉnh với máy chủ đồng bộ qua WebSocket.
 === Vai trò với BlockNote
 
 BlockNote _(@general-for-blocknote)_ xây dựng trên Tiptap và ProseMirror:
-
-- ProseMirror là động cơ — xử lý document model, transform, state management
-- Tiptap là khung gầm — extension system, commands, events
-- BlockNote là thân xe hoàn chỉnh — block component cho soạn thảo block-based
-
-BlockNote tận dụng extension system của Tiptap để định nghĩa block (paragraph,
-heading, image, table, quote) và thêm tính năng đặc thù như AI-powered editing,
-drag-and-drop giữa các block.
+ProseMirror là động cơ (document model, transform, state management), Tiptap là
+khung gầm (extension system, commands, events), BlockNote là thân xe hoàn chỉnh
+(block component cho soạn thảo block-based).

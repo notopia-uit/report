@@ -13,168 +13,91 @@
 
 === Về sản phẩm
 
-Sau quá trình phát triển, nhóm đã hoàn thiện được hệ thống ghi chú với đầy đủ
-các tính năng đã đề ra:
+Nhóm đã hoàn thiện hệ thống ghi chú với các tính năng:
 
-- Ứng dụng Web cho người dùng cuối, cho phép quản lý và tổ chức ghi chú.
-- Hỗ trợ cộng tác thời gian thực quyền hạn riêng.
+- Ứng dụng Web cho người dùng cuối, quản lý và tổ chức ghi chú.
+- Hỗ trợ cộng tác thời gian thực với phân quyền.
 - Tích hợp tìm kiếm ghi chú.
-- Backend API với kiến trúc microservices, đảm bảo hiệu suất cao.
-- Source code được tổ chức trong monorepo tại
-  https://github.com/notopia-uit/notopia.
-- Document website tại https://notopia-uit.github.io/notopia, gồm các diagram và
-  OpenAPI contract.
-- Source code báo cáo tại https://github.com/notopia-uit/report, viết bằng
-  Typst.
+- Backend API microservices, hiệu suất cao.
+- Source code tại https://github.com/notopia-uit/notopia.
+- Document website tại https://notopia-uit.github.io/notopia.
 
 === Về công nghệ
 
-Dự án đã áp dụng thành công các công nghệ hiện đại:
-- Tiếp cận mô hình block-based của BlockNote _(@general-for-blocknote,
-  @blocknote-model-in-system)_, mô hình CDRT từ yjs và hỗ trợ cộng tác từ công
-  nghệ Hocuspocus _(@general-for-yjs)_.
-- React, NextJS, TypeScript, TailwindCSS, Shadcnui ở frontend development
-- Go _(Golang)_ _(@general-for-go)_ và NestJS _(@general-for-nestjs)_ framework
-  ở backend services.
-- Phân quyền với thư viện Casbin mạnh mẽ _(@general-for-casbin,
-  @casbin-model-in-system)_.
-- Quản lý người dùng thông qua Oauth2/OIDC với Authentik
-  _(@general-for-authentik)_.
-- gRPC cho communication giữa các microservices _(@general-for-grpc)_.
-- Gateway API với Traefik.
-- Database management, kết hợp sử dụng SQL thuần và ORM
-  _(@general-for-database)_.
-- Tìm kiếm với Meilisearch _(@general-for-meilisearch)_.
-- Docker containerization.
-- CI/CD pipeline với GitHub Actions.
-- Quản lý monorepo với Nx, tối ưu hóa workflow, cache riêng lẻ từng project —
-  dependency graph xem tại @appendix-nx.
-- Sử dụng Renovate Bot để tự động hoá việc cập nhật dependencies, giúp duy trì
-  tính bảo mật và ổn định của hệ thống _(@renovate_docs)_.
-- *Contract First API development*: Áp dụng OpenAPI specification, hỗ trợ mock
-  API khi chưa có backend, giúp phát triển song song frontend và backend.
-- *SQLC Dynamic Filter*: Sử dụng custom plugin `vtuanjs/sqlc-gen-go`
-  @sqlc_dynamic_filter giải quyết vấn đề dynamic WHERE conditions.
-- *Observability*: Thiết lập Observability Stack cơ bản với Grafana, Prometheus,
-  Loki, Tempo, Alloy — xem hình log tại @appendix-observability.
+Dự án áp dụng các công nghệ hiện đại:
+- BlockNote (block-based editor), Yjs (CRDT), Hocuspocus (cộng tác)
+  _(@general-for-blocknote, @blocknote-model-in-system, @general-for-yjs)_.
+- React, NextJS, TypeScript, TailwindCSS, Shadcnui cho frontend.
+- Go _(@general-for-go)_ và NestJS _(@general-for-nestjs)_ cho backend.
+- Phân quyền với Casbin _(@general-for-casbin, @casbin-model-in-system)_.
+- Xác thực OAuth2/OIDC với Authentik _(@general-for-authentik)_.
+- gRPC cho inter-service communication _(@general-for-grpc)_.
+- Traefik cho API gateway, Docker containerization, CI/CD với GitHub Actions.
+- Meilisearch cho tìm kiếm _(@general-for-meilisearch)_.
+- Database: SQL thuần và ORM _(@general-for-database)_.
+- Monorepo với Nx, cache từng project -- dependency graph tại @appendix-nx.
+- *Contract First*: OpenAPI spec, mock API, phát triển song song
+  frontend/backend.
+- *SQLC Dynamic Filter*: Plugin `vtuanjs/sqlc-gen-go` @sqlc_dynamic_filter cho
+  dynamic WHERE conditions.
+- *Observability*: Grafana, Prometheus, Loki, Tempo, Alloy -- xem tại
+  @appendix-observability.
 
 == Nhận xét
 
 === Thuận lợi
 
-Trong quá trình thực hiện đề tài, hệ thống nhận được nhiều thuận lợi trong khâu
-nghiên cứu, phát triển và triển khai, tạo điều kiện cho việc hoàn thiện các chức
-năng và đạt được mục tiêu đề ra.
-
-- Được sự hướng dẫn tận tình từ giảng viên, giúp định hướng rõ ràng, tránh đi
-  lệch hướng, sử dụng công nghệ không cần thiết và giải quyết kịp thời các vấn
-  đề phát sinh trong quá trình phát triển _(không sử dụng Neo4j để lưu quan hệ,
-  mà sử dụng SQL Recursive CTE để build graph)_.
-- Thư viện cốt lõi là BlockNote giúp xử lý nhanh việc xây dựng editor, tập trung
-  vào việc phát triển các tính năng đặc thù của hệ thống thay vì phải xây dựng
-  editor từ đầu.
-- Sự hỗ trợ của các công nghệ hiện đại và framework mạnh mẽ như React, NextJS,
-  NestJS, Go, gRPC, Traefik, Casbin, Authentik, Meilisearch đã giúp tăng tốc quá
-  trình phát triển và đảm bảo hiệu suất cao cho hệ thống.
-- Cộng tác hiệu quả trong nhóm, với sự phân công công việc rõ ràng, áp dụng
-  phương pháp Contract First từ OpenAPI, Protobuf giúp giảm thiểu xung đột code
-  và tăng hiệu quả phát triển.
+- Được giảng viên hướng dẫn tận tình, giúp định hướng rõ ràng, tránh dùng công
+  nghệ không cần thiết _(như Neo4j, thay bằng SQL Recursive CTE)_.
+- BlockNote giúp xây dựng editor nhanh, tập trung phát triển tính năng đặc thù.
+- Các công nghệ hiện đại (React, NextJS, NestJS, Go, gRPC, Traefik, Casbin,
+  Authentik, Meilisearch) tăng tốc phát triển và đảm bảo hiệu suất.
+- Cộng tác nhóm hiệu quả nhờ Contract First (OpenAPI, Protobuf), giảm xung đột
+  code.
 
 === Khó khăn
 
-Dự án cũng gặp phải nhiều khó khăn và thách thức trong quá trình thực hiện, đòi
-hỏi sự nỗ lực và kiên trì từ nhóm phát triển để vượt qua và hoàn thiện hệ thống.
-
-- Dữ liệu mẫu chuyển hoá từ Obsidian Vault từ `TrshPuppy/obsidian-notes`
-  @trshpuppy_obsidian_notes không được chuẩn xác hoàn toàn. Vì cơ chế parse bằng
-  text, không phải cây ngôn ngữ, nên các code block chứa comment như ký tự `#`
-  hay shebang `#!` bị parse thành tag. Đồng thời, hệ thống không support nested
-  tags như obsidian. Cũng như công việc chuyển hoá và seed vào service phức tạp
-  _(markdown #sym.arrow custom markdown/HTML #sym.arrow BlockNote/yjs binary)_.
-- Các block của Shadcn từ cộng đồng nhìn chung khá đa dạng tuy nhiên phần lớn
-  chúng lại nằm trong các gói trả phí, nên vẫn phải tốn nhiều thời gian để code
-  lại các phần giao diện từ các components nguyên thủy của Shadcn.
-- Việc học và áp dụng nhiều công nghệ mới cùng lúc, tạo ra một learning curve
-  khá dốc và đòi hỏi thời gian để làm quen và thành thạo. Dẫu vậy, các thành
-  viên cũng đã có kinh nghiệm về một số công nghệ như Oauth2/OIDC, SQLC, nên đã
-  phần nào giảm bớt khó khăn này.
-- Độ phức tạp của kiến trúc microservices, đòi hỏi phải quản lý nhiều service
-  nhỏ, đảm bảo communication giữa các service, và xử lý các vấn đề liên quan đến
-  distributed systems như latency, fault tolerance, v.v...
-- Mô hình Casbin rất trừu tượng và có learning curve cao, đòi hỏi phải hiểu rõ
-  về mô hình RBAC để thiết kế chính sách phân quyền phù hợp và hiệu quả.
-- Các khái niệm về event bus, event processor, command bus, command processor từ
-  thư viện `ThreeDotsLabs/Watermill` nói riêng, và kiến trúc Event Drive
-  Architecture nói chung, đòi hỏi phải hiểu rõ để thiết kế và triển khai đúng
-  cách.
-- `ThreeDotsLabs/watermill-kafka` sử dụng `IBM/sarama` không hỗ trợ subscribe
-  regex topic, phải iterate toàn bộ topic bằng tay để subscribe.
-- `vtuanjs/sqlc-gen-go` là một plugin mới, chưa được sử dụng rộng rãi, tính
-  production ready chưa được kiểm chứng.
-- Quá trình thiết lập monorepo, đặc biệt đối với TypeScript/JavaScript rất phức
-  tạp, tốn nhiều thời gian để cấu hình cho đúng.
-- RustFS là một công nghệ mới, chưa stable, còn gặp nhiều vấn đề. Trong đó, có
-  vấn đề `rustfs/rustfs/issues/2587` - set server domains make RustFS cannot
-  start @rustfs_server_domains_issue #footnote[`rustfs/rustfs/issues/2587` do
-    thành viên nhóm phát hiện].
-- Việc xây dựng cây thư mục lúc đầu khá khó khăn do một số vấn đề về việc không
-  tương thích với các components có sẵn của Shadcn, nhưng sau đó đã tìm ra được
-  giải pháp từ `shadcn-ui/ui/issues/355` @shadcnui_file_tree_component, nhưng
-  vẫn phải dành thời gian để chỉnh sửa lại vì vẫn xảy ra một số lỗi.
+- Dữ liệu mẫu từ Obsidian Vault (`TrshPuppy/obsidian-notes`
+  @trshpuppy_obsidian_notes) không chuẩn xác do parse bằng text, code block chứa
+  `#`/`#!` bị parse thành tag. Hệ thống không support nested tags như Obsidian.
+- Việc học nhiều công nghệ mới cùng lúc tạo learning curve dốc, dù đã có kinh
+  nghiệm với OAuth2/OIDC, SQLC.
+- Kiến trúc microservices đòi hỏi quản lý nhiều service, đảm bảo communication,
+  xử lý distributed systems issues (latency, fault tolerance).
+- Casbin có learning curve cao, cần hiểu rõ RBAC để thiết kế policy phù hợp.
+- Các khái niệm event bus, command bus từ Watermill và Event-Driven Architecture
+  nói chung đòi hỏi hiểu rõ để triển khai đúng.
+- Thiết lập monorepo TypeScript/JavaScript phức tạp, tốn thời gian cấu hình.
+- RustFS chưa stable, gặp vấn đề `rustfs/rustfs/issues/2587`
+  @rustfs_server_domains_issue do thành viên nhóm phát hiện.
 
 === Ưu điểm
 
-Hệ thống ghi chú thông minh đã đạt được nhiều ưu điểm đáng kể.
-
 - Trải nghiệm người dùng trực quan, giao diện hiện đại, thống nhất.
-- Xử lý graph rất nhanh nhờ vào ngôn ngữ Go, hạn chế sử dụng con trỏ, tránh đối
-  tượng trong heap trong quá trình Read.
-- Kiến trúc microservices dễ mở rộng.
-- Code maintainability cao nhờ vào việc áp dụng kiến trúc Clean Architecture,
-  Domain Driven Design, CQRS đối với service `note` có business phức tạp nhất.
-- DevOps practices tốt với CI/CD nhanh nhờ vào kinh nghiệm thiết lập, cũng như
-  sử dụng Nx. 30 giây cho trường hợp cache hit toàn bộ project _(không có
-  project nào thay đổi source code)_, đến 10 phút cho trường hợp ignore toàn bộ
-  cache, build, lint, test, release. Nếu không được tối ưu, thời gian có thể lên
-  đến 25 phút trong trường hợp chạy tuần tự các task cho toàn bộ project.
-- Các service Go _(`note`, `authorization`)_ đều có health check endpoint, đảm
-  bảo tính sẵn sàng, tin cậy cao cho hệ thống.
+- Xử lý graph nhanh nhờ Go, hạn chế con trỏ và đối tượng heap khi Read.
+- Kiến trúc microservices dễ mở rộng, maintainability cao nhờ Clean
+  Architecture, DDD, CQRS cho service `note`.
+- DevOps tốt với CI/CD nhanh nhờ Nx: 30 giây (cache hit), 10 phút (ignore
+  cache).
+- Các service Go (`note`, `authorization`) có health check endpoint đầy đủ.
 
 === Nhược điểm
 
-Tuy đã đạt được nhiều ưu điểm, hệ thống cũng còn tồn tại một số nhược điểm cần
-được cải thiện trong tương lai.
-
-- Độ phức tạp cao của microservices architecture.
-- Cần nhiều tài nguyên hơn cho infrastructure, dù đã sử dụng Redpanda thay cho
-  Kafka, RustFS cho MinIO, nhưng tổng RAM có thể lên đến 2.5GB khi chạy toàn bộ
-  infrastructure. Đặc biệt với Authentik viết bằng Python, mức sử dụng RAM có
-  thể lên đến 1.5GB chỉ trong quá trình development. Điều này phải chấp nhận
-  đánh đổi về tính enterprise ready, feature rich, cộng đồng support tốt.
-- Các service JS chưa dược thành công cấu hình gửi telemetry đến Observability
-  Stack và health check endpoint.
-- Khả năng xử lý lỗi từ các async event còn hạn chế, cần đảm bảo retry và dead
-  letter queue cho các event thất bại cho toàn bộ các service. Hiện tại chỉ có
-  service `note` có retry và dead letter queue.
+- Microservices architecture có độ phức tạp cao.
+- Tốn tài nguyên infrastructure: tổng RAM ~2.5GB khi chạy toàn bộ, riêng
+  Authentik ~1.5GB _(chấp nhận đánh đổi lấy enterprise ready, feature rich)_.
+- Các service JS chưa cấu hình được telemetry và health check endpoint.
+- Xử lý lỗi async event còn hạn chế: chưa có retry và dead letter queue cho tất
+  cả service (hiện chỉ có service `note`).
 
 == Hướng phát triển
 
-Dự án đã đạt được mục tiêu đề ra, tuy nhiên vẫn còn nhiều tiềm năng để phát
-triển và cải thiện trong tương lai. Dưới đây là một số hướng phát triển có thể
-xem xét trong tương lai để nâng cao tính hoàn thiện và khả năng ứng dụng thực tế
-của hệ thống.
-
-- Tính năng subscription: Nhằm thương mại hóa sản phẩm dưới dạng SaaS.
-- Tích hợp AI: Cung cấp các tính năng thông minh, thao tác trực tiếp với editor
-  nhờ vào thư viện `@blocknote/xl-ai` @blocknote_ai_docs sử dụng thư viện `ai`
-  đến từ Vercel, hybrid search nhờ vào tính năng hỗ trợ bởi Meilisearch
-  @meilisearch_solutions_hybrid_search, các tool thông qua API của hệ thống.
-- Deploy: Hiện dự án đã được thiết lập quy trình release container các service,
-  giúp nhanh chóng tiến đến bước triển khai và vận hành hệ thống trong môi
-  trường deploy sau này.
-- Sử dụng Istio Gateway: Thay thế Traefik trên môi trường deploy để tận dụng các
-  tính năng nâng cao _(service mesh, authentication, authorization tại gateway,
-  retry, v.v...)_, phù hợp với kubernetes.
+- Tính năng subscription: thương mại hóa sản phẩm dưới dạng SaaS.
+- Tích hợp AI: `@blocknote/xl-ai` @blocknote_ai_docs, hybrid search với
+  Meilisearch @meilisearch_solutions_hybrid_search, tool thông qua API hệ thống.
+- Deploy: thiết lập quy trình release container, sẵn sàng triển khai.
+- Sử dụng Istio Gateway thay Traefik trên môi trường deploy _(service mesh,
+  auth, retry tại gateway)_ phù hợp Kubernetes.
 
 == Lời kết
 

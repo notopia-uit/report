@@ -54,6 +54,10 @@
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 #show figure.where(kind: table): set figure.caption(position: top)
 
+// Allows figures/tables to break, but forces the caption to stay with the body
+// Idk but as researched, typst default make the caption stick with figure
+#show figure.caption: set block(sticky: true)
+
 #include "./coverpage.typ"
 
 #set page(
@@ -84,7 +88,7 @@
 
   // Display-only: add a period after the entry number (e.g. "Hình 2.1." or
   // "A.") in figure/appendix outlines, without touching any `numbering`
-  // function (so cross-references like `@fig-...` stay clean — see
+  // function (so cross-references like `@fig-...` stay clean -- see
   // docs/ai/numbering-appendix.md).
   let dotted-entry = it => {
     let prefix = it.prefix()

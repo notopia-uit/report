@@ -1,38 +1,22 @@
 == Hạn chế CI của Nx và giải pháp custom cache
 
-Đối với CI, Nx hướng developer sử dụng hệ sinh thái của Nx Cloud, nhưng nhóm đã
-tự xây dựng một giải pháp cache riêng cho Github Actions,
-`KevinNitroG/nx-cache-action` @nx_cache_action. Script hoạt động theo cơ chế
-cache từng project thay vì toàn bộ cache lớn của cả workspace.
+Nx hướng developer dùng Nx Cloud cho CI, nhưng nhóm đã tự xây dựng giải pháp
+cache riêng cho GitHub Actions: `KevinNitroG/nx-cache-action` @nx_cache_action.
+Script lấy cảm hứng từ `raegen/nx` @raegen_nx (đã deprecated), nhưng cơ chế khác
+biệt: khởi động NodeJS ExpressJS server implement OpenAPI Spec của Nx
+@nx_remote_cache_openapi_spec, forward lệnh Nx cho child process, server nhận
+request cache và giao tiếp với GitHub Actions cache API qua
+`actions/toolkit/cache` @actions_toolkit_cache.
 
-Script được lấy cảm hứng từ `raegen/nx` @raegen_nx #footnote[`raegen/nx` không
-  được hỗ trợ chính thức bởi Nx, đã deprecated], cache tại project level. Nhưng
-cơ chế hoạt động khác biệt:
-+ Script sẽ khởi động một NodeJS ExpressJS server implement OpenAPI Spec
-  @nx_remote_cache_openapi_spec chính thức từ Nx.
-+ Forward lệnh Nx cho 1 child process, kèm theo thiết lập để Nx gửi request
-  cache đến server.
-+ Server nhận request cache, xử lý giao tiếp với Github Actions cache API thông
-  qua `actions/toolkit/cache` @actions_toolkit_cache.
+Vấn đề: Nx lưu cache task khoảng một tháng kể từ lần cuối sử dụng. Không dùng
+`nx-cache-action`, cache được lưu toàn bộ project task cache (~5GB/lần). 10
+commit thay đổi source code tạo 10 cache (~50GB), vượt giới hạn 10GB của GitHub
+Actions. Chưa kể còn phải cache node modules, Go packages, system dependencies.
 
-Vì Nx sẽ lưu cache từng task ước chừng khoảng một tháng kể từ lần cuối sử dụng
-mới được xoá. Đối với dự án khi không sử dụng `KevinNitroG/nx-cache-action`,
-cache được lưu theo dạng toàn bộ project task cache, có thể lên đến khoảng 5GB
-trong mỗi lần lưu cache. Và hiển nhiên rằng, mỗi lần chạy thay đổi là một cache
-mới được tạo ra. Nếu có 10 commit được tạo ra và thay đổi source code, thì sẽ có
-10 cache được tạo ra, tổng dung lượng cache có thể lên đến 50GB, vượt qua mức
-10GB giới hạn của Github Actions cache. Hơn nữa, vẫn cần chừa dung lượng để
-cache node modules, go packages, system dependencies, v.v..., nên việc cache
-toàn bộ project task cache là không tối ưu.
+Với `nx-cache-action`, cache lưu theo từng project nhỏ (vài trăm KB đến hơn
+10MB/task), chỉ tạo cache mới khi project đó thay đổi. Điều này tối ưu dung
+lượng, tránh vượt giới hạn GitHub Actions, tăng cache hit.
 
-Khi sử dụng `KevinNitroG/nx-cache-action`, cache được lưu theo dạng từng project
-nhỏ, mỗi project task có thể chỉ khoảng vài trăm KB, đến hơn 10MB tùy vào task,
-và chỉ khi nào project đó thay đổi source code mới tạo cache mới. Điều này giúp
-tối ưu hóa dung lượng cache, tránh vượt quá giới hạn của Github Actions, và tăng
-hiệu quả cache hit.
-
-Script có một nhược điểm là phải thông qua `actions/toolkit/cache` để download
-cache về local, và pipe cache vào lại Nx process. Có thể hiểu là cache đã được
-tải xuống nhưng lưu ở một nơi khác, và phải truyền vào Nx process thông qua HTTP
-request một lần nữa. Nhưng đây là cách dễ dàng nhất, không phải giao tiếp trực
-tiếp với Github Actions cache Rest API phức tạp hơn.
+Nhược điểm: cache phải download qua `actions/toolkit/cache` rồi pipe vào lại Nx
+process qua HTTP, thay vì giao tiếp trực tiếp với GitHub Actions cache Rest API.
+Đây là cách dễ dàng nhất để triển khai.

@@ -24,21 +24,17 @@ tiếp cận.
 === Ưu điểm
 
 Casbin mang lại nhiều lợi ích cho phát triển authorization:
-- Flexible Models, cùng một kiểu biểu diễn cơ sở dữ liệu nhưng có thể hỗ trợ
-  nhiều mô hình kiểm soát từ đơn giản (ACL) đến phức tạp (ABAC)
-- Declarative Configuration, định nghĩa rules thông qua file cấu hình thay vì
-  code
-- Multi-Language Support, có implementation cho nhiều ngôn ngữ lập trình
-- High Performance, được tối ưu cho xử lý nhanh và kiểm tra permission hiệu quả
-- Persistence, hỗ trợ lưu trữ policies trong database hoặc file
-- Extensible, hỗ trợ custom matcher và effect, cho phép mở rộng chức năng
+- Cùng một biểu diễn hỗ trợ nhiều mô hình từ ACL đến ABAC
+- Định nghĩa rules qua file cấu hình thay vì code
+- Implementation cho nhiều ngôn ngữ
+- Xử lý nhanh và kiểm tra permission hiệu quả
+- Lưu trữ policies trong database hoặc file
+- Custom matcher và effect cho phép mở rộng chức năng
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Casbin có một số hạn chế:
-- High Learning Curve, cần thời gian để hiểu các mô hình RBAC, ABAC và cách cấu
-  hình
-- Những use case phức tạp có thể dẫn đến cấu hình khó hiểu
-- Khó khăn trong debugging khi policy không hoạt động như mong đợi
-- Không dễ scale cho các hệ thống lớn so với các giải pháp chuyên biệt như OPA
-  hoặc SpiceDB
+- Cần thời gian để hiểu RBAC, ABAC và cách cấu hình
+- Use case phức tạp dẫn đến cấu hình khó hiểu
+- Khó debug khi policy không hoạt động như mong đợi
+- Không dễ scale so với các giải pháp chuyên biệt như OPA hoặc SpiceDB

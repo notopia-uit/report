@@ -19,19 +19,15 @@ tầng lưu trữ đáng tin cậy với resource overhead tối thiểu.
 
 RustFS mang lại nhiều lợi ích cho phát triển object storage:
 
-- S3 Compatibility, hỗ trợ đầy đủ API S3, cho phép dễ dàng thay thế MinIO hoặc
-  S3
-- High Performance, được viết bằng Rust, cung cấp hiệu suất vượt trội so với
-  MinIO
-- Concurrent Operations, hỗ trợ xử lý đồng thời tối ưu nhờ async/await của Rust
-- Hỗ trợ
-- Có thể giao tiếp thông qua MinIO CLI
-- Hỗ trợ cloud native một cách chính thức, có thể triển khai trên Kubernetes
+- Tương thích S3 API, dễ thay thế MinIO/S3
+- Hiệu suất vượt trội nhờ Rust
+- Xử lý đồng thời tối ưu nhờ async/await
+- Giao tiếp qua MinIO CLI
+- Hỗ trợ cloud native, triển khai Kubernetes
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, RustFS có một số hạn chế:
 
-- Young Ecosystem, tương đối mới so với MinIO, ecosystem có thể chưa hoàn chỉnh
-- Tại thời điểm thực hiện dự án, RustFS vẫn chưa phát hành bất kỳ phiên bản ổn
-  định
+- Còn mới so với MinIO, ecosystem chưa hoàn chỉnh
+- Chưa có phiên bản ổn định tại thời điểm thực hiện dự án
