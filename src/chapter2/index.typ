@@ -30,7 +30,7 @@
 
 #include "grpc.typ"
 
-#include "traefik.typ"
+// #include "traefik.typ"
 
 #include "casbin.typ"
 
@@ -38,15 +38,15 @@
 
 #include "authentik.typ"
 
-#include "rustfs.typ"
+// #include "rustfs.typ"
 
-#include "observability.typ"
+// #include "observability.typ"
 
-#include "redpanda.typ"
+// #include "redpanda.typ"
 
-#include "watermill.typ"
+// #include "watermill.typ"
 
-#include "nx.typ"
+// #include "nx.typ"
 
 // #include "vitepress.typ"
 

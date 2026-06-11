@@ -23,10 +23,10 @@ request/response schemas, và error codes theo cách machine-readable.
 
 === Tooling Ecosystem
 
-- Redocly @redocly: Tool cho OpenAPI specification, trong dự án sử dụng làm
-  language server, linter, bundle các file nhỏ thành một file lớn
-- Scalar @scalar: Tool cho OpenAPI specification, tương đối giống redocly, trong
-  dự án sử dụng để render website documentation từ OpenAPI spec
+- Redocly: Tool cho OpenAPI specification, trong dự án sử dụng làm language
+  server, linter, bundle các file nhỏ thành một file lớn
+- Scalar: Tool cho OpenAPI specification, tương đối giống redocly, trong dự án
+  sử dụng để render website documentation từ OpenAPI spec
 - `heyapi/openapi-ts` @heyapi sinh TypeScript types từ OpenAPI spec
 - `oapi-codegen` @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API
   generation
@@ -42,15 +42,15 @@ integration issues.
 
 === Ưu điểm
 
-- Clear Contracts, API contracts rõ ràng được define trước implementation
-- Parallel Development, frontend và backend có thể phát triển song song
-- Type Safety, code generation tạo type-safe clients và servers
-- Documentation, contracts tự động documentation
-- Tooling Ecosystem, rộng rãi tooling hỗ trợ OpenAPI
+- API contracts rõ ràng trước implementation
+- Frontend và backend phát triển song song
+- Code generation tạo type-safe clients và servers
+- Tự động documentation từ contracts
+- Rộng rãi tooling hỗ trợ
 
 === Nhược điểm
 
-- Specification Maintenance, specifications cần được updated khi API thay đổi
-- Setup Complexity, code generation pipeline yêu cầu cấu hình
-- Learning Curve, cần học OpenAPI specification format
-- Tooling Overhead, cần maintain generation scripts và tooling
+- Cần cập nhật spec khi API thay đổi
+- Code generation pipeline cần cấu hình
+- Cần học OpenAPI specification
+- Cần maintain generation scripts và tooling

@@ -1,7 +1,7 @@
 #import "./lib/metadata.typ": project-metadata
 
 #set document(
-  title: project-metadata.title,
+  title: project-metadata.vietnamese-report-title,
   author: project-metadata.authors,
   keywords: project-metadata.keywords,
 )
@@ -22,19 +22,7 @@
   lang: "vi",
 )
 
-#set table(
-  inset: 0.5em,
-  fill: (x, y) => {
-    if y == 0 {
-      black
-    } else if calc.odd(y) {
-      gray.lighten(90%)
-    } else {
-      white
-    }
-  },
-)
-#show table.cell.where(y: 0): set text(white)
+#show table.cell.where(y: 0): set table.cell(fill: gray.lighten(30%))
 #show table: set par(justify: false)
 
 #set par(
@@ -66,6 +54,9 @@
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 #show figure.where(kind: table): set figure.caption(position: top)
 
+// Allows figures/tables to break, but forces the caption to stay with the body
+// Idk but as researched, typst default make the caption stick with figure
+#show figure.caption: set block(sticky: true)
 
 #include "./coverpage.typ"
 
@@ -95,6 +86,16 @@
     heading
   }
 
+  // Display-only: add a period after the entry number (e.g. "Hình 2.1." or
+  // "A.") in figure/appendix outlines, without touching any `numbering`
+  // function (so cross-references like `@fig-...` stay clean -- see
+  // docs/ai/numbering-appendix.md).
+  let dotted-entry = it => {
+    let prefix = it.prefix()
+    let new-prefix = if prefix != none { [#prefix.] } else { none }
+    it.indented(new-prefix, it.inner())
+  }
+
   {
     show outline.entry.where(level: 1): set text(weight: "bold")
     show outline.entry.where(level: 1): it => {
@@ -110,7 +111,7 @@
       show link: set text(fill: luma(0%))
       link(
         elem.location(),
-        it.indented(new-prefix, it.inner()),
+        it.indented(new-prefix, upper(it.inner())),
       )
     }
     outline(
@@ -119,50 +120,53 @@
       target: target,
     )
   }
-  outline(
-    title: "Danh mục hình ảnh",
-    target: figure
-      .where(
-        kind: image,
-      )
-      .before(
-        loc.first().location(),
-        inclusive: false,
-      ),
-  )
+  {
+    show outline.entry: dotted-entry
+    outline(
+      title: "Danh mục hình ảnh",
+      target: figure
+        .where(
+          kind: image,
+        )
+        .before(
+          loc.first().location(),
+          inclusive: false,
+        ),
+    )
 
-  outline(
-    title: "Danh mục bảng biểu",
-    target: figure
-      .where(
-        kind: table,
-      )
-      .before(
-        loc.first().location(),
-        inclusive: false,
-      ),
-  )
+    outline(
+      title: "Danh mục bảng biểu",
+      target: figure
+        .where(
+          kind: table,
+        )
+        .before(
+          loc.first().location(),
+          inclusive: false,
+        ),
+    )
 
-  outline(
-    title: "Danh mục bảng chương trình",
-    target: figure
-      .where(
-        kind: raw,
-      )
-      .before(
-        loc.first().location(),
-        inclusive: false,
-      ),
-  )
+    outline(
+      title: "Danh mục bảng chương trình",
+      target: figure
+        .where(
+          kind: raw,
+        )
+        .before(
+          loc.first().location(),
+          inclusive: false,
+        ),
+    )
 
-  outline(
-    title: "Phụ lục",
-    depth: 2,
-    target: heading
-      .where(supplement: [Phụ lục], level: 2)
-      .or(heading.where(supplement: [Phụ lục], level: 3))
-      .and(target-appendix),
-  )
+    outline(
+      title: "Phụ lục",
+      depth: 2,
+      target: heading
+        .where(supplement: [Phụ lục], level: 2)
+        .or(heading.where(supplement: [Phụ lục], level: 3))
+        .and(target-appendix),
+    )
+  }
 }
 
 #import "@preview/codly:1.3.0": *
@@ -172,8 +176,6 @@
 )
 
 #include "./glossaries.typ"
-
-#include "summary.typ"
 
 #set page(
   numbering: "1",
@@ -187,6 +189,8 @@
 )
 
 #counter(page).update(1)
+
+#include "summary.typ"
 
 #{
   set heading(numbering: "1.")
@@ -220,13 +224,14 @@
 
   include "./chapter5/index.typ"
 
+  bibliography(
+    "./ref.bib",
+    title: "Tài liệu tham khảo",
+    style: "ieee",
+  )
+
   [#metadata(none)<end-content>]
 }
 
-#bibliography(
-  "./ref.bib",
-  title: "Tài liệu tham khảo",
-  style: "ieee",
-)
 
 #include "./appendix/index.typ"

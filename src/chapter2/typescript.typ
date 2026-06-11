@@ -21,28 +21,22 @@ Node.js).
 === Ưu điểm
 
 TypeScript mang lại nhiều lợi ích khi phát triển ứng dụng JavaScript:
-- Type Safety, phát hiện lỗi tại compile-time thay vì runtime, giảm thiểu bugs
-  trong quá trình phát triển
-- Documentation, types tự động document code giúp developer khác hiểu code dễ
-  dàng hơn
-- JavaScript Compatibility, có thể sử dụng mọi thư viện JavaScript hiện có
+- Phát hiện lỗi compile-time, giảm bugs
+- Types tự động document code
+- Tương thích mọi thư viện JavaScript
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, TypeScript có một số hạn chế:
-- Learning Curve, cần học thêm về type system và TypeScript-specific features
-  như decorators, generics
-- Compilation Step, cần biên dịch trước khi chạy, tăng thời gian build và phức
-  tạp hóa quy trình
-- Bước compile/transpile từ TypeScript sang JavaScript được thực hiện bằng nhiều
-  công cụ
+- Cần học type system và features như decorators, generics
+- Cần biên dịch, tăng thời gian build
+- Bước compile/transpile được thực hiện bằng nhiều công cụ
 
 === Hệ sinh thái và công cụ
 
-Dự án `microsoft/typescript-go` @typescript_go đang phát triển một
-implementation của TypeScript được viết hoàn toàn bằng Go, thay vì TypeScript
-hiện tại được viết bằng TypeScript. Dự án này hướng tới việc cải thiện hiệu
-suất.
+Dự án `microsoft/typescript-go` đang phát triển một implementation của
+TypeScript được viết hoàn toàn bằng Go, thay vì TypeScript hiện tại được viết
+bằng TypeScript. Dự án này hướng tới việc cải thiện hiệu suất.
 
 Dự án được thiết lập với monorepo, các package được chia build riêng biệt
 (`SWC`, `Rspack`, `tsgo`, `vite`) để tăng tốc thời gian build, Oxlint thay cho

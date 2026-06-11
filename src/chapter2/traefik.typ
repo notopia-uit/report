@@ -24,21 +24,20 @@ giúp cho các service không cần phải thực hiện quá trình xác minh r
 === Ưu điểm
 
 Traefik mang lại nhiều lợi ích cho phát triển API gateway:
-- Auto-Discovery, tự động phát hiện services không cần cấu hình thủ công
-- OpenTelemetry Integration, hỗ trợ native OTLP cho distributed tracing
-- Container-Native, thiết kế tối ưu cho Docker và Kubernetes, hỗ trợ GatewayAPI
-  của Kubernetes
-- Middleware System, hỗ trợ middleware extensible cho custom logic
-- Dynamic Configuration, cấu hình có thể thay đổi runtime mà không cần restart
-- Multiple Protocol Support, hỗ trợ HTTP, HTTPS, gRPC, WebSocket
-- Performance, được viết bằng Go, cung cấp hiệu suất cao và resource efficiency
-- Active Development, dự án được duy trì tích cực với feature mới thường xuyên
+- Tự động phát hiện services, không cần cấu hình thủ công
+- Hỗ trợ native OTLP cho distributed tracing
+- Thiết kế tối ưu cho Docker và Kubernetes
+- Middleware extensible cho custom logic
+- Cấu hình thay đổi runtime không cần restart
+- Hỗ trợ HTTP, HTTPS, gRPC, WebSocket
+- Hiệu suất cao nhờ Go
+- Dự án được duy trì tích cực
 
 === Nhược điểm
 
 Bên cạnh các ưu điểm, Traefik có một số hạn chế:
-- Learning Curve, cần học provider concept và configuration syntax
-- Configuration Complexity, cấu hình nâng cao có thể trở nên phức tạp
-- Community Support, nhỏ hơn Nginx, ít plugin third-party có sẵn
-- Debugging, khó khăn trong debugging khi routing rules không hoạt động đúng
-- Ecosystem, ít integration third-party so với các gateway khác
+- Cần học provider concept và configuration syntax
+- Cấu hình nâng cao có thể phức tạp
+- Cộng đồng nhỏ hơn Nginx, ít plugin third-party
+- Khó debug khi routing rules không hoạt động đúng
+- Ít integration third-party so với các gateway khác

@@ -1,5 +1,14 @@
 # Appendix Heading Numbering — Problem Statement
 
+> **Status (2026-06-11): partially superseded.** The outline-side symptoms
+> described here (missing dot after `A` / `A.1` in the "Phụ lục" list) are now
+> fixed in `src/main.typ` *without* touching any `numbering` function, so the
+> A/B/C trade-off below no longer applies to the outline. See
+> [outline-formatting.md](./outline-formatting.md) for the approach actually
+> used. The options A/B/C below still describe the situation for the **heading
+> body in the document** (e.g. `A.1 Tiêu đề` vs `A.1. Tiêu đề`), which is a
+> separate, still-open question.
+
 ## Current state
 
 Appendix headings are formatted inside `src/lib/appendix.typ` using a custom

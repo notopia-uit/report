@@ -103,21 +103,41 @@ bản ghi chú của mình dưới dạng website.
 
 #figure(
   table(
-    columns: (auto, auto, auto),
-    align: left,
-    [*Hệ thống*], [*Ưu điểm*], [*Nhược điểm*],
-    [Notion],
-    [Giao diện đẹp, đa tính năng, hợp tác thời gian thực],
-    [Phức tạp khi quản lý dự án lớn, tốc độ tải chậm với dữ liệu lớn],
+    columns: (auto, 1fr, 1fr, 1fr),
+    align: (left, center, center, center),
+    table.header(
+      [*Đặc tính*],
+      table.cell[
+        #image("../assets/images/notion-logo.svg", height: 30pt)
+        \ *Notion*
+      ],
+      table.cell[
+        #image("../assets/images/obsidian-logo.svg", height: 30pt)
+        \ *Obsidian*
+      ],
+      table.cell[
+        #image("../assets/images/quartz-logo.png", height: 30pt)
+        \ *Quartz*
+      ],
+    ),
+    [*Loại*],
+    [Nền tảng làm việc],
+    [Ứng dụng ghi chú desktop],
+    [Static site generator],
 
-    [Obsidian],
-    [Local-first, graph view mạnh mẽ, liên kết hai chiều, plugin đa dạng],
-    [Thiếu hợp tác thời gian thực, learning curve cao],
-
-    [Quartz],
-    [Tốc độ nhanh, tương thích Obsidian, dễ xuất bản website, tùy chỉnh cao],
-    [Yêu cầu kiến thức kỹ thuật, không có hợp tác thời gian thực, giao diện đơn
-      giản],
+    [*Nền tảng hỗ trợ*], [Web, Desktop, Mobile], [Desktop, Mobile], [CLI],
+    [*Hợp tác thời gian thực*], [Có], [Không], [Không],
+    [*Graph View*], [Không], [Có], [Có],
+    [*Liên kết hai chiều*], [Có], [Có], [Có],
+    [*Markdown gốc*], [Không (block-based)], [Có], [Có],
+    [*Hệ thống Plugin*], [Có (kho mẫu, AI)], [Có (cộng đồng)], [Có],
+    [*Lưu trữ*], [Đám mây], [Local-first], [Git-based],
+    [*Self-hosted*], [Không], [Không], [Có],
+    [*Mã nguồn mở*], [Không], [Không], [Có (MIT)],
+    [*Xuất bản web*],
+    [Có (Notion Sites)],
+    [Có (Obsidian Publish)],
+    [Có (tính năng chính)],
   ),
   caption: [So sánh các hệ thống hiện có],
 )

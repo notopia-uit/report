@@ -68,7 +68,7 @@ dịch vụ.
 === Mô tả use case Get Note
 
 #figure(
-  image("../assets/diagrams/get-note-seq.svg", height: 90%),
+  image("../assets/diagrams/get-note-seq.svg", height: 92%),
   caption: [Sequence diagram mô tả get note use case],
 )
 
@@ -180,63 +180,4 @@ dịch vụ.
     ],
   ),
   caption: [Mô tả use case Commit Document],
-)
-
-=== Mô tả use case Update Note
-
-// This use case is not right, because we do more fine-grained than just update
-
-#figure(
-  image("../assets/diagrams/update-note-seq.svg"),
-  caption: [Sequence diagram mô tả update note use case],
-)
-
-#usecase-figure(
-  usecase(
-    id: [UC04],
-    name: [Update Note],
-    description: [Use case này mô tả quy trình cập nhật thông tin cơ bản của ghi
-      chú],
-    actors: [User],
-    priority: [Cao],
-    trigger: [Người dùng chỉnh sửa và lưu thay đổi thông tin ghi chú],
-    pre-conditions: [
-      - Người dùng đã đăng nhập vào hệ thống
-      - Người dùng có quyền chỉnh sửa ghi chú trong không gian làm việc hiện tại
-      - Ghi chú tồn tại trong hệ thống
-    ],
-    post-conditions: [
-      - Thông tin ghi chú được cập nhật thành công
-      - `NoteUpdatedEvent` được publish tới các dịch vụ khác
-    ],
-    basic-flow: [
-      + Người dùng chỉnh sửa thông tin ghi chú và chọn lưu
-      + Hệ thống kiểm tra quyền chỉnh sửa ghi chú với `authorization` service
-      + Hệ thống cập nhật thông tin ghi chú trong `note` service
-      + Hệ thống trả về kết quả thành công cho người dùng
-      + Hệ thống publish `NoteUpdatedEvent` tới Message Broker (có retry nếu
-        chưa published)
-      + `search-worker` nhận `NoteUpdatedEvent` và xử lý
-      + Search service nhận yêu cầu Index Note và thực hiện indexing
-    ],
-    alternate-flow: [
-      + Bước 3: Hệ thống gặp lỗi kiểm tra quyền
-        + Ghi log lỗi và trả về thông báo cho người dùng
-      + Bước 5: Chưa published được `NoteUpdatedEvent`
-        + Hệ thống tự động retry cho đến khi thành công
-      + Bước 7: Lỗi khi xử lý `NoteUpdatedEvent` ở `search-worker`
-        + Ghi log và bỏ qua event này
-      + Bước 8: Lỗi khi indexing ở Search service
-        + Ghi log và thử lại sau debounce
-    ],
-    exception-flow: [
-      + Bước 2: Người dùng không có quyền chỉnh sửa ghi chú
-        + Hệ thống trả về lỗi `forbidden`
-        + Use case dừng lại
-      + Bước 4: Lỗi khi cập nhật thông tin ghi chú
-        + Hệ thống trả về lỗi
-        + Use case dừng lại
-    ],
-  ),
-  caption: [Mô tả use case Update Note],
 )

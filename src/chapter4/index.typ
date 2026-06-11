@@ -48,13 +48,13 @@
     column(
       [Tiêu đề Hero],
       [Text (h1)],
-      ["Connect every idea" — tiêu đề lớn in đậm],
+      ["Connect every idea" -- tiêu đề lớn in đậm],
     ),
     column(
       [Mô tả Hero],
       [Text (p)],
-      ["Turn scattered notes into a shared universe..." — giải thích giá trị của
-        Notopia],
+      ["Turn scattered notes into a shared universe..." -- giải thích giá trị
+        của Notopia],
     ),
     column(
       [Ô nhập liên hệ],
@@ -134,12 +134,12 @@
     column(
       [Tiêu đề thẻ],
       [Text (CardTitle)],
-      ["Welcome back" — tiêu đề căn giữa],
+      ["Welcome back" -- tiêu đề căn giữa],
     ),
     column(
       [Mô tả thẻ],
       [Text (CardDescription)],
-      ["Login with your Authentik" — phụ đề],
+      ["Login with your Authentik" -- phụ đề],
     ),
     column(
       [Nút đăng nhập Authentik],
@@ -434,7 +434,7 @@
     column(
       [Nút lịch sử phiên bản],
       [Button],
-      [Mở `RevisionModal` — kích hoạt duyệt lịch sử phiên bản],
+      [Mở `RevisionModal` -- kích hoạt duyệt lịch sử phiên bản],
     ),
     column(
       [Nút xem đồ thị],
@@ -449,7 +449,7 @@
     column(
       [Trình soạn thảo chính],
       [Editor],
-      [`EditorCore` — trình soạn thảo BlockNote với YJS awareness, cộng tác và
+      [`EditorCore` -- trình soạn thảo BlockNote với YJS awareness, cộng tác và
         xử lý vai trò người xem],
     ),
     column(

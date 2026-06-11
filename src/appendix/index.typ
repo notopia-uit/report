@@ -10,4 +10,8 @@
 
 #include "./healthcheck.typ"
 
-#include "./sqlc.typ"
+// #include "./sqlc.typ"
+
+#include "./nx.typ"
+
+#include "./observability.typ"

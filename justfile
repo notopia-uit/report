@@ -29,12 +29,10 @@ dev: mkdir
 preview-zathura: build-pdf
     zathura ./build/{{ out_name }}.pdf
 
+[doc("Run build for the first time, before running this")]
 [parallel]
 [unix]
-watch-preview-zathura: build-watch preview-zathura
-
-[unix]
-dev-zathura: build-pdf watch-preview-zathura
+dev-zathura: build-watch preview-zathura
 
 format:
     typstyle -i --line-width=80 --indent-width=2 --wrap-text ./src/

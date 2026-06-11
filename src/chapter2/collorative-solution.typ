@@ -8,11 +8,6 @@ thay đổi xảy ra song song từ nhiều nguồn khác nhau. Đây là bài t
 nghiên cứu sâu rộng trong lĩnh vực hệ thống phân tán và là nền tảng cho mọi công
 cụ cộng tác thời gian thực hiện đại.
 
-Xét một ví dụ đơn giản: hai người dùng A và B cùng nhìn vào một tài liệu có nội
-dung là chữ "Hello". Người dùng A xóa ký tự đầu tiên "H", trong khi người dùng B
-đồng thời thêm dấu "!" vào cuối. Nếu không có cơ chế xử lý phù hợp, kết quả trên
-máy của A và B sẽ không giống nhau, dẫn đến dữ liệu bị phân kỳ và mất nhất quán.
-
 Hiện nay có hai trường phái giải pháp được nghiên cứu và ứng dụng phổ biến nhất:
 Operational Transformation (OT) và Conflict-free Replicated Data Type (CRDT).
 Mỗi phương pháp tiếp cận bài toán theo một hướng khác nhau, với những đánh đổi
@@ -22,19 +17,11 @@ riêng về độ phức tạp, hiệu suất và khả năng mở rộng.
 
 ==== Lịch sử
 
-Operational Transformation được giới thiệu lần đầu vào năm 1989 bởi hai nhà khoa
-học C. Ellis và S. Gibbs tại Microelectronics and Computer Technology
-Corporation (MCC), trong bài báo nổi tiếng "Concurrency Control in Groupware
-Systems". Hệ thống được xây dựng khi đó là GROVE, viết tắt của GRoup Outline
-Viewing Edit, một trong những hệ thống chỉnh sửa cộng tác thời gian thực đầu
-tiên trong lịch sử máy tính.
-
-Trong suốt thập niên 1990 và đầu 2000, OT tiếp tục được nghiên cứu và mở rộng
-bởi nhiều nhóm khoa học, tuy nhiên các cài đặt thực tế vẫn còn rất hạn chế. Bước
-ngoặt lớn đến vào năm 2009, khi Google công bố Google Wave và sau đó là Google
-Docs sử dụng OT ở quy mô hàng triệu người dùng, đưa công nghệ này từ lý thuyết
-nghiên cứu vào sản phẩm thương mại đại trà và khẳng định tính khả thi của nó
-trong thực tiễn.
+Operational Transformation được giới thiệu lần đầu vào năm 1989 bởi C. Ellis và
+S. Gibbs trong bài báo "Concurrency Control in Groupware Systems". Bước ngoặt
+lớn đến vào năm 2009, khi Google công bố Google Wave và Google Docs sử dụng OT ở
+quy mô hàng triệu người dùng, đưa công nghệ này từ lý thuyết vào sản phẩm thương
+mại đại trà.
 
 ==== Nguyên lý hoạt động
 
@@ -82,16 +69,11 @@ cả hai phía là "ello!", nhất quán và đúng đắn.
 ==== Lịch sử
 
 Conflict-free Replicated Data Type được định nghĩa chính thức vào năm 2011 bởi
-nhóm nghiên cứu gồm Marc Shapiro, Nuno Preguiça, Carlos Baquero và Marek
-Zawirski tại Viện nghiên cứu quốc gia Pháp (INRIA), trong công trình "A
-comprehensive study of Convergent and Commutative Replicated Data Types".
-
-Ý tưởng khởi nguồn từ nhu cầu của điện toán phân tán và di động, nơi kết nối
-mạng không ổn định và các thiết bị cần hoạt động độc lập trong thời gian dài rồi
-đồng bộ lại sau đó mà không mất dữ liệu. Khác với OT, CRDT không cố gắng điều
-phối thứ tự các thao tác mà thiết kế cấu trúc dữ liệu sao cho mọi cách kết hợp
-thay đổi đều cho ra cùng một kết quả, đảm bảo về mặt toán học chứ không phải
-thông qua điều phối tập trung.
+Marc Shapiro, Nuno Preguiça, Carlos Baquero và Marek Zawirski tại INRIA. Ý tưởng
+khởi nguồn từ nhu cầu điện toán phân tán và di động, nơi kết nối mạng không ổn
+định. Khác với OT, CRDT thiết kế cấu trúc dữ liệu sao cho mọi cách kết hợp thay
+đổi đều cho ra cùng một kết quả, đảm bảo về mặt toán học thay vì thông qua điều
+phối tập trung.
 
 ==== Nguyên lý hoạt động
 
@@ -138,29 +120,6 @@ Có hai nhánh chính của CRDT:
   cẩn thận để tránh các kết quả bất ngờ
 
 === So sánh
-
-Operational Transformation và CRDT đại diện cho hai triết lý thiết kế khác nhau
-cho cùng một bài toán. OT tập trung hóa logic điều phối vào máy chủ và các hàm
-biến đổi, trong khi CRDT phân tán logic điều phối vào chính cấu trúc dữ liệu.
-
-Về kiến trúc hệ thống, OT yêu cầu một điểm điều phối trung tâm để xác định thứ
-tự thao tác nhất quán giữa các phiên làm việc. CRDT không yêu cầu điều này, mỗi
-thiết bị có thể nhận và áp dụng thay đổi theo bất kỳ thứ tự nào và vẫn đảm bảo
-tính hội tụ.
-
-Về khả năng làm việc ngoại tuyến, CRDT có ưu thế rõ rệt. Người dùng có thể tiếp
-tục làm việc khi mất kết nối và dữ liệu tự động đồng bộ khi quay lại mạng, trong
-khi OT thường yêu cầu kết nối liên tục với máy chủ điều phối.
-
-Về hiệu suất trong điều kiện thông thường, OT thường nhẹ hơn và nhanh hơn do
-không cần mang theo metadata cho từng phần tử. CRDT đánh đổi một phần hiệu suất
-để đổi lấy sự đơn giản trong logic đồng bộ hóa và khả năng hoạt động phi tập
-trung.
-
-Về độ phức tạp triển khai, cả hai phương pháp đều không đơn giản, nhưng theo
-những hướng khác nhau. OT phức tạp ở việc thiết kế đúng thuật toán biến đổi khi
-có nhiều người dùng và nhiều loại thao tác phức tạp. CRDT phức tạp ở việc thiết
-kế cấu trúc dữ liệu phù hợp và quản lý bộ nhớ hiệu quả theo thời gian.
 
 #figure(
   table(
@@ -212,29 +171,10 @@ cái nhìn sâu hơn về các khía cạnh kỹ thuật và thực tiễn của
 Trong thực tế, các sản phẩm lớn đưa ra những lựa chọn khác nhau dựa trên yêu cầu
 cụ thể của từng trường hợp sử dụng.
 
-Google Docs sử dụng Operational Transformation với kiến trúc tập trung. Mỗi tài
-liệu được quản lý bởi một tiến trình máy chủ duy nhất đóng vai trò trọng tài,
-nhận và biến đổi tất cả các thao tác trước khi phân phối lại cho các phiên làm
-việc. Lựa chọn này phù hợp với văn bản thuần túy và đã được kiểm chứng ở quy mô
-hàng trăm triệu tài liệu.
-
-Figma ban đầu cũng sử dụng Operational Transformation nhưng đã chuyển sang CRDT
-vào năm 2019. Lý do là thiết kế đồ họa có cấu trúc phức tạp hơn văn bản rất
-nhiều: các đối tượng có thuộc tính đa dạng, lồng nhau nhiều cấp, và các xung đột
-không thể giải quyết tuyến tính như trong văn bản. CRDT cho phép Figma xử lý các
-trường hợp này một cách tự nhiên hơn mà không cần viết lại các hàm biến đổi ngày
-càng phức tạp.
-
-Notion áp dụng cách tiếp cận kết hợp: sử dụng CRDT cho cấu trúc khối của tài
-liệu và Operational Transformation cho nội dung văn bản bên trong mỗi khối. Sự
-kết hợp này cho phép Notion tận dụng ưu điểm của cả hai phương pháp, đồng thời
-kiểm soát chi tiết hành vi hoàn tác trong từng ngữ cảnh.
-
-Linear, công cụ quản lý dự án phần mềm, cũng áp dụng chiến lược tương tự:
-Operational Transformation cho nội dung mô tả dạng văn bản và CRDT cho các thuộc
-tính siêu dữ liệu như trạng thái, người phụ trách, nhãn. Điều này giúp Linear
-duy trì biểu diễn văn bản gọn nhẹ đồng thời cho phép đồng bộ ngoại tuyến với các
-trường dữ liệu thay đổi thường xuyên.
+Google Docs sử dụng OT với kiến trúc tập trung, phù hợp với văn bản thuần túy.
+Figma ban đầu dùng OT nhưng chuyển sang CRDT vào năm 2019 vì thiết kế đồ họa có
+cấu trúc phức tạp hơn. Notion và Linear áp dụng cách tiếp cận kết hợp: CRDT cho
+cấu trúc tài liệu và OT cho nội dung văn bản bên trong mỗi khối.
 
 === Lý do lựa chọn CRDT cho dự án
 

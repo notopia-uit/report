@@ -13,8 +13,6 @@
 
 #include "survey.typ"
 
-#include "dev-process.typ"
-
 #include "architecture.typ"
 
 #include "usecase.typ"
@@ -28,3 +26,5 @@
 #include "casbin.typ"
 
 #include "health.typ"
+
+#include "nx-cache.typ"

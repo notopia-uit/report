@@ -2,26 +2,20 @@
 
 === Mục tiêu của health check endpoint
 
-Health check endpoint là một thành phần thiết yếu trong kiến trúc microservices,
-đóng vai trò như một cơ chế tự kiểm tra cho phép hệ thống giám sát biết được
-tình trạng hoạt động của dịch vụ. Tầm quan trọng của nó nằm ở việc giúp phát
-hiện sớm các sự cố như lỗi kết nối cơ sở dữ liệu, rò rỉ bộ nhớ hoặc các thành
-phần phụ thuộc bị sập, từ đó hệ thống điều phối (như Kubernetes) có thể tự động
-thực hiện các biện pháp xử lý như khởi động lại container hoặc ngừng gửi traffic
-đến service đang gặp lỗi, đảm bảo tính sẵn sàng cao cho toàn bộ hệ thống.
+Health check endpoint là cơ chế tự kiểm tra giúp hệ thống giám sát phát hiện sớm
+sự cố (lỗi kết nối DB, rò rỉ bộ nhớ, thành phần phụ thuộc sập). Từ đó,
+Kubernetes có thể tự động khởi động lại container hoặc ngừng gửi traffic đến
+service lỗi.
 
-Health check có nhiều loại, nhưng theo nguyên tắc của kubernetes, có 3 loại:
-- *Startup probe*: Kiểm tra xem service đã khởi động xong chưa _(đặc biệt hữu
-  ích cho các service có thời gian khởi động lâu)_. Nếu startup probe thất bại,
-  kubernetes sẽ khởi động lại container.
-- *Liveness probe*: Kiểm tra xem service có đang chạy hay không. Nếu liveness
-  probe thất bại, kubernetes sẽ khởi động lại container.
-- *Readiness probe*: Kiểm tra xem service đã sẵn sàng nhận traffic hay chưa. Nếu
-  readiness probe thất bại, kubernetes sẽ ngừng gửi traffic đến container đó.
+Có 3 loại probe theo Kubernetes:
+- *Startup probe*: kiểm tra service đã khởi động xong chưa, thất bại → restart
+- *Liveness probe*: kiểm tra service còn sống không, thất bại → restart
+- *Readiness probe*: kiểm tra service sẵn sàng nhận traffic chưa, thất bại →
+  ngừng gửi traffic
 
-Bảng dưới đây tóm tắt trạng thái triển khai health check của các service trong
-hệ thống. Do thời gian có hạn, nhóm chỉ triển khai đầy đủ cho các Go service;
-các service còn lại sẽ được bổ sung sau.
+Bảng dưới đây tóm tắt trạng thái triển khai health check. Do thời gian có hạn,
+nhóm chỉ triển khai đầy đủ cho các Go service; các service còn lại sẽ bổ sung
+sau.
 
 #figure(
   table(
@@ -45,22 +39,13 @@ các service còn lại sẽ được bổ sung sau.
   caption: [Trạng thái triển khai health check theo service],
 )
 
-Ví dụ chi tiết về các payload response của từng loại probe trên `note` service
-có thể xem tại @appendix-healthcheck-note.
-
+Ví dụ chi tiết payload response của từng loại probe trên `note` service có thể
+xem tại @appendix-healthcheck-note.
 
 === Health check ở các Go service
 
-Sử dụng thư viện `github.com/alexliesenfeld/health` để triển khai health check
-endpoint @alexliesenfeld_health. Thư viện này cung cấp giải pháp linh hoạt để
-triển khai health check với nhiều tính năng nâng cao. Điểm nổi bật là hỗ trợ cả
-kiểm tra đồng bộ (sync) và bất đồng bộ (async). Với kiểm tra bất đồng bộ, thư
-viện cho phép chạy các tác vụ kiểm tra nặng trong nền theo chu kỳ, giúp phản hồi
-của health endpoint luôn nhanh chóng bằng cách trả về kết quả từ bộ nhớ đệm
-(cache) mà không làm nghẽn luồng xử lý chính. Ngoài ra, thư viện còn cung cấp
-khả năng cấu hình thời gian sống (TTL) cho cache để giảm tải cho các tài nguyên
-hạ tầng khi có quá nhiều yêu cầu kiểm tra dồn dập. Một ưu điểm khác là nó có thể
-bọc và tích hợp tốt với các thư viện health check phổ biến khác như
-`github.com/hellofresh/health-go`, `github.com/etherlabsio/healthcheck`,
-`github.com/heptiolabs/healthcheck`, hay `github.com/InVisionApp/go-health`,
-giúp việc chuyển đổi và mở rộng trở nên dễ dàng.
+Sử dụng thư viện `github.com/alexliesenfeld/health` @alexliesenfeld_health. Thư
+viện hỗ trợ kiểm tra đồng bộ và bất đồng bộ (chạy tác vụ nặng trong nền theo chu
+kỳ, trả về kết quả từ cache), cấu hình TTL cho cache để giảm tải hạ tầng, và bọc
+tích hợp với các thư viện health check phổ biến khác (`health-go`,
+`etherlabsio/healthcheck`, `heptiolabs/healthcheck`, `InVisionApp/go-health`).
