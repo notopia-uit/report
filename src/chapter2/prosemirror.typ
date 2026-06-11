@@ -26,14 +26,16 @@ trách nhiệm riêng biệt trong hệ thống:
   tắc lồng ghép, tương tự database schema đảm bảo tài liệu luôn hợp lệ.
 
 - *prosemirror-state*: quản lý EditorState gồm tài liệu, selection, plugin. Mọi
-  thay đổi thực hiện qua Transaction — đối tượng bất biến mô tả chính xác thay đổi.
+  thay đổi thực hiện qua Transaction — đối tượng bất biến mô tả chính xác thay
+  đổi.
 
 - *prosemirror-view*: rendering tài liệu lên DOM và xử lý tương tác người dùng
-  (gõ phím, click, copy-paste), quản lý ánh xạ và cập nhật DOM khi state thay đổi.
+  (gõ phím, click, copy-paste), quản lý ánh xạ và cập nhật DOM khi state thay
+  đổi.
 
-- *prosemirror-transform*: ghi lại thay đổi dạng step có thể tái tạo và đảo ngược.
-  Mỗi step là một đơn vị thay đổi nhỏ (chèn ký tự, xóa đoạn), nền tảng cho undo
-  history và collaborative editing.
+- *prosemirror-transform*: ghi lại thay đổi dạng step có thể tái tạo và đảo
+  ngược. Mỗi step là một đơn vị thay đổi nhỏ (chèn ký tự, xóa đoạn), nền tảng
+  cho undo history và collaborative editing.
 
 #figure(
   table(
@@ -61,8 +63,8 @@ trách nhiệm riêng biệt trong hệ thống:
 
 === Collaborative Editing với ProseMirror
 
-ProseMirror hỗ trợ collaborative editing qua plugin `prosemirror-collab`, quản lý
-phiên bản tài liệu và client ID để đồng bộ qua máy chủ trung tâm (authority):
+ProseMirror hỗ trợ collaborative editing qua plugin `prosemirror-collab`, quản
+lý phiên bản tài liệu và client ID để đồng bộ qua máy chủ trung tâm (authority):
 
 - *Phiên bản hóa*: mỗi tài liệu có phiên bản tăng dần theo số step đã xác nhận
   bởi authority. Client duy trì phiên bản cục bộ và gửi step chưa xác nhận lên
@@ -74,7 +76,8 @@ phiên bản tài liệu và client ID để đồng bộ qua máy chủ trung t
 
 === ProseMirror như một Editor Binding cho Yjs
 
-Trong dự án, ProseMirror đóng vai trò editor binding cho Yjs qua `y-prosemirror`:
+Trong dự án, ProseMirror đóng vai trò editor binding cho Yjs qua
+`y-prosemirror`:
 
 - Yjs quản lý trạng thái cộng tác qua shared types _(@general-for-yjs)_, đảm bảo
   dữ liệu hội tụ giữa các client mà không cần authority tập trung

@@ -43,8 +43,8 @@ immutable updates.
 React, NextJS và Redux Toolkit mang lại nhiều lợi ích cho phát triển frontend:
 - React: Kiến trúc component-based giúp tái sử dụng code dễ dàng, hệ sinh thái
   phong phú, trải nghiệm phát triển tốt
-- NextJS: Tối ưu built-in sẵn có, cấu hình zero-config, SEO tốt, API routes
-  tích hợp
+- NextJS: Tối ưu built-in sẵn có, cấu hình zero-config, SEO tốt, API routes tích
+  hợp
 - Redux Toolkit: DevTools mạnh mẽ, hỗ trợ middleware, kiến trúc dễ mở rộng
 
 === Nhược điểm

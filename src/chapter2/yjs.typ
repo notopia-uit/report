@@ -16,18 +16,18 @@ tự động hợp nhất mà không cần xử lý xung đột thủ công.
 Yjs được tổ chức xoay quanh các khái niệm chính sau:
 
 - *Y.Doc*: đơn vị trung tâm đại diện cho tài liệu collaborative, chứa shared
-  data types và quản lý đồng bộ giữa các peer. Mỗi Y.Doc có clientID duy nhất
-  để phân biệt thay đổi từ những người dùng khác nhau.
+  data types và quản lý đồng bộ giữa các peer. Mỗi Y.Doc có clientID duy nhất để
+  phân biệt thay đổi từ những người dùng khác nhau.
 
-- *Shared Data Types*: kiểu dữ liệu đặc biệt tự động đồng bộ giữa các peer,
-  hoạt động tương tự kiểu JavaScript nhưng hợp nhất xung đột không cần máy chủ
-  trung tâm và hỗ trợ observe thay đổi.
+- *Shared Data Types*: kiểu dữ liệu đặc biệt tự động đồng bộ giữa các peer, hoạt
+  động tương tự kiểu JavaScript nhưng hợp nhất xung đột không cần máy chủ trung
+  tâm và hỗ trợ observe thay đổi.
 
 - *Provider*: kết nối Y.Doc với peer khác qua các giao thức mạng, từ WebSocket
   đến WebRTC peer-to-peer hoặc dịch vụ đám mây.
 
-- *Editor Binding*: cầu nối đồng bộ shared types với editor phổ biến, biến editor
-  thông thường thành collaborative editor.
+- *Editor Binding*: cầu nối đồng bộ shared types với editor phổ biến, biến
+  editor thông thường thành collaborative editor.
 
 #figure(
   table(
@@ -99,9 +99,9 @@ Mỗi shared type hỗ trợ observe để theo dõi thay đổi:
 
 === Editor Bindings
 
-Yjs không đi kèm editor riêng mà tích hợp với editor phổ biến qua binding. Editor
-binding là cầu nối giữa Y.Text/Y.XmlFragment và editor, tự động đồng bộ nội dung
-và con trỏ.
+Yjs không đi kèm editor riêng mà tích hợp với editor phổ biến qua binding.
+Editor binding là cầu nối giữa Y.Text/Y.XmlFragment và editor, tự động đồng bộ
+nội dung và con trỏ.
 
 #figure(
   table(
@@ -202,8 +202,8 @@ tích hợp sâu với Tiptap/BlockNote.
 Yjs cung cấp `Y.UndoManager` cho undo/redo trên shared types, lưu thao tác đảo
 ngược trên undo-stack và thực thi lại khi cần.
 
-- *Scoped tracking*: theo dõi thay đổi theo transaction origin, chỉ undo thay đổi
-  từ nguồn cụ thể (ví dụ: chỉ undo của user hiện tại, không undo từ remote)
+- *Scoped tracking*: theo dõi thay đổi theo transaction origin, chỉ undo thay
+  đổi từ nguồn cụ thể (ví dụ: chỉ undo của user hiện tại, không undo từ remote)
 - *Capture timeout*: thay đổi trong captureTimeout (mặc định 500ms) tự động gộp
   vào một StackItem, giúp undo mượt mà hơn
 - *Metadata*: gắn thêm thông tin (ví dụ vị trí con trỏ) vào StackItem để khôi
@@ -218,7 +218,8 @@ trong `y-protocols`.
 - *Không bền vững*: dữ liệu tự động xóa khi người dùng ngắt kết nối
 - *Timeout tự động*: client không gửi tín hiệu trong 30 giây bị đánh dấu offline
 - *Tùy chỉnh dữ liệu*: trường awareness không chuẩn hóa, gửi JSON-encodable bất
-  kỳ. Editor binding thường dùng `"user"` (tên, màu) và `"cursor"` (vị trí con trỏ)
+  kỳ. Editor binding thường dùng `"user"` (tên, màu) và `"cursor"` (vị trí con
+  trỏ)
 
 === Ưu điểm
 

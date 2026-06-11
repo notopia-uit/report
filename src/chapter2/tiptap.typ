@@ -3,7 +3,8 @@
 === Giới thiệu
 
 Tiptap là headless rich text editor framework trên nền tảng ProseMirror @tiptap,
-thuộc tổ chức ueberdosis (Tiptap Collective), cùng tổ chức phát triển Hocuspocus.
+thuộc tổ chức ueberdosis (Tiptap Collective), cùng tổ chức phát triển
+Hocuspocus.
 
 Khác biệt cốt lõi với ProseMirror là mức độ trừu tượng: ProseMirror là toolkit
 cấp thấp cung cấp công cụ nền tảng, Tiptap là framework hoàn chỉnh với API thân
@@ -20,7 +21,8 @@ Tiptap được thiết kế theo ba trụ cột chính:
 
 - *Extensions*: đơn vị chức năng cơ bản, định nghĩa node (paragraph, heading,
   image), mark (bold, italic, link) hoặc chức năng (placeholder, collaboration,
-  undo/redo). Cho phép lắp ráp editor từ module nhỏ, chỉ gồm tính năng cần thiết.
+  undo/redo). Cho phép lắp ráp editor từ module nhỏ, chỉ gồm tính năng cần
+  thiết.
 
 - *Commands*: hàm thao tác editor, có thể xích chuỗi. Mỗi command trả về `true`
   nếu thành công, cho phép kiểm tra trạng thái trước khi thực thi.
@@ -87,8 +89,8 @@ _(@general-for-yjs)_:
 - Tích hợp UndoManager của Yjs, thay thế undo/redo mặc định
 - Hỗ trợ awareness hiển thị con trỏ cộng tác viên
 
-Kết hợp với Hocuspocus _(@general-for-hocuspocus)_, Tiptap trở thành collaborative
-editor hoàn chỉnh với máy chủ đồng bộ qua WebSocket.
+Kết hợp với Hocuspocus _(@general-for-hocuspocus)_, Tiptap trở thành
+collaborative editor hoàn chỉnh với máy chủ đồng bộ qua WebSocket.
 
 === Vai trò với BlockNote
 

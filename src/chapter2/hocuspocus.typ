@@ -17,8 +17,9 @@ Hocuspocus được thiết kế theo kiến trúc server-client đơn giản:
 - *Hocuspocus Server*: tiến trình server, quản lý kết nối WebSocket, đồng bộ Yjs
   documents và phân phối cập nhật đến client trong cùng phòng (room).
 
-- *Hocuspocus Provider*: thư viện client (`@hocuspocus/provider`), kết nối server
-  qua WebSocket, đồng bộ Y.Doc, quản lý vòng đời kết nối, xác thực và awareness.
+- *Hocuspocus Provider*: thư viện client (`@hocuspocus/provider`), kết nối
+  server qua WebSocket, đồng bộ Y.Doc, quản lý vòng đời kết nối, xác thực và
+  awareness.
 
 Mỗi tài liệu xác định bởi tên phòng (room name). Client kết nối cùng phòng tự
 động đồng bộ tài liệu Yjs tương ứng.
@@ -55,8 +56,8 @@ Tính năng chính:
 - *Persistence tự động*: lưu trữ và khôi phục khi server khởi động lại
 - *Horizontal scaling*: Redis extension đồng bộ giữa nhiều instance server
 - *Awareness*: quản lý trạng thái trực tuyến qua awareness CRDT của Yjs
-- *Direct Connection API*: REST API thao tác trực tiếp Y.Doc, hỗ trợ ghi nội dung
-  từ server hoặc batch jobs
+- *Direct Connection API*: REST API thao tác trực tiếp Y.Doc, hỗ trợ ghi nội
+  dung từ server hoặc batch jobs
 - *Stateless Messages*: gửi thông điệp tùy chỉnh giữa client, không lưu trong
   Y.Doc
 
