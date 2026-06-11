@@ -19,12 +19,13 @@
   TÓM TẮT ĐỀ TÀI
 ]
 
-Đề tài tập trung nghiên cứu và xây dựng "#project-metadata.title", với mục đích
-giúp người dùng quản lý tri thức cá nhân trên một nền tảng web trực quan, cộng
-tác theo thời gian thực. Đề tài không hướng đến việc giải quyết các nhược điểm
-của các nền tảng sẵn có trên thị trường, mà thay vào đó tập trung nghiên cứu
-kiến trúc, phương pháp phát triển phần mềm, triển khai hệ thống, khai thác và sử
-dụng các công nghệ hiện đại.
+Đề tài tập trung nghiên cứu và xây dựng
+"#project-metadata.vietnamese-name-description", với mục đích giúp người dùng
+quản lý tri thức cá nhân trên một nền tảng web trực quan, cộng tác theo thời
+gian thực. Đề tài không hướng đến việc giải quyết các nhược điểm của các nền
+tảng sẵn có trên thị trường, mà thay vào đó tập trung nghiên cứu kiến trúc,
+phương pháp phát triển phần mềm, triển khai hệ thống, khai thác và sử dụng các
+công nghệ hiện đại.
 
 Báo cáo trình bày các nghiên cứu, quy trình thiết kế, cài đặt và triển khai hệ
 thống thông qua các chương sau:

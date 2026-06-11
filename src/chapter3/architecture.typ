@@ -61,12 +61,11 @@ Gateway là điểm vào chính của hệ thống, chịu trách nhiệm địn
 từ người dùng đến các service phù hợp. Nó cũng thực hiện các chức năng như xác
 thực, và cân bằng tải để đảm bảo hiệu suất và bảo mật của hệ thống.
 
-Hệ thống sử dụng Traefik _(@general-for-traefik)_ làm API Gateway, với đặc điểm
-gọn nhẹ và dễ cấu hình, tương thích tốt với docker compose. Sử dụng
-`agilezebra/jwt-middleware` @agilezebra_jwt_middleware để xử lý xác thực JWT,
-chuyển hoá OIDC claim thành header HTTP, giúp các service phía sau có thể dễ
-dàng xác định người dùng, không cần phải tích hợp trực tiếp với Identity
-Provider.
+Hệ thống sử dụng Traefik làm API Gateway, với đặc điểm gọn nhẹ và dễ cấu hình,
+tương thích tốt với docker compose. Sử dụng `agilezebra/jwt-middleware`
+@agilezebra_jwt_middleware để xử lý xác thực JWT, chuyển hoá OIDC claim thành
+header HTTP, giúp các service phía sau có thể dễ dàng xác định người dùng, không
+cần phải tích hợp trực tiếp với Identity Provider.
 
 ==== Web App
 
@@ -111,9 +110,9 @@ trình xác thực và quản lý người dùng.
 ==== Object Storage
 
 Object Storage được sử dụng để lưu trữ các tệp liên quan đến ghi chú, như hình
-ảnh và tài liệu. Hệ thống sử dụng RustFS _(@general-for-rustfs)_, một giải pháp
-lưu trữ đối tượng nhẹ và hiệu quả, cung cấp API tương thích với S3 để dễ dàng
-tích hợp với các service khác.
+ảnh và tài liệu. Hệ thống sử dụng RustFS, một giải pháp lưu trữ đối tượng nhẹ và
+hiệu quả, cung cấp API tương thích với S3 để dễ dàng tích hợp với các service
+khác.
 
 ==== Search Service
 
@@ -126,14 +125,14 @@ tìm kiếm luôn được cập nhật.
 
 Event Bus là hệ thống message queue được sử dụng để giao tiếp giữa các service,
 đảm bảo tính modular và giảm sự phụ thuộc trực tiếp giữa các service. Hệ thống
-sử dụng Redpanda _(@general-for-redpanda)_, một giải pháp message queue hiệu
-suất cao, tương thích với Kafka API, giúp dễ dàng tích hợp với các service khác.
+sử dụng Redpanda, một giải pháp message queue hiệu suất cao, tương thích với
+Kafka API, giúp dễ dàng tích hợp với các service khác.
 
 ==== Monitoring
 
 Monitoring là thành phần quan trọng để giám sát hiệu suất và trạng thái của hệ
-thống. Hệ thống sử dụng Grafana Stack và Prometheus
-_(@general-for-observability)_ để thu thập và hiển thị các chỉ số về hiệu suất.
+thống. Hệ thống sử dụng Grafana Stack và Prometheus để thu thập và hiển thị các
+chỉ số về hiệu suất.
 
 === Kiến trúc `note` service
 

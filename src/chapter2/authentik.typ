@@ -3,9 +3,9 @@
 === Giới thiệu
 
 Authentik là một nền tảng identity provider mã nguồn mở được thiết kế để cung
-cấp các dịch vụ xác thực và cấp quyền tập trung @authentik. Authentik hỗ trợ các
-chuẩn hiện đại như OIDC (OpenID Connect) và OAuth 2.0, cho phép kết nối dễ dàng
-với nhiều ứng dụng và dịch vụ.
+cấp các dịch vụ xác thực và cấp quyền tập trung. Authentik hỗ trợ các chuẩn hiện
+đại như OIDC (OpenID Connect) và OAuth 2.0, cho phép kết nối dễ dàng với nhiều
+ứng dụng và dịch vụ.
 
 #figure(
   image("../assets/images/authentik-logo.svg", height: 80pt),

@@ -12,9 +12,8 @@ hiệu quả, dễ học, và phù hợp cho lập trình hệ thống quy mô l
   caption: [Golang logo],
 )
 
-Dự án sử dụng Go cùng với công cụ `goforj/wire` @goforj_wire, một fork của
-`google/wire`, giúp dependencies injection có hỗ trợ cache fast để tối ưu thời
-gian build.
+Dự án sử dụng Go cùng với công cụ `goforj/wire`, một fork của `google/wire`,
+giúp dependencies injection có hỗ trợ cache fast để tối ưu thời gian build.
 
 === Ưu điểm
 

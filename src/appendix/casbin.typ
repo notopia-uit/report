@@ -77,21 +77,6 @@ cho phép đọc không gian làm việc. Các bước suy luận dựa trên ma
 + Hành động `read` phù hợp với chính sách `read` của vai trò `owner` trên không
   gian làm việc. Ta có thể xác định rằng `read == read` là true.
 
-==== Giải thích cho yêu cầu truy cập thứ hai
-
-Người dùng `111` yêu cầu viết vào note trong không gian làm việc `111`. Kết quả
-là true vì người dùng `111` có vai trò `owner` trong không gian làm việc `111`
-và có chính sách cho phép viết vào các mục trong không làm việc. Các bước suy
-luận:
-+ Người dùng `111` có vai trò `owner` trong không gian làm việc `111` thông qua
-  chính sách g. Ta có thể xác định rằng `g(user:111, owner, workspace:111)` là
-  true.
-+ Đối tượng `note` chứa trong `workspace_item` _($"note" subset.eq
-  "workspace_item"$)_ thông qua chính sách g2 Ta có thể xác định rằng
-  `g2(note, workspace_item)` là true.
-+ Hành động `write` phù hợp với chính sách `write` của vai trò `owner` trên các
-  mục trong không làm việc. Ta có thể xác định rằng `write == write` là true.
-
 ==== Giải thích cho yêu cầu truy cập thứ ba
 
 Người dùng `112` yêu cầu xóa không gian làm việc `111`. Kết quả là false vì

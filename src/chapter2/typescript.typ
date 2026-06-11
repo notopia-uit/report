@@ -39,10 +39,9 @@ Bên cạnh các ưu điểm, TypeScript có một số hạn chế:
 
 === Hệ sinh thái và công cụ
 
-Dự án `microsoft/typescript-go` @typescript_go đang phát triển một
-implementation của TypeScript được viết hoàn toàn bằng Go, thay vì TypeScript
-hiện tại được viết bằng TypeScript. Dự án này hướng tới việc cải thiện hiệu
-suất.
+Dự án `microsoft/typescript-go` đang phát triển một implementation của
+TypeScript được viết hoàn toàn bằng Go, thay vì TypeScript hiện tại được viết
+bằng TypeScript. Dự án này hướng tới việc cải thiện hiệu suất.
 
 Dự án được thiết lập với monorepo, các package được chia build riêng biệt
 (`SWC`, `Rspack`, `tsgo`, `vite`) để tăng tốc thời gian build, Oxlint thay cho

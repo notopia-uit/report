@@ -42,8 +42,7 @@ BlockNote mang lại nhiều lợi ích cho phát triển editor:
 - Modular Design, dễ dàng thêm hoặc xóa các tính năng thông qua hệ thống
   extension
 - React-First, được thiết kế tối ưu cho React, với hooks và component-based API
-- Real-Time Collaboration Ready, hỗ trợ tích hợp Yjs @yjs và các giải pháp CRDT
-  khác
+- Real-Time Collaboration Ready, hỗ trợ tích hợp Yjs và các giải pháp CRDT khác
 - Rich Content Support, hỗ trợ nhiều loại nội dung: text, image, video, code
   blocks, tables,...
 

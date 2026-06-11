@@ -3,21 +3,21 @@
 === Giới thiệu
 
 Dự án sử dụng nhiều tool và framework cho data persistence:
-- SQLC @sqlc cho Go, sinh type-safe SQL code
-- TypeORM @typeorm cho NestJS, ORM object-relational mapping
+- SQLC cho Go, sinh type-safe SQL code
+- TypeORM cho NestJS, ORM object-relational mapping
 
 === SQLC <general-for-sqlc>
 
-SQLC @sqlc là tool sinh Go code từ SQL queries. Thay vì viết ORM-style code,
-SQLC cho phép viết SQL trực tiếp và tự động sinh type-safe Go functions.
+SQLC là tool sinh Go code từ SQL queries. Thay vì viết ORM-style code, SQLC cho
+phép viết SQL trực tiếp và tự động sinh type-safe Go functions.
 
 === TypeORM
 
-TypeORM @typeorm là ORM mã nguồn mở cho TypeScript, hỗ trợ multiple database
-backends (PostgreSQL @postgres, MySQL, SQLite, Oracle, v.v.). TypeORM cung cấp
-decorator-based API, tương thích với tốt NestJS. Đặc biệt, TypeORM tính đến thời
-điểm hiện tại sắp ra phiên bản 1.0.0 sau 9 năm phát triển #footnote[Theo dõi tại
-  Github issue https://github.com/typeorm/typeorm/issues/11819]
+TypeORM là ORM mã nguồn mở cho TypeScript, hỗ trợ multiple database backends
+(PostgreSQL MySQL, SQLite, Oracle, v.v.). TypeORM cung cấp decorator-based API,
+tương thích với tốt NestJS. Đặc biệt, TypeORM tính đến thời điểm hiện tại sắp ra
+phiên bản 1.0.0 sau 9 năm phát triển #footnote[Theo dõi tại Github issue
+  https://github.com/typeorm/typeorm/issues/11819]
 
 === Ưu điểm
 
@@ -33,4 +33,4 @@ decorator-based API, tương thích với tốt NestJS. Đặc biệt, TypeORM t
   recursive query và CTE
 - TypeORM: Abstraction có thể gây performance overhead, có thể gặp vấn đề với
   complex queries và migrations, thiết lập script TypeORM bằng typescript phức
-  tạp, chạy bằng tsx @tsx
+  tạp, chạy bằng tsx

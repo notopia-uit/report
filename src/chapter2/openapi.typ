@@ -23,10 +23,10 @@ request/response schemas, và error codes theo cách machine-readable.
 
 === Tooling Ecosystem
 
-- Redocly @redocly: Tool cho OpenAPI specification, trong dự án sử dụng làm
-  language server, linter, bundle các file nhỏ thành một file lớn
-- Scalar @scalar: Tool cho OpenAPI specification, tương đối giống redocly, trong
-  dự án sử dụng để render website documentation từ OpenAPI spec
+- Redocly: Tool cho OpenAPI specification, trong dự án sử dụng làm language
+  server, linter, bundle các file nhỏ thành một file lớn
+- Scalar: Tool cho OpenAPI specification, tương đối giống redocly, trong dự án
+  sử dụng để render website documentation từ OpenAPI spec
 - `heyapi/openapi-ts` @heyapi sinh TypeScript types từ OpenAPI spec
 - `oapi-codegen` @oapi_codegen sinh Go code từ OpenAPI spec, hỗ trợ HTTP API
   generation

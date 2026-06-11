@@ -2,14 +2,12 @@
 
 === Giới thiệu
 
-Tiptap là một headless rich text editor framework được xây dựng trên nền tảng
-ProseMirror @tiptap. Tiptap thuộc tổ chức ueberdosis (còn được gọi là Tiptap
-Collective), cùng tổ chức phát triển Hocuspocus.
+Tiptap là headless rich text editor framework trên nền tảng ProseMirror @tiptap,
+thuộc tổ chức ueberdosis (Tiptap Collective), cùng tổ chức phát triển Hocuspocus.
 
-Điểm khác biệt cốt lõi của Tiptap so với ProseMirror là mức độ trừu tượng. Nếu
-ProseMirror là một toolkit cấp thấp cung cấp các công cụ nền tảng, thì Tiptap là
-một framework hoàn chỉnh với API thân thiện, kiến trúc extension linh hoạt và
-khả năng tích hợp sẵn với nhiều UI framework.
+Khác biệt cốt lõi với ProseMirror là mức độ trừu tượng: ProseMirror là toolkit
+cấp thấp cung cấp công cụ nền tảng, Tiptap là framework hoàn chỉnh với API thân
+thiện, kiến trúc extension linh hoạt và tích hợp sẵn nhiều UI framework.
 
 #figure(
   image("../assets/images/tiptap-logo.svg", height: 60pt),
@@ -20,18 +18,15 @@ khả năng tích hợp sẵn với nhiều UI framework.
 
 Tiptap được thiết kế theo ba trụ cột chính:
 
-- *Extensions*: đơn vị chức năng cơ bản của Tiptap. Mỗi extension định nghĩa một
-  hoặc nhiều khả năng cho editor, như node (paragraph, heading, image), mark
-  (bold, italic, link), hoặc chức năng (placeholder, collaboration, undo/redo).
-  Hệ thống extension cho phép lắp ráp editor từ các module nhỏ, chỉ bao gồm đúng
-  những tính năng cần thiết.
+- *Extensions*: đơn vị chức năng cơ bản, định nghĩa node (paragraph, heading,
+  image), mark (bold, italic, link) hoặc chức năng (placeholder, collaboration,
+  undo/redo). Cho phép lắp ráp editor từ module nhỏ, chỉ gồm tính năng cần thiết.
 
-- *Commands*: các hàm thao tác trên editor, có thể được gọi trực tiếp hoặc xích
-  lại với nhau. Mỗi command thực hiện một thay đổi cụ thể và trả về `true` nếu
-  thành công, cho phép kiểm tra trạng thái trước khi thực thi.
+- *Commands*: hàm thao tác editor, có thể xích chuỗi. Mỗi command trả về `true`
+  nếu thành công, cho phép kiểm tra trạng thái trước khi thực thi.
 
-- *Events*: hệ thống sự kiện vòng đời cho phép can thiệp vào quá trình xử lý, từ
-  tạo tài liệu, thay đổi selection, cập nhật nội dung đến focus/blur.
+- *Events*: hệ thống sự kiện vòng đời, can thiệp vào quá trình xử lý từ tạo tài
+  liệu, selection change, cập nhật nội dung đến focus/blur.
 
 #figure(
   table(
@@ -85,28 +80,24 @@ Bảng dưới đây phân biệt rõ vai trò của ProseMirror và Tiptap tron
 
 === Tích hợp Yjs và Cộng tác
 
-Tiptap cung cấp extension chính thức `@tiptap/extension-collaboration` cho phép
-tích hợp Yjs _(@general-for-yjs)_ vào editor. Extension này xử lý:
+Tiptap cung cấp extension `@tiptap/extension-collaboration` tích hợp Yjs
+_(@general-for-yjs)_:
 
-- Đồng bộ nội dung editor với Y.Text hoặc Y.XmlFragment thông qua
-  `y-prosemirror`
-- Tích hợp UndoManager của Yjs, thay thế undo/redo mặc định của Tiptap
-- Hỗ trợ awareness để hiển thị con trỏ cộng tác viên
+- Đồng bộ nội dung editor với Y.Text/Y.XmlFragment qua `y-prosemirror`
+- Tích hợp UndoManager của Yjs, thay thế undo/redo mặc định
+- Hỗ trợ awareness hiển thị con trỏ cộng tác viên
 
-Khi kết hợp với Hocuspocus _(@general-for-hocuspocus)_, Tiptap trở thành một
-collaborative editor hoàn chỉnh, với máy chủ quản lý đồng bộ dữ liệu qua
-WebSocket.
+Kết hợp với Hocuspocus _(@general-for-hocuspocus)_, Tiptap trở thành collaborative
+editor hoàn chỉnh với máy chủ đồng bộ qua WebSocket.
 
 === Vai trò với BlockNote
 
-BlockNote _(@general-for-blocknote)_ được xây dựng trên nền tảng Tiptap và
-ProseMirror. Có thể hình dung:
+BlockNote _(@general-for-blocknote)_ xây dựng trên Tiptap và ProseMirror:
 
 - ProseMirror là động cơ — xử lý document model, transform, state management
-- Tiptap là khung gầm — cung cấp extension system, commands, events
-- BlockNote là thân xe hoàn chỉnh — tập hợp các block component cho soạn thảo
-  văn bản dạng khối (block-based)
+- Tiptap là khung gầm — extension system, commands, events
+- BlockNote là thân xe hoàn chỉnh — block component cho soạn thảo block-based
 
-BlockNote tận dụng hệ thống extension của Tiptap để định nghĩa các block như
-paragraph, heading, image, table, quote, và thêm vào các tính năng đặc thù như
-AI-powered editing, drag-and-drop giữa các block.
+BlockNote tận dụng extension system của Tiptap để định nghĩa block (paragraph,
+heading, image, table, quote) và thêm tính năng đặc thù như AI-powered editing,
+drag-and-drop giữa các block.

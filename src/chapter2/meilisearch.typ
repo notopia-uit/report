@@ -2,10 +2,10 @@
 
 === Giới thiệu
 
-Meilisearch là một search engine mã nguồn mở được viết bằng Rust @meilisearch,
-thiết kế để cung cấp trải nghiệm tìm kiếm nhanh, liên quan, và dễ sử dụng.
-Meilisearch được phát triển với mục tiêu là một giải pháp tìm kiếm dễ triển khai
-hơn Elasticsearch, phù hợp cho các ứng dụng từ nhỏ đến lớn.
+Meilisearch là một search engine mã nguồn mở được viết bằng Rust, thiết kế để
+cung cấp trải nghiệm tìm kiếm nhanh, liên quan, và dễ sử dụng. Meilisearch được
+phát triển với mục tiêu là một giải pháp tìm kiếm dễ triển khai hơn
+Elasticsearch, phù hợp cho các ứng dụng từ nhỏ đến lớn.
 
 #figure(
   image("../assets/images/meilisearch-logo.svg", height: 80pt),

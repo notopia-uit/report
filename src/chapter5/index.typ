@@ -41,109 +41,23 @@ Dự án đã áp dụng thành công các công nghệ hiện đại:
 - Quản lý người dùng thông qua Oauth2/OIDC với Authentik
   _(@general-for-authentik)_.
 - gRPC cho communication giữa các microservices _(@general-for-grpc)_.
-- Gateway API với Traefik _(@general-for-traefik)_.
+- Gateway API với Traefik.
 - Database management, kết hợp sử dụng SQL thuần và ORM
   _(@general-for-database)_.
 - Tìm kiếm với Meilisearch _(@general-for-meilisearch)_.
 - Docker containerization.
 - CI/CD pipeline với GitHub Actions.
-- Quản lý monorepo, CI pipeline với Nx, giúp tối ưu hóa workflow, cache riêng lẻ
-  từng project nhỏ, và tăng hiệu quả phát triển _(@general-for-nx)_.
+- Quản lý monorepo với Nx, tối ưu hóa workflow, cache riêng lẻ từng project —
+  dependency graph xem tại @appendix-nx.
 - Sử dụng Renovate Bot để tự động hoá việc cập nhật dependencies, giúp duy trì
   tính bảo mật và ổn định của hệ thống _(@renovate_docs)_.
-
-Trong đó, dự án đã đặc biệt tiếp cận đến một số công nghệ đặc biệt mới như:
-
-==== Công cụ quản lý monorepo Nx
-
-Nhóm đã tối ưu hoá workflow, thiết lập từ code generate, lint, test, build,
-deploy cho từng project nhỏ trong monorepo bằng công cụ Nx.
-
-#figure(
-  image("../assets/images/notopia-nx-graph.png"),
-  caption: [Dependency graph của monorepo được sinh bởi Nx],
-)
-
-===== Hạn chế CI của Nx
-
-Đối với CI, Nx hướng developer sử dụng hệ sinh thái của Nx Cloud, nhưng nhóm đã
-tự xây dựng một giải pháp cache riêng cho Github Actions,
-`KevinNitroG/nx-cache-action` @nx_cache_action. Script hoạt động theo cơ chế
-cache từng project thay vì toàn bộ cache lớn của cả workspace.
-
-Script được lấy cảm hứng từ `raegen/nx` @raegen_nx #footnote[`raegen/nx` không
-  được hỗ trợ chính thức bởi Nx, đã deprecated], cache tại project level. Nhưng
-cơ chế hoạt động khác biệt:
-+ Script sẽ khởi động một NodeJS ExpressJS server implement OpenAPI Spec
-  @nx_remote_cache_openapi_spec chính thức từ Nx.
-+ Forward lệnh Nx cho 1 child process, kèm theo thiết lập để Nx gửi request
-  cache đến server.
-+ Server nhận request cache, xử lý giao tiếp với Github Actions cache API thông
-  qua `actions/toolkit/cache` @actions_toolkit_cache.
-
-Vì Nx sẽ lưu cache từng task ước chừng khoảng một tháng kể từ lần cuối sử dụng
-mới được xoá. Đối với dự án khi không sử dụng `KevinNitroG/nx-cache-action`,
-cache được lưu theo dạng toàn bộ project task cache, có thể lên đến khoảng 5GB
-trong mỗi lần lưu cache. Và hiển nhiên rằng, mỗi lần chạy thay đổi là một cache
-mới được tạo ra. Nếu có 10 commit được tạo ra và thay đổi source code, thì sẽ có
-10 cache được tạo ra, tổng dung lượng cache có thể lên đến 50GB, vượt qua mức
-10GB giới hạn của Github Actions cache. Hơn nữa, vẫn cần chừa dung lượng để
-cache node modules, go packages, system dependencies, v.v..., nên việc cache
-toàn bộ project task cache là không tối ưu.
-
-Khi sử dụng `KevinNitroG/nx-cache-action`, cache được lưu theo dạng từng project
-nhỏ, mỗi project task có thể chỉ khoảng vài trăm KB, đến hơn 10MB tùy vào task,
-và chỉ khi nào project đó thay đổi source code mới tạo cache mới. Điều này giúp
-tối ưu hóa dung lượng cache, tránh vượt quá giới hạn của Github Actions, và tăng
-hiệu quả cache hit.
-
-Script có một nhược điểm là phải thông qua `actions/toolkit/cache` để download
-cache về local, và pipe cache vào lại Nx process. Có thể hiểu là cache đã được
-tải xuống nhưng lưu ở một nơi khác, và phải truyền vào Nx process thông qua HTTP
-request một lần nữa. Nhưng đây là cách dễ dàng nhất, không phải giao tiếp trực
-tiếp với Github Actions cache Rest API phức tạp hơn.
-
-==== Contract First API development
-
-Dự án áp dụng contract-first approach cho API development, đặc biệt với OpenAPI
-specification cho HTTP API được deploy và preview bằng Scalar, giao diện hiện
-đại, hỗ trợ mock API khi chưa có backend implementation, giúp frontend và
-backend phát triển song song hiệu quả.
-
-#figure(
-  image("../assets/images/scalar-api-preview.png"),
-  caption: [API documentation được render từ OpenAPI spec bằng Scalar],
-)
-
-==== SQLC Dynamic filter
-
-SQLC là một công cụ code generation cho SQL queries, giúp tạo ra code type-safe
-cho database access _(@general-for-sqlc)_. Tuy nhiên, SQLC không hỗ trợ dynamic
-query, cũng không phải là một ORM hay query builder, mà chỉ đơn thuần là code
-generator cho SQL queries đã viết sẵn. Điều này gây khó khăn khi cần sinh
-dynamic `WHERE` conditions, ví dụ như khi có nhiều optional filters khác nhau.
-Trước đây _(cũng là phiên bản chính thức SQLC)_ phải sử dụng syntax `WHERE` và
-`CASE ... WHEN` ở dưới tầng SQL, ảnh hưởng đến hiệu năng dưới tầng database. Đặc
-biệt với `FOR UPDATE` queries, bắt buộc phải duplicate query cho từng trường
-hợp, dẫn đến code duplication và khó maintain.
-
-Custom plugin `vtuanjs/sqlc-gen-go` @sqlc_dynamic_filter _(được phát triển bởi
-anh Nguyễn Văn Tuấn)_ hỗ trợ dynamic filter queries, giải quyết vấn đề không thể
-sinh dynamic WHERE conditions trong SQLC tiêu chuẩn, cũng như hỗ trợ dynamic
-`FOR UPDATE`. Plugin hoạt động bằng cách parse SQL query đã viết sẵn, nhận diện
-các phần có thể trở thành dynamic filter bằng các comment, và sinh ra code Go
-tương ứng để xây dựng dynamic query tại runtime. So sánh chi tiết giữa query
-SQLC tiêu chuẩn và query sử dụng plugin có thể xem tại @appendix-sqlc-dynamic-filter.
-
-==== Observability
-
-Dự án đã thiết lập một Observability Stack cơ bản, làm tiền đề cho việc phát
-triển ổn định về sau.
-
-#figure(
-  image("../assets/images/grafana-observation-log.png"),
-  caption: [Log xem từ Grafana],
-)
+- *Contract First API development*: Áp dụng OpenAPI specification, hỗ trợ mock
+  API khi chưa có backend, giúp phát triển song song frontend và backend.
+- *SQLC Dynamic Filter*: Sử dụng custom plugin `vtuanjs/sqlc-gen-go`
+  @sqlc_dynamic_filter giải quyết vấn đề dynamic WHERE conditions — xem chi tiết
+  tại @appendix-sqlc-dynamic-filter.
+- *Observability*: Thiết lập Observability Stack cơ bản với Grafana, Prometheus,
+  Loki, Tempo, Alloy — xem hình log tại @appendix-observability.
 
 == Nhận xét
 
@@ -268,5 +182,6 @@ của hệ thống.
 #import "../lib/metadata.typ": project-metadata
 
 Dự án đã đạt được mục tiêu đề ra và mang lại nhiều bài học quý giá cho nhóm phát
-triển. Hệ thống "#project-metadata.title" không chỉ là sản phẩm hoàn chỉnh mà
-còn là nền tảng để tiếp tục nghiên cứu và phát triển trong tương lai.
+triển. Hệ thống "#project-metadata.vietnamese-name-description" không chỉ là sản
+phẩm hoàn chỉnh mà còn là nền tảng để tiếp tục nghiên cứu và phát triển trong
+tương lai.

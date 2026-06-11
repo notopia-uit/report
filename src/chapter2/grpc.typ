@@ -2,10 +2,10 @@
 
 === Giới thiệu
 
-GRPC là một framework RPC hiện đại được phát triển bởi Google @grpc, sử dụng
-Protocol Buffers cho định nghĩa service và HTTP/2 cho communication. GRPC được
-thiết kế để cung cấp hiệu suất cao, latency thấp, và tích hợp tốt với
-distributed systems.
+GRPC là một framework RPC hiện đại được phát triển bởi Google, sử dụng Protocol
+Buffers cho định nghĩa service và HTTP/2 cho communication. GRPC được thiết kế
+để cung cấp hiệu suất cao, latency thấp, và tích hợp tốt với distributed
+systems.
 
 #figure(
   image("../assets/images/grpc-logo.svg", height: 80pt),
@@ -17,7 +17,7 @@ distributed systems.
 - High Performance, Protocol Buffers và HTTP/2 cho throughput cao
 - Bidirectional Streaming, hỗ trợ streaming từ client-to-server và
   server-to-client
-- OpenTelemetry Support @opentelemetry, hỗ trợ native tracing với OpenTelemetry
+- OpenTelemetry Support, hỗ trợ native tracing với OpenTelemetry
 - Type Safety, Protocol Buffers cung cấp strong typing
 - Multi-Language, code generation cho nhiều ngôn ngữ
 

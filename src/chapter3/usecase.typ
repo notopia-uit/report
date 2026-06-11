@@ -68,7 +68,7 @@ dịch vụ.
 === Mô tả use case Get Note
 
 #figure(
-  image("../assets/diagrams/get-note-seq.svg", height: 90%),
+  image("../assets/diagrams/get-note-seq.svg", height: 92%),
   caption: [Sequence diagram mô tả get note use case],
 )
 

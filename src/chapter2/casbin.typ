@@ -2,11 +2,11 @@
 
 === Giới thiệu
 
-Casbin là một framework authorization mã nguồn mở mạnh mẽ và linh hoạt @casbin,
-hiện thuộc Apache Software Foundation. Casbin hỗ trợ các mô hình kiểm soát truy
-cập như ACL, RBAC, ABAC, và các biến thể khác. Framework này cho phép định nghĩa
-các rule authorization một cách khai báo thông qua cấu hình, thay vì hardcode
-logic kiểm soát.
+Casbin là một framework authorization mã nguồn mở mạnh mẽ và linh hoạt, hiện
+thuộc Apache Software Foundation. Casbin hỗ trợ các mô hình kiểm soát truy cập
+như ACL, RBAC, ABAC, và các biến thể khác. Framework này cho phép định nghĩa các
+rule authorization một cách khai báo thông qua cấu hình, thay vì hardcode logic
+kiểm soát.
 
 #figure(
   image("../assets/images/casbin-logo.svg", height: 80pt),

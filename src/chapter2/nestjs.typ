@@ -8,9 +8,9 @@ triển bởi Kamil Myśliwiec và ra mắt lần đầu vào năm 2017, NestJS 
 khái niệm từ Angular, Spring Framework và các framework hiện đại khác.
 
 NestJS được xây dựng trên nền tảng Express.js (hoặc Fastify) và sử dụng
-TypeScript @typescript làm ngôn ngữ chính. Framework này tổ chức code theo mô
-hình kiến trúc mô-đun rõ ràng, bao gồm controllers, services, middleware,
-guards, interceptors, và pipes, tương tự như Spring Framework của Java.
+TypeScript làm ngôn ngữ chính. Framework này tổ chức code theo mô hình kiến trúc
+mô-đun rõ ràng, bao gồm controllers, services, middleware, guards, interceptors,
+và pipes, tương tự như Spring Framework của Java.
 
 Trong dự án này, NestJS được xây dựng với:
 - Rspack là bundler mới được hỗ trợ, với SWC cho quá trình transpile nhanh, đảm

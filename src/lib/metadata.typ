@@ -2,7 +2,10 @@
 // Single source of truth for document information
 
 #let project-metadata = (
-  title: "Notopia - Ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
+  name: "Notopia",
+  vietnamese-description: "Ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
+  vietnamese-name-description: "Notopia - Ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
+  vietnamese-report-title: "Notopia - Xây dựng ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
   authors: ("Trần Nguyễn Thái Bình", "Nguyễn Thái Gia Nguyễn"),
   keywords: ("Notopia", "ghi chú", "quản lý tri thức", "biểu đồ quan hệ"),
   university: "ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH",
@@ -14,5 +17,5 @@
     (id: "23520161", name: "Trần Nguyễn Thái Bình"),
     (id: "23521049", name: "Nguyễn Thái Gia Nguyễn"),
   ),
-  location: "TP. Hồ Chí Minh, tháng 05, năm 2026",
+  location: "TP. Hồ Chí Minh, tháng 06, năm 2026",
 )
