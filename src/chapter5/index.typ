@@ -54,8 +54,7 @@ Dự án đã áp dụng thành công các công nghệ hiện đại:
 - *Contract First API development*: Áp dụng OpenAPI specification, hỗ trợ mock
   API khi chưa có backend, giúp phát triển song song frontend và backend.
 - *SQLC Dynamic Filter*: Sử dụng custom plugin `vtuanjs/sqlc-gen-go`
-  @sqlc_dynamic_filter giải quyết vấn đề dynamic WHERE conditions — xem chi tiết
-  tại @appendix-sqlc-dynamic-filter.
+  @sqlc_dynamic_filter giải quyết vấn đề dynamic WHERE conditions.
 - *Observability*: Thiết lập Observability Stack cơ bản với Grafana, Prometheus,
   Loki, Tempo, Alloy — xem hình log tại @appendix-observability.
 
