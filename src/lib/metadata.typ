@@ -5,7 +5,7 @@
   name: "Notopia",
   vietnamese-description: "Ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
   vietnamese-name-description: "Notopia - Ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
-  vietnamese-report-title: "Notopia - Xây dựng ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
+  vietnamese-report-title: "Notopia - Ứng dụng ghi chú thông minh hỗ trợ quản lý tri thức bằng biểu đồ quan hệ",
   authors: ("Trần Nguyễn Thái Bình", "Nguyễn Thái Gia Nguyễn"),
   keywords: ("Notopia", "ghi chú", "quản lý tri thức", "biểu đồ quan hệ"),
   university: "ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH",
