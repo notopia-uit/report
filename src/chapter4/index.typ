@@ -70,7 +70,7 @@
     column(
       [Nút Tìm hiểu thêm],
       [Button/Link],
-      [CTA phụ "Learn More" liên kết đến `#features`],
+      [CTA phụ "Learn More" ],
     ),
     column(
       [Thẻ trực quan hóa tri thức],
@@ -123,8 +123,7 @@
     column(
       [Logo ứng dụng],
       [Icon + Text],
-      [Biểu tượng `Icons.Logo` nhỏ với chữ "Notopia", căn giữa phía trên. Liên
-        kết đến `#`],
+      [Biểu tượng `Icons.Logo` nhỏ với chữ "Notopia", căn giữa phía trên. ],
     ),
     column(
       [Thẻ đăng nhập],
@@ -362,25 +361,22 @@
     column(
       [Thẻ tạo ghi chú],
       [Card],
-      [Hành động nhanh với biểu tượng `FileText` và liên kết "Get Started" đến
-        tạo ghi chú],
+      [Hành động nhanh với biểu tượng `FileText` ],
     ),
     column(
       [Thẻ mời thành viên nhóm],
       [Card],
-      [Hành động nhanh với biểu tượng `Users` và liên kết "Get Started" đến cài
-        đặt],
+      [Hành động nhanh với biểu tượng `Users` ],
     ),
     column(
       [Thẻ khám phá tính năng],
       [Card],
-      [Hành động nhanh với biểu tượng `Zap` và liên kết "Get Started"],
+      [Hành động nhanh với biểu tượng `Zap` ],
     ),
     column(
       [Thẻ cài đặt không gian làm việc],
       [Card],
-      [Hành động nhanh với biểu tượng `Settings` và liên kết "Get Started" đến
-        cài đặt],
+      [Hành động nhanh với biểu tượng `Settings` ],
     ),
     column(
       [Thẻ thông tin không gian làm việc],
@@ -408,17 +404,6 @@
 #ui-table-figure(
   ui-table(
     column(
-      [Hocuspocus Provider],
-      [WebSocket Provider],
-      [Kết nối đến endpoint document WS cho cộng tác YJS],
-    ),
-    column(
-      [Hocuspocus Room],
-      [Room Provider],
-      [`HocuspocusRoom` phạm vi phiên cộng tác đến ID ghi chú cụ thể với token
-        xác thực],
-    ),
-    column(
       [Tiêu đề ghi chú],
       [Inline Editor],
       [Thanh tiêu đề có thể chỉnh sửa, cố định với hiệu ứng làm mờ nền. Sử dụng
@@ -443,13 +428,14 @@
     column(
       [Nút liên kết ghi chú],
       [Icon Button],
-      [Mở `NoteLinksModal` hiển thị liên kết đi và liên kết ngược],
+      [Mở `NoteLinksModal` hiển thị các ghi chú liên kết đến/được liên kết bởi
+        ghi chú hiện tại],
     ),
     column(
       [Trình soạn thảo chính],
       [Editor],
-      [`EditorCore` -- trình soạn thảo BlockNote với YJS awareness, cộng tác và
-        xử lý vai trò người xem],
+      [`Editor` -- trình soạn thảo BlockNote với YJS awareness, cộng tác và xử
+        lý vai trò người xem],
     ),
     column(
       [Mục lục],
@@ -460,7 +446,7 @@
     column(
       [Nút lưu nổi],
       [Button],
-      [Nút cố định dưới-giữa màn hình; chỉ xuất hiện khi `isModified` là `true`.
+      [Nút cố định dưới-giữa màn hình; chỉ xuất hiện khi note đó có sự thay đổi.
         Hiển thị `Spinner` khi đang lưu],
     ),
     column(
@@ -486,7 +472,8 @@
       [Thành phần đồ thị],
       [Visualization],
       [Đồ thị dạng lực (force-directed) dựa trên D3 hiển thị các nút và liên kết
-        không gian làm việc. Toàn màn hình (`h-screen w-full`)],
+        không gian làm việc
+      ],
     ),
     column(
       [Dialog cài đặt đồ thị],
@@ -531,7 +518,8 @@
       [Phần tương tác],
       [Section],
       [Hộp kiểm cho Drag, Zoom, Focus on Hover, Enable Radial Layout, Show Tags,
-        Show Orphans Only (chỉ toàn cục)],
+        Show Orphans Only
+      ],
     ),
   ),
   caption: [Bảng mô tả thành phần con của Dialog cài đặt đồ thị (toàn cục)],
@@ -747,7 +735,7 @@
     column(
       [Nút quay về trang chủ],
       [Button],
-      [Nút biểu tượng `ArrowLeft` với văn bản "Go Back Home"],
+      [Nút biểu tượng `ArrowLeft` với văn bản "Go Back Home", liên kết đến `/`],
     ),
   ),
   caption: [Bảng mô tả thành phần giao diện màn hình lỗi],
