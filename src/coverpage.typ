@@ -9,19 +9,20 @@
     height: 100%,
     fill: none,
     stroke: 1pt + black,
-    inset: 2.5em,
+    inset: 2em,
     [
-      #text(weight: "bold", size: 14pt, project-metadata.university)
+      #set text(weight: "bold")
+      #text(size: 14pt, project-metadata.university)
       \
-      #text(weight: "bold", size: 16pt, project-metadata.school)
+      #text(size: 16pt, project-metadata.school)
       \
-      #text(weight: "bold", size: 16pt, project-metadata.faculty)
+      #text(size: 16pt, project-metadata.faculty)
 
       #v(4em)
       #image("assets/images/uit-logo.jpg", width: 30%)
 
       #v(4em)
-      #text(weight: "bold", size: 16pt, "ĐỒ ÁN 1")
+      #text(size: 16pt, "ĐỒ ÁN 1")
       #v(1em)
       #upper(
         text(
@@ -37,12 +38,12 @@
         row-gutter: 1em,
         gutter: 1em,
         align: left,
-        [#project-metadata.supervisor:], [#project-metadata.supervisor-name],
+        [GIẢNG VIÊN HƯỚNG DẪN:], [#upper(project-metadata.supervisor-name)],
 
         [SINH VIÊN THỰC HIỆN:],
         [
           #for student in project-metadata.students [
-            #student.name -- #student.id \
+            #upper(student.name) -- #student.id \
           ]
         ],
       )

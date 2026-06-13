@@ -11,7 +11,6 @@
   university: "ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH",
   school: "TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN",
   faculty: "KHOA CÔNG NGHỆ PHẦN MỀM",
-  supervisor: "GIẢNG VIÊN HƯỚNG DẪN",
   supervisor-name: "ThS. Trần Thị Hồng Yến",
   students: (
     (id: "23520161", name: "Trần Nguyễn Thái Bình"),
