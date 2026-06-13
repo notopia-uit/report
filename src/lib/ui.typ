@@ -56,11 +56,16 @@
   table-data,
   breakable: true,
   caption: none,
-) = {
-  show figure: set block(breakable: breakable)
+) = layout(size => context {
+  let fig = figure(table-data, caption: caption)
+  let fig-height = measure(block(width: size.width, fig)).height
 
-  figure(
-    table-data,
-    caption: caption,
-  )
-}
+  // If the figure fits on a single page, force breakable: false so Typst
+  // keeps it as one unit — it will jump to the next page as a whole instead
+  // of splitting and showing only a few rows. For figures taller than one
+  // page the caller-supplied breakable is used (must allow splitting).
+  let effective-breakable = if fig-height > size.height { breakable } else { false }
+
+  show figure: set block(breakable: effective-breakable)
+  fig
+})
