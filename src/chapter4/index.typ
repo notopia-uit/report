@@ -144,8 +144,8 @@
     column(
       [Nút đăng nhập Authentik],
       [Button],
-      [Nút outline chiều rộng đầy đủ với SVG logo Authentik. Kích hoạt
-        `authClient.signIn.social()` qua provider Authentik],
+      [Nút outline chiều rộng đầy đủ với SVG logo Authentik. Kích hoạt qua
+        provider Authentik],
     ),
     column(
       [Điều khoản và Quyền riêng tư],
@@ -410,8 +410,7 @@
     column(
       [Hocuspocus Provider],
       [WebSocket Provider],
-      [`HocuspocusProviderWebsocketComponent` kết nối đến endpoint document WS
-        cho cộng tác YJS],
+      [Kết nối đến endpoint document WS cho cộng tác YJS],
     ),
     column(
       [Hocuspocus Room],

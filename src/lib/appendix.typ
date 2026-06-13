@@ -25,6 +25,10 @@
     let idx = counter(heading).get().at(1)
     if idx > 1 { pagebreak() }
 
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+
     let letter = numbering("A", idx)
     [Phụ lục #letter. #upper(it.body)]
   }

@@ -198,6 +198,9 @@
   set heading(supplement: [Chương])
 
   show heading.where(level: 1): it => context {
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
     pagebreak()
     align(center, [
       #if it.numbering != none [
