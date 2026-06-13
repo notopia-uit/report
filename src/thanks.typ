@@ -2,8 +2,9 @@
 
 #heading(numbering: none, outlined: false)[Lời cảm ơn]
 
-Để hoàn thành đồ án "#project-metadata.name", bên cạnh sự nỗ lực của các thành
-viên, chúng em đã may mắn nhận được sự đồng hành và chỉ dẫn vô cùng quý giá.
+Để hoàn thành dự án "#project-metadata.vietnamese-report-title", bên cạnh sự nỗ
+lực của các thành viên, chúng em đã may mắn nhận được sự đồng hành và chỉ dẫn vô
+cùng quý giá.
 
 Đặc biệt, chúng em xin bày tỏ lòng tri ân sâu sắc nhất tới cô Trần Thị Hồng Yến.
 Không chỉ là người định hướng chuyên môn, cô còn dành tâm huyết để khích lệ,
@@ -30,8 +31,6 @@ có thể phát triển ứng dụng ngày một hoàn thiện hơn.
   #v(0.5em)
   #box(align(left)[
     *Nhóm sinh viên thực hiện:*\
-    #for student in project-metadata.students [
-      #student.name -- #student.id\
-    ]
+    #project-metadata.students.map(student => student.name).join([ -- ])
   ])
 ]

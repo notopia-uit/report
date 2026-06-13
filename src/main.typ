@@ -40,9 +40,20 @@
 #show raw: set text(size: 9pt)
 
 #show heading.where(level: 1): set align(center)
+#show heading.where(level: 1): set text(size: 14pt)
 #show heading.where(level: 1): it => {
   pagebreak()
   upper(it)
+}
+#show heading.where(level: 2): set block(below: 1.1em)
+#show heading.where(level: 3): set block(below: 1.1em)
+#show heading: it => {
+  if it.level > 1 {
+    set text(size: 13pt)
+    it
+  } else {
+    it
+  }
 }
 
 #set figure(
@@ -99,7 +110,6 @@
   {
     show outline.entry.where(level: 1): set text(weight: "bold")
     show outline.entry.where(level: 1): it => {
-      v(12pt, weak: true)
       let elem = it.element
 
       let new-prefix = if elem.numbering != none {
