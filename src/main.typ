@@ -187,7 +187,8 @@
   let coloned-entry = it => {
     let prefix = it.prefix()
     let new-prefix = if prefix != none { [#prefix:] } else { none }
-    it.indented(new-prefix, it.inner())
+    show link: set text(fill: luma(0%))
+    link(it.element.location(), it.indented(new-prefix, it.inner()))
   }
 
   {
