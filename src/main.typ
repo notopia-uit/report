@@ -159,8 +159,8 @@
 //   - Link colour is overridden to black so TOC entries do not appear blue.
 //   - Depth: 3 levels; indented 1 em per level.
 //
-// Figure / table / code outlines: each uses `dotted-entry` which appends a
-// period after the prefix number (e.g. "Hình 2.1.") for display only —
+// Figure / table / code outlines: each uses `coloned-entry` which appends a
+// colon after the prefix number (e.g. "Hình 2.1:") for display only —
 // cross-reference labels (@fig-...) are unaffected.
 //
 // Appendix outline: limited to depth 2, targets only headings whose
@@ -180,13 +180,13 @@
     heading
   }
 
-  // Display-only: add a period after the entry number (e.g. "Hình 2.1." or
-  // "A.") in figure/appendix outlines, without touching any `numbering`
+  // Display-only: add a colon after the entry number (e.g. "Hình 2.1:" or
+  // "A:") in figure/appendix outlines, without touching any `numbering`
   // function (so cross-references like `@fig-...` stay clean -- see
   // docs/ai/numbering-appendix.md).
-  let dotted-entry = it => {
+  let coloned-entry = it => {
     let prefix = it.prefix()
-    let new-prefix = if prefix != none { [#prefix.] } else { none }
+    let new-prefix = if prefix != none { [#prefix:] } else { none }
     it.indented(new-prefix, it.inner())
   }
 
@@ -214,7 +214,7 @@
     )
   }
   {
-    show outline.entry: dotted-entry
+    show outline.entry: coloned-entry
     outline(
       title: "Danh mục hình ảnh",
       target: figure

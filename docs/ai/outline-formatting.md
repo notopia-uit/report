@@ -52,34 +52,34 @@ unaffected. The supplement lives in `new-prefix` (built manually as
 `[#elem.supplement #it.prefix()]`), so it is **not** uppercased — exactly
 "uppercase the inner title, not the supplement".
 
-### 2. Figure & appendix lists — add a period after the number
+### 2. Figure & appendix lists — add a colon after the number
 
 The figure `numbering` is `"1.1"` and the appendix `numbering` is `"A"` / `"A.1"`
 (both **without** a trailing dot, deliberately, so refs stay clean). To show a
-dot in the lists only, a helper appends `.` to the prefix:
+colon in the lists only, a helper appends `:` to the prefix:
 
 ```typst
-let dotted-entry = it => {
+let coloned-entry = it => {
   let prefix = it.prefix()
-  let new-prefix = if prefix != none { [#prefix.] } else { none }
+  let new-prefix = if prefix != none { [#prefix:] } else { none }
   it.indented(new-prefix, it.inner())
 }
 ```
 
-It is applied via `show outline.entry: dotted-entry` scoped to a block wrapping
+It is applied via `show outline.entry: coloned-entry` scoped to a block wrapping
 the three figure outlines (`kind: image` / `table` / `raw`) and the "Phụ lục"
 outline. Results:
 
 | List              | Before        | After          |
 |-------------------|---------------|----------------|
-| Danh mục hình ảnh | `Hình 2.1`    | `Hình 2.1.`    |
-| Danh mục bảng biểu| `Bảng 2.1`    | `Bảng 2.1.`    |
-| Danh mục chương trình | `Chương trình 3.1` | `Chương trình 3.1.` |
-| Phụ lục           | `A  BlockNote`| `A. BlockNote` |
+| Danh mục hình ảnh | `Hình 2.1`    | `Hình 2.1:`    |
+| Danh mục bảng biểu| `Bảng 2.1`    | `Bảng 2.1:`    |
+| Danh mục chương trình | `Chương trình 3.1` | `Chương trình 3.1:` |
+| Phụ lục           | `A  BlockNote`| `A: BlockNote` |
 
 ## Gotchas / do-not-regress
 
-- The `dotted-entry` rule is **scoped** to the figure/appendix lists only. Do
+- The `coloned-entry` rule is **scoped** to the figure/appendix lists only. Do
   **not** promote it to a global `show outline.entry`: the main TOC level-1
   numbering is `"1."` (already ends in a dot), so a global rule would yield
   `1..`.
