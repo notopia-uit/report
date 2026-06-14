@@ -30,7 +30,7 @@
     counter(figure.where(kind: raw)).update(0)
 
     let letter = numbering("A", idx)
-    [Phụ lục #letter. #upper(it.body)]
+    text(size: 14pt, weight: "bold", [Phụ lục #letter. #upper(it.body)])
   }
 
   let numbering-eq = (..n) => {

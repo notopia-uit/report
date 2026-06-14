@@ -39,11 +39,22 @@
 
 #show raw: set text(size: 9pt)
 
-#show heading.where(level: 1): set align(center)
 #show heading.where(level: 1): set text(size: 14pt)
-#show heading.where(level: 1): it => {
+#show heading.where(level: 1): set block(below: 0.65em)
+#show heading.where(level: 1): it => context {
+  let is-chapter = type(it.numbering) == str
+  if is-chapter {
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+  }
   pagebreak()
-  upper(it)
+  align(center, [
+    #if is-chapter [
+      #it.supplement #counter(heading).display(it.numbering)
+    ]
+    #upper(it.body)
+  ])
 }
 #show heading.where(level: 2): set block(below: 1.1em)
 #show heading.where(level: 3): set block(below: 1.1em)
@@ -206,19 +217,6 @@
   set heading(numbering: "1.")
 
   set heading(supplement: [Chương])
-
-  show heading.where(level: 1): it => context {
-    counter(figure.where(kind: image)).update(0)
-    counter(figure.where(kind: table)).update(0)
-    counter(figure.where(kind: raw)).update(0)
-    pagebreak()
-    align(center, [
-      #if it.numbering != none [
-        #it.supplement #counter(heading).display(it.numbering)
-      ]
-      #upper(it.body)
-    ])
-  }
 
   show heading: it => context {
     if it.level <= 3 {
