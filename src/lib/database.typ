@@ -23,6 +23,14 @@
 ///   caption: [User table],
 /// )
 /// ```
+// db-table: renders a database column specification as a four-column table
+// (Tên cột | Kiểu dữ liệu | Mô tả | Khóa).
+// Column widths use fractional sizing (0.8fr / 1fr / 1.5fr / 0.5fr) so the
+// description column gets the most space and the key badge column stays narrow.
+// The key cell is left empty (not "none") when no key is defined so the cell
+// border still renders correctly.
+// The unused `style` parameter is kept for forward-compatibility with call
+// sites that may pass custom column widths in the future.
 #let db-table(
   ..cols,
   style: none,

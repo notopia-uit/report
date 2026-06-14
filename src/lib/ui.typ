@@ -1,3 +1,10 @@
+// ui-figure: thin wrapper around Typst's built-in figure + image that
+// exposes only the fields used in this report (src path, caption, height).
+// Keeps call sites concise and ensures all UI screenshots are wrapped as
+// figures so they appear in the "Danh mục hình ảnh" outline.
+//   image-src — path to the image file (relative to the document root)
+//   caption   — figure caption content
+//   height    — optional image height; defaults to auto (full natural size)
 #let ui-figure(
   image-src,
   caption,
@@ -28,6 +35,10 @@
 ///   caption: [UI component table],
 /// )
 /// ```
+// ui-table: renders a UI-component description table with four fixed columns
+// (STT / Tên / Loại / Mô tả).  Rows are auto-numbered starting at 1.
+// Column widths are all `auto` so the table fills its container evenly.
+// Column definitions are passed as variadic args via the `column()` helper.
 #let ui-table(
   ..cols,
 ) = {
@@ -52,6 +63,15 @@
   )
 }
 
+// ui-table-figure: wraps a ui-table (or any table content) in a figure and
+// applies smart breakable logic:
+//   - If the rendered figure height fits within the current page, breakable is
+//     forced to false — the whole figure jumps to the next page intact rather
+//     than splitting into a few orphan rows.
+//   - If the figure is taller than one page, the caller-supplied breakable
+//     value is used (default: true) so the table can split across pages.
+// This avoids both orphan-row splits on short tables and infinite-loop layout
+// issues on tables that genuinely exceed a full page.
 #let ui-table-figure(
   table-data,
   breakable: true,

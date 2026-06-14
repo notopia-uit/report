@@ -30,6 +30,13 @@
 ///   basicFlow: [...],
 /// )
 /// ```
+// usecase: renders a use-case specification as a two-column table
+// (Trường | Nội dung).  Only fields that are not `none` are included so
+// call sites can omit fields that don't apply to a given use case.
+// Column widths default to (9em, 1fr) — fixed label column, stretchy value
+// column — and can be overridden via `column-widths` for wider label needs.
+// Table paragraph justification is disabled inside the table to prevent
+// awkward stretching in narrow value cells.
 #let usecase(
   id: none,
   name: none,
@@ -62,6 +69,8 @@
     "Non-Functional Requirements": nf-requirements,
   )
 
+  // Build a flat cell array from only the non-none fields: bold label then
+  // value, alternating, matching the two-column table layout.
   let cells = fields
     .pairs()
     .filter(pair => pair.at(1) != none)
@@ -79,6 +88,10 @@
   )
 }
 
+// usecase-figure: wraps a usecase table in a figure so it appears in the
+// "Danh mục bảng biểu" outline and can be cross-referenced.
+// breakable defaults to true because use-case tables are often long and must
+// be allowed to split across pages.
 #let usecase-figure(
   usecase-data,
   breakable: true,
